@@ -21,6 +21,7 @@
     "knisterpeter.vscode-commitizen",
     "vscode-icons-team.vscode-icons",
     "zignd.html-css-class-completion",
-    "pranaygp.vscode-css-peek"
+    "pranaygp.vscode-css-peek",
+    "naumovs.color-highlight"
   ]
 }
