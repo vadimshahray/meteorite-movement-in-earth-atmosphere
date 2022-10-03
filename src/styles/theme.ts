@@ -1,10 +1,25 @@
 import { createTheme } from '@mui/material'
-import baseStyles from './baseline.module.css'
 
+/** Объект темы приложения */
 export const theme = createTheme({
   components: {
     MuiCssBaseline: {
-      styleOverrides: baseStyles,
+      styleOverrides: () => `
+        body {
+          height: 100vh;
+        }
+        #root {
+          width: 100%;
+          height: 100%;
+        }
+      `,
+    },
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          height: '100%',
+        },
+      },
     },
   },
 })
