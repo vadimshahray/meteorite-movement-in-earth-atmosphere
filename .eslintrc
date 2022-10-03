@@ -1,11 +1,7 @@
 {
-  "extends": ["react-app", "react-app/jest"],
+  "extends": ["react-app"],
   "plugins": ["prettier"],
-  "settings": {
-    "import/resolver": {
-      "typescript": {}
-    }
-  },
+
   "rules": {
     "prettier/prettier": 2,
     "import/order": [
