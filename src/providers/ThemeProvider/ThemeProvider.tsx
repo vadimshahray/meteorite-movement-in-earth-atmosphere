@@ -1,4 +1,8 @@
-import { CssBaseline, ThemeProvider as MUIThemeProvider } from '@mui/material'
+import {
+  CssBaseline,
+  StyledEngineProvider,
+  ThemeProvider as MUIThemeProvider,
+} from '@mui/material'
 import React from 'react'
 import { theme } from 'styles/theme'
 
@@ -12,10 +16,12 @@ export const ThemeContext = React.createContext<ThemeContextType>({})
  */
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   return (
-    <MUIThemeProvider theme={theme}>
-      <CssBaseline />
+    <StyledEngineProvider injectFirst>
+      <MUIThemeProvider theme={theme}>
+        <CssBaseline />
 
-      {children}
-    </MUIThemeProvider>
+        {children}
+      </MUIThemeProvider>
+    </StyledEngineProvider>
   )
 }
