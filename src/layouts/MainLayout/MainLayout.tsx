@@ -11,7 +11,7 @@ export const MainLayout = () => {
   return (
     <FullContainer className={styles.layout}>
       <ModelingLayout />
-      <ConfigureLayout />
+      <ConfigureLayout className={styles.configure_layout} />
       <PlayerLayout />
     </FullContainer>
   )

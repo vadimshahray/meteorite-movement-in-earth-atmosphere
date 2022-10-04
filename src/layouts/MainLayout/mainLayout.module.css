@@ -3,3 +3,7 @@
   grid-template-columns: 1fr min-content;
   grid-template-rows: 1fr min-content;
 }
+
+.configure_layout {
+  grid-row: span 2;
+}
