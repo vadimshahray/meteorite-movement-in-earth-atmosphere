@@ -16,9 +16,11 @@ export const theme = createTheme({
     },
     MuiContainer: {
       styleOverrides: {
-        root: {
+        root: ({ theme }) => ({
           height: '100%',
-        },
+          paddingTop: theme.spacing(1),
+          paddingBottom: theme.spacing(1),
+        }),
       },
     },
   },
