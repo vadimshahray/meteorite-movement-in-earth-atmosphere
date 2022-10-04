@@ -21,6 +21,10 @@ export const theme = createTheme({
           paddingTop: theme.spacing(1),
           paddingBottom: theme.spacing(1),
         }),
+        disableGutters: ({ theme }) => ({
+          paddingTop: 0,
+          paddingBottom: 0,
+        }),
       },
     },
   },
