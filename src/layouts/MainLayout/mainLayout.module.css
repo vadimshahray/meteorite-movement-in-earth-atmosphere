@@ -1,6 +1,6 @@
 .layout {
   display: grid;
-  grid-template-columns: 1fr min-content;
+  grid-template-columns: 1fr 400px;
   grid-template-rows: 1fr min-content;
 }
 

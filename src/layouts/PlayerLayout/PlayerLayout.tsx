@@ -1,4 +1,4 @@
-import { Container } from 'components'
+import { FullContainer } from 'components'
 import React from 'react'
 
 /**
@@ -6,5 +6,5 @@ import React from 'react'
  * @returns {JSX.Element}
  */
 export const PlayerLayout = (props: LayoutProps) => {
-  return <Container {...props}>Player</Container>
+  return <FullContainer {...props}>Player</FullContainer>
 }

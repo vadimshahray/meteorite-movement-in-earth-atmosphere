@@ -1,4 +1,4 @@
-import { Container } from 'components'
+import { Container, FullContainer } from 'components'
 import React from 'react'
 import { styleClasses } from 'utils'
 import styles from './configureLayout.module.css'
@@ -10,8 +10,11 @@ import { ConfigureToolbar } from './ConfigureToolbar'
  */
 export const ConfigureLayout = ({ className, ...props }: LayoutProps) => {
   return (
-    <Container className={styleClasses(styles.layout, className)} {...props}>
+    <FullContainer
+      className={styleClasses(styles.layout, className)}
+      {...props}
+    >
       <ConfigureToolbar />
-    </Container>
+    </FullContainer>
   )
 }
