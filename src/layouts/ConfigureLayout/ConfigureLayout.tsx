@@ -2,6 +2,7 @@ import { Container } from 'components'
 import React from 'react'
 import { styleClasses } from 'utils'
 import styles from './configureLayout.module.css'
+import { ConfigureToolbar } from './ConfigureToolbar'
 
 /**
  * Блок, содержащий все, что связано с настройкой физических моделей (поля ввода данных и т.п.)
@@ -10,7 +11,7 @@ import styles from './configureLayout.module.css'
 export const ConfigureLayout = ({ className, ...props }: LayoutProps) => {
   return (
     <Container className={styleClasses(styles.layout, className)} {...props}>
-      Config
+      <ConfigureToolbar />
     </Container>
   )
 }
