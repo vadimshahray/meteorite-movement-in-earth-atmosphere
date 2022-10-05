@@ -7,7 +7,7 @@
 
   "cSpell.language": "en,ru",
 
-  "cSpell.words": ["antd", "reduxjs"],
+  "cSpell.words": ["слайса", "слайсов", "экшенов", "antd", "reduxjs"],
 
   "workbench.colorTheme": "Theme"
 }
