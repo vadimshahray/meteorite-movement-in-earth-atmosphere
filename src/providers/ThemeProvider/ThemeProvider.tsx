@@ -1,10 +1,13 @@
 import {
+  createTheme,
   CssBaseline,
   StyledEngineProvider,
   ThemeProvider as MUIThemeProvider,
 } from '@mui/material'
 import React from 'react'
-import { theme } from 'styles/theme'
+import { useSelector } from 'react-redux'
+import { selectThemeColorMode } from 'selectors'
+import { theme as appTheme } from 'styles/theme'
 
 /** Экземпляр контекста темы приложения */
 export const ThemeContext = React.createContext<ThemeContextType>({})
@@ -15,6 +18,15 @@ export const ThemeContext = React.createContext<ThemeContextType>({})
  * @returns {JSX.Element}
  */
 export const ThemeProvider = ({ children }: ProviderBaseProps) => {
+  const colorMode = useSelector(selectThemeColorMode)
+
+  const theme = createTheme({
+    ...appTheme,
+    palette: {
+      mode: colorMode,
+    },
+  })
+
   return (
     <StyledEngineProvider injectFirst>
       <MUIThemeProvider theme={theme}>
