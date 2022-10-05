@@ -14,7 +14,7 @@ export const ThemeContext = React.createContext<ThemeContextType>({})
  * @param {ThemeProviderProps}
  * @returns {JSX.Element}
  */
-export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+export const ThemeProvider = ({ children }: ProviderBaseProps) => {
   return (
     <StyledEngineProvider injectFirst>
       <MUIThemeProvider theme={theme}>
