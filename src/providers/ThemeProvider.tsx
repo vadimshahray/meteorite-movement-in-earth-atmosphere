@@ -7,10 +7,7 @@ import {
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectThemeColorMode } from 'selectors'
-import { theme as appTheme } from 'styles/theme'
-
-/** Экземпляр контекста темы приложения */
-export const ThemeContext = React.createContext<ThemeContextType>({})
+import { theme as appTheme } from 'styles'
 
 /**
  * Провайдер темы приложения
