@@ -2,6 +2,9 @@ import { createTheme } from '@mui/material'
 
 /** Объект темы приложения */
 export const theme = createTheme({
+  shape: {
+    borderRadius: 8,
+  },
   components: {
     MuiCssBaseline: {
       styleOverrides: () => `
@@ -19,10 +22,19 @@ export const theme = createTheme({
         root: ({ theme }) => ({
           paddingTop: theme.spacing(1),
           paddingBottom: theme.spacing(1),
+          overflow: 'hidden',
         }),
-        disableGutters: ({ theme }) => ({
+        disableGutters: {
           paddingTop: 0,
           paddingBottom: 0,
+        },
+      },
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          boxShadow: theme.shadows[2],
+          borderRadius: theme.shape.borderRadius,
         }),
       },
     },
