@@ -9,5 +9,6 @@
 
   "cSpell.words": ["слайса", "слайсов", "экшенов", "antd", "reduxjs"],
 
-  "workbench.colorTheme": "Theme"
+  "workbench.colorTheme": "Theme",
+  "cSpell.ignoreWords": ["Колбэк"]
 }
