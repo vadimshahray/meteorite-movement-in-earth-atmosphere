@@ -38,5 +38,12 @@ export const theme = createTheme({
         }),
       },
     },
+    MuiButton: {
+      styleOverrides: {
+        text: {
+          textTransform: 'none',
+        },
+      },
+    },
   },
 })
