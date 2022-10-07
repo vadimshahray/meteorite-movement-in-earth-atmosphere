@@ -1,18 +1,7 @@
-/** Тип секции конфигурации: объект исследования, планета, атмосфера */
-type ConfigurationSectionType = 'subject' | 'planet' | 'atmosphere'
-
-/** Секция конфигурации */
-type ConfigurationSection = {
-  /** Тип секции */
-  type: ConfigurationSectionType
-  /** Название секции */
-  name: string
-}
-
 /** Состояние слайса конфигурации приложения */
 type ConfigurationSliceState = {
   /** Активная секция конфигурации */
-  activeSection: ConfigurationSection
+  activeSection: number
 }
 
 /**
@@ -24,10 +13,10 @@ interface ConfigurationSlice
   /**
    * Устанавливает активную секцию конфигурации
    * @param {ConfigurationSliceState} state Внутреннее состояние слайса
-   * @param {PayloadAction<ConfigurationSection>} action Новая секция
+   * @param {PayloadAction<string>} action Новая секция
    */
   setActiveSection(
     state: ConfigurationSliceState,
-    action: PayloadAction<ConfigurationSection>,
+    action: PayloadAction<number>,
   ): void
 }

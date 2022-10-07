@@ -1,10 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState: ConfigurationSliceState = {
-  activeSection: {
-    type: 'subject',
-    name: '',
-  },
+  activeSection: 0,
 }
 
 export const configurationSlice = createSlice<
