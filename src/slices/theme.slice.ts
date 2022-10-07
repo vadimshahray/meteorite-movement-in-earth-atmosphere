@@ -5,8 +5,8 @@ const initialState: ThemeSliceState = {
 }
 
 export const themeSlice = createSlice<ThemeSliceState, ThemeSlice>({
-  initialState,
   name: 'theme',
+  initialState,
   reducers: {
     setColorMode: (state, { payload }) => {
       state.colorMode = payload
