@@ -1,4 +1,4 @@
-import { ThemeProvider } from 'providers'
+import { PersistProvider, ThemeProvider } from 'providers'
 import { StoreProvider } from 'providers/StoreProvider'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
@@ -8,9 +8,11 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <StoreProvider>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
+      <PersistProvider>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </PersistProvider>
     </StoreProvider>
   </React.StrictMode>,
 )
