@@ -55,6 +55,7 @@ export const SectionsSelector = ({
       >
         {sections.map((s, i) => (
           <MenuItem
+            key={s + i}
             selected={i === activeIndex}
             onClick={() => handleItemClick(i)}
           >
