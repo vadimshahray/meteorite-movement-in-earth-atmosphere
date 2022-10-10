@@ -3,8 +3,10 @@ type ConfigurationSliceState = {
   /** Активная секция конфигурации */
   activeSection: number
 
-  planetTemplates: Record<PlanetsTemplates, PlanetData>
-  activePlanetTemplate: PlanetsTemplates
+  /** Шаблоны планеты */
+  planetTemplates: PlanetTemplates
+  /** Название активного шаблона планеты */
+  activePlanetTemplate: keyof PlanetTemplates
 }
 
 /**
@@ -24,12 +26,12 @@ interface ConfigurationSlice
   ): void
 
   /**
-   * Устанавливает активный шаблон планет
+   * Устанавливает активный шаблон планеты
    * @param {ConfigurationSliceState} state Внутреннее состояние слайса
-   * @param {PayloadAction<PlanetsTemplates>} action Активный шаблон
+   * @param {PayloadAction<keyof PlanetData>} action имя активного шаблона
    */
-  setPlanetTemplate(
+  setActivePlanetTemplate(
     state: ConfigurationSliceState,
-    action: PayloadAction<PlanetsTemplates>,
+    action: PayloadAction<keyof PlanetTemplates>,
   )
 }
