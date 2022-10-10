@@ -1,5 +1,5 @@
 import { bindActionCreators } from '@reduxjs/toolkit'
-import { ConfigureSectionsSelector } from 'components/presentational/ConfigureSectionsSelector'
+import { ConfigureSectionsSelector } from 'components/presentational/ConfigureSectionSelector'
 import { connect } from 'react-redux'
 import { setActiveSection } from 'slices'
 
