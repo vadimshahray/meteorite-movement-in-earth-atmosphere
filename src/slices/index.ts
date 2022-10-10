@@ -1,5 +1,2 @@
 export * from './theme.slice'
-export * from './planet.slice'
-export * from './subject.slice'
-export * from './atmosphere.slice'
 export * from './configuration.slice'
