@@ -1,4 +1,19 @@
-import { SectionsSelector } from 'components'
+import { Selector, SelectorItem } from 'components'
+
+const sections: SelectorItem<number>[] = [
+  {
+    key: 0,
+    name: '🧊 Объект',
+  },
+  {
+    key: 1,
+    name: '🪐 Планета',
+  },
+  {
+    key: 2,
+    name: '☁️ Атмосфера',
+  },
+]
 
 /** Пропсы селектора секций конфигурации */
 export type ConfigureSectionsSelectorProps = {
@@ -13,12 +28,10 @@ export const ConfigureSectionsSelector = ({
   activeIndex,
   onActiveChange,
 }: ConfigureSectionsSelectorProps) => {
-  const sections: string[] = ['🧊 Объект', '🪐 Планета', '☁️ Атмосфера']
-
   return (
-    <SectionsSelector
-      sections={sections}
-      activeIndex={activeIndex}
+    <Selector
+      items={sections}
+      activeItemKey={activeIndex}
       onActiveChange={onActiveChange}
     />
   )

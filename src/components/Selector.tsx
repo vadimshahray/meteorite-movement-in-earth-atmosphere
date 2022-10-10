@@ -2,22 +2,30 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { Button, Menu, MenuItem, Typography } from '@mui/material'
 import React, { useState } from 'react'
 
+/** Элемент селектора */
+export type SelectorItem<T> = {
+  /** Ключ: используется для идентификации элемента */
+  key: T
+  /** Имя: используется для отображения элемента  */
+  name: string
+}
+
 /** Пропсы селектора */
-export type SectionsSelectorProps = {
-  /** Массив секций */
-  sections: string[]
-  /** Индекс активной секции */
-  activeIndex: number
-  /** Обработчик активации секции */
-  onActiveChange: (index: number) => void
+export type SelectorProps<T> = {
+  /** Массив элементов */
+  items: SelectorItem<T>[]
+  /** Ключ активного элемента */
+  activeItemKey: T
+  /** Обработчик активации элемента */
+  onActiveChange: (activeItemKey: T) => void
 }
 
 /** Селектор */
-export const SectionsSelector = ({
-  sections,
-  activeIndex,
+export const Selector = <T,>({
+  items,
+  activeItemKey,
   onActiveChange,
-}: SectionsSelectorProps) => {
+}: SelectorProps<T>) => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null)
   const isOpen = Boolean(anchorEl)
 
@@ -28,15 +36,17 @@ export const SectionsSelector = ({
     setAnchorEl(null)
   }
 
-  const handleItemClick = (index: number) => {
-    onActiveChange(index)
+  const handleItemClick = (activeItem: SelectorItem<T>) => {
+    onActiveChange(activeItem.key)
     handleMenuClose()
   }
 
   return (
     <>
       <Button endIcon={<ExpandMoreIcon />} onClick={handleButtonClick}>
-        <Typography>{sections[activeIndex]}</Typography>
+        <Typography>
+          {items.find((item) => item.key === activeItemKey)?.name}
+        </Typography>
       </Button>
 
       <Menu
@@ -53,13 +63,13 @@ export const SectionsSelector = ({
           vertical: 'center',
         }}
       >
-        {sections.map((s, i) => (
+        {items.map((item, index) => (
           <MenuItem
-            key={s + i}
-            selected={i === activeIndex}
-            onClick={() => handleItemClick(i)}
+            key={index}
+            selected={item.key === activeItemKey}
+            onClick={() => handleItemClick(item)}
           >
-            {s}
+            {item.name}
           </MenuItem>
         ))}
       </Menu>
