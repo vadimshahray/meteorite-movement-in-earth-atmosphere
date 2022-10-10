@@ -1,13 +1,21 @@
 /** Базовый шаблон */
-type DataTemplate = {
+type DataTemplate<T> = {
+  /** Название шаблона */
   name: string
+  /** Значения по умолчанию */
+  default: T
+  /** Активные значения */
+  current: T
 }
 
 /** Шаблон данных планеты */
 type PlanetData = {
   /** Радиус планеты */
   radius: number
-} & DataTemplate
+}
 
-/** Используемые шаблоны планет */
-type PlanetsTemplates = 'custom' | 'Earth'
+/** Используемые шаблоны планеты */
+type PlanetTemplates = {
+  '@custom': DataTemplate<PlanetData>
+  '@Earth': DataTemplate<PlanetData>
+}
