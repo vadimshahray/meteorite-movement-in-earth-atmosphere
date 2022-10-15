@@ -7,12 +7,12 @@ const initialState: ConfigurationSliceState = {
   planetTemplates: {
     '@custom': {
       name: 'Пользовательская',
-      current: customPlanet,
+      data: customPlanet,
       default: customPlanet,
     },
     '@Earth': {
       name: 'Земля',
-      current: EarthPlanet,
+      data: EarthPlanet,
       default: EarthPlanet,
     },
   },

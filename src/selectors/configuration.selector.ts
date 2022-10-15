@@ -13,8 +13,8 @@ export const selectActiveSection = (state: RootState) =>
  */
 export const selectPlanetTemplates = (state: RootState) =>
   Object.entries(state.configuration.planetTemplates).map(
-    (entry): [keyof PlanetTemplates, string] => [
-      entry[0] as keyof PlanetTemplates,
+    (entry): [keyof PlanetModels, string] => [
+      entry[0] as keyof PlanetModels,
       entry[1].name,
     ],
   )
@@ -34,4 +34,4 @@ export const selectActivePlanetTemplate = (state: RootState) =>
  */
 export const selectActivePlanetTemplateData = (state: RootState) =>
   state.configuration.planetTemplates[state.configuration.activePlanetTemplate]
-    .current
+    .data
