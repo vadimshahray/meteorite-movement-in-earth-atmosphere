@@ -2,7 +2,7 @@
 type PlanetData = {
   /** Ускорение свободного падения */
   g: ExtendedData<number, gDetailed>
-} & DataModel
+}
 
 /** Модели планет */
 type PlanetModels = {

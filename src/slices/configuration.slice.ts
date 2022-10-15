@@ -1,22 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { customPlanet, EarthPlanet } from 'models'
 
 const initialState: ConfigurationSliceState = {
   activeSection: 0,
 
-  planetTemplates: {
-    '@custom': {
-      name: 'Пользовательская',
-      data: customPlanet,
-      default: customPlanet,
-    },
-    '@Earth': {
-      name: 'Земля',
-      data: EarthPlanet,
-      default: EarthPlanet,
-    },
+  planet: defaultPlanet,
+  planetModels: {
+    '@Earth': 'Земля',
+    '@Mars': 'Марс',
   },
-  activePlanetTemplate: '@custom',
 }
 
 export const configurationSlice = createSlice<
@@ -29,8 +20,8 @@ export const configurationSlice = createSlice<
     setActiveSection: (state, { payload }) => {
       state.activeSection = payload
     },
-    setActivePlanetTemplate: (state, { payload }) => {
-      state.activePlanetTemplate = payload
+    setPlanetModelData: (state, { payload }) => {
+      state.planet = planetModels[payload]
     },
   },
 })
