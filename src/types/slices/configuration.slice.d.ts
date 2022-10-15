@@ -4,9 +4,9 @@ type ConfigurationSliceState = {
   activeSection: number
 
   /** Шаблоны планеты */
-  planetTemplates: PlanetTemplates
+  planetTemplates: PlanetModels
   /** Название активного шаблона планеты */
-  activePlanetTemplate: keyof PlanetTemplates
+  activePlanetTemplate: keyof PlanetModels
 }
 
 /**
@@ -32,6 +32,6 @@ interface ConfigurationSlice
    */
   setActivePlanetTemplate(
     state: ConfigurationSliceState,
-    action: PayloadAction<keyof PlanetTemplates>,
+    action: PayloadAction<keyof PlanetModels>,
   )
 }

@@ -17,4 +17,4 @@ const mapDispatch = {
 export const PlanetTemplateSelectorContainer = connect(
   mapState,
   mapDispatch,
-)(PlanetTemplateSelector<keyof PlanetTemplates>)
+)(PlanetTemplateSelector<keyof PlanetModels>)
