@@ -1,5 +1,7 @@
+import { G } from './constants'
+
 /** Дефолтная конфигурация планеты */
-const defaultPlanet: PlanetData = {
+export const defaultPlanet: PlanetData = {
   g: {
     active: 'short',
     short: 0,
