@@ -34,4 +34,10 @@ interface ConfigurationSlice
     state: ConfigurationSliceState,
     action: PayloadAction<keyof PlanetModels>,
   ): void
+
+  /**
+   * Устанавливает дефолтные данные планеты в качестве вводимых данных планеты
+   * @param {ConfigurationSliceState} state Внутреннее состояние слайса
+   */
+  setDefaultPlanetData(state: ConfigurationSliceState): void
 }
