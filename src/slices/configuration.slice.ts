@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { defaultPlanet } from 'models'
+import { planetModels } from 'utils'
 
 const initialState: ConfigurationSliceState = {
   activeSection: 0,

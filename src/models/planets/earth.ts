@@ -1,5 +1,7 @@
+import { G } from './constants'
+
 /** Дефолтная конфигурация планеты "Земля" */
-const EarthPlanet: PlanetData = {
+export const EarthPlanet: PlanetData = {
   g: {
     active: 'short',
     short: 9.87, //TODO: уточнить

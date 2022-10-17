@@ -1,5 +1,7 @@
+import { G } from './constants'
+
 /** Дефолтная конфигурация планеты "Марс" */
-const MarsPlanet: PlanetData = {
+export const MarsPlanet: PlanetData = {
   g: {
     active: 'short',
     short: 11, //TODO: уточнить
