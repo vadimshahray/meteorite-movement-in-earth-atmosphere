@@ -13,3 +13,12 @@ export const selectActiveSection = (state: RootState) =>
  */
 export const selectPlanetModels = (state: RootState) =>
   state.configuration.planetModels
+
+/**
+ * Селектор активной вариации ввода данных
+ * @param {keyof PlanetData} data Данные планеты, вариацию которых нужно получить
+ * @returns Активную вариацию ввода данных
+ */
+export const selectPlanetActiveDataVariation =
+  (data: keyof PlanetData) => (state: RootState) =>
+    state.configuration.planet[data].active
