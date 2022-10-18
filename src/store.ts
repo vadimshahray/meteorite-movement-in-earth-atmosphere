@@ -15,6 +15,7 @@ import { themeSlice, configurationSlice } from 'slices'
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['configuration'],
 }
 
 const rootReducer = combineReducers({
