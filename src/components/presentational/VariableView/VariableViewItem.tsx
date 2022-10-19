@@ -3,6 +3,7 @@ import React from 'react'
 
 export type VariableViewItemProps = {
   name: string
+  iconComponent: React.ReactNode
   component: React.ReactNode
 }
 
