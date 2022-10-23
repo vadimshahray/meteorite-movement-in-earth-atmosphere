@@ -1,9 +1,10 @@
+import { SvgIcon } from '@mui/material'
 import { Container } from 'components'
 import React from 'react'
 
 export type VariableViewItemProps = {
   name: string
-  iconComponent: React.ReactNode
+  iconComponent: typeof SvgIcon
   component: React.ReactNode
 }
 
