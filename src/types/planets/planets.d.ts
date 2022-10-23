@@ -4,12 +4,6 @@ type PlanetData = {
   g: ExtendedData<number, gDetailed>
 }
 
-/** Модели планет */
-type PlanetModels = {
-  '@Earth': PlanetData
-  '@Mars': PlanetData
-}
-
 /** Модель данных свободного ускорения `g` */
 type gDetailed = {
   /** Гравитационная постоянная */
@@ -18,4 +12,10 @@ type gDetailed = {
   M: number
   /** Радиус планеты */
   R: number
+}
+
+/** Модели планет */
+type PlanetModels = {
+  '@Earth': PlanetData
+  '@Mars': PlanetData
 }
