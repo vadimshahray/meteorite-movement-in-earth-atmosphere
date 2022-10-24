@@ -1,17 +1,31 @@
 import Notes from '@mui/icons-material/Notes'
 import ShortText from '@mui/icons-material/ShortText'
 import { VariableView, VariableViewItem } from 'components'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { selectPlanetgActive } from 'selectors'
+import { setPlanetg } from 'slices'
 
 export const GVariableView = () => {
+  const dispatch = useDispatch<AppDispatch>()
+
   const gActive = useSelector(selectPlanetgActive)
-  console.log(gActive.toString())
+
+  const handleChange = (activeView: string) => {
+    const active: 'short' | 'detailed' =
+      activeView === 'short' ? 'short' : 'detailed'
+
+    dispatch(
+      setPlanetg({
+        active,
+      }),
+    )
+  }
 
   return (
     <VariableView
       label='Ускорение свободного падения'
       activeName={gActive.toString()}
+      onActiveChange={handleChange}
     >
       <VariableViewItem
         name='short'
