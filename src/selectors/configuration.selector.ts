@@ -13,3 +13,11 @@ export const selectActiveSection = (state: RootState) =>
  */
 export const selectPlanetModels = (state: RootState) =>
   state.configuration.planetModels
+
+/**
+ * Селектор активного ввода данных g
+ * @param {RooState} state Внутреннее состояние хранилища
+ * @returns {'short' | 'detailed'} Активный вариант ввода данных
+ */
+export const selectPlanetgActive = (state: RootState) =>
+  state.configuration.planet.g.active
