@@ -37,7 +37,7 @@ export const VariableView = ({
         >
           {children.map(({ props: { name, iconComponent: Icon } }, i) => (
             <ToggleButton key={i + name} value={name}>
-              <Icon />
+              <Icon className={styles.icon} />
             </ToggleButton>
           ))}
         </ToggleButtonGroup>
