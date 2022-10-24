@@ -8,13 +8,6 @@ export type VariableViewItemProps = {
   component: React.ReactNode
 }
 
-export const VariableViewItem = ({
-  name,
-  component,
-}: VariableViewItemProps) => {
-  return (
-    <Container key={name} disableGutters>
-      {component}
-    </Container>
-  )
+export const VariableViewItem = ({ component }: VariableViewItemProps) => {
+  return <Container disableGutters>{component}</Container>
 }

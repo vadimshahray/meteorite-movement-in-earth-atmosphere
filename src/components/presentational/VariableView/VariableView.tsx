@@ -29,8 +29,8 @@ export const VariableView = ({
           value={activeItem?.props.name}
           onChange={handleActiveChange}
         >
-          {children.map(({ props: { name, iconComponent: Icon } }) => (
-            <ToggleButton key={name} value={name}>
+          {children.map(({ props: { name, iconComponent: Icon } }, i) => (
+            <ToggleButton key={i + name} value={name}>
               <Icon />
             </ToggleButton>
           ))}
