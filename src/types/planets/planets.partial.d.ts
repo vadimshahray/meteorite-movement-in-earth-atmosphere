@@ -1,7 +1,7 @@
 /** Модель данных планеты */
 type Partial_PlanetData = {
   /** Ускорение свободного падения */
-  g: ExtendedData<number?, Partial_gDetailed>
+  g: Partial_ExtendedData<number, Partial_gDetailed>
 }
 
 /** Частичная модель данных свободного ускорения `g` */
