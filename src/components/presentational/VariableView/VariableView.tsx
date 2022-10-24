@@ -8,16 +8,22 @@ export type VariableViewProps = {
   label: string
   activeName: string
   children: React.ReactElement<VariableViewItemProps, typeof VariableViewItem>[]
+  onActiveChange: (value: string) => void
 }
 
 export const VariableView = ({
   label,
   activeName,
   children,
+  onActiveChange,
 }: VariableViewProps) => {
   const activeItem = children.find((c) => c.props.name === activeName)
 
-  const handleActiveChange = (_: any, value: string) => {}
+  const handleActiveChange = (_: any, value: string) => {
+    if (value !== null) {
+      onActiveChange(value)
+    }
+  }
 
   return (
     <Container disableGutters>
