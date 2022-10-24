@@ -35,5 +35,9 @@ export const configurationSlice = createSlice<
   },
 })
 
-export const { setActiveSection, setPlanetModelData, setDefaultPlanetData } =
-  configurationSlice.actions
+export const {
+  setActiveSection,
+  setPlanetModelData,
+  setDefaultPlanetData,
+  setPlanetg,
+} = configurationSlice.actions
