@@ -37,7 +37,7 @@ export const VariableView = ({
         </ToggleButtonGroup>
       </div>
 
-      <Container disableGuttersH>{activeItem}</Container>
+      {activeItem}
     </Container>
   )
 }
