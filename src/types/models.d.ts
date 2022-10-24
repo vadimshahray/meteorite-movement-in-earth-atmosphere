@@ -8,6 +8,15 @@ type ExtendedData<ST, DT> = {
   detailed: DT
 }
 
+type Partial_ExtendedData<ST, DT> = {
+  /** Активный вариант */
+  active: Exclude<keyof ExtendedData<ST, DT>, 'active'>
+  /** Краткий вариант */
+  short?: ST
+  /** Подробный вариант */
+  detailed?: DT
+}
+
 /** Модель неизменяемых данных  */
 type ConstData<T> = {
   isConst: boolean
