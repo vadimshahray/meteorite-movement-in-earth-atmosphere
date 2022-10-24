@@ -12,5 +12,9 @@ export const VariableViewItem = ({
   name,
   component,
 }: VariableViewItemProps) => {
-  return <Container key={name}>{component}</Container>
+  return (
+    <Container key={name} disableGutters>
+      {component}
+    </Container>
+  )
 }
