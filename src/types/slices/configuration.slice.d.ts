@@ -40,4 +40,9 @@ interface ConfigurationSlice
    * @param {ConfigurationSliceState} state Внутреннее состояние слайса
    */
   setDefaultPlanetData(state: ConfigurationSliceState): void
+
+  setPlanetg(
+    state: ConfigurationSliceState,
+    action: PayloadAction<Partial_PlanetData['g']>,
+  )
 }

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { defaultPlanet } from 'models'
-import { planetModels } from 'utils'
+import { planetModels, setDefinedProperties } from 'utils'
 
 const initialState: ConfigurationSliceState = {
   activeSection: 0,
@@ -27,6 +27,10 @@ export const configurationSlice = createSlice<
     },
     setDefaultPlanetData: (state) => {
       state.planet = defaultPlanet
+    },
+
+    setPlanetg: (state, { payload }) => {
+      setDefinedProperties(state.planet.g, payload)
     },
   },
 })
