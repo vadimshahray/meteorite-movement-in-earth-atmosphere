@@ -29,6 +29,14 @@ export const selectPlanetM = (state: RootState) => state.configuration.planet.M
 export const selectPlanetR = (state: RootState) => state.configuration.planet.R
 
 /**
+ * Селектор ускорения свободного падения планеты
+ * @param {RooState} state Внутреннее состояние хранилища
+ * @returns {number} Ускорение свободного падения планеты
+ */
+export const selectPlanetg = (state: RootState) =>
+  state.configuration.planet.g.short
+
+/**
  * Селектор активного ввода данных g
  * @param {RooState} state Внутреннее состояние хранилища
  * @returns {'short' | 'detailed'} Активный вариант ввода данных
