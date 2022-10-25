@@ -23,8 +23,9 @@ export const selectPlanetgActive = (state: RootState) =>
   state.configuration.planet.g.active
 
 /**
- * Селектор введенных данных g
+ * Селектор данных планеты g.G
  * @param {RooState} state Внутреннее состояние хранилища
- * @returns {'short' | 'detailed'} Введенные данные g
+ * @returns {ConstData<number>} G
  */
-export const selectPlanetg = (state: RootState) => state.configuration.planet.g
+export const selectPlanetgG = (state: RootState) =>
+  state.configuration.planet.g.detailed.G
