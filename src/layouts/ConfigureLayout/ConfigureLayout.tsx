@@ -1,7 +1,7 @@
 import { FullContainer } from 'components'
 import React from 'react'
 import { styleClasses } from 'utils'
-import { ConfigureContent } from './ConfigureContent'
+import { ConfigureForm } from './ConfigureForm'
 import styles from './configureLayout.module.css'
 import { ConfigureToolbar } from './ConfigureToolbar'
 
@@ -16,7 +16,7 @@ export const ConfigureLayout = ({ className, ...props }: LayoutProps) => {
       {...props}
     >
       <ConfigureToolbar />
-      <ConfigureContent />
+      <ConfigureForm />
     </FullContainer>
   )
 }
