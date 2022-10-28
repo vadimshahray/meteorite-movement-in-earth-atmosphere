@@ -1,17 +1,37 @@
-import { useSelector } from 'react-redux'
-import { selectActiveSection } from 'selectors'
+import { Tab, Tabs } from '@mui/material'
+import { Container, TabPanel } from 'components'
+import React, { useState } from 'react'
 import { AtmosphereSection } from './AtmosphereSection'
 import { PlanetSection } from './PlanetSection'
 import { SubjectSection } from './SubjectSection'
 
 /** Секции конфигурации */
 export const ConfigureSections = () => {
-  const activeSectionI = useSelector(selectActiveSection)
-  const sections: JSX.Element[] = [
-    <SubjectSection />,
-    <PlanetSection />,
-    <AtmosphereSection />,
-  ]
+  const [activeTab, setActiveTab] = useState('0')
 
-  return sections[activeSectionI]
+  const handleChange = (_: any, newActiveTab: number) => {
+    setActiveTab(newActiveTab.toString())
+  }
+
+  return (
+    <Container disableGutters>
+      <Container disableGutters>
+        <Tabs value={activeTab} onChange={handleChange} variant='fullWidth'>
+          <Tab label='Объект' value='0' />
+          <Tab label='Планета' value='1' />
+          <Tab label='Атмосфера' value='2' />
+        </Tabs>
+      </Container>
+
+      <TabPanel value={activeTab} index='0'>
+        <SubjectSection />
+      </TabPanel>
+      <TabPanel value={activeTab} index='1'>
+        <PlanetSection />
+      </TabPanel>
+      <TabPanel value={activeTab} index='2'>
+        <AtmosphereSection />
+      </TabPanel>
+    </Container>
+  )
 }
