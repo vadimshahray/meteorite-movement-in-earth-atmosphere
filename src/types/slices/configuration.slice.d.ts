@@ -1,8 +1,5 @@
 /** Состояние слайса конфигурации приложения */
 type ConfigurationSliceState = {
-  /** Активная секция конфигурации */
-  activeSection: number
-
   /** Вводимые данные планеты */
   planet: PlanetData
   /** Модели планет */
@@ -15,16 +12,6 @@ type ConfigurationSliceState = {
  */
 interface ConfigurationSlice
   extends SliceCaseReducers<ConfigurationSliceState> {
-  /**
-   * Устанавливает активную секцию конфигурации
-   * @param {ConfigurationSliceState} state Внутреннее состояние слайса
-   * @param {PayloadAction<string>} action Новая секция
-   */
-  setActiveSection(
-    state: ConfigurationSliceState,
-    action: PayloadAction<number>,
-  ): void
-
   /**
    * Устанавливает данные модели планет в качестве вводимых данных планеты
    * @param {ConfigurationSliceState} state Внутреннее состояние слайса
