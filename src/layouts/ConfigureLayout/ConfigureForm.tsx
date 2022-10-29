@@ -1,6 +1,6 @@
 import { Container, LaunchButton } from 'components'
 import { FormProvider, useForm } from 'react-hook-form'
-import { ConfigureSections } from './ConfigureSections/ConfigureSections'
+import { ConfigureSections } from './ConfigureSections'
 
 /** Содержит поля ввода для настроек моделей */
 export const ConfigureForm = () => {
@@ -14,9 +14,9 @@ export const ConfigureForm = () => {
         <form>
           <ConfigureSections />
         </form>
-
-        <LaunchButton onClick={handleLaunch} />
       </FormProvider>
+
+      <LaunchButton onClick={handleLaunch} />
     </Container>
   )
 }
