@@ -1,5 +1,9 @@
 /** Модель данных планеты */
 type Partial_PlanetData = {
+  /** Радиус планеты */
+  R?: number
+  /** Масса планеты */
+  M?: number
   /** Ускорение свободного падения */
   g: Partial_ExtendedData<number, Partial_gDetailed>
 }
@@ -8,8 +12,4 @@ type Partial_PlanetData = {
 type Partial_gDetailed = {
   /** Гравитационная постоянная */
   G: ConstData<number>
-  /** Масса планеты */
-  M?: number
-  /** Радиус планеты */
-  R?: number
 }
