@@ -11,6 +11,7 @@ type Fields = {
 const schema = yup.object({
   g: yup
     .number()
+    .transform((_, ov) => Number((ov as string).replace(',', '.')))
     .typeError('Не число')
     .positive('Не положительное число')
     .required('Обязательно'),
