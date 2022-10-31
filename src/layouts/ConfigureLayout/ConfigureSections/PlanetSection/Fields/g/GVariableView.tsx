@@ -4,6 +4,7 @@ import { VariableView, VariableViewItem } from 'components'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectPlanetgActive } from 'selectors'
 import { setPlanetg } from 'slices'
+import { GShortView } from './GShortView'
 
 export const GVariableView = () => {
   const dispatch = useDispatch<AppDispatch>()
@@ -29,7 +30,7 @@ export const GVariableView = () => {
     >
       <VariableViewItem
         name='short'
-        component={<div>short</div>}
+        component={<GShortView />}
         iconComponent={ShortText}
       />
       <VariableViewItem
