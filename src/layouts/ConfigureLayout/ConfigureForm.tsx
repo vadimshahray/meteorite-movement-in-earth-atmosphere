@@ -1,17 +1,32 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Container, LaunchButton } from 'components'
 import { FormProvider, useForm } from 'react-hook-form'
+import { NumberCommaToDot } from 'utils'
 import * as yup from 'yup'
 import { ConfigureSections } from './ConfigureSections'
 
 type Fields = {
+  R: number
+  M: number
   g: number
 }
 
 const schema = yup.object({
+  R: yup
+    .number()
+    .transform(NumberCommaToDot)
+    .typeError('Не число')
+    .positive('Не положительное число')
+    .required('Обязательно'),
+  M: yup
+    .number()
+    .transform(NumberCommaToDot)
+    .typeError('Не число')
+    .positive('Не положительное число')
+    .required('Обязательно'),
   g: yup
     .number()
-    .transform((_, ov) => Number((ov as string).replace(',', '.')))
+    .transform(NumberCommaToDot)
     .typeError('Не число')
     .positive('Не положительное число')
     .required('Обязательно'),
