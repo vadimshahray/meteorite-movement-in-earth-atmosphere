@@ -10,7 +10,7 @@ type ExtendedData<ST, DT> = {
 
 type Partial_ExtendedData<ST, DT> = {
   /** Активный вариант */
-  active: Exclude<keyof ExtendedData<ST, DT>, 'active'>
+  active?: Exclude<keyof ExtendedData<ST, DT>, 'active'>
   /** Краткий вариант */
   short?: ST
   /** Подробный вариант */
