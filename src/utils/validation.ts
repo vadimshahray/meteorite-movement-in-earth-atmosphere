@@ -1,2 +1,3 @@
-export const NumberCommaToDot = (_: any, ov: any) =>
-  Number((ov as string).replace(',', '.'))
+export const NumberCommaToDot = (v: any, ov: any) => {
+  return typeof ov === 'string' ? Number(ov.replace(',', '.')) : v
+}
