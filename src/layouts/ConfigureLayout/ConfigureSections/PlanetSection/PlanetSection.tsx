@@ -1,4 +1,4 @@
-import { GVariableView } from './Fields/GVariableView'
+import { GVariableView } from './Fields'
 
 /** Секция конфигурации "Планета" */
 export const PlanetSection = () => {
