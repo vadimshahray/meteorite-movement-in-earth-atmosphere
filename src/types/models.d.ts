@@ -19,7 +19,6 @@ type Partial_ExtendedData<ST, DT> = {
 
 /** Модель неизменяемых данных  */
 type ConstData<T> = {
-  isConst: boolean
   /** Отображаемый вариант */
   view: string
   /** Значение */
