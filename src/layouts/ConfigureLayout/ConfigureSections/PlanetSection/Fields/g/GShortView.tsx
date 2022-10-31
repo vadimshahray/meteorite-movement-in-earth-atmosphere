@@ -12,7 +12,14 @@ export const GShortView = () => {
       control={control}
       name='g'
       defaultValue={g}
-      render={({ field }) => <TextField label='Значение g' {...field} />}
+      render={({ field, fieldState: { error } }) => (
+        <TextField
+          label='Значение g'
+          {...field}
+          error={!!error}
+          helperText={error?.message}
+        />
+      )}
     />
   )
 }
