@@ -1,5 +1,11 @@
-import { GGField } from '../../../Fields'
+import { GGField, PlanetMField, PlanetRField } from '../../../Fields'
 
 export const GDetailedView = () => {
-  return <GGField />
+  return (
+    <>
+      <GGField />
+      <PlanetRField />
+      <PlanetMField />
+    </>
+  )
 }
