@@ -1,9 +1,18 @@
 import { TextField } from '@mui/material'
+import { Controller, useFormContext } from 'react-hook-form'
 import { useSelector } from 'react-redux'
 import { selectPlanetg } from 'selectors'
 
 export const GShortView = () => {
   const g = useSelector(selectPlanetg)
+  const { control } = useFormContext()
 
-  return <TextField label='Значение g' value={g} />
+  return (
+    <Controller
+      control={control}
+      name='g'
+      defaultValue={g}
+      render={({ field }) => <TextField label='Значение g' {...field} />}
+    />
+  )
 }
