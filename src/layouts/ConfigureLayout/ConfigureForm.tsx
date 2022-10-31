@@ -23,7 +23,9 @@ export const ConfigureForm = () => {
     resolver: yupResolver(schema),
   })
 
-  const handleLaunch = () => {}
+  const handleLaunch = () => {
+    form.trigger()
+  }
 
   return (
     <Container>
