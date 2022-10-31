@@ -4,6 +4,7 @@ import { VariableView, VariableViewItem } from 'components'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectPlanetgActive } from 'selectors'
 import { setPlanetg } from 'slices'
+import { GDetailedView } from './GDetailedView'
 import { GShortView } from './GShortView'
 
 export const GVariableView = () => {
@@ -35,7 +36,7 @@ export const GVariableView = () => {
       />
       <VariableViewItem
         name='detailed'
-        component={<div>detailed</div>}
+        component={<GDetailedView />}
         iconComponent={Notes}
       />
     </VariableView>
