@@ -28,9 +28,7 @@ export const ConfigureForm = () => {
   return (
     <Container>
       <FormProvider {...form}>
-        <form>
-          <ConfigureSections />
-        </form>
+        <ConfigureSections />
       </FormProvider>
 
       <LaunchButton onClick={handleLaunch} />
