@@ -3,7 +3,7 @@ import ShortText from '@mui/icons-material/ShortText'
 import { VariableView, VariableViewItem } from 'components'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectPlanetgActive } from 'selectors'
-import { setPlanetg } from 'slices'
+import { setPlanetData } from 'slices'
 import { GDetailedView } from './GDetailedView'
 import { GShortView } from './GShortView'
 
@@ -16,11 +16,7 @@ export const GVariableView = () => {
     const active: 'short' | 'detailed' =
       activeView === 'short' ? 'short' : 'detailed'
 
-    dispatch(
-      setPlanetg({
-        active,
-      }),
-    )
+    dispatch(setPlanetData({}))
   }
 
   return (
