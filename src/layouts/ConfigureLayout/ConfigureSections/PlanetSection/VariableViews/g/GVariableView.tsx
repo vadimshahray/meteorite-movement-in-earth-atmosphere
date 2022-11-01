@@ -16,7 +16,13 @@ export const GVariableView = () => {
     const active: 'short' | 'detailed' =
       activeView === 'short' ? 'short' : 'detailed'
 
-    dispatch(setPlanetData({}))
+    dispatch(
+      setPlanetData({
+        g: {
+          active,
+        },
+      }),
+    )
   }
 
   return (
