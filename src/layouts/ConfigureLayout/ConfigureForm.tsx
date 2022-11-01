@@ -1,6 +1,8 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Container, LaunchButton } from 'components'
+import { useDispatch } from 'hooks'
 import { FormProvider, useForm } from 'react-hook-form'
+import { setPlanetData } from 'slices'
 import { NumberCommaToDot } from 'utils'
 import * as yup from 'yup'
 import { ConfigureSections } from './ConfigureSections'
@@ -34,13 +36,25 @@ const schema = yup.object({
 
 /** Содержит поля ввода для настроек моделей */
 export const ConfigureForm = () => {
+  const dispatch = useDispatch()
+
   const form = useForm<Fields>({
     mode: 'onChange',
     resolver: yupResolver(schema),
   })
 
   const handleLaunch = () => {
-    form.trigger()
+    form.handleSubmit(({ M, R, g }) => {
+      dispatch(
+        setPlanetData({
+          M,
+          R,
+          g: {
+            short: g,
+          },
+        }),
+      )
+    })()
   }
 
   return (
