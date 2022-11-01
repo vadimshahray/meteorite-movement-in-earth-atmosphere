@@ -28,8 +28,13 @@ interface ConfigurationSlice
    */
   setDefaultPlanetData(state: ConfigurationSliceState): void
 
-  setPlanetg(
+  /**
+   * Устанавливает данные модели планеты, которые ввел пользователь
+   * @param {ConfigurationSliceState} state Внутреннее состояние слайса
+   * @param {PayloadAction<Partial_PlanetData>} action Данные модели планеты, введенные пользователем
+   */
+  setPlanetData(
     state: ConfigurationSliceState,
-    action: PayloadAction<Partial_PlanetData['g']>,
-  )
+    action: PayloadAction<Partial_PlanetData>,
+  ): void
 }

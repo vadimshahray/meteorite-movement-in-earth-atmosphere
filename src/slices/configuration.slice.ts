@@ -24,8 +24,8 @@ export const configurationSlice = createSlice<
       state.planet = defaultPlanet
     },
 
-    setPlanetg: (state, { payload }) => {
-      setDefinedProperties(state.planet.g, payload)
+    setPlanetData: (state, { payload }) => {
+      setDefinedProperties(state.planet, payload)
     },
   },
 })
@@ -34,5 +34,5 @@ export const {
   setActiveSection,
   setPlanetModelData,
   setDefaultPlanetData,
-  setPlanetg,
+  setPlanetData,
 } = configurationSlice.actions
