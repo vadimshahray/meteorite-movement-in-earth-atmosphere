@@ -68,5 +68,16 @@ export const theme = createTheme({
         },
       },
     },
+    MuiTextField: {
+      defaultProps: {
+        size: 'small',
+        fullWidth: true,
+      },
+      styleOverrides: {
+        root: {
+          marginTop: 8,
+        },
+      },
+    },
   },
 })
