@@ -2,11 +2,20 @@ import { G } from './constants'
 
 /** Дефолтная конфигурация планеты "Марс" */
 export const MarsPlanet: PlanetData = {
-  M: 11, // TODO: fill
-  R: 22, // TODO: fill
+  M: {
+    value: 11,
+    power: 1,
+  }, // TODO: fill
+  R: {
+    value: 22,
+    power: 1,
+  }, // TODO: fill
   g: {
     active: 'short',
-    short: 11, //TODO: уточнить
+    short: {
+      value: 11,
+      power: 1,
+    }, //TODO: уточнить
     detailed: {
       G,
     },
