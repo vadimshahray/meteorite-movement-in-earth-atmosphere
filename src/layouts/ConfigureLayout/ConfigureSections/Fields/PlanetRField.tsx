@@ -47,7 +47,7 @@ export const PlanetRField = () => {
   return (
     <NumberFieldGroup>
       <ValidatedTextField
-        label='Радиус планеты'
+        label='Радиус планеты, м'
         value={R.value.toString()}
         schema={schema}
         extractValueObject={extractValueObject}

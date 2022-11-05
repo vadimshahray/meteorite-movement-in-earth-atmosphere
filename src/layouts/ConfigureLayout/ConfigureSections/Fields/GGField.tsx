@@ -5,5 +5,11 @@ import { selectPlanetgG } from 'selectors'
 export const GGField = () => {
   const G = useSelector(selectPlanetgG)
 
-  return <TextField disabled label='Гравитационная постоянная' value={G.view} />
+  return (
+    <TextField
+      disabled
+      label='Гравитационная постоянная, м³·кг⁻¹·с⁻²'
+      value={G.view}
+    />
+  )
 }

@@ -47,7 +47,7 @@ export const PlanetMField = () => {
   return (
     <NumberFieldGroup>
       <ValidatedTextField
-        label='Масса планеты'
+        label='Масса планеты, кг'
         value={M.value.toString()}
         schema={schema}
         extractValueObject={extractValueObject}
