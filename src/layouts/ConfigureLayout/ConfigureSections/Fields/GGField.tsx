@@ -5,5 +5,5 @@ import { selectPlanetgG } from 'selectors'
 export const GGField = () => {
   const G = useSelector(selectPlanetgG)
 
-  return <TextField disabled label='G' value={G.view} />
+  return <TextField disabled label='Гравитационная постоянная' value={G.view} />
 }
