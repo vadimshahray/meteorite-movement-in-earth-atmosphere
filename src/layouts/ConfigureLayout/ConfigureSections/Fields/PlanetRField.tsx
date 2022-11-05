@@ -1,38 +1,60 @@
-import { ValidatedTextField } from 'components'
+import { NumberFieldGroup, ValidatedTextField } from 'components'
 import { useDispatch } from 'hooks'
+import React, { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { selectPlanetR } from 'selectors'
 import { setPlanetData } from 'slices'
 import { positiveNumberRule } from 'utils'
 import { object } from 'yup'
+import { PowerTextField } from './PowerTextField'
 
 const schema = object({
-  R: positiveNumberRule.clone(),
+  value: positiveNumberRule.clone(),
 })
 
 const extractValueObject = (input: string) => ({
-  R: input,
+  value: input,
 })
 
 export const PlanetRField = () => {
   const dispatch = useDispatch()
   const R = useSelector(selectPlanetR)
 
-  const handleValid = (data: any) => {
-    dispatch(
-      setPlanetData({
-        R: data.R as number,
-      }),
-    )
-  }
+  const handleValid = useCallback(
+    ({ value, power }: Partial_PowerNumber) => {
+      dispatch(
+        setPlanetData({
+          R: { value, power },
+        }),
+      )
+    },
+    [dispatch],
+  )
+
+  const handleValueValid = useCallback(
+    (data: any) => {
+      handleValid({ value: data.value })
+    },
+    [handleValid],
+  )
+  const handlePowerValid = useCallback(
+    (power: number) => {
+      handleValid({ power })
+    },
+    [handleValid],
+  )
 
   return (
-    <ValidatedTextField
-      label='Радиус планеты'
-      value={R.toString()}
-      schema={schema}
-      extractValueObject={extractValueObject}
-      onValid={handleValid}
-    />
+    <NumberFieldGroup>
+      <ValidatedTextField
+        label='Радиус планеты'
+        value={R.value.toString()}
+        schema={schema}
+        extractValueObject={extractValueObject}
+        onValid={handleValueValid}
+      />
+
+      <PowerTextField power={R.power} onValid={handlePowerValid} />
+    </NumberFieldGroup>
   )
 }
