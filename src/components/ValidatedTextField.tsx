@@ -1,5 +1,5 @@
 import { TextField } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ValidationError } from 'yup'
 import {
   AnyObject,
@@ -69,6 +69,10 @@ export const ValidatedTextField = <
         setInputValue(input)
       })
   }
+
+  useEffect(() => {
+    setInputValue(value)
+  }, [value])
 
   return (
     <TextField
