@@ -48,7 +48,7 @@ export const GField = () => {
     <NumberFieldGroup>
       <ValidatedTextField
         value={g.value.toString()}
-        label='Ускорение свободного падения'
+        label='Ускорение свободного падения, м/с²'
         schema={schema}
         onValid={handleValueValid}
         extractValueObject={extractValueObject}
