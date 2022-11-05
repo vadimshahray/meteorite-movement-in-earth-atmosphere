@@ -6,8 +6,6 @@ import { selectPlanetg } from 'selectors'
 import { setPlanetData } from 'slices'
 import { positiveNumberRule } from 'utils'
 import { object } from 'yup'
-import { RequiredNumberSchema } from 'yup/lib/number'
-import { AssertsShape, AnyObject } from 'yup/lib/object'
 
 const schema = object({
   g: positiveNumberRule,
