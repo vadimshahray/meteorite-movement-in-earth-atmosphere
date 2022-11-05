@@ -4,18 +4,13 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectPlanetg } from 'selectors'
 import { setPlanetData } from 'slices'
-import { NumberCommaToDot } from 'utils'
+import { positiveNumberRule } from 'utils'
 import * as yup from 'yup'
 import { RequiredNumberSchema } from 'yup/lib/number'
 import { AssertsShape, AnyObject } from 'yup/lib/object'
 
 const schema = yup.object({
-  g: yup
-    .number()
-    .transform(NumberCommaToDot)
-    .typeError('Не число')
-    .positive('Не положительное число')
-    .required('Обязательно'),
+  g: positiveNumberRule,
 })
 
 const extractValueObject = (input: string) => ({
