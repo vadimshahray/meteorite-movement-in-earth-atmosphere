@@ -1,4 +1,4 @@
-import { ValidatedTextField } from 'components/ValidatedTextField'
+import { ValidatedTextField } from 'components'
 import { useDispatch } from 'hooks'
 import React from 'react'
 import { useSelector } from 'react-redux'
