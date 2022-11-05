@@ -5,11 +5,11 @@ import { useSelector } from 'react-redux'
 import { selectPlanetg } from 'selectors'
 import { setPlanetData } from 'slices'
 import { positiveNumberRule } from 'utils'
-import * as yup from 'yup'
+import { object } from 'yup'
 import { RequiredNumberSchema } from 'yup/lib/number'
 import { AssertsShape, AnyObject } from 'yup/lib/object'
 
-const schema = yup.object({
+const schema = object({
   g: positiveNumberRule,
 })
 
