@@ -1,11 +1,11 @@
 /** Модель данных планеты */
 type Partial_PlanetData = {
   /** Радиус планеты */
-  R?: number
+  R?: Partial_PowerNumber
   /** Масса планеты */
-  M?: number
+  M?: Partial_PowerNumber
   /** Ускорение свободного падения */
-  g?: Partial_ExtendedData<number, Partial_gDetailed>
+  g?: Partial_ExtendedData<Partial_PowerNumber, Partial_gDetailed>
 }
 
 /** Частичная модель данных свободного ускорения `g` */
