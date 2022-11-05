@@ -9,14 +9,14 @@ export const selectPlanetModels = (state: RootState) =>
 /**
  * Селектор введенного радиуса планеты
  * @param {RooState} state Внутреннее состояние хранилища
- * @returns {number} Радиус планеты
+ * @returns {PowerNumber} Радиус планеты
  */
 export const selectPlanetR = (state: RootState) => state.configuration.planet.R
 
 /**
  * Селектор введенной массы планеты
  * @param {RooState} state Внутреннее состояние хранилища
- * @returns {number} Масс планеты
+ * @returns {PowerNumber} Масс планеты
  */
 export const selectPlanetM = (state: RootState) => state.configuration.planet.M
 
@@ -31,7 +31,7 @@ export const selectPlanetgActive = (state: RootState) =>
 /**
  * Селектор значения g
  * @param {RooState} state Внутреннее состояние хранилища
- * @returns {number} Значение g
+ * @returns {PowerNumber} Значение g
  */
 export const selectPlanetg = (state: RootState) =>
   state.configuration.planet.g.short
