@@ -21,15 +21,11 @@ export const GField = () => {
   const dispatch = useDispatch()
   const g = useSelector(selectPlanetg)
 
-  const handleValid = ({
-    g: value,
-  }: AssertsShape<{
-    g: RequiredNumberSchema<number | undefined, AnyObject>
-  }>) => {
+  const handleValid = (data: any) => {
     dispatch(
       setPlanetData({
         g: {
-          short: value,
+          short: data.g as number,
         },
       }),
     )
