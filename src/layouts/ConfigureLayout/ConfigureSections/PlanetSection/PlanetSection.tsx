@@ -1,3 +1,4 @@
+import { PickPlanetModelDataButton } from './PickPlanetModelDataButton'
 import { GVariableView } from './VariableViews'
 import { PlanetRField, PlanetMField } from '../Fields'
 
@@ -5,6 +6,8 @@ import { PlanetRField, PlanetMField } from '../Fields'
 export const PlanetSection = () => {
   return (
     <div>
+      <PickPlanetModelDataButton />
+
       <PlanetRField />
       <PlanetMField />
       <GVariableView />
