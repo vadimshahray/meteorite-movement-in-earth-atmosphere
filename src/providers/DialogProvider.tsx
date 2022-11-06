@@ -4,9 +4,9 @@ import React, { PropsWithChildren, ReactElement, useState } from 'react'
 type DialogType = ReactElement<DialogProps, typeof Dialog>
 
 export const DialogContext = React.createContext<{
-  showDialog: (dialog: DialogType) => void
+  show: (dialog: DialogType) => void
 }>({
-  showDialog: (_: DialogType) => {},
+  show: (_: DialogType) => {},
 })
 
 export const DialogProvider = ({ children }: PropsWithChildren) => {
@@ -17,7 +17,7 @@ export const DialogProvider = ({ children }: PropsWithChildren) => {
   }
 
   return (
-    <DialogContext.Provider value={{ showDialog }}>
+    <DialogContext.Provider value={{ show: showDialog }}>
       <>
         {children}
 
