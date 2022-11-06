@@ -19,3 +19,10 @@ type PlanetModels = {
   '@Earth': PlanetData
   '@Mars': PlanetData
 }
+
+/** Модель планеты */
+type PlanetModel = {
+  key: keyof PlanetModels
+  /** Название планеты */
+  name: string
+}

@@ -4,10 +4,10 @@ import { planetModels, setDefinedProperties } from 'utils'
 
 const initialState: ConfigurationSliceState = {
   planet: defaultPlanet,
-  planetModels: {
-    '@Earth': 'Земля',
-    '@Mars': 'Марс',
-  },
+  planetModels: [
+    { key: '@Earth', name: 'Земля' },
+    { key: '@Mars', name: 'Марс' },
+  ],
 }
 
 export const configurationSlice = createSlice<

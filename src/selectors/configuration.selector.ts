@@ -1,7 +1,7 @@
 /**
  * Селектор моделей планет
  * @param {RooState} state Внутреннее состояние хранилища
- * @returns {Record<keyof PlanetModels, string>} Модели планет
+ * @returns {PlanetModel[]} Модели планет
  */
 export const selectPlanetModels = (state: RootState) =>
   state.configuration.planetModels
