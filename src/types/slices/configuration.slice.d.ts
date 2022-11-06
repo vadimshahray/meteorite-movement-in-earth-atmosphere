@@ -3,7 +3,7 @@ type ConfigurationSliceState = {
   /** Вводимые данные планеты */
   planet: PlanetData
   /** Модели планет */
-  planetModels: Record<keyof PlanetModels, string>
+  planetModels: PlanetModel[]
 }
 
 /**
