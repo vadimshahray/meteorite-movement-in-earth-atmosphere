@@ -23,12 +23,6 @@ interface ConfigurationSlice
   ): void
 
   /**
-   * Устанавливает дефолтные данные планеты в качестве вводимых данных планеты
-   * @param {ConfigurationSliceState} state Внутреннее состояние слайса
-   */
-  setDefaultPlanetData(state: ConfigurationSliceState): void
-
-  /**
    * Устанавливает данные модели планеты, которые ввел пользователь
    * @param {ConfigurationSliceState} state Внутреннее состояние слайса
    * @param {PayloadAction<Partial_PlanetData>} action Данные модели планеты, введенные пользователем
