@@ -1,9 +1,9 @@
 import { FullContainer } from 'components'
+import { ConfigureToolbarProvider } from 'providers'
 import React from 'react'
 import { styleClasses } from 'utils'
 import { ConfigureForm } from './ConfigureForm'
 import styles from './configureLayout.module.css'
-import { ConfigureToolbar } from './ConfigureToolbar'
 
 /**
  * Блок, содержащий все, что связано с настройкой физических моделей (поля ввода данных и т.п.)
@@ -15,8 +15,9 @@ export const ConfigureLayout = ({ className, ...props }: LayoutProps) => {
       className={styleClasses(styles.layout, className)}
       {...props}
     >
-      <ConfigureToolbar />
-      <ConfigureForm />
+      <ConfigureToolbarProvider>
+        <ConfigureForm />
+      </ConfigureToolbarProvider>
     </FullContainer>
   )
 }
