@@ -1,4 +1,5 @@
-import { Button } from 'components'
+import PublicIcon from '@mui/icons-material/Public'
+import { IconButton } from '@mui/material'
 import { useDialog } from 'hooks'
 import { PickPlanetModelDataDialog } from './PickPlanetModelDataDialog'
 
@@ -10,8 +11,8 @@ export const PickPlanetModelDataButton = () => {
   }
 
   return (
-    <Button variant='outlined' onClick={handleClick}>
-      Данные планет
-    </Button>
+    <IconButton onClick={handleClick}>
+      <PublicIcon />
+    </IconButton>
   )
 }
