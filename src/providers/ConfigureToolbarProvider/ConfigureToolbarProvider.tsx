@@ -5,7 +5,7 @@ import {
 } from './ConfigureToolbar'
 
 export const ConfigureToolbarContext = React.createContext<{
-  setActionButton: (btn: ConfigureToolbarActionButton) => void
+  setActionButton: (btn?: ConfigureToolbarActionButton) => void
 }>({
   setActionButton: (_) => {},
 })
@@ -14,7 +14,7 @@ export const ConfigureToolbarProvider = ({ children }: PropsWithChildren) => {
   const [btn, setBtn] = useState<ConfigureToolbarActionButton>()
 
   const setActionButton = useCallback(
-    (actionButton: ConfigureToolbarActionButton) => {
+    (actionButton?: ConfigureToolbarActionButton) => {
       setBtn(actionButton)
     },
     [],
