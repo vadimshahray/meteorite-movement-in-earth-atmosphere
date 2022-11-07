@@ -39,14 +39,6 @@ export const theme = createTheme({
         },
       },
     },
-    MuiToolbar: {
-      styleOverrides: {
-        root: ({ theme }) => ({
-          boxShadow: theme.shadows[2],
-          borderRadius: theme.shape.borderRadius,
-        }),
-      },
-    },
     MuiButton: {
       styleOverrides: {
         text: {
