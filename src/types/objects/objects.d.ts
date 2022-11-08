@@ -13,6 +13,9 @@ type PhysicalModel = {
   R: number
 }
 
+/** Физические объекты, используемые в приложении */
+type PhysicalModels = '@Ball' | '@Box'
+
 /** Физический объект. Используется для определения методов вычисления данных физ. объекта */
 type PhysicalObject = {} & PhysicalModel
 
@@ -20,4 +23,7 @@ type PhysicalObject = {} & PhysicalModel
 type PhysicalModelPropertiesMap = Record<keyof PhysicalModel, boolean>
 
 /** Карты используемых свойств физических моделей */
-type PhysicalModelsPropertiesMaps = Record<string, PhysicalModelPropertiesMap>
+type PhysicalModelsPropertiesMaps = Record<
+  PhysicalModels,
+  PhysicalModelPropertiesMap
+>
