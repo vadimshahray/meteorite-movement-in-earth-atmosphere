@@ -15,3 +15,9 @@ type PhysicalModel = {
 
 /** Физический объект. Используется для определения методов вычисления данных физ. объекта */
 type PhysicalObject = {} & PhysicalModel
+
+/** Карта используемых свойств физической модели */
+type PhysicalModelPropertiesMap = Record<keyof PhysicalModel, boolean>
+
+/** Карты используемых свойств физических моделей */
+type PhysicalModelsPropertiesMaps = Record<string, PhysicalModelPropertiesMap>
