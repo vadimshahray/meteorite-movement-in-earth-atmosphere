@@ -1,3 +1,5 @@
+import { ball, box } from 'models'
+
 /** Карта общих свойств всех моделей */
 const commonMap: Pick<PhysicalModelPropertiesMap, 'y0' | 'K' | 'S' | 'm'> = {
   y0: true,
@@ -19,7 +21,11 @@ export const physicalModelsPropertiesMaps: PhysicalModelsPropertiesMaps = {
 }
 
 /** Массив физических именованных физических моделей, используемых в приложении */
-export const physicalModels: { name: string; key: PhysicalModels }[] = [
-  { name: 'Шар', key: '@Ball' },
-  { name: 'Коробка', key: '@Box' },
+export const physicalModels: {
+  name: string
+  key: PhysicalModels
+  data: PhysicalModel
+}[] = [
+  { name: 'Шар', key: '@Ball', data: ball },
+  { name: 'Коробка', key: '@Box', data: box },
 ]
