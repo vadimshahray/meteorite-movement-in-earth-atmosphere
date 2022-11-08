@@ -12,3 +12,9 @@ type PhysicalModel = {
 
 /** Физический объект. Используется для определения методов вычисления данных физ. объекта */
 type PhysicalObject = {} & PhysicalModel
+
+/** Физический объект "Шар" */
+type Ball = {
+  /** Радиус */
+  R: number
+} & PhysicalObject
