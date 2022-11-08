@@ -1,4 +1,4 @@
-export const ball: Ball = {
+export const ball: PhysicalModel = {
   y0: 100,
   m: 11,
   K: 20,
