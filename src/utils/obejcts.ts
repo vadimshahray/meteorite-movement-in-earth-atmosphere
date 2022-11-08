@@ -12,4 +12,14 @@ export const physicalModelsPropertiesMaps: PhysicalModelsPropertiesMaps = {
     ...commonMap,
     R: true,
   },
+  '@Box': {
+    ...commonMap,
+    R: false,
+  },
 }
+
+/** Массив физических именованных физических моделей, используемых в приложении */
+export const physicalModels: { name: string; key: PhysicalModels }[] = [
+  { name: 'Шар', key: '@Ball' },
+  { name: 'Коробка', key: '@Box' },
+]
