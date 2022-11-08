@@ -1,4 +1,5 @@
-export const ball: PhysicalModel = {
+/** Физический объект "Шар" */
+export const ball: PhysicalObject = {
   y0: 100,
   m: 11,
   K: 20,
