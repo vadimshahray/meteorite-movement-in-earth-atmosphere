@@ -9,3 +9,9 @@ type Partial_PhysicalModel = {
   /** Площадь поперечного сечения */
   S?: number
 }
+
+/** (Частичная модель) Физический объект "Шар" */
+type Partial_Ball = {
+  /** Радиус */
+  R?: number
+} & Partial_PhysicalModel
