@@ -1,4 +1,4 @@
-import { GField } from '../../../Fields'
+import { GField } from '../../Fields'
 
 export const GShortView = () => {
   return <GField />
