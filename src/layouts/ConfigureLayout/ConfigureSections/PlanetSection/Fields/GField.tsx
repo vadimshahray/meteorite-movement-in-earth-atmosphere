@@ -5,16 +5,7 @@ import { useSelector } from 'react-redux'
 import { selectPlanetg } from 'selectors'
 import { setPlanetData } from 'slices'
 import { positiveNumberRule } from 'utils'
-import { object } from 'yup'
 import { PowerTextField } from './PowerTextField'
-
-const schema = object({
-  value: positiveNumberRule,
-})
-
-const extractValueObject = (input: string) => ({
-  value: input,
-})
 
 export const GField = () => {
   const dispatch = useDispatch()
@@ -32,8 +23,8 @@ export const GField = () => {
   )
 
   const handleValueValid = useCallback(
-    (data: any) => {
-      handleValid({ value: data.value as number })
+    (value: number) => {
+      handleValid({ value })
     },
     [handleValid],
   )
@@ -49,9 +40,8 @@ export const GField = () => {
       <ValidatedTextField
         value={g.value.toString()}
         label='Ускорение свободного падения, м/с²'
-        schema={schema}
+        rule={positiveNumberRule}
         onValid={handleValueValid}
-        extractValueObject={extractValueObject}
       />
 
       <PowerTextField power={g.power} onValid={handlePowerValid} />

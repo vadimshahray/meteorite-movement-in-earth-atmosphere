@@ -1,65 +1,54 @@
 import { TextField } from '@mui/material'
-import React, { useEffect, useState } from 'react'
-import { ValidationError } from 'yup'
-import {
-  AnyObject,
-  AssertsShape,
-  ObjectShape,
-  OptionalObjectSchema,
-  TypeOfShape,
-} from 'yup/lib/object'
-import { Maybe } from 'yup/lib/types'
+import React, { useEffect, useMemo, useState } from 'react'
+import { AnySchema, object, ValidationError } from 'yup'
+import { RequiredNumberSchema } from 'yup/lib/number'
+import { AnyObject } from 'yup/lib/types'
 
 /** Пропсы `ValidatedTextField` */
-export type ValidatedTextFieldProps<
-  TShape extends ObjectShape,
-  TContext extends AnyObject = AnyObject,
-  TIn extends Maybe<TypeOfShape<TShape>> = TypeOfShape<TShape>,
-> = {
+export type ValidatedTextFieldProps = {
   /** Ярлык поля */
   label: string
   /** Значение поля */
   value: string
-  /** yup-схема валидации */
-  schema: OptionalObjectSchema<TShape, TContext, TIn>
-  /**
-   * Функция, возвращающая модель валидации, которая используется в `schema`
-   * @param {string} input Значение поля, которое нужно вставить в модель валидации
-   * @returns {any} Заполненная данными модель валидации
-   */
-  extractValueObject(input: string): any
+  /** Числовое правило валидации */
+  rule: RequiredNumberSchema<number | undefined, AnyObject>
   /**
    * Колбэк, вызываемый, когда пользовательский ввод валиден
-   * @param {AssertsShape<TShape> | Extract<TIn, null | undefined>} value Валидное значение
+   * @param {number} value Валидное значение
    */
-  onValid(value: AssertsShape<TShape> | Extract<TIn, null | undefined>): unknown
+  onValid(value: number): unknown
 }
 
 /**
  * Автоматически валидируемое текстовое поле
  * @returns {JSX.Element}
  */
-export const ValidatedTextField = <
-  TShape extends ObjectShape,
-  TContext extends AnyObject = AnyObject,
-  TIn extends Maybe<TypeOfShape<TShape>> = TypeOfShape<TShape>,
->({
+export const ValidatedTextField = ({
   label,
   value,
-  schema,
-  extractValueObject,
+  rule,
   onValid,
-}: ValidatedTextFieldProps<TShape, TContext, TIn>) => {
+}: ValidatedTextFieldProps) => {
   const [inputValue, setInputValue] = useState(value)
   const [error, setError] = useState<string>()
+
+  const schema = useMemo(
+    () =>
+      object({
+        value: rule,
+      }),
+    [rule],
+  )
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value
 
     schema
-      .validate(extractValueObject(input))
-      .then((data) => {
-        onValid(data)
+      .validate({
+        value: input,
+      })
+      .then(({ value }) => {
+        onValid(value)
         setError(undefined)
       })
       .catch((error: ValidationError) => {
