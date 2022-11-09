@@ -2,7 +2,7 @@ import { useConfigureToolbar } from 'hooks'
 import React, { useEffect } from 'react'
 import { PickPlanetModelDataButton } from './PickPlanetModelDataButton'
 import { GVariableView } from './VariableViews'
-import { PlanetRField, PlanetMField } from '../Fields'
+import { PlanetRField, PlanetMField } from './Fields'
 
 /** Секция конфигурации "Планета" */
 export const PlanetSection = () => {
