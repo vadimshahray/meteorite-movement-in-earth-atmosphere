@@ -7,6 +7,14 @@ export const selectObjectModelData = (state: RootState) =>
   state.object.physicalModel
 
 /**
+ * Селектор активной физической модели
+ * @param {RootState} state Состояние Redux-хранилища приложения
+ * @returns {PhysicalModel} Активная физическая модель
+ */
+export const selectActiveObjectModel = (state: RootState) =>
+  state.object.activePhysicalModel
+
+/**
  * Селектор расстояния от поверхности планеты до центра масс объекта
  * @param {RootState} state Состояние Redux-хранилища приложения
  * @returns {number} Расстояние от поверхности планеты до центра масс объекта

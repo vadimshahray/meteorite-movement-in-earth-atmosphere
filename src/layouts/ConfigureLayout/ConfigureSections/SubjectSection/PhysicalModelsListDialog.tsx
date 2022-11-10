@@ -1,5 +1,7 @@
 import { ListDialog, ListDialogItem } from 'components'
 import { useDispatch } from 'hooks'
+import { useSelector } from 'react-redux'
+import { selectActiveObjectModel } from 'selectors'
 import { setActivePhysicalModel } from 'slices'
 import { physicalModels } from 'utils'
 
@@ -10,6 +12,7 @@ export type PhysicalModelsListDialogProps = {
 export const PhysicalModelsListDialog = ({
   onClose,
 }: PhysicalModelsListDialogProps) => {
+  const activeModel = useSelector(selectActiveObjectModel)
   const dispatch = useDispatch()
 
   const items = physicalModels.map(
@@ -28,6 +31,7 @@ export const PhysicalModelsListDialog = ({
     <ListDialog
       title='Модели физических тел'
       items={items}
+      selectedItem={activeModel}
       onItemSelected={onItemSelected}
       onClose={onClose}
     />
