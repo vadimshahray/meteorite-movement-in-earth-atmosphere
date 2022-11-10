@@ -1,3 +1,6 @@
+export const selectIsUserSectionInputValid = (state: RootState) =>
+  state.configuration.isUserSectionInputValid
+
 /**
  * Селектор моделей планет
  * @param {RooState} state Внутреннее состояние хранилища
