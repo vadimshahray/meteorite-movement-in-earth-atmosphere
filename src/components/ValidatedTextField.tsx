@@ -1,5 +1,7 @@
 import { TextField } from '@mui/material'
+import { useDispatch } from 'hooks'
 import React, { useEffect, useMemo, useState } from 'react'
+import { setIsUserSectionInputValid } from 'slices'
 import { AnySchema, object, ValidationError } from 'yup'
 import { RequiredNumberSchema } from 'yup/lib/number'
 import { AnyObject } from 'yup/lib/types'
@@ -29,6 +31,8 @@ export const ValidatedTextField = ({
   rule,
   onValid,
 }: ValidatedTextFieldProps) => {
+  const dispatch = useDispatch()
+
   const [inputValue, setInputValue] = useState(value)
   const [error, setError] = useState<string>()
 
@@ -63,6 +67,10 @@ export const ValidatedTextField = ({
     setInputValue(value)
     setError(undefined)
   }, [value])
+
+  useEffect(() => {
+    dispatch(setIsUserSectionInputValid(!error))
+  }, [error, dispatch])
 
   return (
     <TextField
