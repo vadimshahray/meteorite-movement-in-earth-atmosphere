@@ -10,4 +10,6 @@ export const errorSnackbar = (title: string): OptionsObject => ({
       message={message!.toString()}
     />
   ),
+  autoHideDuration: 3000,
+  preventDuplicate: true,
 })
