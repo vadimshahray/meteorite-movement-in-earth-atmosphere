@@ -27,7 +27,15 @@ export const VariableView = ({
 
   return (
     <Container disableGutters>
-      <div className={styles.header_layout}>
+      <Container
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          paddingLeft: 0,
+          paddingRight: 0,
+        }}
+      >
         <Typography>{label}</Typography>
 
         <ToggleButtonGroup
@@ -41,7 +49,7 @@ export const VariableView = ({
             </ToggleButton>
           ))}
         </ToggleButtonGroup>
-      </div>
+      </Container>
 
       {activeItem}
     </Container>
