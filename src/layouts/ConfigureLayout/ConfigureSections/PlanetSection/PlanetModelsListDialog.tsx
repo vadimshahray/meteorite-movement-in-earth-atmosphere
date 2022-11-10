@@ -15,7 +15,7 @@ export type PickPlanetModelDataDialogProps = {
   onClose: () => void
 }
 
-export const PickPlanetModelDataDialog = ({
+export const PlanetModelsListDialog = ({
   onClose,
 }: PickPlanetModelDataDialogProps) => {
   const dispatch = useDispatch()
