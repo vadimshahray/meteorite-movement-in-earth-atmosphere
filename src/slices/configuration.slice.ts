@@ -8,6 +8,7 @@ const initialState: ConfigurationSliceState = {
     { key: '@Earth', name: 'Земля' },
     { key: '@Mars', name: 'Марс' },
   ],
+  isUserSectionInputValid: true,
 }
 
 export const configurationSlice = createSlice<
@@ -24,8 +25,12 @@ export const configurationSlice = createSlice<
     setPlanetData: (state, { payload }) => {
       setDefinedProperties(state.planet, payload)
     },
+
+    setIsUserSectionInputValid: (state, { payload }) => {
+      state.isUserSectionInputValid = payload
+    },
   },
 })
 
-export const { setActiveSection, setPlanetModelData, setPlanetData } =
+export const { setPlanetModelData, setPlanetData, setIsUserSectionInputValid } =
   configurationSlice.actions

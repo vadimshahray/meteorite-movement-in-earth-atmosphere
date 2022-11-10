@@ -4,6 +4,9 @@ type ConfigurationSliceState = {
   planet: PlanetData
   /** Модели планет */
   planetModels: PlanetModel[]
+
+  /** Данные секции, введенные пользователем, валидны */
+  isUserSectionInputValid: boolean
 }
 
 /**
@@ -30,5 +33,10 @@ interface ConfigurationSlice
   setPlanetData(
     state: ConfigurationSliceState,
     action: PayloadAction<Partial_PlanetData>,
+  ): void
+
+  setIsUserSectionInputValid(
+    state: ConfigurationSliceState,
+    action: PayloadAction<boolean>,
   ): void
 }
