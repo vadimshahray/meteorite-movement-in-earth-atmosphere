@@ -9,7 +9,9 @@ export const ConfigureForm = () => {
     <Container disableGutters>
       <ConfigureSections />
 
-      <LaunchButton onClick={handleLaunch} />
+      <Container>
+        <LaunchButton onClick={handleLaunch} />
+      </Container>
     </Container>
   )
 }
