@@ -1,5 +1,6 @@
 import { useConfigureToolbar } from 'hooks'
 import { useEffect } from 'react'
+import { ActivePhysicalModel } from './ActivePhysicalModel'
 import { KField, MField, RField, SField, YField } from './Fields'
 import { PickPhysicalObjectModelButton } from './PickPhysicalObjectModelButton'
 
@@ -15,6 +16,8 @@ export const SubjectSection = () => {
 
   return (
     <div>
+      <ActivePhysicalModel />
+
       <MField />
       <KField />
       <SField />
