@@ -18,19 +18,19 @@ export const ConfigureSections = () => {
 
   return (
     <Container disableGutters>
-      <Container disableGutters>
-        <SectionsTabs onActiveTabChange={handleActiveTabChange} />
-      </Container>
+      <SectionsTabs onActiveTabChange={handleActiveTabChange} />
 
-      <TabPanel value={activeTabPanel} index='0'>
-        <SubjectSection />
-      </TabPanel>
-      <TabPanel value={activeTabPanel} index='1'>
-        <PlanetSection />
-      </TabPanel>
-      <TabPanel value={activeTabPanel} index='2'>
-        <AtmosphereSection />
-      </TabPanel>
+      <Container>
+        <TabPanel value={activeTabPanel} index='0'>
+          <SubjectSection />
+        </TabPanel>
+        <TabPanel value={activeTabPanel} index='1'>
+          <PlanetSection />
+        </TabPanel>
+        <TabPanel value={activeTabPanel} index='2'>
+          <AtmosphereSection />
+        </TabPanel>
+      </Container>
     </Container>
   )
 }
