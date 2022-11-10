@@ -11,7 +11,7 @@ export const SubjectSection = () => {
     setActionButton(<PickPhysicalObjectModelButton />)
 
     return () => setActionButton()
-  })
+  }, [])
 
   return (
     <div>
