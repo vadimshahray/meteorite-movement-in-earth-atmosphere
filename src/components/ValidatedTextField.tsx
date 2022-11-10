@@ -61,6 +61,7 @@ export const ValidatedTextField = ({
 
   useEffect(() => {
     setInputValue(value)
+    setError(undefined)
   }, [value])
 
   return (
