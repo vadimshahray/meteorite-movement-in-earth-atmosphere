@@ -33,7 +33,7 @@ export const ListDialog = ({
 
       <List>
         {items.map((i) => (
-          <ListItem key={i.key}>
+          <ListItem key={i.key} disablePadding>
             <ListItemButton
               selected={selectedItem === i.key}
               onClick={() => onItemSelected(i.key)}
