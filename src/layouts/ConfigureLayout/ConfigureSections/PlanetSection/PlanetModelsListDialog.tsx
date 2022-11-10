@@ -1,11 +1,4 @@
-import {
-  Dialog,
-  DialogTitle,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-} from '@mui/material'
+import { ListDialog, ListDialogItem } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
 import { selectPlanetModels } from 'selectors'
@@ -19,25 +12,24 @@ export const PlanetModelsListDialog = ({
   onClose,
 }: PickPlanetModelDataDialogProps) => {
   const dispatch = useDispatch()
-  const planets = useSelector(selectPlanetModels)
+  const planets = useSelector(selectPlanetModels).map(
+    (p): ListDialogItem => ({
+      key: p.key,
+      label: p.name,
+    }),
+  )
 
-  const handleClick = (chosenPlanet: keyof PlanetModels) => {
-    dispatch(setPlanetModelData(chosenPlanet))
+  const handleClick = (chosenPlanet: string) => {
+    dispatch(setPlanetModelData(chosenPlanet as keyof PlanetModels))
     onClose()
   }
 
   return (
-    <Dialog open onClose={onClose}>
-      <DialogTitle>Данные других планет</DialogTitle>
-      <List>
-        {planets.map((p) => (
-          <ListItem key={p.key}>
-            <ListItemButton onClick={() => handleClick(p.key)}>
-              <ListItemText primary={p.name} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Dialog>
+    <ListDialog
+      title='Планеты Солнечной системы'
+      items={planets}
+      onClose={onClose}
+      onItemSelected={handleClick}
+    />
   )
 }
