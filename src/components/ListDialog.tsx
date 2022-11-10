@@ -15,6 +15,7 @@ export type ListDialogItem = {
 export type ListDialogProps = {
   title: string
   items: ListDialogItem[]
+  selectedItem?: string
   onItemSelected: (key: string) => void
   onClose: () => void
 }
@@ -22,6 +23,7 @@ export type ListDialogProps = {
 export const ListDialog = ({
   title,
   items,
+  selectedItem,
   onItemSelected,
   onClose,
 }: ListDialogProps) => {
@@ -32,7 +34,10 @@ export const ListDialog = ({
       <List>
         {items.map((i) => (
           <ListItem key={i.key}>
-            <ListItemButton onClick={() => onItemSelected(i.key)}>
+            <ListItemButton
+              selected={selectedItem === i.key}
+              onClick={() => onItemSelected(i.key)}
+            >
               <ListItemText primary={i.label} />
             </ListItemButton>
           </ListItem>
