@@ -1,12 +1,16 @@
 import { ValidatedTextField } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
-import { selectObjectModelR } from 'selectors'
+import { selectActiveObjectModel, selectObjectModelR } from 'selectors'
 import { setPhysicalModelData } from 'slices'
-import { positiveNumberRule } from 'utils'
+import { physicalModelsPropertiesMaps, positiveNumberRule } from 'utils'
 
 export const RField = () => {
   const dispatch = useDispatch()
+
+  const activeModel = useSelector(selectActiveObjectModel)
+  const isVisible = physicalModelsPropertiesMaps[activeModel].R
+
   const R = useSelector(selectObjectModelR)
 
   const handleValid = (value: number) => {
@@ -17,12 +21,12 @@ export const RField = () => {
     )
   }
 
-  return (
+  return isVisible ? (
     <ValidatedTextField
       label='Радиус объекта, м'
       value={R.toString()}
       rule={positiveNumberRule}
       onValid={handleValid}
     />
-  )
+  ) : null
 }
