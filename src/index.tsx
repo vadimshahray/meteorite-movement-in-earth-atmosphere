@@ -1,4 +1,9 @@
-import { DialogProvider, PersistProvider, ThemeProvider } from 'providers'
+import {
+  DialogProvider,
+  PersistProvider,
+  ThemeProvider,
+  SnackbarProvider,
+} from 'providers'
 import { StoreProvider } from 'providers/StoreProvider'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
@@ -10,9 +15,11 @@ root.render(
     <StoreProvider>
       <PersistProvider>
         <ThemeProvider>
-          <DialogProvider>
-            <App />
-          </DialogProvider>
+          <SnackbarProvider>
+            <DialogProvider>
+              <App />
+            </DialogProvider>
+          </SnackbarProvider>
         </ThemeProvider>
       </PersistProvider>
     </StoreProvider>
