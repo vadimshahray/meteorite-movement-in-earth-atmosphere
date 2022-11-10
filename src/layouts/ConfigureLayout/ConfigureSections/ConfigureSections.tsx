@@ -1,12 +1,16 @@
 import { Tab, Tabs } from '@mui/material'
 import { Container, TabPanel } from 'components'
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { selectIsUserSectionInputValid } from 'selectors'
 import { AtmosphereSection } from './AtmosphereSection'
 import { PlanetSection } from './PlanetSection'
 import { SubjectSection } from './SubjectSection'
 
 /** Секции конфигурации */
 export const ConfigureSections = () => {
+  const isUserInputValid = useSelector(selectIsUserSectionInputValid)
+
   const [activeTab, setActiveTab] = useState('0')
 
   const handleChange = (_: any, newActiveTab: number) => {
@@ -17,9 +21,9 @@ export const ConfigureSections = () => {
     <Container disableGutters>
       <Container disableGutters>
         <Tabs value={activeTab} onChange={handleChange} variant='fullWidth'>
-          <Tab label='Объект' value='0' />
-          <Tab label='Планета' value='1' />
-          <Tab label='Атмосфера' value='2' />
+          <Tab label='Объект' value='0' disabled={isUserInputValid} />
+          <Tab label='Планета' value='1' disabled={isUserInputValid} />
+          <Tab label='Атмосфера' value='2' disabled={isUserInputValid} />
         </Tabs>
       </Container>
 
