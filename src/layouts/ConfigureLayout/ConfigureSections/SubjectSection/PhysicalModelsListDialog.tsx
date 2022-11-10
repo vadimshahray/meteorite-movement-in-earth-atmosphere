@@ -21,6 +21,7 @@ export const PhysicalModelsListDialog = ({
 
   const onItemSelected = (key: string) => {
     dispatch(setActivePhysicalModel(key as PhysicalModels))
+    onClose()
   }
 
   return (
