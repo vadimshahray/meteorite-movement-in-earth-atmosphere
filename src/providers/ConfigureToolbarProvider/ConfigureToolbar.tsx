@@ -16,7 +16,7 @@ export type ConfigureToolbarProps = {
 /** Тулбар секции ввода данных ConfigureLayout */
 export const ConfigureToolbar = ({ actionButton }: ConfigureToolbarProps) => {
   return (
-    <Container>
+    <Container disableGutters>
       <Toolbar variant='dense'>
         <Typography variant='h6'>Настройки приложения</Typography>
 
