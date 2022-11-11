@@ -11,8 +11,10 @@ export const GGField = () => {
       <TextField
         disabled
         label='Гравитационная постоянная, м³·кг⁻¹·с⁻²'
-        value={G.view}
+        value={G.value}
       />
+
+      <TextField disabled label='•10ᕽ' value={G.power} />
     </NumberFieldGroup>
   )
 }
