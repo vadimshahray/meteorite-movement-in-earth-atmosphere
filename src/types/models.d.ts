@@ -32,11 +32,3 @@ type Partial_ExtendedData<ST, DT> = {
   /** Подробный вариант */
   detailed?: DT
 }
-
-/** Модель неизменяемых данных  */
-type ConstData<T> = {
-  /** Отображаемый вариант */
-  view: string
-  /** Значение */
-  value: T
-}
