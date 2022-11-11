@@ -1,9 +1,10 @@
 import { ListDialog, ListDialogItem } from 'components'
 import { useDispatch } from 'hooks'
+import { useSnackbar } from 'notistack'
 import { useSelector } from 'react-redux'
 import { selectActiveObjectModel } from 'selectors'
 import { setActivePhysicalModel } from 'slices'
-import { physicalModels } from 'utils'
+import { infoSnackbar, physicalModels } from 'utils'
 
 export type PhysicalModelsListDialogProps = {
   onClose: () => void
@@ -15,6 +16,8 @@ export const PhysicalModelsListDialog = ({
   const activeModel = useSelector(selectActiveObjectModel)
   const dispatch = useDispatch()
 
+  const { enqueueSnackbar } = useSnackbar()
+
   const items = physicalModels.map(
     (m): ListDialogItem => ({
       key: m.key as string,
@@ -22,8 +25,12 @@ export const PhysicalModelsListDialog = ({
     }),
   )
 
-  const onItemSelected = (item: ListDialogItem) => {
-    dispatch(setActivePhysicalModel(item.key as PhysicalModels))
+  const onItemSelected = (model: ListDialogItem) => {
+    dispatch(setActivePhysicalModel(model.key as PhysicalModels))
+    enqueueSnackbar(
+      `Данные модели '${model.label}' успешно использованы.`,
+      infoSnackbar('Обновление данных.'),
+    )
     onClose()
   }
 

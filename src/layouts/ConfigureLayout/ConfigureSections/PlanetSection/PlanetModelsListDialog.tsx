@@ -1,8 +1,10 @@
 import { ListDialog, ListDialogItem } from 'components'
 import { useDispatch } from 'hooks'
+import { useSnackbar } from 'notistack'
 import { useSelector } from 'react-redux'
 import { selectPlanetModels } from 'selectors'
 import { setPlanetModelData } from 'slices'
+import { infoSnackbar } from 'utils'
 
 export type PickPlanetModelDataDialogProps = {
   onClose: () => void
@@ -19,8 +21,14 @@ export const PlanetModelsListDialog = ({
     }),
   )
 
-  const handleClick = (chosenPlanet: ListDialogItem) => {
-    dispatch(setPlanetModelData(chosenPlanet.key as keyof PlanetModels))
+  const { enqueueSnackbar } = useSnackbar()
+
+  const onItemSelected = (planet: ListDialogItem) => {
+    dispatch(setPlanetModelData(planet.key as keyof PlanetModels))
+    enqueueSnackbar(
+      `Данные модели '${planet.label}' скопированы в поля формы`,
+      infoSnackbar('Копирование данных'),
+    )
     onClose()
   }
 
@@ -29,7 +37,7 @@ export const PlanetModelsListDialog = ({
       title='Планеты Солнечной системы'
       items={planets}
       onClose={onClose}
-      onItemSelected={handleClick}
+      onItemSelected={onItemSelected}
     />
   )
 }
