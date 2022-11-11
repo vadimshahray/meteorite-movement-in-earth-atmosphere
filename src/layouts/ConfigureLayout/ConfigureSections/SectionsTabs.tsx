@@ -21,7 +21,7 @@ export const SectionsTabs = ({
 
   return (
     <Tabs
-      value={isUserInputValid ? activeTab : -1}
+      value={isUserInputValid ? activeTab : false}
       onChange={handleChange}
       variant='fullWidth'
     >
