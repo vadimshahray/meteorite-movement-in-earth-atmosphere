@@ -11,7 +11,7 @@ type PlanetData = {
 /** Модель данных свободного ускорения `g` */
 type gDetailed = {
   /** Гравитационная постоянная */
-  G: ConstData<number>
+  G: PowerNumber
 }
 
 /** Модели планет */

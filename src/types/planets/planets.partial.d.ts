@@ -11,5 +11,5 @@ type Partial_PlanetData = {
 /** Частичная модель данных свободного ускорения `g` */
 type Partial_gDetailed = {
   /** Гравитационная постоянная */
-  G: ConstData<number>
+  G: PowerNumber
 }
