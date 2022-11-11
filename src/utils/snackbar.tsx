@@ -1,6 +1,8 @@
 import { Snackbar } from 'components'
 import { OptionsObject } from 'notistack'
 
+const DURATION = 3000
+
 export const errorSnackbar = (title: string): OptionsObject => ({
   content: (key, message) => (
     <Snackbar
@@ -10,6 +12,18 @@ export const errorSnackbar = (title: string): OptionsObject => ({
       message={message!.toString()}
     />
   ),
-  autoHideDuration: 3000,
+  autoHideDuration: DURATION,
   preventDuplicate: true,
+})
+
+export const infoSnackbar = (title: string): OptionsObject => ({
+  content: (key, message) => (
+    <Snackbar
+      id={key.toString()}
+      variant='info'
+      title={title}
+      message={message!.toLocaleString()}
+    />
+  ),
+  autoHideDuration: DURATION,
 })
