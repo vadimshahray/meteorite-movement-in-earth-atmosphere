@@ -19,8 +19,8 @@ export const PlanetModelsListDialog = ({
     }),
   )
 
-  const handleClick = (chosenPlanet: string) => {
-    dispatch(setPlanetModelData(chosenPlanet as keyof PlanetModels))
+  const handleClick = (chosenPlanet: ListDialogItem) => {
+    dispatch(setPlanetModelData(chosenPlanet.key as keyof PlanetModels))
     onClose()
   }
 
