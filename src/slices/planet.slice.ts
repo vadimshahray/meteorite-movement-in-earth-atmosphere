@@ -24,4 +24,4 @@ export const planetSlice = createSlice<PlanetSliceState, PlanetSlice>({
   },
 })
 
-export const { setPlanetModelData, setPlanetData } = configurationSlice.actions
+export const { setPlanetModelData, setPlanetData } = planetSlice.actions
