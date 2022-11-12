@@ -10,7 +10,12 @@ import {
   persistReducer,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import { themeSlice, configurationSlice, objectSlice } from 'slices'
+import {
+  themeSlice,
+  configurationSlice,
+  objectSlice,
+  planetSlice,
+} from 'slices'
 
 const persistConfig = {
   key: 'root',
@@ -21,6 +26,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   theme: themeSlice.reducer,
   object: objectSlice.reducer,
+  planet: planetSlice.reducer,
   configuration: configurationSlice.reducer,
 })
 
