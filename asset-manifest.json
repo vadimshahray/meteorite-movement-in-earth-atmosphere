@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/%7Bmovement-in-different-atmospheres%7D/static/css/main.305f4b44.css",
+    "main.js": "/%7Bmovement-in-different-atmospheres%7D/static/js/main.9e1e7249.js",
+    "index.html": "/%7Bmovement-in-different-atmospheres%7D/index.html",
+    "main.305f4b44.css.map": "/%7Bmovement-in-different-atmospheres%7D/static/css/main.305f4b44.css.map",
+    "main.9e1e7249.js.map": "/%7Bmovement-in-different-atmospheres%7D/static/js/main.9e1e7249.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.305f4b44.css",
+    "static/js/main.9e1e7249.js"
+  ]
+}
