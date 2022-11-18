@@ -19,6 +19,7 @@ export const MField = () => {
 
   return (
     <ValidatedTextField
+      adornment='M'
       label='Масса, кг'
       value={m.toString()}
       rule={positiveNumberRule}

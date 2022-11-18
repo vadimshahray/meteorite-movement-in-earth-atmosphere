@@ -39,6 +39,7 @@ export const GField = () => {
     <NumberFieldGroup>
       <ValidatedTextField
         value={g.value.toString()}
+        adornment='g'
         label='Ускорение свободного падения, м/с²'
         rule={positiveNumberRule}
         onValid={handleValueValid}

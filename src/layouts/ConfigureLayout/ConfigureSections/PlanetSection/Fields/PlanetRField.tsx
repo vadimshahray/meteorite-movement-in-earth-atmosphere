@@ -39,6 +39,7 @@ export const PlanetRField = () => {
     <NumberFieldGroup>
       <ValidatedTextField
         label='Радиус планеты, м'
+        adornment='R'
         value={R.value.toString()}
         rule={positiveNumberRule}
         onValid={handleValueValid}
