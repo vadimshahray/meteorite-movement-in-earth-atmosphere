@@ -19,6 +19,7 @@ export const SField = () => {
 
   return (
     <ValidatedTextField
+      adornment='S'
       label='Площадь поперечного сечения, м²'
       value={S.toString()}
       rule={positiveNumberRule}

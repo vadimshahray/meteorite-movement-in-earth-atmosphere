@@ -19,6 +19,7 @@ export const YField = () => {
 
   return (
     <ValidatedTextField
+      adornment='y₀'
       label='Расстояние от поверхности планеты, м'
       value={y0.toString()}
       rule={positiveNumberRule}

@@ -24,6 +24,7 @@ export const RField = () => {
   return isVisible ? (
     <ValidatedTextField
       label='Радиус объекта, м'
+      adornment='R'
       value={R.toString()}
       rule={positiveNumberRule}
       onValid={handleValid}

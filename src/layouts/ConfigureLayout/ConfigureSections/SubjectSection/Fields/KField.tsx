@@ -19,6 +19,7 @@ export const KField = () => {
 
   return (
     <ValidatedTextField
+      adornment='k'
       label='Коэффициент лобового сопротивления' //TODO: СИ
       value={K.toString()}
       rule={positiveNumberRule}

@@ -1,4 +1,4 @@
-import { TextField } from '@mui/material'
+import { InputAdornment, TextField } from '@mui/material'
 import { useDispatch } from 'hooks'
 import React, { useEffect, useMemo, useState } from 'react'
 import { setIsUserSectionInputValid } from 'slices'
@@ -19,6 +19,9 @@ export type ValidatedTextFieldProps = {
    * @param {number} value Валидное значение
    */
   onValid(value: number): unknown
+
+  /** Приписка к полю с левой стороны */
+  adornment?: string
 }
 
 /**
@@ -29,6 +32,7 @@ export const ValidatedTextField = ({
   label,
   value,
   rule,
+  adornment,
   onValid,
 }: ValidatedTextFieldProps) => {
   const dispatch = useDispatch()
@@ -79,6 +83,11 @@ export const ValidatedTextField = ({
       error={!!error}
       helperText={error}
       onChange={handleChange}
+      InputProps={{
+        startAdornment: adornment && (
+          <InputAdornment position='start'>{adornment}</InputAdornment>
+        ),
+      }}
     />
   )
 }
