@@ -2,6 +2,8 @@
 type ConfigurationSliceState = {
   /** Данные секции, введенные пользователем, валидны */
   isUserSectionInputValid: boolean
+
+  activeSection: Sections
 }
 
 /**
@@ -13,5 +15,10 @@ interface ConfigurationSlice
   setIsUserSectionInputValid(
     state: ConfigurationSliceState,
     action: PayloadAction<boolean>,
+  ): void
+
+  setActiveSection(
+    state: ConfigurationSliceState,
+    action: PayloadAction<Sections>,
   ): void
 }
