@@ -1,3 +1,5 @@
+import { calculatePowerNumber } from 'utils'
+
 /**
  * Селектор моделей планет
  * @param {RooState} state Внутреннее состояние хранилища
@@ -13,12 +15,18 @@ export const selectPlanetModels = (state: RootState) =>
  */
 export const selectPlanetR = (state: RootState) => state.planet.planet.R
 
+export const selectPlantRValue = (state: RootState) =>
+  calculatePowerNumber(state.planet.planet.R)
+
 /**
  * Селектор введенной массы планеты
  * @param {RooState} state Внутреннее состояние хранилища
  * @returns {PowerNumber} Масс планеты
  */
 export const selectPlanetM = (state: RootState) => state.planet.planet.M
+
+export const selectPlantMValue = (state: RootState) =>
+  calculatePowerNumber(state.planet.planet.M)
 
 /**
  * Селектор активного ввода данных g
