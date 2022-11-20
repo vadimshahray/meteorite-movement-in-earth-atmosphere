@@ -15,7 +15,7 @@ export const selectPlanetModels = (state: RootState) =>
  */
 export const selectPlanetR = (state: RootState) => state.planet.planet.R
 
-export const selectPlantRValue = (state: RootState) =>
+export const selectPlanetRValue = (state: RootState) =>
   calculatePowerNumber(state.planet.planet.R)
 
 /**
@@ -25,7 +25,7 @@ export const selectPlantRValue = (state: RootState) =>
  */
 export const selectPlanetM = (state: RootState) => state.planet.planet.M
 
-export const selectPlantMValue = (state: RootState) =>
+export const selectPlanetMValue = (state: RootState) =>
   calculatePowerNumber(state.planet.planet.M)
 
 /**
