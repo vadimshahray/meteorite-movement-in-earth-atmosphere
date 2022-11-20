@@ -19,7 +19,7 @@ export const objectSlice = createSlice<ObjectSliceState, ObjectSlice>({
       setDefinedProperties(state.physicalModel, payload)
     },
 
-    setActiveModelData: (state) => {
+    setActiveObjectModelData: (state) => {
       state.physicalModel = physicalModels.find(
         (m) => m.key === state.activePhysicalModel, //TODO: Refactor
       )!.data
@@ -30,5 +30,5 @@ export const objectSlice = createSlice<ObjectSliceState, ObjectSlice>({
 export const {
   setActivePhysicalModel,
   setPhysicalModelData,
-  setActiveModelData,
+  setActiveObjectModelData,
 } = objectSlice.actions
