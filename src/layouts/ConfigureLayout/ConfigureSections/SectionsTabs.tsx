@@ -1,7 +1,10 @@
 import { Tab, Tabs } from '@mui/material'
-import React, { useState } from 'react'
+import { useDispatch } from 'hooks'
+import { sections } from 'models'
+import React from 'react'
 import { useSelector } from 'react-redux'
-import { selectIsUserSectionInputValid } from 'selectors'
+import { selectActiveSection, selectIsUserSectionInputValid } from 'selectors'
+import { setActiveSection } from 'slices'
 
 export type SectionsTabsProps = {
   onActiveTabChange: (value: number) => void
@@ -10,13 +13,16 @@ export type SectionsTabsProps = {
 export const SectionsTabs = ({
   onActiveTabChange: onActiveTabChanged,
 }: SectionsTabsProps) => {
+  const dispatch = useDispatch()
+
   const isUserInputValid = useSelector(selectIsUserSectionInputValid)
+  const activeSection = useSelector(selectActiveSection)
 
-  const [activeTab, setActiveTab] = useState('0')
+  const activeTab = sections.findIndex((s) => s.key === activeSection)
 
-  const handleChange = (_: any, newActiveTab: number) => {
-    setActiveTab(newActiveTab.toString())
-    onActiveTabChanged(newActiveTab)
+  const handleChange = (value: any, index: number) => {
+    dispatch(setActiveSection(sections[index].key))
+    onActiveTabChanged(index)
   }
 
   return (
@@ -25,9 +31,14 @@ export const SectionsTabs = ({
       onChange={handleChange}
       variant='fullWidth'
     >
-      <Tab label='Объект' value='0' disabled={!isUserInputValid} />
-      <Tab label='Планета' value='1' disabled={!isUserInputValid} />
-      <Tab label='Атмосфера' value='2' disabled={!isUserInputValid} />
+      {sections.map((s, i) => (
+        <Tab
+          key={s.key}
+          label={s.name}
+          value={i}
+          disabled={!isUserInputValid}
+        />
+      ))}
     </Tabs>
   )
 }
