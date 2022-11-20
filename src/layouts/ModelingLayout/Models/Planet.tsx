@@ -2,13 +2,13 @@ import { useSpring, animated, config } from '@react-spring/three'
 import { PresentationControls } from '@react-three/drei'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { selectPlanetR } from 'selectors'
+import { selectPlanetRValue } from 'selectors'
 
 export const Planet = React.memo(
   () => {
-    const R = useSelector(selectPlanetR)
+    const R = useSelector(selectPlanetRValue)
 
-    const { scale } = useSpring({ scale: R.value, config: config.stiff })
+    const { scale } = useSpring({ scale: R, config: config.stiff })
 
     return (
       <PresentationControls
