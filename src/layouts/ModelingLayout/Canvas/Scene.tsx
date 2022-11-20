@@ -1,6 +1,7 @@
 import { useThree } from '@react-three/fiber'
 import React from 'react'
-import { Box, Planet } from '../Models'
+import { ActivePhysicalObject } from './ActivePhysicalObject'
+import { Planet } from '../Models'
 
 export const Scene = () => {
   useThree(({ camera }) => {
@@ -9,7 +10,7 @@ export const Scene = () => {
 
   return (
     <>
-      <Box />
+      <ActivePhysicalObject />
 
       <Planet />
     </>
