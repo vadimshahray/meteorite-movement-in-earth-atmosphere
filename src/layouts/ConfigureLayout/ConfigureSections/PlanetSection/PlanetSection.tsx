@@ -6,15 +6,15 @@ import { GVariableView } from './VariableViews'
 
 /** Секция конфигурации "Планета" */
 export const PlanetSection = () => {
-  const { setActionButton } = useConfigureToolbar()
+  const { setActionButtons } = useConfigureToolbar()
 
   useEffect(() => {
-    setActionButton(<PickPlanetModelDataButton />)
+    setActionButtons([<PickPlanetModelDataButton />])
 
     return () => {
-      setActionButton()
+      setActionButtons()
     }
-  }, [setActionButton])
+  }, [setActionButtons])
 
   return (
     <div>
