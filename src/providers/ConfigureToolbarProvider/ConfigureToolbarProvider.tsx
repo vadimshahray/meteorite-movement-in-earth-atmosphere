@@ -5,25 +5,25 @@ import {
 } from './ConfigureToolbar'
 
 export const ConfigureToolbarContext = React.createContext<{
-  setActionButton: (btn?: ConfigureToolbarActionButton) => void
+  setActionButtons: (btns?: ConfigureToolbarActionButton[]) => void
 }>({
-  setActionButton: (_) => {},
+  setActionButtons: (_) => {},
 })
 
 export const ConfigureToolbarProvider = ({ children }: PropsWithChildren) => {
-  const [btn, setBtn] = useState<ConfigureToolbarActionButton>()
+  const [btns, setBtns] = useState<ConfigureToolbarActionButton[]>()
 
-  const setActionButton = useCallback(
-    (actionButton?: ConfigureToolbarActionButton) => {
-      setBtn(actionButton)
+  const setActionButtons = useCallback(
+    (actionButtons?: ConfigureToolbarActionButton[]) => {
+      setBtns(actionButtons)
     },
     [],
   )
 
   return (
-    <ConfigureToolbarContext.Provider value={{ setActionButton }}>
+    <ConfigureToolbarContext.Provider value={{ setActionButtons }}>
       <>
-        <ConfigureToolbar actionButton={btn} />
+        <ConfigureToolbar actionButtons={btns} />
         {children}
       </>
     </ConfigureToolbarContext.Provider>

@@ -4,24 +4,23 @@ import { Container, ThemeButton } from 'components'
 import React from 'react'
 
 export type ConfigureToolbarActionButton = React.ReactElement<
-  ButtonProps,
+  ButtonProps & { key: string },
   typeof Button
 >
 
 export type ConfigureToolbarProps = {
-  actionButton?: ConfigureToolbarActionButton
+  actionButtons?: ConfigureToolbarActionButton[]
 }
 
 /** Тулбар секции ввода данных ConfigureLayout */
-export const ConfigureToolbar = ({ actionButton }: ConfigureToolbarProps) => {
+export const ConfigureToolbar = ({ actionButtons }: ConfigureToolbarProps) => {
   return (
     <Container disableGutters>
-      <Toolbar variant='dense'>
-        <Typography variant='h6' sx={{ flexGrow: 1 }}>
-          Настройки приложения
-        </Typography>
+      <Toolbar variant='dense' sx={{ justifyContent: 'space-between' }}>
+        <Typography variant='h6'>Настройки приложения</Typography>
 
-        {actionButton}
+        <div>{actionButtons}</div>
+
         <ThemeButton />
       </Toolbar>
     </Container>

@@ -11,7 +11,7 @@ export const PickPhysicalObjectModelButton = () => {
   }
 
   return (
-    <IconButton onClick={handleClick}>
+    <IconButton key='PhysicalModelsListDialog' onClick={handleClick}>
       <ViewInArIcon />
     </IconButton>
   )
