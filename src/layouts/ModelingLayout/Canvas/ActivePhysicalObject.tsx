@@ -23,10 +23,10 @@ export const ActivePhysicalObject = () => {
 }
 
 const getActiveObjectModel = (activeModel: PhysicalModels) => {
-  switch (activeModel) {
-    case '@Ball':
-      return <Ball />
-    default:
-      return <Box />
+  const models: Record<PhysicalModels, JSX.Element> = {
+    '@Ball': <Ball />,
+    '@Box': <Box />,
   }
+
+  return models[activeModel]
 }
