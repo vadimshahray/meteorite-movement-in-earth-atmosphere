@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState: ConfigurationSliceState = {
   isUserSectionInputValid: true,
+  activeSection: '@Object',
 }
 
 export const configurationSlice = createSlice<
@@ -14,7 +15,12 @@ export const configurationSlice = createSlice<
     setIsUserSectionInputValid: (state, { payload }) => {
       state.isUserSectionInputValid = payload
     },
+
+    setActiveSection: (state, { payload }) => {
+      state.activeSection = payload
+    },
   },
 })
 
-export const { setIsUserSectionInputValid } = configurationSlice.actions
+export const { setIsUserSectionInputValid, setActiveSection } =
+  configurationSlice.actions
