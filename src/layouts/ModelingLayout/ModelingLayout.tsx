@@ -1,8 +1,8 @@
 import { FullContainer } from 'components'
 import React from 'react'
 import { styleClasses } from 'utils'
+import { Canvas } from './Canvas'
 import styles from './modelingLayout.module.css'
-import { Scene } from './Scene'
 
 /**
  * Блок, содержащий 3D модель
@@ -14,7 +14,7 @@ export const ModelingLayout = (props: LayoutProps) => {
       {...props}
       className={styleClasses(props.className, styles.layout)}
     >
-      <Scene />
+      <Canvas />
     </FullContainer>
   )
 }
