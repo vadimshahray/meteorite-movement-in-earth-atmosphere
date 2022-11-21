@@ -5,8 +5,14 @@ import { planetModels, setDefinedProperties } from 'utils'
 const initialState: PlanetSliceState = {
   planet: defaultPlanet,
   planetModels: [
+    { key: '@Mercury', name: 'Меркурий' },
+    { key: '@Venus', name: 'Венера' },
     { key: '@Earth', name: 'Земля' },
     { key: '@Mars', name: 'Марс' },
+    { key: '@Jupiter', name: 'Юпитер' },
+    { key: '@Saturn', name: 'Сатурн' },
+    { key: '@Uranus', name: 'Уран' },
+    { key: '@Neptune', name: 'Нептун' },
   ],
 }
 
