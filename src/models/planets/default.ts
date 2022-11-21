@@ -12,10 +12,7 @@ export const defaultPlanet: PlanetData = {
   },
   g: {
     active: 'short',
-    short: {
-      value: 0,
-      power: 1,
-    },
+    short: 0,
     detailed: {
       G,
     },

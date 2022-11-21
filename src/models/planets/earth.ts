@@ -12,10 +12,7 @@ export const EarthPlanet: PlanetData = {
   },
   g: {
     active: 'short',
-    short: {
-      value: 9.78,
-      power: 1,
-    }, //TODO: уточнить
+    short: 9.78,
     detailed: {
       G,
     },
