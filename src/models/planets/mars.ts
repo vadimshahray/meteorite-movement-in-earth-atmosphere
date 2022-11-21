@@ -12,7 +12,7 @@ export const MarsPlanet: PlanetData = {
   },
   g: {
     active: 'short',
-    short: 11,
+    short: 3.711,
     detailed: {
       G,
     },
