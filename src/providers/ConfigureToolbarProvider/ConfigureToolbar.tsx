@@ -19,7 +19,11 @@ export const ConfigureToolbar = ({ actionButtons }: ConfigureToolbarProps) => {
       <Toolbar variant='dense' sx={{ justifyContent: 'space-between' }}>
         <Typography variant='h6'>Настройки приложения</Typography>
 
-        <div>{actionButtons}</div>
+        <div>
+          {actionButtons?.map((btn, i) => (
+            <span key={i}>{btn}</span>
+          ))}
+        </div>
 
         <ThemeButton />
       </Toolbar>
