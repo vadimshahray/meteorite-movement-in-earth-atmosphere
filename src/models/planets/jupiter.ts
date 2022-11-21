@@ -12,10 +12,7 @@ export const JupiterPlanet: PlanetData = {
   },
   g: {
     active: 'short',
-    short: {
-      value: 24.79,
-      power: 1,
-    }, //TODO: уточнить
+    short: 24.79,
     detailed: {
       G,
     },

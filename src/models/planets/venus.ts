@@ -12,10 +12,7 @@ export const VenusPlanet: PlanetData = {
   },
   g: {
     active: 'short',
-    short: {
-      value: 8.87,
-      power: 1,
-    }, //TODO: уточнить
+    short: 8.87,
     detailed: {
       G,
     },

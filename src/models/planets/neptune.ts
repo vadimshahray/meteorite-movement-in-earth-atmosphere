@@ -12,10 +12,7 @@ export const NeptunePlanet: PlanetData = {
   },
   g: {
     active: 'short',
-    short: {
-      value: 11.15,
-      power: 1,
-    }, //TODO: уточнить
+    short: 11.15,
     detailed: {
       G,
     },

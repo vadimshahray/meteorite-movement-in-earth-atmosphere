@@ -12,10 +12,7 @@ export const MarsPlanet: PlanetData = {
   },
   g: {
     active: 'short',
-    short: {
-      value: 11,
-      power: 1,
-    }, //TODO: уточнить
+    short: 11,
     detailed: {
       G,
     },
