@@ -30,4 +30,6 @@ interface ObjectSlice extends SliceCaseReducers<ObjectSliceState> {
     state: ObjectSliceState,
     action: PayloadAction<PhysicalModels>,
   ): void
+
+  setActiveModelData(state: ObjectSliceState): void
 }
