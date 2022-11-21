@@ -5,7 +5,7 @@ type PlanetData = {
   /** Масса планеты */
   M: PowerNumber
   /** Ускорение свободного падения */
-  g: ExtendedData<PowerNumber, gDetailed>
+  g: ExtendedData<number, gDetailed>
 }
 
 /** Модель данных свободного ускорения `g` */

@@ -12,10 +12,7 @@ export const SaturnPlanet: PlanetData = {
   },
   g: {
     active: 'short',
-    short: {
-      value: 10.44,
-      power: 1,
-    }, //TODO: уточнить
+    short: 10.44,
     detailed: {
       G,
     },

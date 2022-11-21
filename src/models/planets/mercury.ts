@@ -12,10 +12,7 @@ export const MercuryPlanet: PlanetData = {
   },
   g: {
     active: 'short',
-    short: {
-      value: 3.7,
-      power: 1,
-    }, //TODO: уточнить
+    short: 3.7,
     detailed: {
       G,
     },
