@@ -3,7 +3,7 @@ import { G } from './constants'
 /** Дефолтная конфигурация планеты */
 export const defaultPlanet: PlanetData = {
   R: {
-    value: 0,
+    value: 1,
     power: 1,
   },
   M: {
