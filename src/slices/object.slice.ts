@@ -13,13 +13,22 @@ export const objectSlice = createSlice<ObjectSliceState, ObjectSlice>({
   reducers: {
     setActivePhysicalModel: (state, { payload }) => {
       state.activePhysicalModel = payload
-      state.physicalModel = physicalModels.find((m) => m.key === payload)!.data
+      state.physicalModel = physicalModels.find((m) => m.key === payload)!.data //TODO: Refactor
     },
     setPhysicalModelData: (state, { payload }) => {
       setDefinedProperties(state.physicalModel, payload)
     },
+
+    setActiveObjectModelData: (state) => {
+      state.physicalModel = physicalModels.find(
+        (m) => m.key === state.activePhysicalModel, //TODO: Refactor
+      )!.data
+    },
   },
 })
 
-export const { setActivePhysicalModel, setPhysicalModelData } =
-  objectSlice.actions
+export const {
+  setActivePhysicalModel,
+  setPhysicalModelData,
+  setActiveObjectModelData,
+} = objectSlice.actions

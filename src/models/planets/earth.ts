@@ -3,19 +3,16 @@ import { G } from './constants'
 /** Дефолтная конфигурация планеты "Земля" */
 export const EarthPlanet: PlanetData = {
   R: {
-    value: 0,
-    power: 1,
-  }, // TODO: fill
+    value: 6371,
+    power: 3,
+  },
   M: {
-    value: 0,
-    power: 1,
-  }, // TODO: fill
+    value: 5.9726,
+    power: 24,
+  },
   g: {
     active: 'short',
-    short: {
-      value: 9.87,
-      power: 1,
-    }, //TODO: уточнить
+    short: 9.78,
     detailed: {
       G,
     },
