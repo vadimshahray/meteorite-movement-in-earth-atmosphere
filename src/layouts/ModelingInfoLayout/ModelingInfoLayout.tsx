@@ -1,7 +1,6 @@
-import { FullContainer } from 'components'
+import { Container } from 'components'
 import { useToolbar } from 'hooks'
 import { useEffect } from 'react'
-import { StopModelingButton } from './StopModelingButton'
 
 export const ModelingInfoLayout = () => {
   const { setTitle } = useToolbar()
@@ -10,9 +9,5 @@ export const ModelingInfoLayout = () => {
     setTitle('Моделирование')
   }, [setTitle])
 
-  return (
-    <FullContainer>
-      <StopModelingButton />
-    </FullContainer>
-  )
+  return <Container></Container>
 }
