@@ -1,3 +1,3 @@
 export * from './useDispatch'
 export * from './useDialog'
-export * from './useConfigureToolbar'
+export * from './useToolbar'
