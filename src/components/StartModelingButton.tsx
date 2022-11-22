@@ -1,23 +1,22 @@
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import { Button } from 'components'
+import { useDispatch } from 'hooks'
 import { useSnackbar } from 'notistack'
 import { useSelector } from 'react-redux'
 import { selectIsUserSectionInputValid } from 'selectors'
+import { setIsModeling } from 'slices'
 import { errorSnackbar } from 'utils/snackbar'
 
-export type LaunchButtonProps = {
-  onClick: () => unknown
-}
-
 /** Кнопка запуска моделирования */
-export const LaunchButton = ({ onClick }: LaunchButtonProps) => {
+export const StartModelingButton = () => {
+  const dispatch = useDispatch()
   const isUserInputValid = useSelector(selectIsUserSectionInputValid)
 
   const { enqueueSnackbar } = useSnackbar()
 
   const handleClick = () => {
     if (isUserInputValid) {
-      onClick()
+      dispatch(setIsModeling(true))
       return
     }
 
