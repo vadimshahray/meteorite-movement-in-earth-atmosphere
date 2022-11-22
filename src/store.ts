@@ -16,6 +16,7 @@ import {
   objectSlice,
   planetSlice,
 } from 'slices'
+import { modelingSlice } from 'slices/modeling.slice'
 
 const persistConfig = {
   key: 'root',
@@ -28,6 +29,7 @@ const rootReducer = combineReducers({
   object: objectSlice.reducer,
   planet: planetSlice.reducer,
   configuration: configurationSlice.reducer,
+  modeling: modelingSlice.reducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
