@@ -1,3 +1,5 @@
+import { FullContainer } from 'components'
+import { ToolbarProvider } from 'providers'
 import { useSelector } from 'react-redux'
 import { selectIsModeling } from 'selectors'
 import styles from './styles.module.css'
@@ -7,9 +9,15 @@ import { ModelingInfoLayout } from '../ModelingInfoLayout'
 export const InfoLayout = () => {
   const isModeling = useSelector(selectIsModeling)
 
-  return isModeling ? (
-    <ModelingInfoLayout />
-  ) : (
-    <ConfigureLayout className={styles.configure_layout} />
+  return (
+    <FullContainer>
+      <ToolbarProvider>
+        {isModeling ? (
+          <ModelingInfoLayout />
+        ) : (
+          <ConfigureLayout className={styles.configure_layout} />
+        )}
+      </ToolbarProvider>
+    </FullContainer>
   )
 }
