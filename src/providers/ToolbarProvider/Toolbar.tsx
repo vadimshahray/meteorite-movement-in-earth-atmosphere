@@ -1,22 +1,22 @@
-import { Toolbar, Typography } from '@mui/material'
+import { Toolbar as MUIToolbar, Typography } from '@mui/material'
 import { ButtonProps, Button } from '@mui/material'
 import { Container, ThemeButton } from 'components'
 import React from 'react'
 
-export type ConfigureToolbarActionButton = React.ReactElement<
+export type ToolbarActionButton = React.ReactElement<
   ButtonProps & { key: string },
   typeof Button
 >
 
-export type ConfigureToolbarProps = {
-  actionButtons?: ConfigureToolbarActionButton[]
+export type ToolbarProps = {
+  actionButtons?: ToolbarActionButton[]
 }
 
 /** Тулбар секции ввода данных ConfigureLayout */
-export const ConfigureToolbar = ({ actionButtons }: ConfigureToolbarProps) => {
+export const Toolbar = ({ actionButtons }: ToolbarProps) => {
   return (
     <Container disableGutters>
-      <Toolbar variant='dense' sx={{ justifyContent: 'space-between' }}>
+      <MUIToolbar variant='dense' sx={{ justifyContent: 'space-between' }}>
         <Typography variant='h6'>Настройки приложения</Typography>
 
         <div>
@@ -26,7 +26,7 @@ export const ConfigureToolbar = ({ actionButtons }: ConfigureToolbarProps) => {
         </div>
 
         <ThemeButton />
-      </Toolbar>
+      </MUIToolbar>
     </Container>
   )
 }
