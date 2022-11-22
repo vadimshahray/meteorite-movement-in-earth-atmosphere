@@ -1,5 +1,10 @@
 import { FullContainer } from 'components'
+import { StopModelingButton } from './StopModelingButton'
 
 export const ModelingInfoLayout = () => {
-  return <FullContainer></FullContainer>
+  return (
+    <FullContainer>
+      <StopModelingButton />
+    </FullContainer>
+  )
 }
