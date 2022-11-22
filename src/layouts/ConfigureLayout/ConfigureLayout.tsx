@@ -1,4 +1,4 @@
-import { FullContainer } from 'components'
+import { Container } from 'components'
 import { useToolbar } from 'hooks'
 import React, { useEffect } from 'react'
 import { styleClasses } from 'utils'
@@ -17,11 +17,12 @@ export const ConfigureLayout = ({ className, ...props }: LayoutProps) => {
   }, [setTitle])
 
   return (
-    <FullContainer
+    <Container
+      disableGutters
       className={styleClasses(styles.layout, className)}
       {...props}
     >
       <ConfigureForm />
-    </FullContainer>
+    </Container>
   )
 }
