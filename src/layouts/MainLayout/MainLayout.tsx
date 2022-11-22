@@ -1,5 +1,5 @@
 import { FullContainer } from 'components'
-import { InfoLayout, ModelingLayout, PlayerLayout } from 'layouts'
+import { InfoLayout, ModelingLayout } from 'layouts'
 import React from 'react'
 import styles from './mainLayout.module.css'
 
@@ -12,7 +12,6 @@ export const MainLayout = () => {
     <FullContainer className={styles.layout}>
       <ModelingLayout />
       <InfoLayout />
-      <PlayerLayout />
     </FullContainer>
   )
 }
