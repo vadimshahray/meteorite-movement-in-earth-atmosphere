@@ -13,3 +13,5 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
     },
   },
 })
+
+export const { setIsModeling } = modelingSlice.actions
