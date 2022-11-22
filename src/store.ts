@@ -21,7 +21,7 @@ import { modelingSlice } from 'slices/modeling.slice'
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['configuration'],
+  blacklist: ['configuration', 'modeling'],
 }
 
 const rootReducer = combineReducers({
