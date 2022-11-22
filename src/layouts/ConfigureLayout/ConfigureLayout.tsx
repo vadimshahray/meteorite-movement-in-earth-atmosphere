@@ -1,6 +1,6 @@
 import { FullContainer } from 'components'
-import { ToolbarProvider } from 'providers'
-import React from 'react'
+import { useToolbar } from 'hooks'
+import React, { useEffect } from 'react'
 import { styleClasses } from 'utils'
 import { ConfigureForm } from './ConfigureForm'
 import styles from './configureLayout.module.css'
@@ -10,14 +10,18 @@ import styles from './configureLayout.module.css'
  * @returns {JSX.Element}
  */
 export const ConfigureLayout = ({ className, ...props }: LayoutProps) => {
+  const { setTitle } = useToolbar()
+
+  useEffect(() => {
+    setTitle('Настройки приложения')
+  }, [setTitle])
+
   return (
     <FullContainer
       className={styleClasses(styles.layout, className)}
       {...props}
     >
-      <ToolbarProvider>
-        <ConfigureForm />
-      </ToolbarProvider>
+      <ConfigureForm />
     </FullContainer>
   )
 }
