@@ -1,13 +1,13 @@
 import React, { useState, PropsWithChildren, useCallback } from 'react'
 import { Toolbar, ToolbarActionButton } from './Toolbar'
 
-export const ToolbarContext = React.createContext<{
-  setActionButtons: (btns?: ToolbarActionButton[]) => void
-}>({
-  setActionButtons: (_) => {},
+export const ToolbarContext = React.createContext({
+  setTitle: (title: string) => {},
+  setActionButtons: (btns?: ToolbarActionButton[]) => {},
 })
 
 export const ToolbarProvider = ({ children }: PropsWithChildren) => {
+  const [title, setTitle] = useState('')
   const [btns, setBtns] = useState<ToolbarActionButton[]>()
 
   const setActionButtons = useCallback(
@@ -18,9 +18,9 @@ export const ToolbarProvider = ({ children }: PropsWithChildren) => {
   )
 
   return (
-    <ToolbarContext.Provider value={{ setActionButtons }}>
+    <ToolbarContext.Provider value={{ setTitle, setActionButtons }}>
       <>
-        <Toolbar actionButtons={btns} />
+        <Toolbar title={title} actionButtons={btns} />
 
         {children}
       </>
