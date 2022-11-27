@@ -2,8 +2,8 @@ import { Container } from 'components'
 import { useToolbar } from 'hooks'
 import React, { useEffect } from 'react'
 import { styleClasses } from 'utils'
-import { ConfigureForm } from './ConfigureForm'
 import styles from './configureLayout.module.css'
+import { ConfigureSections } from './ConfigureSections'
 
 /**
  * Блок, содержащий все, что связано с настройкой физических моделей (поля ввода данных и т.п.)
@@ -22,7 +22,7 @@ export const ConfigureLayout = ({ className, ...props }: LayoutProps) => {
       className={styleClasses(styles.layout, className)}
       {...props}
     >
-      <ConfigureForm />
+      <ConfigureSections />
     </Container>
   )
 }
