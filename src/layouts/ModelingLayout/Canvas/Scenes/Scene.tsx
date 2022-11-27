@@ -1,7 +1,7 @@
 import { useThree } from '@react-three/fiber'
 import React from 'react'
-import { ActivePhysicalObject } from './ActivePhysicalObject'
-import { Planet } from '../Models'
+import { Planet } from '../../Models'
+import { ActivePhysicalObject } from '../ActivePhysicalObject'
 
 export const Scene = () => {
   useThree(({ camera }) => {

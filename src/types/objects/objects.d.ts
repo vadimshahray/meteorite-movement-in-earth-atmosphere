@@ -14,7 +14,7 @@ type PhysicalModel = {
 }
 
 /** Физические объекты, используемые в приложении */
-type PhysicalModels = '@Ball' | '@Box'
+type PhysicalModels = '@Meteorite' | '@Ball' | '@Box'
 
 /** Физический объект. Используется для определения методов вычисления данных физ. объекта */
 type PhysicalObject = {} & PhysicalModel
