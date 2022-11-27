@@ -1,4 +1,4 @@
-type Sections = '@Object' | '@Planet' | '@Atmosphere'
+type Sections = '@Meteorite' | '@Planet' | '@Atmosphere'
 
 type SectionData = {
   name: string

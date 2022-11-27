@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState: ConfigurationSliceState = {
   isUserSectionInputValid: true,
-  activeSection: '@Object',
+  activeSection: '@Meteorite',
 }
 
 export const configurationSlice = createSlice<

@@ -1,12 +1,9 @@
-import { Tab, Tabs } from '@mui/material'
 import { Container, TabPanel } from 'components'
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { selectIsUserSectionInputValid } from 'selectors'
 import { AtmosphereSection } from './AtmosphereSection'
+import { MeteoriteSection } from './MeteoriteSection'
 import { PlanetSection } from './PlanetSection'
 import { SectionsTabs } from './SectionsTabs'
-import { SubjectSection } from './SubjectSection'
 
 /** Секции конфигурации */
 export const ConfigureSections = () => {
@@ -22,7 +19,7 @@ export const ConfigureSections = () => {
 
       <Container>
         <TabPanel value={activeTabPanel} index='0'>
-          <SubjectSection />
+          <MeteoriteSection />
         </TabPanel>
         <TabPanel value={activeTabPanel} index='1'>
           <PlanetSection />
