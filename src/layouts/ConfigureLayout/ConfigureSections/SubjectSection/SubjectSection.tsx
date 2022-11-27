@@ -1,23 +1,9 @@
-import { useToolbar } from 'hooks'
-import { useEffect } from 'react'
+import React from 'react'
 import { ActivePhysicalModel } from './ActivePhysicalModel'
-import { BackToObjectModelDataButton } from './BackToObjectModelDataButton'
 import { KField, MField, RField, SField, YField } from './Fields'
-import { PickPhysicalObjectModelButton } from './PickPhysicalObjectModelButton'
 
 /** Секция конфигурации "Исследуемый объект" */
 export const SubjectSection = () => {
-  const { setActionButtons } = useToolbar()
-
-  useEffect(() => {
-    setActionButtons([
-      <PickPhysicalObjectModelButton />,
-      <BackToObjectModelDataButton />,
-    ])
-
-    return () => setActionButtons()
-  }, [setActionButtons])
-
   return (
     <div>
       <ActivePhysicalModel />
