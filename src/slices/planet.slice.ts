@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { defaultPlanet } from 'models'
+import { EarthPlanet } from 'models'
 import { planetModels, setDefinedProperties } from 'utils'
 
 const initialState: PlanetSliceState = {
-  planet: defaultPlanet,
+  planet: EarthPlanet,
   planetModels: [
     { key: '@Mercury', name: 'Меркурий' },
     { key: '@Venus', name: 'Венера' },
