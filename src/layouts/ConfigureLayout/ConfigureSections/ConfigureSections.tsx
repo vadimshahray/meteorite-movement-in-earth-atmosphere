@@ -1,7 +1,7 @@
 import { Container, TabPanel } from 'components'
 import React, { useState } from 'react'
+import { InfoSection } from './InfoSection'
 import { MeteoriteSection } from './MeteoriteSection'
-import { PlanetSection } from './PlanetSection'
 import { SectionsTabs } from './SectionsTabs'
 
 /** Секции конфигурации */
@@ -21,7 +21,7 @@ export const ConfigureSections = () => {
           <MeteoriteSection />
         </TabPanel>
         <TabPanel value={activeTabPanel} index='1'>
-          <PlanetSection />
+          <InfoSection />
         </TabPanel>
       </Container>
     </Container>
