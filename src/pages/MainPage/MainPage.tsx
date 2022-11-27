@@ -1,13 +1,9 @@
 import { FullContainer } from 'components'
 import { InfoLayout, ModelingLayout } from 'layouts'
 import React from 'react'
-import styles from './mainLayout.module.css'
+import styles from './mainPage.module.css'
 
-/**
- * Блок разметки главной страницы приложения
- * @returns {JSX.Element}
- */
-export const MainLayout = () => {
+export const MainPage = () => {
   return (
     <FullContainer className={styles.layout}>
       <ModelingLayout />
