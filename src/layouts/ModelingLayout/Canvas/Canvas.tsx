@@ -1,7 +1,7 @@
 import { Stars } from '@react-three/drei'
 import { Canvas as TCanvas } from '@react-three/fiber'
 import React from 'react'
-import { Meteorite } from '../Models'
+import { ModelingScene } from './ModelingScene'
 
 export const Canvas = () => {
   return (
@@ -18,7 +18,7 @@ export const Canvas = () => {
 
       <ambientLight args={[0x404040, 10]} />
 
-      <Meteorite isPresentationMode />
+      <ModelingScene />
     </TCanvas>
   )
 }
