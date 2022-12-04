@@ -16,6 +16,8 @@ export const Canvas = () => {
         speed={1}
       />
 
+      <ambientLight args={[0x404040, 10]} />
+
       <Meteorite isPresentationMode />
     </TCanvas>
   )
