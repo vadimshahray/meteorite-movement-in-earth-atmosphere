@@ -6,7 +6,7 @@ source: https://sketchfab.com/3d-models/antarctic-meteorite-sample-lar-1232632-9
 title: Antarctic Meteorite Sample LAR 12326,32
 */
 
-import { useGLTF } from '@react-three/drei'
+import { Float, PresentationControls, useGLTF } from '@react-three/drei'
 import React from 'react'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
@@ -21,17 +21,13 @@ type GLTFResult = GLTF & {
   }
 }
 
-export function Meteorite(props: JSX.IntrinsicElements['group']) {
+const MeteoriteModel = React.memo(() => {
   const { nodes, materials } = useGLTF(
     '/models/meteorite/scene.gltf',
   ) as unknown as GLTFResult
+
   return (
-    <group
-      {...props}
-      dispose={null}
-      scale={50}
-      rotation={[Math.PI / 14, 0, -Math.PI / 2]}
-    >
+    <group dispose={null} scale={50} rotation={[Math.PI / 14, 0, -Math.PI / 2]}>
       <mesh
         geometry={nodes.Object_2.geometry}
         material={materials.material_1}
@@ -42,6 +38,27 @@ export function Meteorite(props: JSX.IntrinsicElements['group']) {
       />
     </group>
   )
+})
+
+export type MeteoriteProps = {
+  isPresentationMode: boolean
 }
 
-useGLTF.preload('/models/meteorite/scene.gltf')
+export const Meteorite = React.memo<MeteoriteProps>(
+  ({ isPresentationMode }) => {
+    return (
+      <Float speed={isPresentationMode ? undefined : 0}>
+        <PresentationControls
+          enabled={isPresentationMode}
+          snap
+          speed={2}
+          polar={[-Infinity, Infinity]}
+          azimuth={[-Infinity, Infinity]}
+          config={{ mass: 1, tension: 170, friction: 26 }}
+        >
+          <MeteoriteModel />
+        </PresentationControls>
+      </Float>
+    )
+  },
+)
