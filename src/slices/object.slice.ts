@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { ball } from 'models'
+import { meteorite } from 'models'
 import { physicalModels, setDefinedProperties } from 'utils'
 
 const initialState: ObjectSliceState = {
-  physicalModel: ball,
-  activePhysicalModel: '@Ball',
+  physicalModel: meteorite,
+  activePhysicalModel: '@Meteorite',
 }
 
 export const objectSlice = createSlice<ObjectSliceState, ObjectSlice>({

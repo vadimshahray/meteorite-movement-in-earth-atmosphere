@@ -10,6 +10,10 @@ const commonMap: Pick<PhysicalModelPropertiesMap, 'y0' | 'K' | 'S' | 'm'> = {
 
 /** Модели карт свойств моделей различных объектов */
 export const physicalModelsPropertiesMaps: PhysicalModelsPropertiesMaps = {
+  '@Meteorite': {
+    ...commonMap,
+    R: true,
+  },
   '@Ball': {
     ...commonMap,
     R: true,
