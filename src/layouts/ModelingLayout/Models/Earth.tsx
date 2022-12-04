@@ -6,7 +6,7 @@ source: https://sketchfab.com/3d-models/earth-41fc80d85dfd480281f21b74b2de2faa
 title: Earth
 */
 
-import { PresentationControls, useGLTF } from '@react-three/drei'
+import { useGLTF } from '@react-three/drei'
 import React from 'react'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
@@ -24,23 +24,19 @@ export const Earth = React.memo(() => {
   const { nodes, materials } = useGLTF(
     '/models/earth/scene.gltf',
   ) as unknown as GLTFResult
+
   return (
-    <PresentationControls
-      snap
-      speed={2}
-      polar={[-Infinity, Infinity]}
-      azimuth={[-Infinity, Infinity]}
-      config={{ mass: 1, tension: 170, friction: 26 }}
+    <group
+      position={[120, 0, 0]}
+      dispose={null}
+      rotation={[-Math.PI / 3, Math.PI / 18, Math.PI]}
+      scale={100}
     >
-      <group dispose={null}>
-        <group rotation={[-Math.PI / 3, Math.PI / 18, Math.PI]} scale={2}>
-          <mesh
-            geometry={nodes.Sphere_Material002_0.geometry}
-            material={materials['Material.002']}
-          />
-        </group>
-      </group>
-    </PresentationControls>
+      <mesh
+        geometry={nodes.Sphere_Material002_0.geometry}
+        material={materials['Material.002']}
+      />
+    </group>
   )
 })
 
