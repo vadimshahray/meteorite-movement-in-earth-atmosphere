@@ -29,7 +29,7 @@ export const Earth = React.memo(() => {
     <group
       position={[120, 0, 0]}
       dispose={null}
-      rotation={[-Math.PI / 3, Math.PI / 18, Math.PI]}
+      rotation={[-Math.PI / 3, -Math.PI / 6, Math.PI]}
       scale={100}
     >
       <mesh
