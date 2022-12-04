@@ -2,7 +2,7 @@ import { PresentationControls } from '@react-three/drei'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectActiveObjectModel } from 'selectors'
-import { Ball, Box, Meteorite } from '../Models'
+import { Ball, Box } from '../Models'
 
 export const ActivePhysicalObject = () => {
   const activeModel = useSelector(selectActiveObjectModel)
@@ -26,7 +26,7 @@ const getActiveObjectModel = (activeModel: PhysicalModels) => {
   const models: Record<PhysicalModels, JSX.Element> = {
     '@Ball': <Ball />,
     '@Box': <Box />,
-    '@Meteorite': <Meteorite />,
+    '@Meteorite': <Ball />,
   }
 
   return models[activeModel]
