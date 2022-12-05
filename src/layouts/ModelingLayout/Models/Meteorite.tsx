@@ -64,7 +64,7 @@ export const Meteorite = React.memo<MeteoriteProps>(
           speed={2}
           polar={[-Infinity, Infinity]}
           azimuth={[-Infinity, Infinity]}
-          config={{ mass: 1, tension: 170, friction: 26 }}
+          config={{ mass: 10, tension: 200, friction: 40 }}
         >
           <MeteoriteModel />
         </PresentationControls>
