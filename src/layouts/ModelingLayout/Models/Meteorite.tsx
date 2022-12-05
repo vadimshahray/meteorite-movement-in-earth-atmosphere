@@ -33,7 +33,6 @@ const MeteoriteModel = React.memo(() => {
     <group
       dispose={null}
       scale={METEORITE_SCALE}
-      position={[-METEORITE_RADIUS, 0, 0]}
       rotation={[Math.PI / 14, 0, -Math.PI / 2]}
     >
       <mesh
@@ -55,7 +54,10 @@ export type MeteoriteProps = {
 export const Meteorite = React.memo<MeteoriteProps>(
   ({ isPresentationMode }) => {
     return (
-      <Float speed={isPresentationMode ? undefined : 0}>
+      <Float
+        speed={isPresentationMode ? undefined : 0}
+        position={[-METEORITE_RADIUS, 0, 0]}
+      >
         <PresentationControls
           enabled={isPresentationMode}
           snap
