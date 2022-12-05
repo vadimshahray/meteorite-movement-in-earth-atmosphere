@@ -21,13 +21,21 @@ type GLTFResult = GLTF & {
   }
 }
 
+const METEORITE_SCALE = 50
+export const METEORITE_RADIUS = 0.029682245448234786 * METEORITE_SCALE
+
 const MeteoriteModel = React.memo(() => {
   const { nodes, materials } = useGLTF(
     '/models/meteorite/scene.gltf',
   ) as unknown as GLTFResult
 
   return (
-    <group dispose={null} scale={50} rotation={[Math.PI / 14, 0, -Math.PI / 2]}>
+    <group
+      dispose={null}
+      scale={METEORITE_SCALE}
+      position={[-METEORITE_RADIUS, 0, 0]}
+      rotation={[Math.PI / 14, 0, -Math.PI / 2]}
+    >
       <mesh
         geometry={nodes.Object_2.geometry}
         material={materials.material_1}
