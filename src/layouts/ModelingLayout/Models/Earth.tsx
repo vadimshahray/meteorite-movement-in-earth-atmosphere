@@ -41,7 +41,7 @@ const EarthModel = (props: MeshProps) => {
 }
 
 export const Earth = React.memo(() => {
-  return <EarthModel position={[10 * EARTH_SCALED_RADIUS, 0, 0]} />
+  return <EarthModel position={[EARTH_SCALED_RADIUS, 0, 0]} />
 })
 
 useGLTF.preload('/models/earth/scene.gltf')
