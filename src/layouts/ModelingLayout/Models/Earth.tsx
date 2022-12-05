@@ -7,6 +7,7 @@ title: Earth
 */
 
 import { useGLTF } from '@react-three/drei'
+import { MeshProps } from '@react-three/fiber'
 import React from 'react'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
@@ -20,24 +21,27 @@ type GLTFResult = GLTF & {
   }
 }
 
-export const Earth = React.memo(() => {
+export const EARTH_SCALED_RADIUS = 100
+
+const EarthModel = (props: MeshProps) => {
   const { nodes, materials } = useGLTF(
     '/models/earth/scene.gltf',
   ) as unknown as GLTFResult
 
   return (
-    <group
-      position={[120, 0, 0]}
+    <mesh
+      geometry={nodes.Sphere_Material002_0.geometry}
+      material={materials['Material.002']}
       dispose={null}
+      {...props}
       rotation={[-Math.PI / 3, -Math.PI / 6, Math.PI]}
-      scale={100}
-    >
-      <mesh
-        geometry={nodes.Sphere_Material002_0.geometry}
-        material={materials['Material.002']}
-      />
-    </group>
+      scale={EARTH_SCALED_RADIUS}
+    />
   )
+}
+
+export const Earth = React.memo(() => {
+  return <EarthModel position={[10 * EARTH_SCALED_RADIUS, 0, 0]} />
 })
 
 useGLTF.preload('/models/earth/scene.gltf')
