@@ -7,13 +7,13 @@ export const ModelingScene = () => {
   const isModeling = useSelector(selectIsModeling)
 
   useThree(({ camera }) => {
-    if (isModeling) {
-      camera.position.set(-5, 0, 0)
-      camera.rotation.set(0, -Math.PI / 2, 0)
-    } else {
-      camera.rotation.set(0, 0, 0)
-      camera.position.set(0, 0, 5)
-    }
+    camera.position.set(-2, 0, 0)
+    camera.rotation.set(0, -Math.PI / 2, 0)
+    // if (isModeling) {
+    // } else {
+    //   camera.rotation.set(0, 0, 0)
+    //   camera.position.set(0, 0, 5)
+    // }
   })
 
   return (

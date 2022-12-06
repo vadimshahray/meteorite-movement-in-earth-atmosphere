@@ -7,9 +7,11 @@ title: Antarctic Meteorite Sample LAR 12326,32
 */
 
 import { Float, PresentationControls, useGLTF } from '@react-three/drei'
+import { GroupProps } from '@react-three/fiber'
 import React from 'react'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
+import { getRadiusNorm } from 'utils'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -21,20 +23,15 @@ type GLTFResult = GLTF & {
   }
 }
 
-const METEORITE_SCALE = 50
-export const METEORITE_RADIUS = 0.029682245448234786 * METEORITE_SCALE
+const METEORITE_MODEL_RADIUS = 0.029682245448234786
 
-const MeteoriteModel = React.memo(() => {
+const MeteoriteModel = React.memo<GroupProps>((props) => {
   const { nodes, materials } = useGLTF(
     '/models/meteorite/scene.gltf',
   ) as unknown as GLTFResult
 
   return (
-    <group
-      dispose={null}
-      scale={METEORITE_SCALE}
-      rotation={[Math.PI / 14, 0, -Math.PI / 2]}
-    >
+    <group dispose={null} rotation={[Math.PI / 14, 0, -Math.PI / 2]} {...props}>
       <mesh
         geometry={nodes.Object_2.geometry}
         material={materials.material_1}
@@ -53,11 +50,10 @@ export type MeteoriteProps = {
 
 export const Meteorite = React.memo<MeteoriteProps>(
   ({ isPresentationMode }) => {
+    const scale = getRadiusNorm(METEORITE_MODEL_RADIUS)
+
     return (
-      <Float
-        speed={isPresentationMode ? undefined : 0}
-        position={[-METEORITE_RADIUS, 0, 0]}
-      >
+      <Float speed={isPresentationMode ? undefined : 0}>
         <PresentationControls
           enabled={isPresentationMode}
           snap
@@ -66,7 +62,7 @@ export const Meteorite = React.memo<MeteoriteProps>(
           azimuth={[-Infinity, Infinity]}
           config={{ mass: 10, tension: 200, friction: 40 }}
         >
-          <MeteoriteModel />
+          <MeteoriteModel scale={scale} />
         </PresentationControls>
       </Float>
     )
