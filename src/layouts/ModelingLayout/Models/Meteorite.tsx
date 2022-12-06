@@ -23,7 +23,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-const METEORITE_MODEL_RADIUS = 0.029682245448234786
+const METEORITE_MODEL_RADIUS = 0.03606162561534413
 
 const MeteoriteModel = React.memo<GroupProps>((props) => {
   const { nodes, materials } = useGLTF(
