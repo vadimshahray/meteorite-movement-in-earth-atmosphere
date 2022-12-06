@@ -41,7 +41,7 @@ const EarthModel = (props: MeshProps) => {
 }
 
 export const Earth = React.memo(() => {
-  const scale = EARTH_MODEL_RADIUS * getRadiusNorm(EARTH_MODEL_RADIUS)
+  const scale = getRadiusNorm(EARTH_MODEL_RADIUS)
 
   return <EarthModel scale={scale} />
 })
