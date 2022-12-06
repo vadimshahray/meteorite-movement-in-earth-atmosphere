@@ -9,9 +9,11 @@ title: Antarctic Meteorite Sample LAR 12326,32
 import { Float, PresentationControls, useGLTF } from '@react-three/drei'
 import { GroupProps } from '@react-three/fiber'
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { selectObjectModelR } from 'selectors'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
-import { getRadiusNorm } from 'utils'
+import { getRadiusNorm, scaleMeters } from 'utils'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -23,7 +25,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-const METEORITE_MODEL_RADIUS = 0.03606162561534413
+const METEORITE_MODEL_RADIUS = 0.0546162561534413
 
 const MeteoriteModel = React.memo<GroupProps>((props) => {
   const { nodes, materials } = useGLTF(
@@ -31,7 +33,11 @@ const MeteoriteModel = React.memo<GroupProps>((props) => {
   ) as unknown as GLTFResult
 
   return (
-    <group dispose={null} rotation={[Math.PI / 14, 0, -Math.PI / 2]} {...props}>
+    <group
+      dispose={null}
+      rotation={[Math.PI / 14, -Math.PI / 2, -Math.PI / 2]}
+      {...props}
+    >
       <mesh
         geometry={nodes.Object_2.geometry}
         material={materials.material_1}
@@ -50,7 +56,8 @@ export type MeteoriteProps = {
 
 export const Meteorite = React.memo<MeteoriteProps>(
   ({ isPresentationMode }) => {
-    const scale = getRadiusNorm(METEORITE_MODEL_RADIUS)
+    const radius = useSelector(selectObjectModelR)
+    const scale = getRadiusNorm(METEORITE_MODEL_RADIUS) * scaleMeters(radius)
 
     return (
       <Float speed={isPresentationMode ? undefined : 0}>

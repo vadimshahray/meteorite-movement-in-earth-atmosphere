@@ -8,10 +8,11 @@ title: Earth
 
 import { useGLTF } from '@react-three/drei'
 import { MeshProps } from '@react-three/fiber'
+import { EarthPlanet } from 'models'
 import React from 'react'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
-import { getRadiusNorm } from 'utils'
+import { calculatePowerNumber, getRadiusNorm, scaleMeters } from 'utils'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -23,6 +24,10 @@ type GLTFResult = GLTF & {
 }
 
 const EARTH_MODEL_RADIUS = 1.7320494310588754
+
+export const EARTH_RADIUS =
+  getRadiusNorm(EARTH_MODEL_RADIUS) *
+  scaleMeters(calculatePowerNumber(EarthPlanet.R))
 
 const EarthModel = (props: MeshProps) => {
   const { nodes, materials } = useGLTF(
@@ -41,9 +46,7 @@ const EarthModel = (props: MeshProps) => {
 }
 
 export const Earth = React.memo(() => {
-  const scale = getRadiusNorm(EARTH_MODEL_RADIUS)
-
-  return <EarthModel scale={scale} />
+  return <EarthModel scale={EARTH_RADIUS} position={[EARTH_RADIUS, 0, 0]} />
 })
 
 useGLTF.preload('/models/earth/scene.gltf')
