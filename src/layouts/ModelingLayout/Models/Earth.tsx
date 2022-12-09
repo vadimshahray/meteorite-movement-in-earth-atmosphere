@@ -10,6 +10,8 @@ import { useGLTF } from '@react-three/drei'
 import { MeshProps } from '@react-three/fiber'
 import { EarthPlanet } from 'models'
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { selectObjectModely0 } from 'selectors'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
 import { calculatePowerNumber, getRadiusNorm, scaleMeters } from 'utils'
@@ -46,7 +48,14 @@ const EarthModel = (props: MeshProps) => {
 }
 
 export const Earth = React.memo(() => {
-  return <EarthModel scale={EARTH_RADIUS} position={[EARTH_RADIUS, 0, 0]} />
+  const distance = scaleMeters(useSelector(selectObjectModely0))
+
+  return (
+    <EarthModel
+      scale={EARTH_RADIUS}
+      position={[EARTH_RADIUS + distance, 0, 0]}
+    />
+  )
 })
 
 useGLTF.preload('/models/earth/scene.gltf')
