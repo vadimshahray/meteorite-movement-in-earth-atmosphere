@@ -1,6 +1,5 @@
 import { Container, TabPanel } from 'components'
 import React, { useState } from 'react'
-import { InfoSection } from './InfoSection'
 import { MeteoriteSection } from './MeteoriteSection'
 import { SectionsTabs } from './SectionsTabs'
 
@@ -19,9 +18,6 @@ export const ConfigureSections = () => {
       <Container>
         <TabPanel value={activeTabPanel} index='0'>
           <MeteoriteSection />
-        </TabPanel>
-        <TabPanel value={activeTabPanel} index='1'>
-          <InfoSection />
         </TabPanel>
       </Container>
     </Container>

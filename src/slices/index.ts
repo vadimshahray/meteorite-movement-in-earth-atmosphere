@@ -1,5 +1,4 @@
 export * from './theme.slice'
 export * from './configuration.slice'
 export * from './object.slice'
-export * from './planet.slice'
 export * from './modeling.slice'
