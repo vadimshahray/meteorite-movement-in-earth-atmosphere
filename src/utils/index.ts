@@ -1,5 +1,3 @@
-export * from './planets'
-export * from './objects'
 export * from './classNames'
 export * from './validation'
 export * from './setDefinedProperties'

@@ -2,8 +2,6 @@
 type ObjectSliceState = {
   /** Данные физических моделей */
   physicalModel: PhysicalModel
-  /** Активная физическая модель */
-  activePhysicalModel: PhysicalModels
 }
 
 /**
@@ -20,16 +18,4 @@ interface ObjectSlice extends SliceCaseReducers<ObjectSliceState> {
     state: ObjectSliceState,
     action: PayloadAction<Partial_PhysicalModel>,
   ): void
-
-  /**
-   * Устанавливает данные переданной модели в слайс, помечает переданную модель как "активную".
-   * @param {ObjectSliceState} state Внутреннее состояние слайса
-   * @param {PayloadAction<PhysicalModels>} action Название модели
-   */
-  setActivePhysicalModel(
-    state: ObjectSliceState,
-    action: PayloadAction<PhysicalModels>,
-  ): void
-
-  setActiveObjectModelData(state: ObjectSliceState): void
 }
