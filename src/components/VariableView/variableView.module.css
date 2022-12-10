@@ -1,9 +1,0 @@
-.header_layout {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.icon {
-  font-size: 16px;
-}
