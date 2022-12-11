@@ -6,7 +6,7 @@ source: https://sketchfab.com/3d-models/earth-41fc80d85dfd480281f21b74b2de2faa
 title: Earth
 */
 
-import { useGLTF } from '@react-three/drei'
+import { Sphere, useGLTF } from '@react-three/drei'
 import { MeshProps } from '@react-three/fiber'
 import { EARTH } from 'consts'
 import React from 'react'
@@ -50,10 +50,13 @@ export const Earth = React.memo(() => {
   const distance = scaleMeters(useSelector(selectObjectModely0))
 
   return (
-    <EarthModel
-      scale={EARTH_RADIUS}
-      position={[EARTH_RADIUS + distance, 0, 0]}
-    />
+    <group position={[EARTH_RADIUS + distance, 0, 0]}>
+      <EarthModel scale={EARTH_RADIUS} />
+
+      <Sphere scale={EARTH_RADIUS + 1}>
+        <meshStandardMaterial color='#318ce7' opacity={0.19} transparent />
+      </Sphere>
+    </group>
   )
 })
 
