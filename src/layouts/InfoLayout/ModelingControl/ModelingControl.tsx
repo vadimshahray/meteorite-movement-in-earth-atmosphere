@@ -4,7 +4,7 @@ import { ModelingTimer } from './ModelingTimer'
 
 export const ModelingControl = () => {
   return (
-    <Container>
+    <Container sx={{ display: 'flex', justifyContent: 'space-between' }}>
       <ModelingButton />
       <ModelingTimer />
     </Container>

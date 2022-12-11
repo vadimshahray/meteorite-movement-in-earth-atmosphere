@@ -31,7 +31,7 @@ export const ModelingTimer = () => {
     <Box display='flex' alignItems='center'>
       <TimerOutlinedIcon sx={{ marginRight: '2px' }} fontSize='small' />
 
-      <Typography>{time}</Typography>
+      <Typography fontFamily='Fira Code'>{time}</Typography>
     </Box>
   ) : null
 }
