@@ -1,3 +1,3 @@
-export const angleToPI = (a) => {
+export const angleToPI = (a: number) => {
   return (a * Math.PI) / 180
 }
