@@ -1,14 +1,14 @@
 export const sceneCameras: SceneCameraInfo[] = [
   {
     key: '@BackViewCamera',
-    name: 'Вид сзади',
+    name: 'Сзади',
   },
   {
     key: '@SideViewCamera',
-    name: 'Вид сбоку',
+    name: 'Сбоку',
   },
   {
     key: '@EarthViewCamera',
-    name: 'Вид с Земли',
+    name: 'С земли',
   },
 ]
