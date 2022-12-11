@@ -3,110 +3,54 @@
     {
       "bufferView": 2,
       "componentType": 5126,
-      "count": 65532,
+      "count": 54835,
       "max": [
-        0.019178999587893486,
-        0.02958899922668934,
-        0.006837999913841486
+        0.016154000535607338,
+        -0.003616000059992075,
+        0.014094999991357327
       ],
       "min": [
-        -0.019408000633120537,
-        -0.02978000044822693,
-        -0.006878000218421221
+        -0.02027300000190735,
+        -0.032621998339891434,
+        -0.0169489998370409
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 2,
-      "byteOffset": 786384,
+      "byteOffset": 658020,
       "componentType": 5126,
-      "count": 65532,
+      "count": 54835,
       "max": [
-        0.9999901652336121,
-        0.9997561573982239,
-        1.0
+        0.9999603033065796,
+        0.9999508857727051,
+        0.9999713897705078
       ],
       "min": [
-        -0.9999999403953552,
-        -0.9999988675117493,
-        -0.9999996423721313
+        -0.99991375207901,
+        -0.999969482421875,
+        -0.9999716281890869
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 1,
       "componentType": 5126,
-      "count": 65532,
+      "count": 54835,
       "max": [
-        0.9999489784240723,
-        0.9504910111427307
+        0.9999430179595947,
+        0.9075279831886292
       ],
       "min": [
-        5.500000042957254e-05,
-        0.019579999148845673
+        0.00014600000577047467,
+        3.9999998989515007e-05
       ],
       "type": "VEC2"
     },
     {
       "bufferView": 0,
       "componentType": 5125,
-      "count": 362508,
-      "type": "SCALAR"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 1572768,
-      "componentType": 5126,
-      "count": 43539,
-      "max": [
-        0.019387999549508095,
-        0.02973799966275692,
-        0.006732999812811613
-      ],
-      "min": [
-        -0.019310999661684036,
-        -0.013244000263512135,
-        -0.006649000104516745
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 2095236,
-      "componentType": 5126,
-      "count": 43539,
-      "max": [
-        0.9999935626983643,
-        0.9999566674232483,
-        1.0
-      ],
-      "min": [
-        -0.999914824962616,
-        -0.9991825819015503,
-        -1.0
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 1,
-      "byteOffset": 524256,
-      "componentType": 5126,
-      "count": 43539,
-      "max": [
-        0.8634309768676758,
-        0.9233919978141785
-      ],
-      "min": [
-        1.700000029813964e-05,
-        5.6000000768108293e-05
-      ],
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 0,
-      "byteOffset": 1450032,
-      "componentType": 5125,
-      "count": 220530,
+      "count": 300000,
       "type": "SCALAR"
     }
   ],
@@ -114,8 +58,8 @@
     "extras": {
       "author": "NASA Astromaterials 3D (https://sketchfab.com/Astromaterials3D)",
       "license": "CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)",
-      "source": "https://sketchfab.com/3d-models/antarctic-meteorite-sample-lar-1232632-9518395c58084c6f883d903daa886460",
-      "title": "Antarctic Meteorite Sample LAR 12326,32"
+      "source": "https://sketchfab.com/3d-models/antarctic-meteorite-sample-mil-153070-d067affbb590492f80ca6b81b280c012",
+      "title": "Antarctic Meteorite Sample MIL 15307,0"
     },
     "generator": "Sketchfab-13.74.0",
     "version": "2.0"
@@ -123,22 +67,22 @@
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 2332152,
+      "byteLength": 1200000,
       "name": "floatBufferViews",
       "target": 34963
     },
     {
       "buffer": 0,
-      "byteLength": 872568,
-      "byteOffset": 2332152,
+      "byteLength": 438680,
+      "byteOffset": 1200000,
       "byteStride": 8,
       "name": "floatBufferViews",
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 2617704,
-      "byteOffset": 3204720,
+      "byteLength": 1316040,
+      "byteOffset": 1638680,
       "byteStride": 12,
       "name": "floatBufferViews",
       "target": 34962
@@ -146,19 +90,19 @@
   ],
   "buffers": [
     {
-      "byteLength": 5822424,
+      "byteLength": 2954720,
       "uri": "scene.bin"
     }
   ],
   "images": [
     {
-      "uri": "textures/material_1_baseColor.jpeg"
+      "uri": "textures/MIL15307-0_SFM_Web-Resolution-Model_Coordinate-Unregistered_baseColor.jpeg"
     }
   ],
   "materials": [
     {
       "doubleSided": true,
-      "name": "material_1",
+      "name": "MIL15307-0_SFM_Web-Resolution-Model_Coordinate-Unregistered",
       "pbrMetallicRoughness": {
         "baseColorTexture": {
           "index": 0
@@ -178,21 +122,6 @@
             "TEXCOORD_0": 2
           },
           "indices": 3,
-          "material": 0,
-          "mode": 4
-        }
-      ]
-    },
-    {
-      "name": "Object_1",
-      "primitives": [
-        {
-          "attributes": {
-            "NORMAL": 5,
-            "POSITION": 4,
-            "TEXCOORD_0": 6
-          },
-          "indices": 7,
           "material": 0,
           "mode": 4
         }
@@ -226,18 +155,13 @@
     },
     {
       "children": [
-        2,
-        3
+        2
       ],
-      "name": "LAR12326-32_SFM_Web-Resolution-Model_Coordinate-Registered.obj.cleaner.materialmerger.gles"
+      "name": "MIL15307-0_SFM_Web-Resolution-Model_Coordinate-Unregistered.obj.cleaner.materialmerger.gles"
     },
     {
       "mesh": 0,
       "name": "Object_2"
-    },
-    {
-      "mesh": 1,
-      "name": "Object_3"
     }
   ],
   "samplers": [

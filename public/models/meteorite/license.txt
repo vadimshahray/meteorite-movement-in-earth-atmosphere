@@ -1,6 +1,6 @@
 Model Information:
-* title:	Antarctic Meteorite Sample LAR 12326,32
-* source:	https://sketchfab.com/3d-models/antarctic-meteorite-sample-lar-1232632-9518395c58084c6f883d903daa886460
+* title:	Antarctic Meteorite Sample MIL 15307,0
+* source:	https://sketchfab.com/3d-models/antarctic-meteorite-sample-mil-153070-d067affbb590492f80ca6b81b280c012
 * author:	NASA Astromaterials 3D (https://sketchfab.com/Astromaterials3D)
 
 Model License:
