@@ -14,7 +14,7 @@ type GLTFResult = GLTF & {
 
 export const EarthLight = (props: MeshProps) => {
   const { nodes, materials } = useGLTF(
-    '/models/earth/scene.gltf',
+    '/models/earth/light/scene.gltf',
   ) as unknown as GLTFResult
 
   return (
@@ -28,4 +28,4 @@ export const EarthLight = (props: MeshProps) => {
   )
 }
 
-useGLTF.preload('/models/earth/scene.gltf')
+useGLTF.preload('/models/earth/light/scene.gltf')
