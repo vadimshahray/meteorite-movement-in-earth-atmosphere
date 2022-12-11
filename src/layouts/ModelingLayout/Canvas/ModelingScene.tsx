@@ -18,7 +18,7 @@ export const ModelingScene = () => {
 
   return (
     <>
-      <Meteorite isPresentationMode />
+      <Meteorite />
       <Earth />
     </>
   )
