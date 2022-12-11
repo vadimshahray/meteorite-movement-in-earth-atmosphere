@@ -8,7 +8,7 @@ export const CameraSettings = () => {
       <Typography variant='subtitle1'>Камера</Typography>
 
       {/*@ts-ignore*/}
-      <Box display='flex' justifyContent='space-between'>
+      <Box display='flex' justifyContent='space-between' alignItems='center'>
         <Typography variant='subtitle2'>Положение камеры</Typography>
         <CameraToggler />
       </Box>
