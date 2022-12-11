@@ -24,5 +24,3 @@ export const Earth = React.memo(() => {
     </group>
   )
 })
-
-useGLTF.preload('/models/earth/scene.gltf')

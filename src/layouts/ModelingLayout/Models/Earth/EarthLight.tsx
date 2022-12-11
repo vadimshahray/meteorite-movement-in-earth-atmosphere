@@ -27,3 +27,5 @@ export const EarthLight = (props: MeshProps) => {
     />
   )
 }
+
+useGLTF.preload('/models/earth/scene.gltf')
