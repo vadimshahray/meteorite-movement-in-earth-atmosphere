@@ -53,7 +53,6 @@ export const theme = createTheme({
     MuiToggleButton: {
       styleOverrides: {
         root: {
-          padding: 6,
           textTransform: 'none',
         },
       },
