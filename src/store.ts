@@ -10,7 +10,7 @@ import {
   persistReducer,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import { themeSlice, configurationSlice, objectSlice } from 'slices'
+import { themeSlice, configurationSlice, objectSlice, sceneSlice } from 'slices'
 import { modelingSlice } from 'slices/modeling.slice'
 
 const persistConfig = {
@@ -24,6 +24,7 @@ const rootReducer = combineReducers({
   object: objectSlice.reducer,
   configuration: configurationSlice.reducer,
   modeling: modelingSlice.reducer,
+  scene: sceneSlice.reducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
