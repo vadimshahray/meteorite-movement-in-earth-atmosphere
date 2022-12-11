@@ -49,7 +49,6 @@ const ticksToTime = (ms: number) => {
 const addZeros = (x: number, count: number) => {
   let zeros = ''
 
-  console.log(x, x / 10)
   for (let i = 1; i < count; i++) {
     if (x / 10 ** i < 1) {
       zeros += '0'
