@@ -23,6 +23,7 @@ export const EarthNight = (props: MeshProps) => {
       geometry={nodes.pSphere1_color_0.geometry}
       material={materials.color}
       dispose={null}
+      rotation={[-Math.PI / 3, -Math.PI / 6, Math.PI]}
     />
   )
 }

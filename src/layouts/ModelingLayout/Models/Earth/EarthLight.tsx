@@ -19,10 +19,10 @@ export const EarthLight = (props: MeshProps) => {
 
   return (
     <mesh
+      {...props}
       geometry={nodes.Sphere_Material002_0.geometry}
       material={materials['Material.002']}
       dispose={null}
-      {...props}
       rotation={[-Math.PI / 3, -Math.PI / 6, Math.PI]}
     />
   )
