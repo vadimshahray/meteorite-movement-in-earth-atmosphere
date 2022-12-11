@@ -2,7 +2,7 @@ import { Float, PresentationControls, useGLTF } from '@react-three/drei'
 import { MeshProps } from '@react-three/fiber'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { selectObjectModelR } from 'selectors'
+import { selectIsModeling, selectObjectModelR } from 'selectors'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
 import { getRadiusNorm, scaleMeters } from 'utils'
@@ -37,28 +37,24 @@ const MeteoriteModel = React.memo<MeshProps>((props) => {
   )
 })
 
-export type MeteoriteProps = {
-  isPresentationMode: boolean
-}
+export const Meteorite = React.memo(() => {
+  const isModeling = useSelector(selectIsModeling)
 
-export const Meteorite = React.memo<MeteoriteProps>(
-  ({ isPresentationMode }) => {
-    const radius = useSelector(selectObjectModelR)
-    const scale = getRadiusNorm(METEORITE_MODEL_RADIUS) * scaleMeters(radius)
+  const radius = useSelector(selectObjectModelR)
+  const scale = getRadiusNorm(METEORITE_MODEL_RADIUS) * scaleMeters(radius)
 
-    return (
-      <Float speed={isPresentationMode ? undefined : 0}>
-        <PresentationControls
-          enabled={isPresentationMode}
-          snap
-          speed={2}
-          polar={[-Infinity, Infinity]}
-          azimuth={[-Infinity, Infinity]}
-          config={{ mass: 10, tension: 200, friction: 40 }}
-        >
-          <MeteoriteModel scale={scale} />
-        </PresentationControls>
-      </Float>
-    )
-  },
-)
+  return (
+    <Float speed={!isModeling ? undefined : 0}>
+      <PresentationControls
+        enabled={!isModeling}
+        snap
+        speed={2}
+        polar={[-Infinity, Infinity]}
+        azimuth={[-Infinity, Infinity]}
+        config={{ mass: 10, tension: 200, friction: 40 }}
+      >
+        <MeteoriteModel scale={scale} />
+      </PresentationControls>
+    </Float>
+  )
+})
