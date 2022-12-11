@@ -8,7 +8,6 @@ import { sceneCameras } from 'utils'
 export const CameraToggler = () => {
   const dispatch = useDispatch()
   const sceneActiveCamera = useSelector(selectActiveCamera)
-  console.log(sceneActiveCamera)
 
   const handleChange = (
     _: React.MouseEvent<HTMLElement>,
