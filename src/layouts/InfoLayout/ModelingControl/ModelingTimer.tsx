@@ -40,5 +40,21 @@ const ticksToTime = (ms: number) => {
   const minutes = Math.floor(ms / 1000 / 60)
   const seconds = Math.floor(ms / 1000) % 60
 
-  return `${minutes}:${seconds}:${ms % 1000}`
+  return `${addZeros(minutes, 2)}:${addZeros(seconds, 2)}:${addZeros(
+    ms % 1000,
+    3,
+  )}`
+}
+
+const addZeros = (x: number, count: number) => {
+  let zeros = ''
+
+  console.log(x, x / 10)
+  for (let i = 1; i < count; i++) {
+    if (x / 10 ** i < 1) {
+      zeros += '0'
+    }
+  }
+
+  return zeros + x
 }
