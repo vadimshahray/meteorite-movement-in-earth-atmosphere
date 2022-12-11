@@ -2,6 +2,7 @@ import { useGLTF } from '@react-three/drei'
 import { MeshProps } from '@react-three/fiber'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
+import { angleToPI } from 'utils'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -23,7 +24,7 @@ export const EarthNight = (props: MeshProps) => {
       geometry={nodes.pSphere1_color_0.geometry}
       material={materials.color}
       dispose={null}
-      rotation={[-Math.PI / 3, -Math.PI / 6, Math.PI]}
+      rotation={[angleToPI(76), angleToPI(-64), angleToPI(76)]}
     />
   )
 }
