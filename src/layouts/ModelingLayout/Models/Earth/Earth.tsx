@@ -1,4 +1,3 @@
-import { Sphere, useGLTF } from '@react-three/drei'
 import { EARTH } from 'consts'
 import { useEarthPosition } from 'hooks'
 import React from 'react'
@@ -20,9 +19,18 @@ export const Earth = React.memo(() => {
       <EarthLight scale={EARTH_RADIUS} visible={colorMode === 'light'} />
       <EarthNight scale={EARTH_RADIUS} visible={colorMode === 'dark'} />
 
-      <Sphere scale={EARTH_RADIUS + 1}>
-        <meshStandardMaterial color='#318ce7' opacity={0.19} transparent />
+      {/* <Sphere scale={EARTH_RADIUS + EARTH_RADIUS * 0.003}>
+        <meshStandardMaterial color='#b3d9ff' opacity={0.3} transparent />
       </Sphere>
+      <Sphere scale={EARTH_RADIUS + EARTH_RADIUS * 0.008}>
+        <meshStandardMaterial color='#b9dcff' opacity={0.3} transparent />
+      </Sphere>
+      <Sphere scale={EARTH_RADIUS + EARTH_RADIUS * 0.012}>
+        <meshStandardMaterial color='#c0e0ff' opacity={0.3} transparent />
+      </Sphere>
+      <Sphere scale={EARTH_RADIUS + EARTH_RADIUS * 0.017}>
+        <meshStandardMaterial color='#cce6ff' opacity={0.3} transparent />
+      </Sphere> */}
     </group>
   )
 })
