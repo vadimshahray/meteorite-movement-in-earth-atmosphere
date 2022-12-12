@@ -10,7 +10,7 @@ export const useActiveCameraPosition = () => {
   const activeCamera = useSelector(selectActiveCamera)
 
   const meteoritePosition = useMeteoritePosition()
-  const meteoriteRadius = useMeteoriteRadius().scale
+  const meteoriteRadius = useMeteoriteRadius().radius
 
   const sidePositionVector = new THREE.Vector3(
     meteoritePosition.x - scaleMeters(5 * 1000),
