@@ -3,6 +3,7 @@ import { MeshProps } from '@react-three/fiber'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
 import { angleToPI } from 'utils'
+import { Atmosphere } from './Atmosphere'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -13,7 +14,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-export const EarthLight = (props: MeshProps) => {
+const EarthLightModel = (props: MeshProps) => {
   const { nodes, materials } = useGLTF(
     '/models/earth/light/scene.gltf',
   ) as unknown as GLTFResult
@@ -30,3 +31,12 @@ export const EarthLight = (props: MeshProps) => {
 }
 
 useGLTF.preload('/models/earth/light/scene.gltf')
+
+export const EarthLight = ({ visible, ...props }: MeshProps) => {
+  return (
+    <group visible={visible}>
+      <EarthLightModel {...props} />
+      <Atmosphere />
+    </group>
+  )
+}
