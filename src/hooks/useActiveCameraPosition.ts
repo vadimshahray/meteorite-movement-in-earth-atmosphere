@@ -3,24 +3,24 @@ import { useSelector } from 'react-redux'
 import { selectActiveCamera, selectIsModeling } from 'selectors'
 import * as THREE from 'three'
 import { useEarthPosition } from './useEarthPosition'
+import { useMeteoritePosition } from './useMeteoritePosition'
 
 export const useActiveCameraPosition = () => {
   const isModeling = useSelector(selectIsModeling)
   const activeCamera = useSelector(selectActiveCamera)
 
-  const EarthPosition = useEarthPosition()
-  EarthPosition.setX(EarthPosition.x - EARTH_RADIUS)
+  const meteoritePosition = useMeteoritePosition()
 
   if (!isModeling) {
-    return new THREE.Vector3(-4, 1, 4)
+    return new THREE.Vector3(meteoritePosition.x - 5, 1, 4)
   }
 
   switch (activeCamera) {
     case '@SideViewCamera':
-      return new THREE.Vector3(-2, 1, 5)
+      return new THREE.Vector3(meteoritePosition.x, 1, 5)
     case '@EarthViewCamera':
-      return EarthPosition
+      return new THREE.Vector3(0, 0, 0)
     default:
-      return new THREE.Vector3(-5, 1, 0)
+      return new THREE.Vector3(meteoritePosition.x - 5, 1, 0)
   }
 }
