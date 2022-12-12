@@ -3,6 +3,7 @@ import { MeshProps } from '@react-three/fiber'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
 import { angleToPI } from 'utils'
+import { SunLightStroke } from './SunLightStroke'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -13,7 +14,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-export const EarthNight = (props: MeshProps) => {
+const EarthNightModel = (props: MeshProps) => {
   const { nodes, materials } = useGLTF(
     '/models/earth/night/scene.gltf',
   ) as unknown as GLTFResult
@@ -26,6 +27,15 @@ export const EarthNight = (props: MeshProps) => {
       dispose={null}
       rotation={[angleToPI(76), angleToPI(-64), angleToPI(76)]}
     />
+  )
+}
+
+export const EarthNight = (props: MeshProps) => {
+  return (
+    <group visible={props.visible}>
+      <EarthNightModel {...props} />
+      <SunLightStroke />
+    </group>
   )
 }
 
