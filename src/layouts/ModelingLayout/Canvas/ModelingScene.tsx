@@ -2,12 +2,15 @@ import { useFrame, useThree } from '@react-three/fiber'
 import CameraControls from 'camera-controls'
 import { useActiveCameraPosition } from 'hooks'
 import { useMemo } from 'react'
+import { useSelector } from 'react-redux'
+import { selectActiveCamera } from 'selectors'
 import * as THREE from 'three'
-import { Earth, Meteorite } from '../Models'
+import { Earth, LandSurface, Meteorite } from '../Models'
 
 CameraControls.install({ THREE })
 
 export const ModelingScene = () => {
+  const activeCamera = useSelector(selectActiveCamera)
   const posVector = useActiveCameraPosition()
 
   const { camera, gl } = useThree()
@@ -36,7 +39,8 @@ export const ModelingScene = () => {
   return (
     <>
       <Meteorite />
-      <Earth />
+
+      {activeCamera === '@EarthViewCamera' ? <LandSurface /> : <Earth />}
     </>
   )
 }
