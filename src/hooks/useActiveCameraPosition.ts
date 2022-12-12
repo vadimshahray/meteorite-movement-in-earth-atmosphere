@@ -1,8 +1,8 @@
-import { EARTH_RADIUS } from 'layouts/ModelingLayout/Models'
 import { useSelector } from 'react-redux'
 import { selectActiveCamera, selectIsModeling } from 'selectors'
 import * as THREE from 'three'
-import { useEarthPosition } from './useEarthPosition'
+import { scaleMeters } from 'utils'
+import { useMeteoriteRadius } from './useMeteoirteRadius'
 import { useMeteoritePosition } from './useMeteoritePosition'
 
 export const useActiveCameraPosition = () => {
@@ -10,17 +10,28 @@ export const useActiveCameraPosition = () => {
   const activeCamera = useSelector(selectActiveCamera)
 
   const meteoritePosition = useMeteoritePosition()
+  const meteoriteRadius = useMeteoriteRadius().scale
+
+  const sidePositionVector = new THREE.Vector3(
+    meteoritePosition.x - scaleMeters(5 * 1000),
+    meteoriteRadius + scaleMeters(1 * 1000),
+    meteoriteRadius + scaleMeters(4 * 1000),
+  )
 
   if (!isModeling) {
-    return new THREE.Vector3(meteoritePosition.x - 5, 1, 4)
+    return sidePositionVector
   }
 
   switch (activeCamera) {
     case '@SideViewCamera':
-      return new THREE.Vector3(meteoritePosition.x, 1, 5)
+      return sidePositionVector
     case '@EarthViewCamera':
       return new THREE.Vector3(0, 0, 0)
     default:
-      return new THREE.Vector3(meteoritePosition.x - 5, 1, 0)
+      return new THREE.Vector3(
+        meteoritePosition.x - scaleMeters(5 * 1000),
+        meteoriteRadius + scaleMeters(1 * 1000),
+        meteoriteRadius,
+      )
   }
 }
