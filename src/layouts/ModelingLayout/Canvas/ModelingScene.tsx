@@ -1,6 +1,6 @@
 import { useFrame, useThree } from '@react-three/fiber'
 import CameraControls from 'camera-controls'
-import { useActiveCameraPosition } from 'hooks'
+import { useActiveCameraPosition, useMeteoritePosition } from 'hooks'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { selectActiveCamera } from 'selectors'
@@ -19,6 +19,8 @@ export const ModelingScene = () => {
     [camera, gl.domElement],
   )
 
+  const meteoritePosition = useMeteoritePosition()
+
   useFrame(({ camera }, delta) => {
     camera.position.lerp(posVector, 0.8)
     camera.updateProjectionMatrix()
@@ -27,9 +29,9 @@ export const ModelingScene = () => {
       camera.position.x,
       camera.position.y,
       camera.position.z,
-      0,
-      0,
-      0,
+      meteoritePosition.x,
+      meteoritePosition.y,
+      meteoritePosition.z,
       true,
     )
 
