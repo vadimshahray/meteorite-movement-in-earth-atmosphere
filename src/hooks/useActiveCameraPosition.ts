@@ -1,21 +1,26 @@
+import { EARTH_RADIUS } from 'layouts/ModelingLayout/Models'
 import { useSelector } from 'react-redux'
 import { selectActiveCamera, selectIsModeling } from 'selectors'
 import * as THREE from 'three'
+import { useEarthPosition } from './useEarthPosition'
 
 export const useActiveCameraPosition = () => {
-  const activeCamera = useSelector(selectActiveCamera)
   const isModeling = useSelector(selectIsModeling)
+  const activeCamera = useSelector(selectActiveCamera)
+
+  const EarthPosition = useEarthPosition()
+  EarthPosition.setX(EarthPosition.x - EARTH_RADIUS)
 
   if (!isModeling) {
-    return new THREE.Vector3(-20, 0, 0)
+    return new THREE.Vector3(-4, 1, 4)
   }
 
   switch (activeCamera) {
     case '@SideViewCamera':
-      return new THREE.Vector3(0, 0, 0)
+      return new THREE.Vector3(-2, 1, 5)
     case '@EarthViewCamera':
-      return new THREE.Vector3(0, 0, -5)
+      return EarthPosition
     default:
-      return new THREE.Vector3(-5, 2, 5)
+      return new THREE.Vector3(-5, 1, 0)
   }
 }
