@@ -1,5 +1,4 @@
 import { EARTH } from 'consts'
-import { useEarthPosition } from 'hooks'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectThemeColorMode } from 'selectors'
@@ -12,10 +11,9 @@ export const EARTH_RADIUS = (1.0 / EARTH_MODEL_RADIUS) * EARTH.RADIUS * 0.00001
 
 export const Earth = React.memo(() => {
   const colorMode = useSelector(selectThemeColorMode)
-  const earthPosition = useEarthPosition()
 
   return (
-    <group position={earthPosition}>
+    <group>
       <EarthLight scale={EARTH_RADIUS} visible={colorMode === 'light'} />
       <EarthNight scale={EARTH_RADIUS} visible={colorMode === 'dark'} />
     </group>
