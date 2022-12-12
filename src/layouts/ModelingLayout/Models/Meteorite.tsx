@@ -1,11 +1,11 @@
 import { Float, PresentationControls, useGLTF } from '@react-three/drei'
 import { MeshProps } from '@react-three/fiber'
+import { useMeteoritePosition, useMeteoriteRadius } from 'hooks'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { selectIsModeling, selectObjectModelR } from 'selectors'
+import { selectIsModeling } from 'selectors'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
-import { getRadiusNorm, scaleMeters } from 'utils'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -16,7 +16,8 @@ type GLTFResult = GLTF & {
   }
 }
 
-const METEORITE_MODEL_RADIUS = 0.03429021680565431
+export const METEORITE_MODEL_RADIUS = 0.03429021680565431
+export const METEORITE_MODEL_NORM_RADIUS = 1.0 / METEORITE_MODEL_RADIUS
 
 const MeteoriteModel = React.memo<MeshProps>((props) => {
   const { nodes, materials } = useGLTF(
@@ -40,11 +41,11 @@ const MeteoriteModel = React.memo<MeshProps>((props) => {
 export const Meteorite = React.memo(() => {
   const isModeling = useSelector(selectIsModeling)
 
-  const radius = useSelector(selectObjectModelR)
-  const scale = getRadiusNorm(METEORITE_MODEL_RADIUS) * scaleMeters(radius)
+  const { scale } = useMeteoriteRadius()
+  const position = useMeteoritePosition()
 
   return (
-    <Float speed={!isModeling ? undefined : 0}>
+    <Float speed={!isModeling ? undefined : 0} position={position}>
       <PresentationControls
         enabled={!isModeling}
         snap
