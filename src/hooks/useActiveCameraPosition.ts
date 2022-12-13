@@ -26,7 +26,7 @@ export const useActiveCameraPosition = () => {
     case '@SideViewCamera':
       return new THREE.Vector3(
         meteoritePosition.x + meteoriteRadius * 1.7,
-        meteoritePosition.y + meteoriteRadius,
+        meteoritePosition.y,
         meteoritePosition.z,
       )
     case '@EarthViewCamera':
