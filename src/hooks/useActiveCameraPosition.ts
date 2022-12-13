@@ -30,6 +30,6 @@ export const useActiveCameraPosition = () => {
         meteoritePosition.z,
       )
     case '@EarthViewCamera':
-      return new THREE.Vector3(0, 0, 0)
+      return new THREE.Vector3(2, 0, -2)
   }
 }
