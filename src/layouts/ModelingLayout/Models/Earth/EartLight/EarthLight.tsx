@@ -20,13 +20,15 @@ const EarthLightModel = (props: MeshProps) => {
   ) as unknown as GLTFResult
 
   return (
-    <mesh
-      {...props}
-      geometry={nodes.Sphere_Material002_0.geometry}
-      material={materials['Material.002']}
-      dispose={null}
-      rotation={[angleToPI(-90), angleToPI(-25), angleToPI(100)]}
-    />
+    <group rotation={[0, angleToPI(90), 0]}>
+      <mesh
+        {...props}
+        geometry={nodes.Sphere_Material002_0.geometry}
+        material={materials['Material.002']}
+        dispose={null}
+        rotation={[angleToPI(-90), angleToPI(-25), angleToPI(100)]}
+      />
+    </group>
   )
 }
 
