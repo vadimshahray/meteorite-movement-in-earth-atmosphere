@@ -20,13 +20,15 @@ const EarthNightModel = (props: MeshProps) => {
   ) as unknown as GLTFResult
 
   return (
-    <mesh
-      {...props}
-      geometry={nodes.pSphere1_color_0.geometry}
-      material={materials.color}
-      dispose={null}
-      rotation={[angleToPI(76), angleToPI(-64), angleToPI(76)]}
-    />
+    <group rotation={[0, angleToPI(90), 0]}>
+      <mesh
+        {...props}
+        geometry={nodes.pSphere1_color_0.geometry}
+        material={materials.color}
+        dispose={null}
+        rotation={[angleToPI(76), angleToPI(-64), angleToPI(76)]}
+      />
+    </group>
   )
 }
 
