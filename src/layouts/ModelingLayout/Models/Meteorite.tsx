@@ -41,18 +41,22 @@ const MeteoriteModel = React.memo<MeshProps>((props) => {
 export const Meteorite = React.memo(() => {
   const isModeling = useSelector(selectIsModeling)
 
-  const { scale } = useMeteoriteRadius()
+  const { scale, radius } = useMeteoriteRadius()
   const position = useMeteoritePosition()
 
   return (
-    <Float speed={!isModeling ? undefined : 0} position={position}>
+    <Float
+      speed={!isModeling ? undefined : 0}
+      floatingRange={[0, radius * 0.1]}
+      position={position}
+    >
       <PresentationControls
         enabled={!isModeling}
         snap
-        speed={2}
+        speed={1}
         polar={[-Infinity, Infinity]}
         azimuth={[-Infinity, Infinity]}
-        config={{ mass: 10, tension: 200, friction: 40 }}
+        config={{ mass: 10, tension: 100, friction: 40 }}
       >
         <MeteoriteModel scale={scale} />
       </PresentationControls>
