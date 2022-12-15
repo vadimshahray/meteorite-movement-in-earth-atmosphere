@@ -2,7 +2,7 @@ import { InputAdornment, TextField } from '@mui/material'
 import { useDispatch } from 'hooks'
 import React, { useEffect, useMemo, useState } from 'react'
 import { setIsUserSectionInputValid } from 'slices'
-import { AnySchema, object, ValidationError } from 'yup'
+import { object, ValidationError } from 'yup'
 import { RequiredNumberSchema } from 'yup/lib/number'
 import { AnyObject } from 'yup/lib/types'
 
@@ -10,8 +10,6 @@ import { AnyObject } from 'yup/lib/types'
 export type ValidatedTextFieldProps = {
   /** Ярлык поля */
   label: string
-  /** Значение поля */
-  value: string
   /** Числовое правило валидации */
   rule: RequiredNumberSchema<number | undefined, AnyObject>
   /**
@@ -30,14 +28,12 @@ export type ValidatedTextFieldProps = {
  */
 export const ValidatedTextField = ({
   label,
-  value,
   rule,
   adornment,
   onValid,
 }: ValidatedTextFieldProps) => {
   const dispatch = useDispatch()
 
-  const [inputValue, setInputValue] = useState(value)
   const [error, setError] = useState<string>()
 
   const schema = useMemo(
@@ -62,15 +58,7 @@ export const ValidatedTextField = ({
       .catch((error: ValidationError) => {
         setError(error.message)
       })
-      .finally(() => {
-        setInputValue(input)
-      })
   }
-
-  useEffect(() => {
-    setInputValue(value)
-    setError(undefined)
-  }, [value])
 
   useEffect(() => {
     dispatch(setIsUserSectionInputValid(!error))
@@ -79,7 +67,6 @@ export const ValidatedTextField = ({
   return (
     <TextField
       label={label}
-      value={inputValue}
       error={!!error}
       helperText={error}
       onChange={handleChange}
