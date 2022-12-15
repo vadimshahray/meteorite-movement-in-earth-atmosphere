@@ -10,6 +10,8 @@ import { AnyObject } from 'yup/lib/types'
 export type ValidatedTextFieldProps = {
   /** Ярлык поля */
   label: string
+  /** Начальное значение поля */
+  initialValue?: string
   /** Числовое правило валидации */
   rule: RequiredNumberSchema<number | undefined, AnyObject>
   /**
@@ -30,6 +32,7 @@ export const ValidatedTextField = ({
   label,
   rule,
   adornment,
+  initialValue,
   onValid,
 }: ValidatedTextFieldProps) => {
   const dispatch = useDispatch()
@@ -67,6 +70,7 @@ export const ValidatedTextField = ({
   return (
     <TextField
       label={label}
+      defaultValue={initialValue}
       error={!!error}
       helperText={error}
       onChange={handleChange}
