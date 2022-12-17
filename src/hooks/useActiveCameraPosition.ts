@@ -11,18 +11,19 @@ export const useActiveCameraPosition = () => {
   const meteoritePosition = useMeteoritePosition()
   const meteoriteRadius = useMeteoriteRadius().radius
 
-  const backViewPisitionVector = new THREE.Vector3(
+  const backViewPositionVector = new THREE.Vector3(
     meteoritePosition.x,
     meteoritePosition.y + getRadiusCoefficient(meteoriteRadius),
     meteoritePosition.z,
   )
+
   if (!isModeling) {
-    return backViewPisitionVector
+    return backViewPositionVector
   }
 
   switch (activeCamera) {
     case '@BackViewCamera':
-      return backViewPisitionVector
+      return backViewPositionVector
     case '@SideViewCamera':
       return new THREE.Vector3(
         meteoritePosition.x + getRadiusCoefficient(meteoriteRadius),
