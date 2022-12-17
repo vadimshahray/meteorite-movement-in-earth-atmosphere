@@ -16,7 +16,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-export const METEORITE_MODEL_RADIUS = 0.03429021680565431
+export const METEORITE_MODEL_RADIUS = 0.03813021680565431
 export const METEORITE_MODEL_NORM_RADIUS = 1.0 / METEORITE_MODEL_RADIUS
 
 const MeteoriteModel = React.memo<MeshProps>((props) => {
@@ -46,7 +46,7 @@ export const Meteorite = React.memo(() => {
 
   return (
     <Float
-      speed={!isModeling ? undefined : 0}
+      speed={isModeling ? 0 : undefined}
       floatingRange={[0, radius * 0.1]}
       position={position}
     >
