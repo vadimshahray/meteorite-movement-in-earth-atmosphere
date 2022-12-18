@@ -11,9 +11,7 @@ export const ModelingTimer = () => {
   const [time, setTime] = useState('')
 
   useEffect(() => {
-    if (!isModeling) {
-      return
-    }
+    if (!isModeling) return
 
     const startTime = Date.now()
 
@@ -37,13 +35,14 @@ export const ModelingTimer = () => {
 }
 
 const ticksToTime = (ms: number) => {
-  const minutes = Math.floor(ms / 1000 / 60)
+  const hours = Math.floor(ms / 1000 / 60 / 60)
+  const minutes = Math.floor(ms / 1000 / 60) % 60
   const seconds = Math.floor(ms / 1000) % 60
 
-  return `${addZeros(minutes, 2)}:${addZeros(seconds, 2)}:${addZeros(
-    ms % 1000,
-    3,
-  )}`
+  return `${addZeros(hours, 2)}:${addZeros(minutes, 2)}:${addZeros(
+    seconds,
+    2,
+  )}:${addZeros(ms % 1000, 3)}`
 }
 
 const addZeros = (x: number, count: number) => {
