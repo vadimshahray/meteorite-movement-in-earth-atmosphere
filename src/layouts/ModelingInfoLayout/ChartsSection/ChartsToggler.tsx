@@ -5,8 +5,6 @@ import { selectActiveChart } from 'selectors'
 import { setActiveChart } from 'slices'
 import { charts } from 'utils'
 
-type Charts = '@VelocityChart' | '@DistanceChart'
-
 export const ChartsToggler = () => {
   const dispatch = useDispatch()
 
