@@ -1,5 +1,6 @@
 import { useGLTF } from '@react-three/drei'
 import { MeshProps } from '@react-three/fiber'
+import React from 'react'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
 import { angleToPI } from 'utils'
@@ -14,23 +15,26 @@ type GLTFResult = GLTF & {
   }
 }
 
-const EarthLightModel = (props: MeshProps) => {
-  const { nodes, materials } = useGLTF(
-    '/models/earth/light/scene.gltf',
-  ) as unknown as GLTFResult
+const EarthLightModel = React.memo(
+  (props: MeshProps) => {
+    const { nodes, materials } = useGLTF(
+      '/models/earth/light/scene.gltf',
+    ) as unknown as GLTFResult
 
-  return (
-    <group rotation={[0, angleToPI(90), 0]}>
-      <mesh
-        {...props}
-        geometry={nodes.Sphere_Material002_0.geometry}
-        material={materials['Material.002']}
-        dispose={null}
-        rotation={[angleToPI(-90), angleToPI(-25), angleToPI(100)]}
-      />
-    </group>
-  )
-}
+    return (
+      <group rotation={[0, angleToPI(90), 0]}>
+        <mesh
+          {...props}
+          geometry={nodes.Sphere_Material002_0.geometry}
+          material={materials['Material.002']}
+          dispose={null}
+          rotation={[angleToPI(-90), angleToPI(-25), angleToPI(100)]}
+        />
+      </group>
+    )
+  },
+  () => true,
+)
 
 useGLTF.preload('/models/earth/light/scene.gltf')
 
