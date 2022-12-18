@@ -1,18 +1,19 @@
-import { Toggler, TogglerItem } from 'components'
-import { useState } from 'react'
+import { Toggler } from 'components'
+import { useDispatch } from 'hooks'
+import { useSelector } from 'react-redux'
+import { selectActiveChart } from 'selectors'
+import { setActiveChart } from 'slices'
+import { charts } from 'utils'
 
 type Charts = '@VelocityChart' | '@DistanceChart'
 
-const charts: TogglerItem[] = [
-  { key: '@VelocityChart', name: 'Скорость' },
-  { key: '@DistanceChart', name: 'Расстояние' },
-]
-
 export const ChartsToggler = () => {
-  const [activeChart, setActiveChart] = useState<Charts>('@VelocityChart')
+  const dispatch = useDispatch()
+
+  const activeChart = useSelector(selectActiveChart)
 
   const handleChange = (activeChart: string) => {
-    setActiveChart(activeChart as Charts)
+    dispatch(setActiveChart(activeChart as Charts))
   }
 
   return <Toggler value={activeChart} items={charts} onChange={handleChange} />
