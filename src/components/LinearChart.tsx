@@ -39,7 +39,12 @@ export const LinearChart = ({ data }: LinearChartProps) => {
           fontSize={typography.caption.fontSize}
         />
 
-        <Line type='monotone' dataKey='y' stroke={palette.primary.main} />
+        <Line
+          type='monotone'
+          dataKey='y'
+          dot={false}
+          stroke={palette.primary.main}
+        />
 
         <CartesianGrid strokeDasharray='1 3' />
         <Tooltip />
