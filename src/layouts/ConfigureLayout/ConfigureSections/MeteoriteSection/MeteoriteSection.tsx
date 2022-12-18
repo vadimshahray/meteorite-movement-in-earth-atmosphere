@@ -1,5 +1,11 @@
 import React from 'react'
-import { MassField, RadiusField, DistanceField } from './Fields'
+import {
+  MassField,
+  RadiusField,
+  DistanceField,
+  AngelField,
+  InitialVelocityField,
+} from './Fields'
 
 export const MeteoriteSection = () => {
   return (
@@ -7,6 +13,8 @@ export const MeteoriteSection = () => {
       <MassField />
       <DistanceField />
       <RadiusField />
+      <AngelField />
+      <InitialVelocityField />
     </div>
   )
 }

@@ -1,3 +1,5 @@
 export * from './MassField'
 export * from './RadiusField'
 export * from './DistanceField'
+export * from './AngelField'
+export * from './InitialVelocityField'
