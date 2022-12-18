@@ -20,13 +20,25 @@ export const theme = createTheme({
   },
   components: {
     MuiCssBaseline: {
-      styleOverrides: () => `
+      styleOverrides: (theme) => `
         body {
           height: 100vh;
         }
         #root {
           width: 100%;
           height: 100%;
+        }
+
+        ::-webkit-scrollbar {
+          width: 0.5rem;
+          height: 0.5rem;
+        }
+        ::-webkit-scrollbar-thumb {
+          -webkit-transition: .3s ease all;
+          transition: .3s ease all;
+          border-color: transparent;
+          background-color: ${theme.palette.divider};
+          z-index: 40;
         }
       `,
     },
