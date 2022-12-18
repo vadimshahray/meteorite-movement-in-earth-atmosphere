@@ -1,10 +1,10 @@
 export const selectIsModeling = (state: RootState) => state.modeling.isModeling
 
-export const selectMeteoriteVelocity = (state: RootState) =>
+export const selectModelingMeteoriteVelocity = (state: RootState) =>
   state.modeling.meteorite.velocity
 
-export const selectMeteoriteDistance = (state: RootState) =>
+export const selectModelingMeteoriteDistance = (state: RootState) =>
   state.modeling.meteorite.distance
 
-export const selectMeteoriteXOffset = (state: RootState) =>
+export const selectModelingMeteoriteXOffset = (state: RootState) =>
   state.modeling.meteorite.xOffset
