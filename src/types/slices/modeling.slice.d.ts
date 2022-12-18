@@ -1,5 +1,11 @@
 type ModelingSliceState = {
   isModeling: boolean
+
+  meteorite: {
+    velocity: number
+    distance: number
+    xOffset: number
+  }
 }
 
 /**
@@ -8,4 +14,13 @@ type ModelingSliceState = {
  */
 interface ModelingSlice extends SliceCaseReducers<ModelingSliceState> {
   setIsModeling(state: ModelingSliceState, action: PayloadAction<boolean>): void
+
+  setMeteoriteData(
+    state: ModelingSliceState,
+    action: PayloadAction<{
+      velocity: number
+      distance: number
+      xOffset: number
+    }>,
+  ): void
 }
