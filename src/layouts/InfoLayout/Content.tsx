@@ -9,7 +9,7 @@ export const Content = () => {
   const isModeling = useSelector(selectIsModeling)
 
   return (
-    <Container disableGutters sx={{ flexGrow: 1 }}>
+    <Container disableGutters sx={{ flexGrow: 1, overflowY: 'auto' }}>
       {isModeling ? (
         <ModelingInfoLayout />
       ) : (
