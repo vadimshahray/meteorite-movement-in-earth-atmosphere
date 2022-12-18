@@ -6,9 +6,7 @@ export const LandSurface = () => {
   const colorMode = useSelector(selectThemeColorMode)
 
   const files =
-    colorMode === 'light'
-      ? 'https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/dry_cracked_lake_1k.hdr'
-      : 'https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/4k/preller_drive_4k.hdr'
+    colorMode === 'light' ? '/models/hdr/light.hdr' : '/models/hdr/dark.hdr'
 
   return (
     <>
