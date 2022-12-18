@@ -1,5 +1,5 @@
 /** Модель физического объекта */
-type PhysicalModel = {
+type MeteoriteModel = {
   /** Расстояние от поверхности планеты до центра масс объекта */
   y0: number
   /** Масса */
@@ -17,10 +17,10 @@ type PhysicalModel = {
 type PhysicalModels = '@Meteorite' | '@Ball' | '@Box'
 
 /** Физический объект. Используется для определения методов вычисления данных физ. объекта */
-type PhysicalObject = {} & PhysicalModel
+type PhysicalObject = {} & MeteoriteModel
 
 /** Карта используемых свойств физической модели */
-type PhysicalModelPropertiesMap = Record<keyof PhysicalModel, boolean>
+type PhysicalModelPropertiesMap = Record<keyof MeteoriteModel, boolean>
 
 /** Карты используемых свойств физических моделей */
 type PhysicalModelsPropertiesMaps = Record<
