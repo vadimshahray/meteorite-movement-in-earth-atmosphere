@@ -4,7 +4,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectThemeColorMode } from 'selectors'
 
-export const LandSurface = React.memo(({ visible, ...props }: GroupProps) => {
+export default React.memo(({ visible, ...props }: GroupProps) => {
   const colorMode = useSelector(selectThemeColorMode)
 
   const ground = { height: 1, radius: 1000, scale: 38 }

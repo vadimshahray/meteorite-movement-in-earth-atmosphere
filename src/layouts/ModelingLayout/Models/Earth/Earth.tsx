@@ -10,7 +10,7 @@ const EARTH_MODEL_RADIUS = 1.7320494310588754
 
 export const EARTH_RADIUS = (1.0 / EARTH_MODEL_RADIUS) * EARTH.RADIUS * 0.00001
 
-export const Earth = React.memo(({ visible, ...props }: GroupProps) => {
+export default React.memo(({ visible, ...props }: GroupProps) => {
   const colorMode = useSelector(selectThemeColorMode)
 
   return (
