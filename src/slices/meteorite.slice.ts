@@ -3,11 +3,11 @@ import { setDefinedProperties } from 'utils'
 
 const initialState: MeteoriteSliceState = {
   data: {
-    mass: 1,
-    radius: 1,
-    distance: 1,
-    angel: 0,
-    initialVelocity: 0,
+    mass: 1000,
+    radius: 10000,
+    distance: 1000000,
+    angel: 30,
+    initialVelocity: 10,
   },
 }
 
