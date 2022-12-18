@@ -1,6 +1,13 @@
 import StackedLineChartIcon from '@mui/icons-material/StackedLineChart'
-import { Section } from 'components'
+import { Item, Section } from 'components'
+import { ChartsToggler } from './ChartsToggler'
 
 export const ChartsSection = () => {
-  return <Section title='Графики' Icon={StackedLineChartIcon}></Section>
+  return (
+    <Section title='Графики' Icon={StackedLineChartIcon}>
+      <Item label='Активный график'>
+        <ChartsToggler />
+      </Item>
+    </Section>
+  )
 }
