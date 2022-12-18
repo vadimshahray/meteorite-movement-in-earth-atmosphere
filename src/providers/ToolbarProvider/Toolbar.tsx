@@ -10,15 +10,22 @@ export type ToolbarActionButton = React.ReactElement<
 
 export type ToolbarProps = {
   title: string
+  Icon?: Icon
   actionButtons?: ToolbarActionButton[]
 }
 
 /** Тулбар секции ввода данных ConfigureLayout */
-export const Toolbar = ({ title, actionButtons }: ToolbarProps) => {
+export const Toolbar = ({ title, Icon, actionButtons }: ToolbarProps) => {
   return (
     <Container disableGutters>
       <MUIToolbar variant='dense' sx={{ justifyContent: 'space-between' }}>
-        <Typography variant='h6'>{title}</Typography>
+        <Container
+          disableGutters
+          sx={{ display: 'flex', alignItems: 'center' }}
+        >
+          {Icon && <Icon sx={{ marginRight: 1 }} />}
+          <Typography variant='h6'>{title}</Typography>
+        </Container>
 
         <div>
           {actionButtons?.map((btn, i) => (

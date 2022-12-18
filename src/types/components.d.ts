@@ -1,3 +1,5 @@
-type Icon = OverridableComponent<SvgIconTypeMap<{}, 'svg'>> & {
+type Icon = import('@mui/material/OverridableComponent').OverridableComponent<
+  import('@mui/material').SvgIconTypeMap<{}, 'svg'>
+> & {
   muiName: string
 }
