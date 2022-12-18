@@ -1,17 +1,17 @@
 import { ValidatedTextField } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
-import { selectObjectModelK } from 'selectors'
-import { setPhysicalModelData } from 'slices'
+import { selectMeteoriteK } from 'selectors'
+import { setMeteoriteData } from 'slices'
 import { positiveNumberRule } from 'utils'
 
 export const KField = () => {
   const dispatch = useDispatch()
-  const K = useSelector(selectObjectModelK)
+  const K = useSelector(selectMeteoriteK)
 
   const handleValid = (value: number) => {
     dispatch(
-      setPhysicalModelData({
+      setMeteoriteData({
         K: value,
       }),
     )
