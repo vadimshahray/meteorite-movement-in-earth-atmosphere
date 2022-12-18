@@ -5,9 +5,9 @@ import { selectMeteoriteMass } from 'selectors'
 import { setMeteoriteData } from 'slices'
 import { positiveNumberRule } from 'utils'
 
-export const MField = () => {
+export const MassField = () => {
   const dispatch = useDispatch()
-  const m = useSelector(selectMeteoriteMass)
+  const mass = useSelector(selectMeteoriteMass)
 
   const handleValid = (value: number) => {
     dispatch(
@@ -21,7 +21,7 @@ export const MField = () => {
     <ValidatedTextField
       adornment='M'
       label='Масса, кг'
-      initialValue={m.toString()}
+      initialValue={mass.toString()}
       rule={positiveNumberRule}
       onValid={handleValid}
     />

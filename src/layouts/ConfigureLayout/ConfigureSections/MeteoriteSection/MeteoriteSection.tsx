@@ -1,12 +1,12 @@
 import React from 'react'
-import { MField, RField, YField } from './Fields'
+import { MassField, RadiusField, DistanceField } from './Fields'
 
 export const MeteoriteSection = () => {
   return (
     <div>
-      <MField />
-      <YField />
-      <RField />
+      <MassField />
+      <DistanceField />
+      <RadiusField />
     </div>
   )
 }
