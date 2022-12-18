@@ -3,7 +3,7 @@ import { Container } from 'components'
 import { useToolbar } from 'hooks'
 import { useEffect } from 'react'
 import { CameraSettings } from './CameraSettings'
-import { GraphicsSection } from './GraphicsSection'
+import { ChartsSection } from './ChartsSection'
 
 export const ModelingInfoLayout = () => {
   const { setTitle, setIcon } = useToolbar()
@@ -17,7 +17,7 @@ export const ModelingInfoLayout = () => {
     <Container>
       <CameraSettings />
 
-      <GraphicsSection />
+      <ChartsSection />
     </Container>
   )
 }
