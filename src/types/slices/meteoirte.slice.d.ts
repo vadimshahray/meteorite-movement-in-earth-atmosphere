@@ -5,6 +5,6 @@ type MeteoriteSliceState = {
 interface MeteoriteSlice extends SliceCaseReducers<MeteoriteSliceState> {
   setMeteoriteData(
     state: MeteoriteSliceState,
-    action: PayloadAction<Partial_MeteoriteModel>,
+    action: PayloadAction<Partial<MeteoriteModel>>,
   ): void
 }
