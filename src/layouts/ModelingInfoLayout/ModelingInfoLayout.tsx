@@ -4,6 +4,7 @@ import { useToolbar } from 'hooks'
 import { useEffect } from 'react'
 import { CameraSettings } from './CameraSettings'
 import { ChartsSection } from './ChartsSection'
+import { ModelingMeteoriteSection } from './ModelingMeteoriteSection'
 
 export const ModelingInfoLayout = () => {
   const { setTitle, setIcon } = useToolbar()
@@ -18,6 +19,8 @@ export const ModelingInfoLayout = () => {
       <CameraSettings />
 
       <ChartsSection />
+
+      <ModelingMeteoriteSection />
     </Container>
   )
 }
