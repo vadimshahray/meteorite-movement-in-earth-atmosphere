@@ -1,4 +1,4 @@
-import InfoIcon from '@mui/icons-material/Info'
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined'
 import { Item, Section } from 'components'
 import {
   ModelingMeteoriteDistance,
@@ -8,7 +8,7 @@ import {
 
 export const ModelingMeteoriteSection = () => {
   return (
-    <Section title='Информация о метеорите' Icon={InfoIcon}>
+    <Section title='Информация о метеорите' Icon={InfoOutlinedIcon}>
       <Item label='Скорость падения, м/c'>
         <ModelingMeteoriteVelocity />
       </Item>

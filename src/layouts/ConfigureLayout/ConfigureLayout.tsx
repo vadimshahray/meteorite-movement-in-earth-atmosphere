@@ -1,4 +1,4 @@
-import SettingsIcon from '@mui/icons-material/Settings'
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
 import { Container } from 'components'
 import { useToolbar } from 'hooks'
 import React, { useEffect } from 'react'
@@ -15,7 +15,7 @@ export const ConfigureLayout = ({ className, ...props }: LayoutProps) => {
 
   useEffect(() => {
     setTitle('Настройки приложения')
-    setIcon(SettingsIcon)
+    setIcon(SettingsOutlinedIcon)
   }, [setTitle, setIcon])
 
   return (

@@ -1,4 +1,4 @@
-import DataObjectIcon from '@mui/icons-material/DataObject'
+import DataObjectOutlinedIcon from '@mui/icons-material/DataObjectOutlined'
 import { Section } from 'components'
 import React from 'react'
 import {
@@ -11,7 +11,7 @@ import {
 
 export const MeteoriteSettings = () => {
   return (
-    <Section title='Данные метеорита' Icon={DataObjectIcon}>
+    <Section title='Данные метеорита' Icon={DataObjectOutlinedIcon}>
       <MassField />
       <DistanceField />
       <RadiusField />

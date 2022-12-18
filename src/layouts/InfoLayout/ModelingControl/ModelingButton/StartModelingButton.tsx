@@ -1,4 +1,4 @@
-import PlayArrowIcon from '@mui/icons-material/PlayArrow'
+import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined'
 import { Button } from 'components'
 import { useDispatch } from 'hooks'
 import { useSnackbar } from 'notistack'
@@ -29,7 +29,7 @@ export const StartModelingButton = () => {
   return (
     <Button
       variant='contained'
-      startIcon={<PlayArrowIcon />}
+      startIcon={<PlayArrowOutlinedIcon />}
       onClick={handleClick}
     >
       Моделировать

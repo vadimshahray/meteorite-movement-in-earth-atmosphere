@@ -1,5 +1,5 @@
-import DarkModeIcon from '@mui/icons-material/DarkMode'
-import LightModeIcon from '@mui/icons-material/LightMode'
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined'
 import { IconButton } from '@mui/material'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
@@ -20,7 +20,11 @@ export const ThemeButton = () => {
 
   return (
     <IconButton onClick={handleClick}>
-      {colorMode === 'light' ? <LightModeIcon /> : <DarkModeIcon />}
+      {colorMode === 'light' ? (
+        <LightModeOutlinedIcon />
+      ) : (
+        <DarkModeOutlinedIcon />
+      )}
     </IconButton>
   )
 }
