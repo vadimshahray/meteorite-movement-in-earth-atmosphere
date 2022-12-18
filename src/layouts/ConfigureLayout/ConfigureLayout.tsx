@@ -1,3 +1,4 @@
+import SettingsIcon from '@mui/icons-material/Settings'
 import { Container } from 'components'
 import { useToolbar } from 'hooks'
 import React, { useEffect } from 'react'
@@ -10,11 +11,12 @@ import { ConfigureSections } from './ConfigureSections'
  * @returns {JSX.Element}
  */
 export const ConfigureLayout = ({ className, ...props }: LayoutProps) => {
-  const { setTitle } = useToolbar()
+  const { setTitle, setIcon } = useToolbar()
 
   useEffect(() => {
     setTitle('Настройки приложения')
-  }, [setTitle])
+    setIcon(SettingsIcon)
+  }, [setTitle, setIcon])
 
   return (
     <Container
