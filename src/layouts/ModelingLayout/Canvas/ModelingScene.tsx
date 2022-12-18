@@ -42,7 +42,9 @@ export const ModelingScene = () => {
     <>
       <Meteorite />
 
-      {activeCamera === '@EarthViewCamera' ? <LandSurface /> : <Earth />}
+      <Earth visible={activeCamera !== '@EarthViewCamera'} />
+
+      <LandSurface visible={activeCamera === '@EarthViewCamera'} />
     </>
   )
 }
