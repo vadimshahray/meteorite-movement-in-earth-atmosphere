@@ -8,5 +8,5 @@ export const DistanceChart = () => {
     { x: 110, y: 210 },
   ]
 
-  return <LinearChart data={data} />
+  return <LinearChart data={data} label='D(t)' />
 }

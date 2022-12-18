@@ -19,7 +19,7 @@ export const DistanceField = () => {
 
   return (
     <ValidatedTextField
-      adornment='y₀'
+      adornment='D₀'
       label='Расстояние от поверхности планеты, м'
       initialValue={distance.toString()}
       rule={positiveNumberRule}
