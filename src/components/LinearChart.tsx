@@ -22,10 +22,10 @@ export const LinearChart = ({ data }: LinearChartProps) => {
   const { palette, typography } = useTheme()
 
   return (
-    <ResponsiveContainer width='100%' height={400}>
+    <ResponsiveContainer width='100%' height={300}>
       <LineChart
         data={data}
-        margin={{ top: 5, right: 5, left: -25, bottom: 5 }}
+        margin={{ top: 10, right: 4, left: -32, bottom: 5 }}
       >
         <YAxis
           dataKey='y'
