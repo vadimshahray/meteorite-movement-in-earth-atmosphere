@@ -1,19 +1,19 @@
 import { ValidatedTextField } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
-import { selectMeteoriteR } from 'selectors'
+import { selectMeteoriteRadius } from 'selectors'
 import { setMeteoriteData } from 'slices'
 import { positiveNumberRule } from 'utils'
 
 export const RField = () => {
   const dispatch = useDispatch()
 
-  const R = useSelector(selectMeteoriteR)
+  const R = useSelector(selectMeteoriteRadius)
 
   const handleValid = (value: number) => {
     dispatch(
       setMeteoriteData({
-        R: value,
+        radius: value,
       }),
     )
   }

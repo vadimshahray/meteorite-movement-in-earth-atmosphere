@@ -1,18 +1,18 @@
 import { ValidatedTextField } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
-import { selectMeteoritey0 } from 'selectors'
+import { selectMeteoriteDistance } from 'selectors'
 import { setMeteoriteData } from 'slices'
 import { positiveNumberRule } from 'utils'
 
 export const YField = () => {
   const dispatch = useDispatch()
-  const y0 = useSelector(selectMeteoritey0)
+  const distance = useSelector(selectMeteoriteDistance)
 
   const handleValid = (value: number) => {
     dispatch(
       setMeteoriteData({
-        y0: value,
+        distance: value,
       }),
     )
   }
@@ -21,7 +21,7 @@ export const YField = () => {
     <ValidatedTextField
       adornment='y₀'
       label='Расстояние от поверхности планеты, м'
-      initialValue={y0.toString()}
+      initialValue={distance.toString()}
       rule={positiveNumberRule}
       onValid={handleValid}
     />
