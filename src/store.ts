@@ -15,6 +15,7 @@ import {
   configurationSlice,
   meteoriteSlice,
   sceneSlice,
+  modelingInfoSlice,
 } from 'slices'
 import { modelingSlice } from 'slices/modeling.slice'
 
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
   configuration: configurationSlice.reducer,
   modeling: modelingSlice.reducer,
   scene: sceneSlice.reducer,
+  modelingInfo: modelingInfoSlice.reducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
