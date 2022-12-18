@@ -5,7 +5,7 @@ import { selectMeteoriteDistance } from 'selectors'
 import { setMeteoriteData } from 'slices'
 import { positiveNumberRule } from 'utils'
 
-export const YField = () => {
+export const DistanceField = () => {
   const dispatch = useDispatch()
   const distance = useSelector(selectMeteoriteDistance)
 

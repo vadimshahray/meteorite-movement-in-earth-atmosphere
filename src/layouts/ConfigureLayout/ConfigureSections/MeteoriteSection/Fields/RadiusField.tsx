@@ -5,10 +5,10 @@ import { selectMeteoriteRadius } from 'selectors'
 import { setMeteoriteData } from 'slices'
 import { positiveNumberRule } from 'utils'
 
-export const RField = () => {
+export const RadiusField = () => {
   const dispatch = useDispatch()
 
-  const R = useSelector(selectMeteoriteRadius)
+  const radius = useSelector(selectMeteoriteRadius)
 
   const handleValid = (value: number) => {
     dispatch(
@@ -22,7 +22,7 @@ export const RField = () => {
     <ValidatedTextField
       label='Радиус объекта, м'
       adornment='R'
-      initialValue={R.toString()}
+      initialValue={radius.toString()}
       rule={positiveNumberRule}
       onValid={handleValid}
     />
