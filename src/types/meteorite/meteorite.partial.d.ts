@@ -4,10 +4,6 @@ type Partial_MeteoriteModel = {
   distance?: number
   /** Масса */
   mass?: number
-  /** Коэффициент лобового сопротивления */
-  K?: number
-  /** Площадь поперечного сечения */
-  S?: number
   /** Радиус (не общее) */
   radius?: number
 }
