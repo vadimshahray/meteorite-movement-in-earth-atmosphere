@@ -1,11 +1,14 @@
 import { useFrame, useThree } from '@react-three/fiber'
 import CameraControls from 'camera-controls'
 import { useActiveCameraPosition, useMeteoritePosition } from 'hooks'
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { selectActiveCamera } from 'selectors'
 import * as THREE from 'three'
-import { Earth, LandSurface, Meteorite } from '../Models'
+import { Meteorite } from '../Models'
+
+const Earth = React.lazy(() => import('../Models/Earth/Earth'))
+const LandSurface = React.lazy(() => import('../Models/LandSurface'))
 
 CameraControls.install({ THREE })
 
