@@ -1,13 +1,10 @@
-import { SvgIconTypeMap, Typography } from '@mui/material'
-import { OverridableComponent } from '@mui/material/OverridableComponent'
+import { Typography } from '@mui/material'
 import { PropsWithChildren } from 'react'
 import { Container } from './Container'
 
 export type SectionProps = {
   title: string
-  Icon?: OverridableComponent<SvgIconTypeMap<{}, 'svg'>> & {
-    muiName: string
-  }
+  Icon?: Icon
 } & PropsWithChildren
 
 export const Section = ({ title, Icon, children }: SectionProps) => {
