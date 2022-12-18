@@ -1,4 +1,4 @@
-import { ToggleButton, ToggleButtonGroup } from '@mui/material'
+import { Toggler } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
 import { selectActiveCamera } from 'selectors'
@@ -9,25 +9,15 @@ export const CameraToggler = () => {
   const dispatch = useDispatch()
   const sceneActiveCamera = useSelector(selectActiveCamera)
 
-  const handleChange = (
-    _: React.MouseEvent<HTMLElement>,
-    activeCamera: string,
-  ) => {
+  const handleChange = (activeCamera: string) => {
     dispatch(setActiveCamera(activeCamera as SceneCameras))
   }
 
   return (
-    <ToggleButtonGroup
-      exclusive
-      size='small'
+    <Toggler
       value={sceneActiveCamera}
+      items={sceneCameras}
       onChange={handleChange}
-    >
-      {sceneCameras.map((c) => (
-        <ToggleButton value={c.key} key={c.key}>
-          {c.name}
-        </ToggleButton>
-      ))}
-    </ToggleButtonGroup>
+    />
   )
 }
