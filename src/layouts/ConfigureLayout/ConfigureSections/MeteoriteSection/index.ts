@@ -1,1 +1,1 @@
-export * from './MeteoriteSection'
+export * from './MeteoriteSettings'

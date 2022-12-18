@@ -1,24 +1,13 @@
-import { Container, TabPanel } from 'components'
-import React, { useState } from 'react'
-import { MeteoriteSection } from './MeteoriteSection'
-import { SectionsTabs } from './SectionsTabs'
+import { Container } from 'components'
+import React from 'react'
+import { MeteoriteSettings } from './MeteoriteSection'
 
 /** Секции конфигурации */
 export const ConfigureSections = () => {
-  const [activeTabPanel, setActiveTabPanel] = useState('0')
-
-  const handleActiveTabChange = (tab: number) => {
-    setActiveTabPanel(tab.toString())
-  }
-
   return (
     <Container disableGutters>
-      <SectionsTabs onActiveTabChange={handleActiveTabChange} />
-
       <Container>
-        <TabPanel value={activeTabPanel} index='0'>
-          <MeteoriteSection />
-        </TabPanel>
+        <MeteoriteSettings />
       </Container>
     </Container>
   )
