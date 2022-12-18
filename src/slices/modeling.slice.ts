@@ -18,10 +18,10 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
       state.isModeling = payload
     },
 
-    setMeteoriteData: (state, { payload }) => {
+    setModelingMeteoriteData: (state, { payload }) => {
       setDefinedProperties(state.meteorite, payload)
     },
   },
 })
 
-export const { setIsModeling, setMeteoriteData } = modelingSlice.actions
+export const { setIsModeling, setModelingMeteoriteData } = modelingSlice.actions
