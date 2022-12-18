@@ -1,4 +1,4 @@
-import StopIcon from '@mui/icons-material/Stop'
+import StopOutlinedIcon from '@mui/icons-material/StopOutlined'
 import { Button } from 'components'
 import { useDispatch } from 'react-redux'
 import { setIsModeling } from 'slices'
@@ -11,7 +11,11 @@ export const StopModelingButton = () => {
   }
 
   return (
-    <Button variant='contained' startIcon={<StopIcon />} onClick={handleClick}>
+    <Button
+      variant='contained'
+      startIcon={<StopOutlinedIcon />}
+      onClick={handleClick}
+    >
       Остановить
     </Button>
   )

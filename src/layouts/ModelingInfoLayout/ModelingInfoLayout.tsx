@@ -1,4 +1,4 @@
-import PublicIcon from '@mui/icons-material/Public'
+import PublicOutlinedIcon from '@mui/icons-material/PublicOutlined'
 import { Container } from 'components'
 import { useToolbar } from 'hooks'
 import { useEffect } from 'react'
@@ -11,7 +11,7 @@ export const ModelingInfoLayout = () => {
 
   useEffect(() => {
     setTitle('Моделирование')
-    setIcon(PublicIcon)
+    setIcon(PublicOutlinedIcon)
   }, [setTitle, setIcon])
 
   return (
