@@ -22,7 +22,7 @@ import { modelingSlice } from 'slices/modeling.slice'
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['configuration', 'modeling'],
+  whitelist: ['theme', 'meteorite'],
 }
 
 const rootReducer = combineReducers({
