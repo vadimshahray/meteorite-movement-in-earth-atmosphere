@@ -4,8 +4,8 @@ import { useDispatch } from 'hooks'
 import { useSnackbar } from 'notistack'
 import { useSelector } from 'react-redux'
 import { selectIsUserSectionInputValid } from 'selectors'
-import { setIsModeling } from 'slices'
-import { errorSnackbar } from 'utils/snackbar'
+import { startModeling } from 'slices'
+import { errorSnackbar } from 'utils'
 
 /** Кнопка запуска моделирования */
 export const StartModelingButton = () => {
@@ -16,7 +16,7 @@ export const StartModelingButton = () => {
 
   const handleClick = () => {
     if (isUserInputValid) {
-      dispatch(setIsModeling(true))
+      dispatch(startModeling())
       return
     }
 
