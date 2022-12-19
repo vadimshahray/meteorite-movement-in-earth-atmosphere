@@ -1,13 +1,13 @@
 import StopOutlinedIcon from '@mui/icons-material/StopOutlined'
 import { Button } from 'components'
-import { useDispatch } from 'react-redux'
-import { setIsModeling } from 'slices'
+import { useDispatch } from 'hooks'
+import { stopModeling } from 'slices'
 
 export const StopModelingButton = () => {
   const dispatch = useDispatch()
 
   const handleClick = () => {
-    dispatch(setIsModeling(false))
+    dispatch(stopModeling())
   }
 
   return (

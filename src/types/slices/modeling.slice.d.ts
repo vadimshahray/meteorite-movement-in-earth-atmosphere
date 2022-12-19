@@ -13,8 +13,6 @@ type ModelingSliceState = {
  * @interface
  */
 interface ModelingSlice extends SliceCaseReducers<ModelingSliceState> {
-  setIsModeling(state: ModelingSliceState, action: PayloadAction<boolean>): void
-
   setModelingMeteoriteData(
     state: ModelingSliceState,
     action: PayloadAction<{
