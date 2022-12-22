@@ -1,15 +1,14 @@
-import { ValidatedTextField } from 'components'
+import { Slider } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
 import { selectMeteoriteDistance } from 'selectors'
 import { setMeteoriteData } from 'slices'
-import { positiveNumberRule } from 'utils'
 
 export const DistanceField = () => {
   const dispatch = useDispatch()
   const distance = useSelector(selectMeteoriteDistance)
 
-  const handleValid = (value: number) => {
+  const handleChange = (value: number) => {
     dispatch(
       setMeteoriteData({
         distance: value,
@@ -18,12 +17,13 @@ export const DistanceField = () => {
   }
 
   return (
-    <ValidatedTextField
-      adornment='D₀'
+    <Slider
+      min={0}
+      max={1000000}
+      step={1000}
       label='Расстояние от поверхности планеты, м'
-      initialValue={distance.toString()}
-      rule={positiveNumberRule}
-      onValid={handleValid}
+      initialValue={distance}
+      onChange={handleChange}
     />
   )
 }
