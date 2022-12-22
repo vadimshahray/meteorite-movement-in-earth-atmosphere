@@ -21,7 +21,7 @@ export const METEORITE_MODEL_NORM_RADIUS = 1.0 / METEORITE_MODEL_RADIUS
 
 const MeteoriteModel = React.memo<MeshProps>((props) => {
   const { nodes, materials } = useGLTF(
-    '/models/meteorite/scene.gltf',
+    process.env.PUBLIC_URL + '/models/meteorite/scene.gltf',
   ) as unknown as GLTFResult
 
   nodes.Object_2.geometry.center()

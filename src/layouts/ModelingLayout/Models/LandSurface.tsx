@@ -12,11 +12,17 @@ export default React.memo(({ visible, ...props }: GroupProps) => {
   return (
     <group visible={visible} {...props}>
       <group visible={colorMode === 'light'}>
-        <Environment files='/models/hdr/light.hdr' ground={ground} />
+        <Environment
+          files={process.env.PUBLIC_URL + '/models/hdr/light.hdr'}
+          ground={ground}
+        />
       </group>
 
       <group visible={colorMode === 'dark'}>
-        <Environment files='/models/hdr/dark.hdr' ground={ground} />
+        <Environment
+          files={process.env.PUBLIC_URL + '/models/hdr/dark.hdr'}
+          ground={ground}
+        />
       </group>
     </group>
   )

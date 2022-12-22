@@ -18,7 +18,7 @@ type GLTFResult = GLTF & {
 const EarthNightModel = React.memo(
   (props: MeshProps) => {
     const { nodes, materials } = useGLTF(
-      '/models/earth/night/scene.gltf',
+      process.env.PUBLIC_URL + '/models/earth/night/scene.gltf',
     ) as unknown as GLTFResult
 
     return (
