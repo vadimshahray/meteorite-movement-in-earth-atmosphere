@@ -47,7 +47,6 @@ export const theme = createTheme({
         root: ({ theme }) => ({
           paddingTop: theme.spacing(1),
           paddingBottom: theme.spacing(1),
-          overflow: 'hidden',
         }),
         disableGutters: {
           paddingTop: 0,
