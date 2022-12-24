@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { setDefinedProperties } from 'utils'
-import { startModeling, stopModeling } from './modeling.async.slice'
+import {
+  cancelModeling,
+  startModeling,
+  stopModeling,
+} from './modeling.async.slice'
 
 const initialState: ModelingSliceState = {
   modelingStatus: 'idle',
@@ -39,6 +43,12 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
       })
       .addCase(stopModeling.pending, (state) => {
         state.modelingStatus = 'stopped'
+      })
+      .addCase(cancelModeling.pending, (state) => {
+        state.modelingStatus = 'idle'
+
+        state.timer = initialState.timer
+        state.meteorite = initialState.meteorite
       })
   },
 })
