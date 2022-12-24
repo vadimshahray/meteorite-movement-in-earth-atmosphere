@@ -11,3 +11,9 @@ type MeteoriteModel = {
   /** Начальная скорость */
   initialVelocity: number
 }
+
+type ModelingMeteorite = {
+  velocity: number
+  distance: number
+  xOffset: number
+}

@@ -1,4 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import {
+  selectMeteoriteDistance,
+  selectMeteoriteInitialVelocity,
+  selectModelingMeteoriteVelocity,
+} from 'selectors'
 import { setTimerData } from './modeling.slice'
 
 export const startModeling = createAsyncThunk<
@@ -6,7 +11,25 @@ export const startModeling = createAsyncThunk<
   void,
   { dispatch: AppDispatch }
 >('modeling/startModeling', (_, { dispatch }) => {
-  dispatch(startModelingTimer(() => {}))
+  dispatch(initializeModelingMeteoriteData())
+
+  dispatch(
+    startModelingTimer(() => {
+      dispatch(calculateMeteoriteVelocity())
+    }),
+  )
+})
+
+export const initializeModelingMeteoriteData = createAsyncThunk<
+  ModelingMeteorite,
+  void,
+  { state: RootState }
+>('modeling/initializeModelingMeteoriteData', (_, { getState }) => {
+  return {
+    velocity: selectMeteoriteInitialVelocity(getState()),
+    distance: selectMeteoriteDistance(getState()),
+    xOffset: 0,
+  }
 })
 
 export const stopModeling = createAsyncThunk<
@@ -23,6 +46,16 @@ export const cancelModeling = createAsyncThunk<
   { dispatch: AppDispatch }
 >('modeling/cancelModeling', (_, { dispatch }) => {
   dispatch(stopModelingTimer())
+})
+
+export const calculateMeteoriteVelocity = createAsyncThunk<
+  number,
+  void,
+  { state: RootState }
+>('modeling/calculateMeteoriteVelocity', (_, { getState }) => {
+  const Vi = selectModelingMeteoriteVelocity(getState())
+
+  return Vi + 10
 })
 
 const TIMER_INTERVAL = 33

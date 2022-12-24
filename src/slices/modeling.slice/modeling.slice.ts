@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { setDefinedProperties } from 'utils'
 import {
+  calculateMeteoriteVelocity,
   cancelModeling,
+  initializeModelingMeteoriteData,
   startModeling,
   stopModeling,
 } from './modeling.async.slice'
@@ -28,10 +29,6 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
   name: 'modeling',
   initialState,
   reducers: {
-    setModelingMeteoriteData: (state, { payload }) => {
-      setDefinedProperties(state.meteorite, payload)
-    },
-
     setTimerData: (state, { payload }) => {
       state.timer = payload
     },
@@ -41,16 +38,29 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
       .addCase(startModeling.pending, (state) => {
         state.modelingStatus = 'processing'
       })
+
       .addCase(stopModeling.pending, (state) => {
         state.modelingStatus = 'stopped'
       })
+
       .addCase(cancelModeling.pending, (state) => {
         state.modelingStatus = 'idle'
 
         state.timer = initialState.timer
         state.meteorite = initialState.meteorite
       })
+
+      .addCase(
+        initializeModelingMeteoriteData.fulfilled,
+        (state, { payload }) => {
+          state.meteorite = payload
+        },
+      )
+
+      .addCase(calculateMeteoriteVelocity.fulfilled, (state, { payload }) => {
+        state.meteorite.velocity = payload
+      })
   },
 })
 
-export const { setModelingMeteoriteData, setTimerData } = modelingSlice.actions
+export const { setTimerData } = modelingSlice.actions
