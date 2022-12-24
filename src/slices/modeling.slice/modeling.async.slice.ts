@@ -14,6 +14,7 @@ export const startModeling = createAsyncThunk<
   void,
   { dispatch: AppDispatch }
 >('modeling/start', (_, { dispatch }) => {
+  dispatch(clearModelingData())
   dispatch(initializeModelingMeteoriteData())
 
   dispatch(
@@ -22,6 +23,11 @@ export const startModeling = createAsyncThunk<
     }),
   )
 })
+
+export const clearModelingData = createAsyncThunk(
+  'modeling/initializeMeteoriteData',
+  () => {},
+)
 
 export const initializeModelingMeteoriteData = createAsyncThunk<
   ModelingMeteorite,

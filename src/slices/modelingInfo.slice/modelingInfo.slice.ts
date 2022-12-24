@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { clearModelingData } from 'slices/modeling.slice'
 import {
   setDistanceGraphicPoints,
   setVelocityGraphicPoints,
@@ -29,6 +30,13 @@ export const modelingInfoSlice = createSlice<
       })
       .addCase(setDistanceGraphicPoints.fulfilled, (state, { payload }) => {
         state.chartsPoints['@DistanceChart'] = payload
+      })
+
+      .addCase(clearModelingData.fulfilled, (state) => {
+        state.chartsPoints = {
+          '@VelocityChart': [],
+          '@DistanceChart': [],
+        }
       })
   },
 })
