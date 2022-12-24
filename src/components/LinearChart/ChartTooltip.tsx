@@ -27,7 +27,7 @@ export const ChartTooltip = ({
           textAlign='center'
           variant='subtitle2'
           sx={{ padding: 1 }}
-        >{`${yData[1]} ${point.y}`}</Typography>
+        >{`${yData[1]} ${yData[0]}`}</Typography>
 
         <Divider />
 
@@ -36,7 +36,7 @@ export const ChartTooltip = ({
           variant='caption'
           sx={{ padding: 1, paddingTop: 0.5, paddingBottom: 0.5 }}
         >
-          {`${xData[1]} ${point.x}`}
+          {`${xData[1]} ${xData[0]}`}
         </Typography>
       </Stack>
     </Paper>

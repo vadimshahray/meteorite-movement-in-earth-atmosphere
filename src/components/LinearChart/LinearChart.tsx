@@ -16,6 +16,8 @@ export type LinearChartProps = {
   xName?: string
   yName?: string
   separator?: string
+  xFormatter?: (value: number | string | Object) => string
+  yFormatter?: (value: number | string | Object) => string
 }
 
 export const LinearChart = ({
@@ -24,6 +26,8 @@ export const LinearChart = ({
   xName = ':',
   yName = 'y',
   separator = ':',
+  xFormatter = (_) => _.toString(),
+  yFormatter = (_) => _.toString(),
 }: LinearChartProps) => {
   const { palette, typography } = useTheme()
 
@@ -59,9 +63,9 @@ export const LinearChart = ({
             content={<ChartTooltip />}
             formatter={(value, name) => {
               if (name === 'x') {
-                return [value, `${xName}${separator}`]
+                return [xFormatter(value.valueOf()), `${xName}${separator}`]
               } else if (name === 'y') {
-                return [value, `${yName}${separator}`]
+                return [yFormatter(value.valueOf()), `${yName}${separator}`]
               }
 
               return 'Unknown data name'
