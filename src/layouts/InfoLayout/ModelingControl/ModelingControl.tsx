@@ -1,3 +1,4 @@
+import { Stack } from '@mui/material'
 import { Container } from 'components'
 import { useSelector } from 'react-redux'
 import { selectModelingStatus } from 'selectors'
@@ -8,10 +9,12 @@ export const ModelingControl = () => {
   const modelingStatus = useSelector(selectModelingStatus)
 
   return (
-    <Container sx={{ display: 'flex', justifyContent: 'space-between' }}>
-      <ModelingButtons />
+    <Container>
+      <Stack direction='row' spacing={1}>
+        <ModelingButtons />
 
-      {modelingStatus !== 'idle' && <ModelingTimer />}
+        {modelingStatus !== 'idle' && <ModelingTimer />}
+      </Stack>
     </Container>
   )
 }

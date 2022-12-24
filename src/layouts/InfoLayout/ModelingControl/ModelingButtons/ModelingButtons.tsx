@@ -11,7 +11,7 @@ export const ModelingButtons = () => {
   return modelingStatus === 'idle' ? (
     <StartModelingButton />
   ) : (
-    <ButtonGroup variant='contained' disableElevation>
+    <ButtonGroup variant='contained' disableElevation fullWidth>
       <StopModelingButton />
       <CancelModelingButton />
     </ButtonGroup>

@@ -28,6 +28,7 @@ export const StartModelingButton = () => {
 
   return (
     <Button
+      fullWidth
       variant='contained'
       startIcon={<PlayArrowOutlinedIcon />}
       onClick={handleClick}
