@@ -61,13 +61,6 @@ export const theme = createTheme({
         },
       },
     },
-    MuiPaper: {
-      defaultProps: {
-        sx: {
-          padding: 1,
-        },
-      },
-    },
     MuiToggleButton: {
       styleOverrides: {
         root: {
