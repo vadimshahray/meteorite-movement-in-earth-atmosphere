@@ -60,9 +60,9 @@ export const LinearChart = ({
             content={<ChartTooltip />}
             formatter={(value, name) => {
               if (name === 'x') {
-                return `${xName} ${separator} ${value}`
+                return [value, `${xName} ${separator}`]
               } else if (name === 'y') {
-                return `${yName} ${separator} ${value}`
+                return [value, `${yName} ${separator}`]
               }
 
               return 'Unknown data name'
