@@ -7,6 +7,7 @@ import {
   finishModeling,
   initializeModelingMeteoriteData,
   restartModeling,
+  setModelingTimerTime,
   startModeling,
   stopModeling,
 } from './modeling.async.slice'
@@ -32,11 +33,7 @@ const initialState: ModelingSliceState = {
 export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
   name: 'modeling',
   initialState,
-  reducers: {
-    setTimerData: (state, { payload }) => {
-      state.timer = payload
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(startModeling.pending, (state) => {
@@ -79,7 +76,9 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
       .addCase(calculateMeteoriteXOffset.fulfilled, (state, { payload }) => {
         state.meteorite.xOffset = payload
       })
+
+      .addCase(setModelingTimerTime.fulfilled, (state, { payload }) => {
+        state.timer = payload
+      })
   },
 })
-
-export const { setTimerData } = modelingSlice.actions
