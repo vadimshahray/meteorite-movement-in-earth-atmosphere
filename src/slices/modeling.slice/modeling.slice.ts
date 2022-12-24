@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import {
   calculateMeteoriteDistance,
   calculateMeteoriteVelocity,
+  calculateMeteoriteXOffset,
   cancelModeling,
   initializeModelingMeteoriteData,
   startModeling,
@@ -64,6 +65,10 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
 
       .addCase(calculateMeteoriteDistance.fulfilled, (state, { payload }) => {
         state.meteorite.distance = payload
+      })
+
+      .addCase(calculateMeteoriteXOffset.fulfilled, (state, { payload }) => {
+        state.meteorite.xOffset = payload
       })
   },
 })
