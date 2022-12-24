@@ -17,8 +17,12 @@ export const stopModeling = createAsyncThunk<
   dispatch(stopModelingTimer())
 })
 
-const TIMER_INTERVAL = 33
+export const cancelModeling = createAsyncThunk(
+  'modeling/cancelModeling',
+  () => {},
+)
 
+const TIMER_INTERVAL = 33
 let interval: NodeJS.Timer
 
 const startModelingTimer = createAsyncThunk<
