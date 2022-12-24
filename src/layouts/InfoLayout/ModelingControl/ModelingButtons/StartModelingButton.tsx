@@ -32,7 +32,7 @@ export const StartModelingButton = () => {
       startIcon={<PlayArrowOutlinedIcon />}
       onClick={handleClick}
     >
-      Моделировать
+      Запуск
     </Button>
   )
 }
