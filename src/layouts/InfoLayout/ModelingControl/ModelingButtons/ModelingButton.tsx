@@ -3,7 +3,7 @@ import { selectModelingStatus } from 'selectors'
 import { StartModelingButton } from './StartModelingButton'
 import { StopModelingButton } from './StopModelingButton'
 
-export const ModelingButton = () => {
+export const ModelingButtons = () => {
   const modelingStatus = useSelector(selectModelingStatus)
 
   return modelingStatus === 'idle' ? (

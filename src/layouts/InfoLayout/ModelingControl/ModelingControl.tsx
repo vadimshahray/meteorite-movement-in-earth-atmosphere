@@ -1,7 +1,7 @@
 import { Container } from 'components'
 import { useSelector } from 'react-redux'
 import { selectModelingStatus } from 'selectors'
-import { ModelingButton } from './ModelingButton'
+import { ModelingButtons } from './ModelingButtons'
 import { ModelingTimer } from './ModelingTimer'
 
 export const ModelingControl = () => {
@@ -9,7 +9,7 @@ export const ModelingControl = () => {
 
   return (
     <Container sx={{ display: 'flex', justifyContent: 'space-between' }}>
-      <ModelingButton />
+      <ModelingButtons />
 
       {modelingStatus !== 'idle' && <ModelingTimer />}
     </Container>
