@@ -1,5 +1,5 @@
 type ModelingSliceState = {
-  isModeling: boolean
+  modelingStatus: 'idle' | 'processing' | 'stopped'
 
   meteorite: {
     velocity: number

@@ -1,4 +1,5 @@
-export const selectIsModeling = (state: RootState) => state.modeling.isModeling
+export const selectModelingStatus = (state: RootState) =>
+  state.modeling.modelingStatus
 
 export const selectModelingMeteoriteVelocity = (state: RootState) =>
   state.modeling.meteorite.velocity

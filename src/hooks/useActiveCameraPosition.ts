@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux'
-import { selectActiveCamera, selectIsModeling } from 'selectors'
+import { selectActiveCamera, selectModelingStatus } from 'selectors'
 import * as THREE from 'three'
 import { useMeteoriteRadius } from './useMeteoirteRadius'
 import { useMeteoritePosition } from './useMeteoritePosition'
 
 export const useActiveCameraPosition = () => {
-  const isModeling = useSelector(selectIsModeling)
+  const modelingStatus = useSelector(selectModelingStatus)
   const activeCamera = useSelector(selectActiveCamera)
 
   const meteoritePosition = useMeteoritePosition()
@@ -17,7 +17,7 @@ export const useActiveCameraPosition = () => {
     meteoritePosition.z,
   )
 
-  if (!isModeling) {
+  if (modelingStatus === 'idle') {
     return backViewPositionVector
   }
 

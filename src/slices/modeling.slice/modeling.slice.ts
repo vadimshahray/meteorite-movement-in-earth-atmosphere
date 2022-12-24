@@ -3,7 +3,7 @@ import { setDefinedProperties } from 'utils'
 import { startModeling, stopModeling } from './modeling.async.slice'
 
 const initialState: ModelingSliceState = {
-  isModeling: false,
+  modelingStatus: 'idle',
 
   meteorite: {
     distance: 0,
@@ -35,10 +35,10 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
   extraReducers: (builder) => {
     builder
       .addCase(startModeling.pending, (state) => {
-        state.isModeling = true
+        state.modelingStatus = 'processing'
       })
       .addCase(stopModeling.pending, (state) => {
-        state.isModeling = false
+        state.modelingStatus = 'stopped'
       })
   },
 })
