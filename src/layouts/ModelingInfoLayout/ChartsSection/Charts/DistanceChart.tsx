@@ -1,12 +1,9 @@
-import { LinearChart, ChartPointData } from 'components'
+import { LinearChart } from 'components'
+import { useSelector } from 'react-redux'
+import { selectActiveChartPoints } from 'selectors'
 
 export const DistanceChart = () => {
-  const data: ChartPointData[] = [
-    { x: 100, y: 200 },
-    { x: 110, y: 210 },
-    { x: 140, y: 240 },
-    { x: 110, y: 210 },
-  ]
+  const points = useSelector(selectActiveChartPoints)
 
-  return <LinearChart data={data} label='D(t)' />
+  return <LinearChart points={points} label='D(t)' />
 }
