@@ -44,6 +44,20 @@ export const stopModeling = createAsyncThunk<
   dispatch(stopModelingTimer())
 })
 
+export const restartModeling = createAsyncThunk<
+  void,
+  void,
+  { dispatch: AppDispatch }
+>('modeling/restartModeling', (_, { dispatch }) => {
+  dispatch(
+    startModelingTimer(() => {
+      dispatch(calculateMeteoriteVelocity())
+      dispatch(calculateMeteoriteDistance())
+      dispatch(calculateMeteoriteXOffset())
+    }),
+  )
+})
+
 export const cancelModeling = createAsyncThunk<
   void,
   void,
@@ -88,9 +102,9 @@ let interval: NodeJS.Timer
 const startModelingTimer = createAsyncThunk<
   void,
   () => void,
-  { dispatch: AppDispatch }
->('modeling/startTimer', (callback, { dispatch }) => {
-  let ticks = 0
+  { state: RootState; dispatch: AppDispatch }
+>('modeling/startTimer', (callback, { getState, dispatch }) => {
+  let ticks = getState().modeling.timer.ticks
 
   interval = setInterval(() => {
     callback()

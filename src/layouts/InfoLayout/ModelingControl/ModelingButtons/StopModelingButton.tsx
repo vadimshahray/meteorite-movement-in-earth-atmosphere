@@ -3,7 +3,7 @@ import { Button } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
 import { selectModelingStatus } from 'selectors'
-import { stopModeling } from 'slices'
+import { restartModeling, stopModeling } from 'slices'
 
 export const StopModelingButton = () => {
   const dispatch = useDispatch()
@@ -11,7 +11,11 @@ export const StopModelingButton = () => {
   const modelingStatus = useSelector(selectModelingStatus)
 
   const handleClick = () => {
-    dispatch(stopModeling())
+    if (modelingStatus === 'stopped') {
+      dispatch(restartModeling())
+    } else {
+      dispatch(stopModeling())
+    }
   }
 
   return (
