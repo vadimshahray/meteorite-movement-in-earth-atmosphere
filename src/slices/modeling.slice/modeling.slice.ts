@@ -43,4 +43,4 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
   },
 })
 
-export const { setModelingMeteoriteData } = modelingSlice.actions
+export const { setModelingMeteoriteData, setTimerData } = modelingSlice.actions
