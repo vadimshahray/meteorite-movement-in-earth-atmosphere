@@ -7,6 +7,7 @@ import {
   selectModelingMeteoriteXOffset,
 } from 'selectors'
 import { setModelingGraphicsPoints } from 'slices/modelingInfo.slice'
+import { ticksToTimer } from 'utils'
 
 export const startModeling = createAsyncThunk<
   void,
@@ -144,12 +145,6 @@ const stopModelingTimer = createAsyncThunk('modeling/stopTimer', () => {
 export const setModelingTimerTime = createAsyncThunk<Timer, number>(
   'modeling/setTimerTime',
   (ticks) => {
-    return {
-      hours: Math.floor(ticks / 1000 / 60 / 60),
-      minutes: Math.floor(ticks / 1000 / 60) % 60,
-      seconds: Math.floor(ticks / 1000) % 60,
-      milliseconds: ticks % 1000,
-      ticks,
-    }
+    return ticksToTimer(ticks)
   },
 )
