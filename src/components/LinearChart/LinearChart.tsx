@@ -8,13 +8,23 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
+import { ChartTooltip } from './ChartTooltip'
 
 export type LinearChartProps = {
   points: ChartPoint[]
   label: string
+  xName?: string
+  yName?: string
+  separator?: string
 }
 
-export const LinearChart = ({ points, label }: LinearChartProps) => {
+export const LinearChart = ({
+  points,
+  label,
+  xName = 'x',
+  yName = 'y',
+  separator = '=',
+}: LinearChartProps) => {
   const { palette, typography } = useTheme()
 
   return (
@@ -46,8 +56,20 @@ export const LinearChart = ({ points, label }: LinearChartProps) => {
             stroke={palette.primary.main}
           />
 
+          <Tooltip
+            content={<ChartTooltip />}
+            formatter={(value, name) => {
+              if (name === 'x') {
+                return `${xName} ${separator} ${value}`
+              } else if (name === 'y') {
+                return `${yName} ${separator} ${value}`
+              }
+
+              return 'Unknown data name'
+            }}
+          />
+
           <CartesianGrid strokeDasharray='1 3' />
-          <Tooltip />
         </LineChart>
       </ResponsiveContainer>
     </>
