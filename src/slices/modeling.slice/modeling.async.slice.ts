@@ -12,14 +12,12 @@ export const startModeling = createAsyncThunk<
   void,
   void,
   { dispatch: AppDispatch }
->('modeling/startModeling', (_, { dispatch }) => {
+>('modeling/start', (_, { dispatch }) => {
   dispatch(initializeModelingMeteoriteData())
 
   dispatch(
     startModelingTimer(() => {
-      dispatch(calculateMeteoriteVelocity())
-      dispatch(calculateMeteoriteDistance())
-      dispatch(calculateMeteoriteXOffset())
+      dispatch(calculateMeteoriteData())
     }),
   )
 })
@@ -28,7 +26,7 @@ export const initializeModelingMeteoriteData = createAsyncThunk<
   ModelingMeteorite,
   void,
   { state: RootState }
->('modeling/initializeModelingMeteoriteData', (_, { getState }) => {
+>('modeling/initializeMeteoriteData', (_, { getState }) => {
   return {
     velocity: selectMeteoriteInitialVelocity(getState()),
     distance: selectMeteoriteDistance(getState()),
@@ -40,7 +38,7 @@ export const stopModeling = createAsyncThunk<
   void,
   void,
   { dispatch: AppDispatch }
->('modeling/stopModeling', (_, { dispatch }) => {
+>('modeling/stop', (_, { dispatch }) => {
   dispatch(stopModelingTimer())
 })
 
@@ -48,12 +46,10 @@ export const restartModeling = createAsyncThunk<
   void,
   void,
   { dispatch: AppDispatch }
->('modeling/restartModeling', (_, { dispatch }) => {
+>('modeling/restart', (_, { dispatch }) => {
   dispatch(
     startModelingTimer(() => {
-      dispatch(calculateMeteoriteVelocity())
-      dispatch(calculateMeteoriteDistance())
-      dispatch(calculateMeteoriteXOffset())
+      dispatch(calculateMeteoriteData())
     }),
   )
 })
@@ -62,8 +58,33 @@ export const cancelModeling = createAsyncThunk<
   void,
   void,
   { dispatch: AppDispatch }
->('modeling/cancelModeling', (_, { dispatch }) => {
+>('modeling/cancel', (_, { dispatch }) => {
   dispatch(stopModelingTimer())
+})
+
+export const finishModeling = createAsyncThunk<
+  void,
+  void,
+  { dispatch: AppDispatch }
+>('modeling/finish', (_, { dispatch }) => {
+  dispatch(stopModelingTimer())
+})
+
+const calculateMeteoriteData = createAsyncThunk<
+  void,
+  void,
+  { state: RootState; dispatch: AppDispatch }
+>('modeling/calculateMeteoriteData', (_, { getState, dispatch }) => {
+  const distance = getState().modeling.meteorite.distance
+
+  if (distance <= 0) {
+    dispatch(stopModelingTimer())
+    return
+  }
+
+  dispatch(calculateMeteoriteVelocity())
+  dispatch(calculateMeteoriteDistance())
+  dispatch(calculateMeteoriteXOffset())
 })
 
 export const calculateMeteoriteVelocity = createAsyncThunk<
