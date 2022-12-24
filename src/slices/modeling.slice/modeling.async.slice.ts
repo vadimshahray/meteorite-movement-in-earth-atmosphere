@@ -78,7 +78,7 @@ const calculateMeteoriteData = createAsyncThunk<
   const distance = getState().modeling.meteorite.distance
 
   if (distance <= 0) {
-    dispatch(stopModelingTimer())
+    dispatch(finishModeling())
     return
   }
 
