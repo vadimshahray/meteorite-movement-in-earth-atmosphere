@@ -9,7 +9,12 @@ export const InfoLayout = () => {
       <ToolbarProvider>
         <Container
           disableGutters
-          sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            flexGrow: 1,
+            overflow: 'hidden',
+          }}
         >
           <Content />
 
