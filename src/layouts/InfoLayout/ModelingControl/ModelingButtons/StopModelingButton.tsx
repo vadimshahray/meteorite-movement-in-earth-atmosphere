@@ -1,27 +1,28 @@
-import StopOutlinedIcon from '@mui/icons-material/StopOutlined'
+import { RestartAltOutlined, StopOutlined } from '@mui/icons-material'
 import { Button } from 'components'
 import { useDispatch } from 'hooks'
-import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { selectModelingStatus } from 'selectors'
 import { stopModeling } from 'slices'
 
 export const StopModelingButton = () => {
   const dispatch = useDispatch()
 
-  const [isDisabled, setIsDisabled] = useState(false)
+  const modelingStatus = useSelector(selectModelingStatus)
 
   const handleClick = () => {
-    setIsDisabled(true)
     dispatch(stopModeling())
   }
 
   return (
     <Button
       variant='contained'
-      startIcon={<StopOutlinedIcon />}
+      startIcon={
+        modelingStatus === 'stopped' ? <RestartAltOutlined /> : <StopOutlined />
+      }
       onClick={handleClick}
-      disabled={isDisabled}
     >
-      Стоп
+      {modelingStatus === 'stopped' ? 'Запуск' : 'Стоп'}
     </Button>
   )
 }
