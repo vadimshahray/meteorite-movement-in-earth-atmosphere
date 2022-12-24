@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { stopModeling } from './modeling.slice'
 
 export const sceneSlice = createSlice<SceneSliceState, SceneSlice>({
   name: 'scene',
@@ -11,11 +10,7 @@ export const sceneSlice = createSlice<SceneSliceState, SceneSlice>({
       state.activeCamera = payload
     },
   },
-  extraReducers: (builder) => {
-    builder.addCase(stopModeling.pending, (state) => {
-      state.activeCamera = '@BackViewCamera'
-    })
-  },
+  extraReducers: (builder) => {},
 })
 
 export const { setActiveCamera } = sceneSlice.actions
