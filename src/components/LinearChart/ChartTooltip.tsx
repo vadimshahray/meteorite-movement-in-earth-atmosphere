@@ -1,4 +1,4 @@
-import { Paper, Stack, Typography } from '@mui/material'
+import { Divider, Paper, Stack, Typography } from '@mui/material'
 import { TooltipProps } from 'recharts'
 
 export const ChartTooltip = ({
@@ -22,24 +22,22 @@ export const ChartTooltip = ({
 
   return (
     <Paper>
-      <Stack direction='row'>
-        <Stack>
-          <Typography textAlign='right' variant='caption'>
-            {yData[1]}
-          </Typography>
-          <Typography textAlign='right' variant='caption'>
-            {xData[1]}
-          </Typography>
-        </Stack>
+      <Stack>
+        <Typography
+          textAlign='center'
+          variant='subtitle2'
+          sx={{ padding: 1 }}
+        >{`${yData[1]} ${point.y}`}</Typography>
 
-        <Stack>
-          <Typography textAlign='right' variant='caption'>
-            &nbsp;{yData[0]}
-          </Typography>
-          <Typography textAlign='right' variant='caption'>
-            &nbsp;{xData[0]}
-          </Typography>
-        </Stack>
+        <Divider />
+
+        <Typography
+          textAlign='right'
+          variant='caption'
+          sx={{ padding: 1, paddingTop: 0.5, paddingBottom: 0.5 }}
+        >
+          {`${xData[1]} ${point.x}`}
+        </Typography>
       </Stack>
     </Paper>
   )

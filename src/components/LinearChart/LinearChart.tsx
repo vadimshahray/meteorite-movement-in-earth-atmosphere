@@ -21,9 +21,9 @@ export type LinearChartProps = {
 export const LinearChart = ({
   points,
   label,
-  xName = 'x',
+  xName = ':',
   yName = 'y',
-  separator = '=',
+  separator = ':',
 }: LinearChartProps) => {
   const { palette, typography } = useTheme()
 
@@ -44,7 +44,6 @@ export const LinearChart = ({
 
           <XAxis
             dataKey='x'
-            interval={'preserveStartEnd'}
             stroke={palette.text.secondary}
             fontSize={typography.caption.fontSize}
           />
@@ -60,9 +59,9 @@ export const LinearChart = ({
             content={<ChartTooltip />}
             formatter={(value, name) => {
               if (name === 'x') {
-                return [value, `${xName} ${separator}`]
+                return [value, `${xName}${separator}`]
               } else if (name === 'y') {
-                return [value, `${yName} ${separator}`]
+                return [value, `${yName}${separator}`]
               }
 
               return 'Unknown data name'
