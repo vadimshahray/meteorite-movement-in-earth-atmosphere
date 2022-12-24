@@ -6,7 +6,7 @@ import {
   selectModelingMeteoriteVelocity,
   selectModelingMeteoriteXOffset,
 } from 'selectors'
-import { setTimerData } from './modeling.slice'
+import { setModelingGraphicsPoints } from 'slices/modelingInfo.slice'
 
 export const startModeling = createAsyncThunk<
   void,
@@ -85,6 +85,8 @@ const calculateMeteoriteData = createAsyncThunk<
   dispatch(calculateMeteoriteVelocity())
   dispatch(calculateMeteoriteDistance())
   dispatch(calculateMeteoriteXOffset())
+
+  dispatch(setModelingGraphicsPoints())
 })
 
 export const calculateMeteoriteVelocity = createAsyncThunk<
@@ -104,7 +106,7 @@ export const calculateMeteoriteDistance = createAsyncThunk<
 >('modeling/calculateMeteoriteDistance', (_, { getState }) => {
   const Di = selectModelingMeteoriteDistance(getState())
 
-  return Di - 10
+  return Di - 7
 })
 
 export const calculateMeteoriteXOffset = createAsyncThunk<
@@ -128,10 +130,10 @@ const startModelingTimer = createAsyncThunk<
   let ticks = getState().modeling.timer.ticks
 
   interval = setInterval(() => {
-    callback()
-
     ticks += TIMER_INTERVAL
     dispatch(setModelingTimerTime(ticks))
+
+    callback()
   }, TIMER_INTERVAL)
 })
 
