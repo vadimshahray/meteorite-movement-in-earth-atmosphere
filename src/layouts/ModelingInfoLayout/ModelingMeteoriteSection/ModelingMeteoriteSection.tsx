@@ -9,15 +9,15 @@ import {
 export const ModelingMeteoriteSection = () => {
   return (
     <Section title='Информация о метеорите' Icon={InfoOutlinedIcon}>
-      <Item label='Скорость падения, м/c'>
+      <Item label='Скорость падения'>
         <ModelingMeteoriteVelocity />
       </Item>
 
-      <Item label='Расстояние до столкновения, м'>
+      <Item label='Расстояние до столкновения'>
         <ModelingMeteoriteDistance />
       </Item>
 
-      <Item label='Смещение, м'>
+      <Item label='Смещение'>
         <ModelingMeteoriteXOffset />
       </Item>
     </Section>
