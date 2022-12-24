@@ -4,6 +4,7 @@ import {
   calculateMeteoriteVelocity,
   calculateMeteoriteXOffset,
   cancelModeling,
+  finishModeling,
   initializeModelingMeteoriteData,
   restartModeling,
   startModeling,
@@ -47,6 +48,10 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
 
       .addCase(stopModeling.pending, (state) => {
         state.modelingStatus = 'stopped'
+      })
+
+      .addCase(finishModeling.pending, (state) => {
+        state.modelingStatus = 'finished'
       })
 
       .addCase(cancelModeling.pending, (state) => {

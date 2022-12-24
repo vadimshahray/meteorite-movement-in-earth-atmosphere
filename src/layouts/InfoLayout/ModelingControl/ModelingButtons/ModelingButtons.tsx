@@ -12,7 +12,8 @@ export const ModelingButtons = () => {
     <StartModelingButton />
   ) : (
     <ButtonGroup variant='contained' disableElevation fullWidth>
-      <StopModelingButton />
+      {modelingStatus !== 'finished' && <StopModelingButton />}
+
       <CancelModelingButton />
     </ButtonGroup>
   )
