@@ -113,7 +113,7 @@ export const calculateMeteoriteDistance = createAsyncThunk<
 >('modeling/calculateMeteoriteDistance', (_, { getState }) => {
   const Di = selectModelingMeteoriteDistance(getState())
 
-  return Di - 7
+  return Di - 7 < 0 ? 0 : Di - 7
 })
 
 export const calculateMeteoriteXOffset = createAsyncThunk<
