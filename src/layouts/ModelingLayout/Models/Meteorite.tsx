@@ -3,7 +3,7 @@ import { MeshProps } from '@react-three/fiber'
 import { useMeteoritePosition, useMeteoriteRadius } from 'hooks'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { selectIsModeling } from 'selectors'
+import { selectModelingStatus } from 'selectors'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
 
@@ -39,19 +39,19 @@ const MeteoriteModel = React.memo<MeshProps>((props) => {
 })
 
 export const Meteorite = React.memo(() => {
-  const isModeling = useSelector(selectIsModeling)
+  const modelingStatus = useSelector(selectModelingStatus)
 
   const { scale, radius } = useMeteoriteRadius()
   const position = useMeteoritePosition()
 
   return (
     <Float
-      speed={isModeling ? 0 : undefined}
+      speed={modelingStatus === 'idle' ? 0 : undefined}
       floatingRange={[0, radius * 0.1]}
       position={position}
     >
       <PresentationControls
-        enabled={!isModeling}
+        enabled={modelingStatus === 'idle'}
         snap
         speed={1}
         polar={[-Infinity, Infinity]}

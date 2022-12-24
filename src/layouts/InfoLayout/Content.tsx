@@ -1,19 +1,19 @@
 import { Container } from 'components'
 import { useSelector } from 'react-redux'
-import { selectIsModeling } from 'selectors'
+import { selectModelingStatus } from 'selectors'
 import styles from './styles.module.css'
 import { ConfigureLayout } from '../ConfigureLayout'
 import { ModelingInfoLayout } from '../ModelingInfoLayout'
 
 export const Content = () => {
-  const isModeling = useSelector(selectIsModeling)
+  const modelingStatus = useSelector(selectModelingStatus)
 
   return (
     <Container disableGutters sx={{ flexGrow: 1, overflowY: 'auto' }}>
-      {isModeling ? (
-        <ModelingInfoLayout />
-      ) : (
+      {modelingStatus === 'idle' ? (
         <ConfigureLayout className={styles.configure_layout} />
+      ) : (
+        <ModelingInfoLayout />
       )}
     </Container>
   )

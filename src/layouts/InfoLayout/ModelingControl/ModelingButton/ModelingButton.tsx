@@ -1,10 +1,14 @@
 import { useSelector } from 'react-redux'
-import { selectIsModeling } from 'selectors'
+import { selectModelingStatus } from 'selectors'
 import { StartModelingButton } from './StartModelingButton'
 import { StopModelingButton } from './StopModelingButton'
 
 export const ModelingButton = () => {
-  const isModeling = useSelector(selectIsModeling)
+  const modelingStatus = useSelector(selectModelingStatus)
 
-  return isModeling ? <StopModelingButton /> : <StartModelingButton />
+  return modelingStatus === 'idle' ? (
+    <StartModelingButton />
+  ) : (
+    <StopModelingButton />
+  )
 }
