@@ -1,4 +1,4 @@
-import { Box, Typography, useTheme } from '@mui/material'
+import { Typography, useTheme } from '@mui/material'
 import {
   CartesianGrid,
   Line,
@@ -9,17 +9,12 @@ import {
   YAxis,
 } from 'recharts'
 
-export type ChartPointData = {
-  x: number
-  y: number
-}
-
 export type LinearChartProps = {
-  data: ChartPointData[]
+  points: ChartPoint[]
   label: string
 }
 
-export const LinearChart = ({ data, label }: LinearChartProps) => {
+export const LinearChart = ({ points, label }: LinearChartProps) => {
   const { palette, typography } = useTheme()
 
   return (
@@ -28,7 +23,7 @@ export const LinearChart = ({ data, label }: LinearChartProps) => {
 
       <ResponsiveContainer width='100%' height={300}>
         <LineChart
-          data={data}
+          data={points}
           margin={{ top: 10, right: 4, left: -32, bottom: 5 }}
         >
           <YAxis
