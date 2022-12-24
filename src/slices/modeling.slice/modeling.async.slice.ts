@@ -131,16 +131,23 @@ const startModelingTimer = createAsyncThunk<
     callback()
 
     ticks += TIMER_INTERVAL
-
-    const hours = Math.floor(ticks / 1000 / 60 / 60)
-    const minutes = Math.floor(ticks / 1000 / 60) % 60
-    const seconds = Math.floor(ticks / 1000) % 60
-    const milliseconds = ticks % 1000
-
-    dispatch(setTimerData({ hours, minutes, seconds, milliseconds, ticks }))
+    dispatch(setModelingTimerTime(ticks))
   }, TIMER_INTERVAL)
 })
 
 const stopModelingTimer = createAsyncThunk('modeling/stopTimer', () => {
   clearInterval(interval)
 })
+
+export const setModelingTimerTime = createAsyncThunk<Timer, number>(
+  'modeling/setTimerTime',
+  (ticks) => {
+    return {
+      hours: Math.floor(ticks / 1000 / 60 / 60),
+      minutes: Math.floor(ticks / 1000 / 60) % 60,
+      seconds: Math.floor(ticks / 1000) % 60,
+      milliseconds: ticks % 1000,
+      ticks,
+    }
+  },
+)

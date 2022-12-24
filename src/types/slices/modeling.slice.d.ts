@@ -10,6 +10,4 @@ type ModelingSliceState = {
  * Слайс, отвечающий за моделирование приложения
  * @interface
  */
-interface ModelingSlice extends SliceCaseReducers<ModelingSliceState> {
-  setTimerData(state: ModelingSliceState, action: PayloadAction<Timer>): void
-}
+interface ModelingSlice extends SliceCaseReducers<ModelingSliceState> {}
