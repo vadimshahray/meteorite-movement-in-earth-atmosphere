@@ -16,7 +16,7 @@ export const CancelModelingButton = () => {
       onClick={handleClick}
       startIcon={<CloseOutlined />}
     >
-      Сбросить
+      Сброс
     </Button>
   )
 }
