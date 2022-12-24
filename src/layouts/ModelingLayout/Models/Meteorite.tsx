@@ -46,7 +46,7 @@ export const Meteorite = React.memo(() => {
 
   return (
     <Float
-      speed={modelingStatus === 'idle' ? 0 : undefined}
+      speed={modelingStatus === 'idle' ? undefined : 0}
       floatingRange={[0, radius * 0.1]}
       position={position}
     >
