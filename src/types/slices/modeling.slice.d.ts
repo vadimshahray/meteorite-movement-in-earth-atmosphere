@@ -6,6 +6,8 @@ type ModelingSliceState = {
     distance: number
     xOffset: number
   }
+
+  timer: Timer
 }
 
 /**
@@ -21,4 +23,6 @@ interface ModelingSlice extends SliceCaseReducers<ModelingSliceState> {
       xOffset: number
     }>,
   ): void
+
+  setTimerData(state: ModelingSliceState, action: PayloadAction<Timer>): void
 }
