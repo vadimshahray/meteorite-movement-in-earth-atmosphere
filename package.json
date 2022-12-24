@@ -1,8 +1,8 @@
 {
-  "name": "movement-in-different-atmospheres",
+  "name": "meteorite-movement-in-earth-atmosphere",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vadimshahray.github.io/movement-in-different-atmospheres/",
+  "homepage": "https://vadimshahray.github.io/meteorite-movement-in-earth-atmosphere/",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
