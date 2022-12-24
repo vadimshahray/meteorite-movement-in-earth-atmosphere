@@ -9,4 +9,4 @@ export const selectModelingMeteoriteDistance = (state: RootState) =>
 export const selectModelingMeteoriteXOffset = (state: RootState) =>
   state.modeling.meteorite.xOffset
 
-export const selectTimer = (state: RootState) => state.modeling.timer
+export const selectModelingTimer = (state: RootState) => state.modeling.timer
