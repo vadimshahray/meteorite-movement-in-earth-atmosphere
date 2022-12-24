@@ -1,19 +1,9 @@
-import { LinearChart, ChartPointData } from 'components'
+import { LinearChart } from 'components'
+import { useSelector } from 'react-redux'
+import { selectActiveChartPoints } from 'selectors'
 
 export const VelocityChart = () => {
-  const data: ChartPointData[] = [
-    { x: 100, y: 200 },
-    { x: 110, y: 210 },
-    { x: 120, y: 220 },
-    { x: 130, y: 130 },
-    { x: 140, y: 240 },
-    { x: 140, y: 240 },
-    { x: 140, y: 240 },
-    { x: 140, y: 240 },
-    { x: 140, y: 240 },
-    { x: 100, y: 200 },
-    { x: 110, y: 210 },
-  ]
+  const points = useSelector(selectActiveChartPoints)
 
-  return <LinearChart data={data} label='V(t)' />
+  return <LinearChart points={points} label='V(t)' />
 }
