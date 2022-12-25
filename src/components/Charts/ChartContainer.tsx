@@ -1,11 +1,12 @@
 import { Typography } from '@mui/material'
 import { Container } from 'components/Container'
-import { PropsWithChildren } from 'react'
+import { ReactElement } from 'react'
 import { ResponsiveContainer } from 'recharts'
 
 export type ChartContainerProps = {
   label?: string
-} & PropsWithChildren
+  children: ReactElement
+}
 
 export const ChartContainer = ({ label, children }: ChartContainerProps) => {
   return (
