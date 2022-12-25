@@ -1,12 +1,10 @@
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined'
 import { Item, Section } from 'components'
-import {
-  ModelingMeteoriteDistance,
-  ModelingMeteoriteVelocity,
-  ModelingMeteoriteXOffset,
-} from './ModelingMeteoirteInfo'
+import { ModelingMeteoriteDistance } from './ModelingMeteoriteDistance'
+import { ModelingMeteoriteVelocity } from './ModelingMeteoriteVelocity'
+import { ModelingMeteoriteXOffset } from './ModelingMeteoriteXOffset'
 
-export const ModelingMeteoriteSection = () => {
+export const ModelingInfoSection = () => {
   return (
     <Section title='Информация о метеорите' Icon={InfoOutlinedIcon} collapsible>
       <Item label='Скорость падения'>

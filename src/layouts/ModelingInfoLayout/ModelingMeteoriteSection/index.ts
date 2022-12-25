@@ -1,1 +1,1 @@
-export * from './ModelingMeteoriteSection'
+export * from './ModelingInfoSection'
