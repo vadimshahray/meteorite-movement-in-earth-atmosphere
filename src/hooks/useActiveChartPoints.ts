@@ -11,5 +11,7 @@ export const useActiveChartPoints = () => {
   const lastPoints = useSelector(selectActiveChartLastPoints)
   const totalPoints = useSelector(selectActiveChartTotalPoints)
 
-  return modelingStatus === 'processing' ? lastPoints : totalPoints
+  return modelingStatus === 'processing' || totalPoints.length <= 1
+    ? lastPoints
+    : totalPoints
 }
