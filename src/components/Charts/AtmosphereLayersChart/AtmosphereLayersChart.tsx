@@ -15,6 +15,7 @@ import { ChartContainer } from '../ChartContainer'
 export type AtmosphereLayersChartProps = {
   points: ChartPoint[]
   label: string
+  type?: 'number' | 'category'
   xName?: string
   yName?: string
   separator?: string
@@ -25,6 +26,7 @@ export type AtmosphereLayersChartProps = {
 export const AtmosphereLayersChart = ({
   points,
   label,
+  type = 'category',
   xName = ':',
   yName = 'y',
   separator = ':',
@@ -48,13 +50,14 @@ export const AtmosphereLayersChart = ({
         margin={{ top: 10, right: 4, left: -32, bottom: 5 }}
       >
         <YAxis
+          type={type}
           dataKey='y'
           stroke={palette.text.secondary}
           fontSize={typography.caption.fontSize}
         />
 
         <XAxis
-          type='number'
+          type={type}
           dataKey='x'
           stroke={palette.text.secondary}
           fontSize={typography.caption.fontSize}

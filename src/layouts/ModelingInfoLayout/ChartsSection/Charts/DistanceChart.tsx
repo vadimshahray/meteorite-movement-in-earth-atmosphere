@@ -3,11 +3,12 @@ import { useActiveChartPoints } from 'hooks'
 import { metersToDistanceString, ticksToString } from 'utils'
 
 export const DistanceChart = () => {
-  const points = useActiveChartPoints()
+  const { points, isTotal } = useActiveChartPoints()
 
   return (
     <AtmosphereLayersChart
       points={points}
+      type={isTotal ? 'number' : 'category'}
       label='D(t)'
       xName='Время'
       yName='Расстояние'
