@@ -1,13 +1,13 @@
-import { Typography, useTheme } from '@mui/material'
+import { useTheme } from '@mui/material'
 import {
   CartesianGrid,
   Line,
   LineChart,
-  ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from 'recharts'
+import { ChartContainer } from './ChartContainer'
 import { ChartTooltip } from './ChartTooltip'
 
 export type LinearChartProps = {
@@ -32,10 +32,7 @@ export const LinearChart = ({
   const { palette, typography } = useTheme()
 
   return (
-    <>
-      <Typography variant='caption'>{label}</Typography>
-
-      <ResponsiveContainer width='100%' height={300}>
+      <ChartContainer label={label}>
         <LineChart
           data={points}
           margin={{ top: 10, right: 4, left: -32, bottom: 5 }}
@@ -61,7 +58,7 @@ export const LinearChart = ({
 
           <Tooltip
             content={<ChartTooltip />}
-            formatter={(value, name) => {
+            formatter={(value: any, name: any) => {
               if (name === 'x') {
                 return [xFormatter(value.valueOf()), `${xName}${separator}`]
               } else if (name === 'y') {
@@ -74,7 +71,6 @@ export const LinearChart = ({
 
           <CartesianGrid strokeDasharray='1 3' />
         </LineChart>
-      </ResponsiveContainer>
-    </>
+    </ChartContainer>
   )
 }
