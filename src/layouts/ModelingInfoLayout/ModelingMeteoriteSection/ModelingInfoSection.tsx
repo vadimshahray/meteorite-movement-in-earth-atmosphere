@@ -27,7 +27,7 @@ export const ModelingInfoSection = () => {
         <ModelingMeteoriteAverageVelocity />
       </Item>
 
-      <Divider />
+      <Divider sx={{ margin: 1 }} />
 
       <Item label='Расстояние до столкновения'>
         <ModelingMeteoriteDistance />
