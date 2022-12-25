@@ -9,7 +9,7 @@ import {
 //TODO: рассчитывать после того как будет готова функция скорости
 const TOTAL_POINTS_SKIP = 100
 
-export const setModelingGraphicsPoints = createAsyncThunk<
+export const setModelingChartsPoints = createAsyncThunk<
   void,
   void,
   { state: RootState; dispatch: AppDispatch }

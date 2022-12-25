@@ -1,8 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { clearModelingData } from 'slices/modeling.slice'
+import {
+  calculateMeteoriteVelocity,
+  clearModelingData,
+} from 'slices/modeling.slice'
 import {
   setDistanceGraphicPoints,
-  setModelingGraphicsPoints as setModelingChartsPoints,
+  setModelingChartsPoints,
   setVelocityGraphicPoints,
 } from './modelingInfo.async.slice'
 
@@ -13,6 +16,7 @@ export const modelingInfoSlice = createSlice<
   name: 'modelingInfo',
   initialState: {
     activeChart: '@VelocityChart',
+
     chartsPoints: {
       '@VelocityChart': {
         lastPoints: [],
@@ -23,7 +27,14 @@ export const modelingInfoSlice = createSlice<
         totalPoints: [],
       },
     },
+
     pointsPassed: 0,
+
+    meteoriteVelocity: {
+      max: 0,
+      min: 0,
+      average: 0,
+    },
   },
   reducers: {
     setActiveChart: (state, { payload }) => {
@@ -56,6 +67,20 @@ export const modelingInfoSlice = createSlice<
         }
       })
 
+      .addCase(calculateMeteoriteVelocity.fulfilled, (state, { payload }) => {
+        if (state.meteoriteVelocity.max < payload) {
+          state.meteoriteVelocity.max = payload
+        }
+
+        if (state.meteoriteVelocity.min > payload) {
+          state.meteoriteVelocity.min = payload
+        }
+
+        state.meteoriteVelocity.average =
+          state.meteoriteVelocity.average * state.pointsPassed +
+          payload / state.pointsPassed
+      })
+
       .addCase(clearModelingData.fulfilled, (state) => {
         state.chartsPoints = {
           '@VelocityChart': {
@@ -69,6 +94,12 @@ export const modelingInfoSlice = createSlice<
         }
 
         state.pointsPassed = 0
+
+        state.meteoriteVelocity = {
+          max: 0,
+          min: 0,
+          average: 0,
+        }
       })
   },
 })
