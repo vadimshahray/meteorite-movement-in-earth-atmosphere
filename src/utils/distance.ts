@@ -9,10 +9,10 @@ export const metersToVelocityString = (meters: number) => {
   const { km, m } = metersToDistance(meters)
 
   if (km) {
-    return `${km}.${m} км/c`
+    return `${km.toFixed(0)}.${m.toFixed(0)} км/c`
   }
 
-  return `${m} м/c`
+  return `${m.toFixed(1)} м/c`
 }
 
 export const metersToDistanceString = (meters: number) => {
@@ -20,8 +20,8 @@ export const metersToDistanceString = (meters: number) => {
 
   let str = ''
 
-  km && (str += `${km}км`)
-  m && (str += ` ${m}м`)
+  km && (str += `${km.toFixed(0)}км`)
+  m && (str += ` ${m.toFixed(0)}м`)
 
   return str === '' ? '0м' : str
 }
