@@ -32,7 +32,6 @@ export const modelingInfoSlice = createSlice<
 
     meteoriteVelocity: {
       max: 0,
-      min: 0,
       average: 0,
     },
   },
@@ -70,10 +69,6 @@ export const modelingInfoSlice = createSlice<
       .addCase(calculateMeteoriteVelocity.fulfilled, (state, { payload }) => {
         if (state.meteoriteVelocity.max < payload) {
           state.meteoriteVelocity.max = payload
-        }
-
-        if (state.meteoriteVelocity.min > payload) {
-          state.meteoriteVelocity.min = payload
         }
 
         if (state.pointsPassed) {

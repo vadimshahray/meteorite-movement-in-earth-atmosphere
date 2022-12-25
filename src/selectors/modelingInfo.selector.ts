@@ -10,9 +10,6 @@ export const selectActiveChartTotalPoints = (state: RootState) =>
 export const selectChartLastPoints = (chart: Charts) => (state: RootState) =>
   state.modelingInfo.chartsPoints[chart].lastPoints
 
-export const selectModelingMeteoriteMinVelocity = (state: RootState) =>
-  state.modelingInfo.meteoriteVelocity.min
-
 export const selectModelingMeteoriteMaxVelocity = (state: RootState) =>
   state.modelingInfo.meteoriteVelocity.max
 
