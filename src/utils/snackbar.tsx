@@ -3,7 +3,18 @@ import { OptionsObject } from 'notistack'
 
 const DURATION = 3000
 
-export const errorSnackbar = (title: string): OptionsObject => ({
+const defaultOptions: OptionsObject = {
+  anchorOrigin: {
+    vertical: 'top',
+    horizontal: 'left',
+  },
+  autoHideDuration: DURATION,
+}
+
+export const errorSnackbar = (
+  title: string,
+  options?: OptionsObject,
+): OptionsObject => ({
   content: (key, message) => (
     <Snackbar
       id={key.toString()}
@@ -12,11 +23,15 @@ export const errorSnackbar = (title: string): OptionsObject => ({
       message={message!.toString()}
     />
   ),
-  autoHideDuration: DURATION,
   preventDuplicate: true,
+  ...defaultOptions,
+  ...options,
 })
 
-export const infoSnackbar = (title: string): OptionsObject => ({
+export const infoSnackbar = (
+  title: string,
+  options?: OptionsObject,
+): OptionsObject => ({
   content: (key, message) => (
     <Snackbar
       id={key.toString()}
@@ -25,5 +40,6 @@ export const infoSnackbar = (title: string): OptionsObject => ({
       message={message!.toLocaleString()}
     />
   ),
-  autoHideDuration: DURATION,
+  ...defaultOptions,
+  ...options,
 })
