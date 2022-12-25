@@ -1,7 +1,8 @@
 type ModelingInfoSliceState = {
   activeChart: Charts
 
-  chartsPoints: Record<Charts, ChartPoint[]>
+  chartsPoints: Record<Charts, ModelingInfoChartPoints>
+  pointsPassed: number
 }
 
 interface ModelingInfoSlice extends SliceCaseReducers<ModelingInfoSliceState> {

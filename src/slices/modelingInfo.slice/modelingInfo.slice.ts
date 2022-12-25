@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { clearModelingData } from 'slices/modeling.slice'
 import {
   setDistanceGraphicPoints,
+  setModelingGraphicsPoints as setModelingChartsPoints,
   setVelocityGraphicPoints,
 } from './modelingInfo.async.slice'
 
@@ -13,9 +14,16 @@ export const modelingInfoSlice = createSlice<
   initialState: {
     activeChart: '@VelocityChart',
     chartsPoints: {
-      '@VelocityChart': [],
-      '@DistanceChart': [],
+      '@VelocityChart': {
+        lastPoints: [],
+        totalPoints: [],
+      },
+      '@DistanceChart': {
+        lastPoints: [],
+        totalPoints: [],
+      },
     },
+    pointsPassed: 0,
   },
   reducers: {
     setActiveChart: (state, { payload }) => {
@@ -25,18 +33,42 @@ export const modelingInfoSlice = createSlice<
 
   extraReducers: (builder) => {
     builder
+      .addCase(setModelingChartsPoints.fulfilled, (state) => {
+        state.pointsPassed++
+      })
+
       .addCase(setVelocityGraphicPoints.fulfilled, (state, { payload }) => {
-        state.chartsPoints['@VelocityChart'] = payload
+        state.chartsPoints['@VelocityChart'].lastPoints = payload.lastPoints
+
+        if (payload.totalPoint) {
+          state.chartsPoints['@VelocityChart'].totalPoints.push(
+            payload.totalPoint,
+          )
+        }
       })
       .addCase(setDistanceGraphicPoints.fulfilled, (state, { payload }) => {
-        state.chartsPoints['@DistanceChart'] = payload
+        state.chartsPoints['@DistanceChart'].lastPoints = payload.lastPoints
+
+        if (payload.totalPoint) {
+          state.chartsPoints['@DistanceChart'].totalPoints.push(
+            payload.totalPoint,
+          )
+        }
       })
 
       .addCase(clearModelingData.fulfilled, (state) => {
         state.chartsPoints = {
-          '@VelocityChart': [],
-          '@DistanceChart': [],
+          '@VelocityChart': {
+            lastPoints: [],
+            totalPoints: [],
+          },
+          '@DistanceChart': {
+            lastPoints: [],
+            totalPoints: [],
+          },
         }
+
+        state.pointsPassed = 0
       })
   },
 })
