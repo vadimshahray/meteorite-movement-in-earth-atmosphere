@@ -30,7 +30,7 @@ export const Section = ({
         </Typography>
 
         {collapsible && (
-          <IconButton onClick={handleClick}>
+          <IconButton onClick={handleClick} size='small'>
             {expanded ? <ExpandLess /> : <ExpandMore />}
           </IconButton>
         )}
