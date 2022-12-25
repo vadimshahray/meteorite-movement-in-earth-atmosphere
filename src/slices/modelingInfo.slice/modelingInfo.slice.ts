@@ -76,9 +76,11 @@ export const modelingInfoSlice = createSlice<
           state.meteoriteVelocity.min = payload
         }
 
-        state.meteoriteVelocity.average =
-          state.meteoriteVelocity.average * state.pointsPassed +
-          payload / state.pointsPassed
+        if (state.pointsPassed) {
+          state.meteoriteVelocity.average =
+            (state.meteoriteVelocity.average * state.pointsPassed + payload) /
+            (state.pointsPassed + 1)
+        }
       })
 
       .addCase(clearModelingData.fulfilled, (state) => {
