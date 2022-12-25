@@ -17,5 +17,5 @@ export const ticksToString = (ticks: number) => {
   timer.seconds && (str += ` ${timer.seconds}с`)
   timer.milliseconds && (str += ` ${timer.milliseconds}мс`)
 
-  return str
+  return str === '' ? '0мс' : str
 }

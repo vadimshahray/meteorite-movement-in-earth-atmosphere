@@ -23,5 +23,5 @@ export const metersToDistanceString = (meters: number) => {
   km && (str += `${km}км`)
   m && (str += ` ${m}м`)
 
-  return str
+  return str === '' ? '0м' : str
 }
