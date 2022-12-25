@@ -6,7 +6,6 @@ type ModelingInfoSliceState = {
 
   meteoriteVelocity: {
     max: number
-    min: number
     average: number
   }
 }
