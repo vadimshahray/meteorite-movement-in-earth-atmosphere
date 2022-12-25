@@ -1,1 +1,2 @@
-export * from './LinearChart'
+export * from './LineChart'
+export * from './AtmosphereLayersChart'

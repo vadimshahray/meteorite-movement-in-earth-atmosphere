@@ -1,4 +1,4 @@
-import { LinearChart } from 'components'
+import { LineChart } from 'components'
 import { useActiveChartPoints } from 'hooks'
 import { metersToVelocityString, ticksToString } from 'utils'
 
@@ -6,7 +6,7 @@ export const VelocityChart = () => {
   const points = useActiveChartPoints()
 
   return (
-    <LinearChart
+    <LineChart
       points={points}
       label='V(t)'
       xName='Время'
