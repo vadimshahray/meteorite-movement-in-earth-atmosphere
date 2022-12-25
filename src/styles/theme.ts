@@ -54,6 +54,11 @@ export const theme = createTheme({
         },
       },
     },
+    MuiDivider: {
+      defaultProps: {
+        light: true,
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
