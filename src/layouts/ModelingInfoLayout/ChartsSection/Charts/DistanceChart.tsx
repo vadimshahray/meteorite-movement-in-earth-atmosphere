@@ -1,4 +1,4 @@
-import { LinearChart } from 'components'
+import { AtmosphereLayersChart } from 'components'
 import { useActiveChartPoints } from 'hooks'
 import { metersToDistanceString, ticksToString } from 'utils'
 
@@ -6,7 +6,7 @@ export const DistanceChart = () => {
   const points = useActiveChartPoints()
 
   return (
-    <LinearChart
+    <AtmosphereLayersChart
       points={points}
       label='D(t)'
       xName='Время'
