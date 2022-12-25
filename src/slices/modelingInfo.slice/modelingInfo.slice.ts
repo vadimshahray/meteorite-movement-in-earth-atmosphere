@@ -94,7 +94,6 @@ export const modelingInfoSlice = createSlice<
 
         state.meteoriteVelocity = {
           max: 0,
-          min: 0,
           average: 0,
         }
       })
