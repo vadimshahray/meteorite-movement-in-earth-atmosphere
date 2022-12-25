@@ -1,10 +1,9 @@
 import { LinearChart } from 'components'
-import { useSelector } from 'react-redux'
-import { selectActiveChartPoints } from 'selectors'
+import { useActiveChartPoints } from 'hooks'
 import { metersToVelocityString, ticksToString } from 'utils'
 
 export const VelocityChart = () => {
-  const points = useSelector(selectActiveChartPoints)
+  const points = useActiveChartPoints()
 
   return (
     <LinearChart
