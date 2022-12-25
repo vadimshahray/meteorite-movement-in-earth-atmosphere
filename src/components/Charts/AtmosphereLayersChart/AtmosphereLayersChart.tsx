@@ -9,8 +9,8 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
+import { AtmosphereLayersChartTooltip } from './AtmosphereLayersChartTooltip'
 import { ChartContainer } from '../ChartContainer'
-import { ChartTooltip } from '../ChartTooltip'
 
 export type AtmosphereLayersChartProps = {
   points: ChartPoint[]
@@ -61,7 +61,7 @@ export const AtmosphereLayersChart = ({
         />
 
         <Tooltip
-          content={<ChartTooltip />}
+          content={<AtmosphereLayersChartTooltip />}
           formatter={(value: any, name: any) => {
             if (name === 'x') {
               return [xFormatter(value.valueOf()), `${xName}${separator}`]
