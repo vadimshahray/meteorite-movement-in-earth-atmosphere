@@ -5,7 +5,7 @@ import { ChartsToggler } from './ChartsToggler'
 
 export const ChartsSection = () => {
   return (
-    <Section title='Графики' Icon={ShowChartOutlinedIcon}>
+    <Section title='Графики' Icon={ShowChartOutlinedIcon} collapsible>
       <Item label='Активный график'>
         <ChartsToggler />
       </Item>

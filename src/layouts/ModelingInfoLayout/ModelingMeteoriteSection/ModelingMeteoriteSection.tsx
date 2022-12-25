@@ -8,7 +8,7 @@ import {
 
 export const ModelingMeteoriteSection = () => {
   return (
-    <Section title='Информация о метеорите' Icon={InfoOutlinedIcon}>
+    <Section title='Информация о метеорите' Icon={InfoOutlinedIcon} collapsible>
       <Item label='Скорость падения'>
         <ModelingMeteoriteVelocity />
       </Item>
