@@ -2,4 +2,12 @@ export const EARTH = {
   RADIUS: 6371 * 10 ** 3,
   MASS: 5.9726 * 10 ** 24,
   g: 9.78,
+
+  ATMOSPHERE_LAYERS_HEIGHTS: {
+    EXOSPHERE: 1200,
+    THERMOSPHERE: 100,
+    MESOSPHERE: 800,
+    STRATOSPHERE: 600,
+    TROPOSPHERE: 400,
+  },
 }
