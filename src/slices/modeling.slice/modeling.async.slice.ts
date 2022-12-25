@@ -6,7 +6,7 @@ import {
   selectModelingMeteoriteVelocity,
   selectModelingMeteoriteXOffset,
 } from 'selectors'
-import { setModelingGraphicsPoints } from 'slices/modelingInfo.slice'
+import { setModelingChartsPoints } from 'slices/modelingInfo.slice'
 import { ticksToTimer } from 'utils'
 
 export const startModeling = createAsyncThunk<
@@ -93,7 +93,7 @@ const calculateMeteoriteData = createAsyncThunk<
   dispatch(calculateMeteoriteDistance())
   dispatch(calculateMeteoriteXOffset())
 
-  dispatch(setModelingGraphicsPoints())
+  dispatch(setModelingChartsPoints())
 })
 
 export const calculateMeteoriteVelocity = createAsyncThunk<
