@@ -50,7 +50,6 @@ export const AtmosphereLayersChart = ({
         margin={{ top: 10, right: 4, left: -32, bottom: 5 }}
       >
         <YAxis
-          type={type}
           dataKey='y'
           stroke={palette.text.secondary}
           fontSize={typography.caption.fontSize}
@@ -161,7 +160,7 @@ export const AtmosphereLayersChart = ({
 }
 
 function getPointsWithAtmosphereLayers(points: ChartPoint[]) {
-  if (points.length < 2) return []
+  if (points.length < 2) return points
 
   const minPoint = {
     x: points[0].x,
@@ -179,41 +178,41 @@ function getPointsWithAtmosphereLayers(points: ChartPoint[]) {
       exosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.EXOSPHERE,
     },
     {
+      ...minPoint,
+      thermosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.THERMOSPHERE,
+    },
+    {
+      ...minPoint,
+      mesosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.MESOSPHERE,
+    },
+    {
+      ...minPoint,
+      stratosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.STRATOSPHERE,
+    },
+    {
+      ...minPoint,
+      troposphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.TROPOSPHERE,
+    },
+    ...points,
+    {
       ...maxPoint,
       exosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.EXOSPHERE,
     },
     {
-      ...minPoint,
-      thermosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.THERMOSPHERE,
-    },
-    {
       ...maxPoint,
       thermosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.THERMOSPHERE,
-    },
-    {
-      ...minPoint,
-      mesosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.MESOSPHERE,
     },
     {
       ...maxPoint,
       mesosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.MESOSPHERE,
     },
     {
-      ...minPoint,
-      stratosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.STRATOSPHERE,
-    },
-    {
       ...maxPoint,
       stratosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.STRATOSPHERE,
-    },
-    {
-      ...minPoint,
-      troposphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.TROPOSPHERE,
     },
     {
       ...maxPoint,
       troposphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.TROPOSPHERE,
     },
-    ...points,
   ]
 }

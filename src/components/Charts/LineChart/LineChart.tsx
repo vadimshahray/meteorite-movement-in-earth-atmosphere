@@ -40,7 +40,6 @@ export const LineChart = ({
         margin={{ top: 10, right: 4, left: -32, bottom: 5 }}
       >
         <YAxis
-          type={type}
           dataKey='y'
           stroke={palette.text.secondary}
           fontSize={typography.caption.fontSize}
