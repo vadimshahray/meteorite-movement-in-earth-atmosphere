@@ -126,7 +126,7 @@ export const calculateMeteoriteXOffset = createAsyncThunk<
   return offsetI + 1
 })
 
-const TIMER_INTERVAL = 33
+export const MODELING_TIMER_INTERVAL_MS = 33
 let interval: NodeJS.Timer
 
 const startModelingTimer = createAsyncThunk<
@@ -137,11 +137,11 @@ const startModelingTimer = createAsyncThunk<
   let ticks = getState().modeling.timer.ticks
 
   interval = setInterval(() => {
-    ticks += TIMER_INTERVAL
+    ticks += MODELING_TIMER_INTERVAL_MS
     dispatch(setModelingTimerTime(ticks))
 
     callback()
-  }, TIMER_INTERVAL)
+  }, MODELING_TIMER_INTERVAL_MS)
 })
 
 const stopModelingTimer = createAsyncThunk('modeling/stopTimer', () => {

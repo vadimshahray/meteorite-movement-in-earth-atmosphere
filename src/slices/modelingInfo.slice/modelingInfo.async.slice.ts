@@ -62,12 +62,12 @@ export const setDistanceGraphicPoints = createAsyncThunk<
   }
 })
 
-const GRAPHIC_POINTS_AMOUNT = 100
+export const CHART_LAST_POINTS_AMOUNT = 100
 
 function getNewLastPoints(oldPoints: ChartPoint[], newPoint: ChartPoint) {
   const newPoints =
-    oldPoints.length > GRAPHIC_POINTS_AMOUNT
-      ? oldPoints.slice(1, GRAPHIC_POINTS_AMOUNT + 1)
+    oldPoints.length > CHART_LAST_POINTS_AMOUNT
+      ? oldPoints.slice(1, CHART_LAST_POINTS_AMOUNT + 1)
       : [...oldPoints]
   newPoints.push(newPoint)
 

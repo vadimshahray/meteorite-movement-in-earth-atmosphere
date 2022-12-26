@@ -10,7 +10,10 @@ export type ChartContainerProps = {
 
 export const ChartContainer = ({ label, children }: ChartContainerProps) => {
   return (
-    <Container disableGutters>
+    <Container
+      disableGutters
+      sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+    >
       <Typography variant='caption'>{label}</Typography>
 
       <ResponsiveContainer width='100%' height={300}>

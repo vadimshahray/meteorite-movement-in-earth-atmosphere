@@ -1,15 +1,23 @@
 import { AtmosphereLayersChart } from 'components'
 import { useActiveChartPoints } from 'hooks'
-import { metersToDistanceString, ticksToString } from 'utils'
+import { CHART_LAST_POINTS_AMOUNT, MODELING_TIMER_INTERVAL_MS } from 'slices'
+import { metersToDistanceString, ticksToString, ticksToTimer } from 'utils'
 
 export const DistanceChart = () => {
   const { points, isTotal } = useActiveChartPoints()
+
+  const label = isTotal
+    ? 'Данные за все время'
+    : `Данные за последние ${
+        ticksToTimer(MODELING_TIMER_INTERVAL_MS * CHART_LAST_POINTS_AMOUNT)
+          .seconds
+      }с`
 
   return (
     <AtmosphereLayersChart
       points={points}
       type={isTotal ? 'number' : 'category'}
-      label='D(t)'
+      label={label}
       xName='Время'
       yName='Расстояние'
       xFormatter={(value) => {
