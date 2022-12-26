@@ -1,6 +1,5 @@
-import DataObjectOutlinedIcon from '@mui/icons-material/DataObjectOutlined'
+import { DataObjectOutlined } from '@mui/icons-material'
 import { Section } from 'components'
-import React from 'react'
 import {
   MassField,
   RadiusField,
@@ -11,11 +10,15 @@ import {
 
 export const MeteoriteSettings = () => {
   return (
-    <Section title='Данные метеорита' Icon={DataObjectOutlinedIcon}>
+    <Section title='Характеристики метеорита' Icon={DataObjectOutlined}>
       <MassField />
+
       <DistanceField />
+
       <RadiusField />
+
       <AngelField />
+
       <InitialVelocityField />
     </Section>
   )
