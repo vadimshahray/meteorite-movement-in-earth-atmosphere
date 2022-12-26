@@ -1,5 +1,5 @@
 import { EARTH } from 'consts'
-import { useBaseChartElementsProps } from 'hooks'
+import { useAreaBaseProps, useBaseChartElementsProps } from 'hooks'
 import {
   Area,
   CartesianGrid,
@@ -47,26 +47,12 @@ export const AtmosphereLayersChart = ({
     cartesianGridBaseProps,
   } = useBaseChartElementsProps()
 
-  const linearGradientBaseProps = {
-    x1: '0',
-    y1: '0',
-    x2: '0',
-    y2: '1',
-  }
-
-  const stopTopBaseProps = {
-    offset: '0%',
-    stopOpacity: 1,
-  }
-  const stopBottomBaseProps = {
-    offset: '100%',
-    stopOpacity: 0,
-  }
-
-  const areaCommonProps = {
-    type: 'monotone' as 'monotone' | 'basis',
-    fillOpacity: 1,
-  }
+  const {
+    areaCommonProps,
+    linearGradientBaseProps,
+    stopTopBaseProps,
+    stopBottomBaseProps,
+  } = useAreaBaseProps()
 
   return (
     <ChartContainer label={label}>
