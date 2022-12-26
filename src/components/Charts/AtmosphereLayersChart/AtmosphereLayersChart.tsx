@@ -2,6 +2,7 @@ import { useTheme } from '@mui/material'
 import { EARTH } from 'consts'
 import {
   Area,
+  AreaProps,
   CartesianGrid,
   ComposedChart,
   Line,
@@ -40,6 +41,11 @@ export const AtmosphereLayersChart = ({
   const pointsWithAtmosphere = getPointsWithAtmosphereLayers(points)
 
   const { palette, typography } = useTheme()
+
+  const areaCommonProps = {
+    type: 'monotone' as 'monotone' | 'basis',
+    fillOpacity: 1,
+  }
 
   return (
     <ChartContainer label={label}>
@@ -111,39 +117,34 @@ export const AtmosphereLayersChart = ({
         </defs>
 
         <Area
-          dataKey={'exosphere'}
-          type='monotone'
-          fillOpacity={1}
+          dataKey='exosphere'
           fill={`url(#${exosphere_gradient})`}
           stroke='#1450be'
+          {...areaCommonProps}
         />
         <Area
-          dataKey={'thermosphere'}
-          type='monotone'
-          fillOpacity={1}
+          dataKey='thermosphere'
           fill={`url(#${thermosphere_gradient})`}
           stroke='#4a87ff'
+          {...areaCommonProps}
         />
         <Area
-          dataKey={'mesosphere'}
-          type='monotone'
-          fillOpacity={1}
+          dataKey='mesosphere'
           fill={`url(#${mesosphere_gradient})`}
           stroke='#00c1f2'
+          {...areaCommonProps}
         />
         <Area
-          dataKey={'stratosphere'}
-          type='monotone'
-          fillOpacity={1}
+          dataKey='stratosphere'
           fill={`url(#${stratosphere_gradient})`}
           stroke='#69d7f8'
+          {...areaCommonProps}
         />
         <Area
-          dataKey={'troposphere'}
-          type='monotone'
-          fillOpacity={1}
+          dataKey='troposphere'
           fill={`url(#${troposphere_gradient})`}
           stroke='#98e5f9'
+          {...areaCommonProps}
         />
 
         <Line
