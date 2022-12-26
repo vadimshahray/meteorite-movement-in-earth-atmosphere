@@ -13,7 +13,6 @@ import { ChartTooltip } from '../ChartTooltip'
 export type LineChartProps = {
   points: ChartPoint[]
   label: string
-  type?: 'number' | 'category'
   xName?: string
   yName?: string
   separator?: string
@@ -24,7 +23,6 @@ export type LineChartProps = {
 export const LineChart = ({
   points,
   label,
-  type = 'category',
   xName = ':',
   yName = 'y',
   separator = ':',
@@ -46,8 +44,8 @@ export const LineChart = ({
         />
 
         <XAxis
-          type={type}
           dataKey='x'
+          allowDuplicatedCategory={false}
           stroke={palette.text.secondary}
           fontSize={typography.caption.fontSize}
         />

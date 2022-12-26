@@ -16,7 +16,6 @@ export const DistanceChart = () => {
   return (
     <AtmosphereLayersChart
       points={points}
-      type={isTotal ? 'number' : 'category'}
       label={label}
       xName='Время'
       yName='Расстояние'

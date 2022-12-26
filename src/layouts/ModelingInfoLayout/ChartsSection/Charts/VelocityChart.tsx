@@ -16,7 +16,6 @@ export const VelocityChart = () => {
   return (
     <LineChart
       points={points}
-      type={isTotal ? 'number' : 'category'}
       label={label}
       xName='Время'
       yName='Скорость'
