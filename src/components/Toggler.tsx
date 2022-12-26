@@ -13,7 +13,9 @@ export type TogglerProps = {
 
 export const Toggler = ({ value, items, onChange }: TogglerProps) => {
   const handleChange = (_: React.MouseEvent<HTMLElement>, item: string) => {
-    onChange(item)
+    if (item) {
+      onChange(item)
+    }
   }
 
   return (
