@@ -9,7 +9,7 @@ import { ModelingMeteoriteXOffset } from './ModelingMeteoriteXOffset'
 
 export const ModelingInfoSection = () => {
   return (
-    <Section title='Информация о метеорите' Icon={InfoOutlinedIcon} collapsible>
+    <Section title='Полученные сведения' Icon={InfoOutlinedIcon} collapsible>
       <Item label='Скорость падения'>
         <ModelingMeteoriteVelocity />
       </Item>
