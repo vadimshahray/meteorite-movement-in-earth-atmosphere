@@ -21,7 +21,7 @@ export const AngelField = () => {
     <ValidatedTextField
       adornment='𝜣'
       label='Угол падения, °'
-      initialValue={angel.toString()}
+      value={angel.toString()}
       rule={positiveNumberRule}
       onValid={handleValid}
     />
