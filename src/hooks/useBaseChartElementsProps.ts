@@ -11,7 +11,7 @@ export const useBaseChartElementsProps = () => {
 
   return {
     chartBaseProps: {
-      margin: { top: 10, right: 4, left: -47, bottom: -12 },
+      margin: { top: 0, right: 4, left: -47, bottom: -12 },
     },
     yAxisBaseProps: {
       dataKey: 'y',
