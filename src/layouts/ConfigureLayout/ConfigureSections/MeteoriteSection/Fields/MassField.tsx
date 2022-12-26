@@ -21,7 +21,7 @@ export const MassField = () => {
     <ValidatedTextField
       adornment='𝓜'
       label='Масса, кг'
-      initialValue={mass.toString()}
+      value={mass.toString()}
       rule={positiveNumberRule}
       onValid={handleValid}
     />

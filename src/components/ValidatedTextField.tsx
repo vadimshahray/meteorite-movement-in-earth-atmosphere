@@ -10,8 +10,7 @@ import { AnyObject } from 'yup/lib/types'
 export type ValidatedTextFieldProps = {
   /** Ярлык поля */
   label: string
-  /** Начальное значение поля */
-  initialValue?: string
+  value?: string
   /** Числовое правило валидации */
   rule: RequiredNumberSchema<number | undefined, AnyObject>
   /**
@@ -32,11 +31,12 @@ export const ValidatedTextField = ({
   label,
   rule,
   adornment,
-  initialValue,
+  value,
   onValid,
 }: ValidatedTextFieldProps) => {
   const dispatch = useDispatch()
 
+  const [fieldValue, setFieldValue] = useState(value)
   const [error, setError] = useState<string>()
 
   const schema = useMemo(
@@ -48,11 +48,11 @@ export const ValidatedTextField = ({
   )
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const input = e.target.value
+    const newValue = e.target.value
 
     schema
       .validate({
-        value: input,
+        value: newValue,
       })
       .then(({ value }) => {
         onValid(value)
@@ -61,7 +61,15 @@ export const ValidatedTextField = ({
       .catch((error: ValidationError) => {
         setError(error.message)
       })
+      .finally(() => {
+        setFieldValue(newValue)
+      })
   }
+
+  useEffect(() => {
+    setFieldValue(value)
+    setError(undefined)
+  }, [value])
 
   useEffect(() => {
     dispatch(setIsUserSectionInputValid(!error))
@@ -69,8 +77,8 @@ export const ValidatedTextField = ({
 
   return (
     <TextField
+      value={fieldValue}
       label={label}
-      defaultValue={initialValue}
       error={!!error}
       helperText={error}
       onChange={handleChange}

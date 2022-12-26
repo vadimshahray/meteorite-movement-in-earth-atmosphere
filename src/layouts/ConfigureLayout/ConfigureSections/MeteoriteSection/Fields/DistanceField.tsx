@@ -1,4 +1,4 @@
-import { Slider } from 'components'
+import { SliderTextField } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
 import { selectMeteoriteDistance } from 'selectors'
@@ -17,10 +17,11 @@ export const DistanceField = () => {
   }
 
   return (
-    <Slider
+    <SliderTextField
       min={0}
       max={1000000}
       step={1000}
+      adornment='𝓓'
       label='Расстояние от поверхности планеты, м'
       initialValue={distance}
       onChange={handleChange}
