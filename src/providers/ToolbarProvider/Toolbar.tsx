@@ -1,4 +1,4 @@
-import { Toolbar as MUIToolbar, Typography } from '@mui/material'
+import { Stack, Toolbar as MUIToolbar, Typography } from '@mui/material'
 import { ButtonProps, Button } from '@mui/material'
 import { Container, ThemeButton } from 'components'
 import React from 'react'
@@ -27,11 +27,11 @@ export const Toolbar = ({ title, Icon, actionButtons }: ToolbarProps) => {
           <Typography variant='h6'>{title}</Typography>
         </Container>
 
-        <div>
+        <Stack direction='row' spacing={1}>
           {actionButtons?.map((btn, i) => (
             <span key={i}>{btn}</span>
           ))}
-        </div>
+        </Stack>
       </MUIToolbar>
     </Container>
   )
