@@ -19,7 +19,7 @@ export const InitialVelocityField = () => {
 
   return (
     <ValidatedTextField
-      adornment='V₀'
+      adornment='𝓥₀'
       label='Начальная скорость, м/с'
       initialValue={initialVelocity.toString()}
       rule={positiveNumberRule}

@@ -19,7 +19,7 @@ export const AngelField = () => {
 
   return (
     <ValidatedTextField
-      adornment='α'
+      adornment='𝜣'
       label='Угол падения, °'
       initialValue={angel.toString()}
       rule={positiveNumberRule}

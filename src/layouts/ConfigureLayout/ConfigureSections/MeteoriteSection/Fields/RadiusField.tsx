@@ -21,7 +21,7 @@ export const RadiusField = () => {
   return (
     <ValidatedTextField
       label='Радиус, м'
-      adornment='R'
+      adornment='𝓡'
       initialValue={radius.toString()}
       rule={positiveNumberRule}
       onValid={handleValid}
