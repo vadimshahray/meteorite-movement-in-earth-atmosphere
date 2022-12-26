@@ -32,8 +32,6 @@ export const Toolbar = ({ title, Icon, actionButtons }: ToolbarProps) => {
             <span key={i}>{btn}</span>
           ))}
         </div>
-
-        <ThemeButton />
       </MUIToolbar>
     </Container>
   )
