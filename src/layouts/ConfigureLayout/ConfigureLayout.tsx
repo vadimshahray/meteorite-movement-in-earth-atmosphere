@@ -1,5 +1,5 @@
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
-import { Container, ThemeButton } from 'components'
+import { Container, ProjectDocumentButton, ThemeButton } from 'components'
 import { useToolbar } from 'hooks'
 import React, { useEffect } from 'react'
 import { styleClasses } from 'utils'
@@ -16,7 +16,7 @@ export const ConfigureLayout = ({ className, ...props }: LayoutProps) => {
   useEffect(() => {
     setTitle('Настройки приложения')
     setIcon(SettingsOutlinedIcon)
-    setActionButtons([<ThemeButton />])
+    setActionButtons([<ProjectDocumentButton />, <ThemeButton />])
 
     return () => {
       setActionButtons(undefined)
