@@ -1,5 +1,5 @@
 import { CloseOutlined } from '@mui/icons-material'
-import { Button } from '@mui/material'
+import { Button, Tooltip } from '@mui/material'
 import { useDispatch } from 'hooks'
 import { cancelModeling } from 'slices'
 
@@ -11,12 +11,14 @@ export const CancelModelingButton = () => {
   }
 
   return (
-    <Button
-      variant='contained'
-      onClick={handleClick}
-      startIcon={<CloseOutlined />}
-    >
-      Сброс
-    </Button>
+    <Tooltip title='Вернуться к настройкам'>
+      <Button
+        variant='contained'
+        onClick={handleClick}
+        startIcon={<CloseOutlined />}
+      >
+        Сброс
+      </Button>
+    </Tooltip>
   )
 }

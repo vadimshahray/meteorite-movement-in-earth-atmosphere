@@ -1,5 +1,5 @@
 import { ExpandLess, ExpandMore } from '@mui/icons-material'
-import { Collapse, IconButton, Stack, Typography } from '@mui/material'
+import { Collapse, IconButton, Stack, Tooltip, Typography } from '@mui/material'
 import { useState, PropsWithChildren } from 'react'
 import { Container } from './Container'
 
@@ -30,9 +30,11 @@ export const Section = ({
         </Typography>
 
         {collapsible && (
-          <IconButton onClick={handleClick} size='small'>
-            {expanded ? <ExpandLess /> : <ExpandMore />}
-          </IconButton>
+          <Tooltip title={expanded ? 'Свернуть' : 'Развернуть'}>
+            <IconButton onClick={handleClick} size='small'>
+              {expanded ? <ExpandLess /> : <ExpandMore />}
+            </IconButton>
+          </Tooltip>
         )}
       </Stack>
 

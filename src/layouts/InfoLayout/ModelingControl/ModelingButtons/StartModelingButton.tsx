@@ -1,4 +1,5 @@
 import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined'
+import { Tooltip } from '@mui/material'
 import { Button } from 'components'
 import { useDispatch } from 'hooks'
 import { useSnackbar } from 'notistack'
@@ -27,13 +28,15 @@ export const StartModelingButton = () => {
   }
 
   return (
-    <Button
-      fullWidth
-      variant='contained'
-      startIcon={<PlayArrowOutlinedIcon />}
-      onClick={handleClick}
-    >
-      Запуск
-    </Button>
+    <Tooltip title='Начать моделирование'>
+      <Button
+        fullWidth
+        variant='contained'
+        startIcon={<PlayArrowOutlinedIcon />}
+        onClick={handleClick}
+      >
+        Запуск
+      </Button>
+    </Tooltip>
   )
 }

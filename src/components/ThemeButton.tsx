@@ -1,6 +1,6 @@
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined'
-import { IconButton } from '@mui/material'
+import { IconButton, Tooltip } from '@mui/material'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
 import { selectThemeColorMode } from 'selectors'
@@ -19,12 +19,20 @@ export const ThemeButton = () => {
   }
 
   return (
-    <IconButton onClick={handleClick}>
-      {colorMode === 'light' ? (
-        <LightModeOutlinedIcon />
-      ) : (
-        <DarkModeOutlinedIcon />
-      )}
-    </IconButton>
+    <Tooltip
+      title={
+        colorMode === 'light'
+          ? 'Переключиться на темную тему'
+          : 'Переключиться на светлую тему'
+      }
+    >
+      <IconButton onClick={handleClick}>
+        {colorMode === 'light' ? (
+          <DarkModeOutlinedIcon />
+        ) : (
+          <LightModeOutlinedIcon />
+        )}
+      </IconButton>
+    </Tooltip>
   )
 }

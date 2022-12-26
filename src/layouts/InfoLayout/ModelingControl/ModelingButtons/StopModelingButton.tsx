@@ -1,4 +1,5 @@
 import { RestartAltOutlined, StopOutlined } from '@mui/icons-material'
+import { Tooltip } from '@mui/material'
 import { Button } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
@@ -19,14 +20,26 @@ export const StopModelingButton = () => {
   }
 
   return (
-    <Button
-      variant='contained'
-      startIcon={
-        modelingStatus === 'stopped' ? <RestartAltOutlined /> : <StopOutlined />
+    <Tooltip
+      title={
+        modelingStatus === 'stopped'
+          ? 'Продолжить моделирование'
+          : 'Остановить моделирование'
       }
-      onClick={handleClick}
     >
-      {modelingStatus === 'stopped' ? 'Запуск' : 'Стоп'}
-    </Button>
+      <Button
+        variant='contained'
+        startIcon={
+          modelingStatus === 'stopped' ? (
+            <RestartAltOutlined />
+          ) : (
+            <StopOutlined />
+          )
+        }
+        onClick={handleClick}
+      >
+        {modelingStatus === 'stopped' ? 'Запуск' : 'Стоп'}
+      </Button>
+    </Tooltip>
   )
 }

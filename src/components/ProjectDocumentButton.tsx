@@ -1,10 +1,12 @@
 import { TextSnippetOutlined } from '@mui/icons-material'
-import { IconButton } from '@mui/material'
+import { IconButton, Tooltip } from '@mui/material'
 
 export const ProjectDocumentButton = () => {
   return (
-    <IconButton>
-      <TextSnippetOutlined />
-    </IconButton>
+    <Tooltip title='Скачать отчет'>
+      <IconButton>
+        <TextSnippetOutlined />
+      </IconButton>
+    </Tooltip>
   )
 }
