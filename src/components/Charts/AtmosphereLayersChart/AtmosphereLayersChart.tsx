@@ -178,41 +178,41 @@ function getPointsWithAtmosphereLayers(points: ChartPoint[]) {
       exosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.EXOSPHERE,
     },
     {
-      ...minPoint,
-      thermosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.THERMOSPHERE,
-    },
-    {
-      ...minPoint,
-      mesosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.MESOSPHERE,
-    },
-    {
-      ...minPoint,
-      stratosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.STRATOSPHERE,
-    },
-    {
-      ...minPoint,
-      troposphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.TROPOSPHERE,
-    },
-    ...points,
-    {
       ...maxPoint,
       exosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.EXOSPHERE,
     },
     {
+      ...minPoint,
+      thermosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.THERMOSPHERE,
+    },
+    {
       ...maxPoint,
       thermosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.THERMOSPHERE,
+    },
+    {
+      ...minPoint,
+      mesosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.MESOSPHERE,
     },
     {
       ...maxPoint,
       mesosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.MESOSPHERE,
     },
     {
+      ...minPoint,
+      stratosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.STRATOSPHERE,
+    },
+    {
       ...maxPoint,
       stratosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.STRATOSPHERE,
+    },
+    {
+      ...minPoint,
+      troposphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.TROPOSPHERE,
     },
     {
       ...maxPoint,
       troposphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.TROPOSPHERE,
     },
+    ...points,
   ]
 }
