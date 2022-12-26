@@ -1,4 +1,5 @@
 import { useTheme } from '@mui/material'
+import { useBaseChartElementsProps } from 'hooks'
 import {
   CartesianGrid,
   Line,
@@ -29,33 +30,22 @@ export const LineChart = ({
   xFormatter = (_) => _.toString(),
   yFormatter = (_) => _.toString(),
 }: LineChartProps) => {
-  const { palette, typography } = useTheme()
+  const {
+    chartBaseProps,
+    yAxisBaseProps,
+    xAxisBaseProps,
+    lineBaseProps,
+    cartesianGridBaseProps,
+  } = useBaseChartElementsProps()
 
   return (
     <ChartContainer label={label}>
-      <RCLineChart
-        data={points}
-        margin={{ top: 10, right: 4, left: -32, bottom: 5 }}
-      >
-        <YAxis
-          dataKey='y'
-          stroke={palette.text.secondary}
-          fontSize={typography.caption.fontSize}
-        />
+      <RCLineChart data={points} {...chartBaseProps}>
+        <YAxis {...yAxisBaseProps} />
 
-        <XAxis
-          dataKey='x'
-          allowDuplicatedCategory={false}
-          stroke={palette.text.secondary}
-          fontSize={typography.caption.fontSize}
-        />
+        <XAxis {...xAxisBaseProps} />
 
-        <Line
-          type='monotone'
-          dataKey='y'
-          dot={false}
-          stroke={palette.primary.main}
-        />
+        <Line {...lineBaseProps} />
 
         <Tooltip
           content={<ChartTooltip />}
@@ -70,7 +60,7 @@ export const LineChart = ({
           }}
         />
 
-        <CartesianGrid strokeDasharray='1 3' />
+        <CartesianGrid {...cartesianGridBaseProps} />
       </RCLineChart>
     </ChartContainer>
   )

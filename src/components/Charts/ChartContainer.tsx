@@ -12,7 +12,11 @@ export const ChartContainer = ({ label, children }: ChartContainerProps) => {
   return (
     <Container
       disableGutters
-      sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
     >
       <Typography variant='caption'>{label}</Typography>
 

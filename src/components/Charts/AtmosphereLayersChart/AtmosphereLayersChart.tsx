@@ -1,8 +1,7 @@
-import { useTheme } from '@mui/material'
 import { EARTH } from 'consts'
+import { useBaseChartElementsProps } from 'hooks'
 import {
   Area,
-  AreaProps,
   CartesianGrid,
   ComposedChart,
   Line,
@@ -40,7 +39,29 @@ export const AtmosphereLayersChart = ({
 
   const pointsWithAtmosphere = getPointsWithAtmosphereLayers(points)
 
-  const { palette, typography } = useTheme()
+  const {
+    chartBaseProps,
+    yAxisBaseProps,
+    xAxisBaseProps,
+    lineBaseProps,
+    cartesianGridBaseProps,
+  } = useBaseChartElementsProps()
+
+  const linearGradientBaseProps = {
+    x1: '0',
+    y1: '0',
+    x2: '0',
+    y2: '1',
+  }
+
+  const stopTopBaseProps = {
+    offset: '0%',
+    stopOpacity: 1,
+  }
+  const stopBottomBaseProps = {
+    offset: '100%',
+    stopOpacity: 0,
+  }
 
   const areaCommonProps = {
     type: 'monotone' as 'monotone' | 'basis',
@@ -49,22 +70,10 @@ export const AtmosphereLayersChart = ({
 
   return (
     <ChartContainer label={label}>
-      <ComposedChart
-        data={pointsWithAtmosphere}
-        margin={{ top: 10, right: 4, left: -32, bottom: 5 }}
-      >
-        <YAxis
-          dataKey='y'
-          stroke={palette.text.secondary}
-          fontSize={typography.caption.fontSize}
-        />
+      <ComposedChart data={pointsWithAtmosphere} {...chartBaseProps}>
+        <YAxis {...yAxisBaseProps} />
 
-        <XAxis
-          dataKey='x'
-          allowDuplicatedCategory={false}
-          stroke={palette.text.secondary}
-          fontSize={typography.caption.fontSize}
-        />
+        <XAxis {...xAxisBaseProps} />
 
         <Tooltip
           content={<AtmosphereLayersChartTooltip />}
@@ -79,40 +88,41 @@ export const AtmosphereLayersChart = ({
           }}
         />
 
-        <CartesianGrid strokeDasharray='1 3' />
+        <CartesianGrid {...cartesianGridBaseProps} />
 
         <defs>
-          <linearGradient id={exosphere_gradient} x1='0' y1='0' x2='0' y2='1'>
-            <stop offset='0%' stopColor='#1450be' stopOpacity={1} />
-            <stop offset='100%' stopColor='#1450be' stopOpacity={0} />
+          <linearGradient id={exosphere_gradient} {...linearGradientBaseProps}>
+            <stop stopColor='#1450be' {...stopTopBaseProps} />
+            <stop stopColor='#1450be' {...stopBottomBaseProps} />
           </linearGradient>
+
           <linearGradient
             id={thermosphere_gradient}
-            x1='0'
-            y1='0'
-            x2='0'
-            y2='1'
+            {...linearGradientBaseProps}
           >
-            <stop offset='0%' stopColor='#4a87ff' stopOpacity={1} />
-            <stop offset='100%' stopColor='#4a87ff' stopOpacity={0} />
+            <stop stopColor='#4a87ff' {...stopTopBaseProps} />
+            <stop stopColor='#4a87ff' {...stopBottomBaseProps} />
           </linearGradient>
-          <linearGradient id={mesosphere_gradient} x1='0' y1='0' x2='0' y2='1'>
-            <stop offset='0%' stopColor='#00c1f2' stopOpacity={1} />
-            <stop offset='100%' stopColor='#00c1f2' stopOpacity={0} />
+
+          <linearGradient id={mesosphere_gradient} {...linearGradientBaseProps}>
+            <stop stopColor='#00c1f2' {...stopTopBaseProps} />
+            <stop stopColor='#00c1f2' {...stopBottomBaseProps} />
           </linearGradient>
+
           <linearGradient
             id={stratosphere_gradient}
-            x1='0'
-            y1='0'
-            x2='0'
-            y2='1'
+            {...linearGradientBaseProps}
           >
-            <stop offset='0%' stopColor='#69d7f8' stopOpacity={1} />
-            <stop offset='100%' stopColor='#69d7f8' stopOpacity={0} />
+            <stop stopColor='#69d7f8' {...stopTopBaseProps} />
+            <stop stopColor='#69d7f8' {...stopBottomBaseProps} />
           </linearGradient>
-          <linearGradient id={troposphere_gradient} x1='0' y1='0' x2='0' y2='1'>
-            <stop offset='0%' stopColor='#98e5f9' stopOpacity={1} />
-            <stop offset='100%' stopColor='#98e5f9' stopOpacity={0} />
+
+          <linearGradient
+            id={troposphere_gradient}
+            {...linearGradientBaseProps}
+          >
+            <stop stopColor='#98e5f9' {...stopTopBaseProps} />
+            <stop stopColor='#98e5f9' {...stopBottomBaseProps} />
           </linearGradient>
         </defs>
 
@@ -147,12 +157,7 @@ export const AtmosphereLayersChart = ({
           {...areaCommonProps}
         />
 
-        <Line
-          type='monotone'
-          dataKey='y'
-          dot={false}
-          stroke={palette.primary.main}
-        />
+        <Line {...lineBaseProps} />
       </ComposedChart>
     </ChartContainer>
   )
