@@ -1,6 +1,6 @@
 import { EARTH } from 'consts'
 import { useAreaBaseProps, useBaseChartElementsProps } from 'hooks'
-import { Area, AreaChart, XAxis, YAxis } from 'recharts'
+import { Area, AreaChart, ReferenceLine, XAxis, YAxis } from 'recharts'
 import { ChartContainer } from '../ChartContainer'
 
 export type AtmosphereLayersChartBackgroundProps = {
@@ -23,6 +23,7 @@ export const AtmosphereLayersChartBackground = ({
     linearGradientBaseProps,
     stopTopBaseProps,
     stopBottomBaseProps,
+    referenceLineProps,
   } = useAreaBaseProps()
 
   const points = getAtmosphereLayersPoints(maxY ?? 0)
@@ -104,6 +105,32 @@ export const AtmosphereLayersChartBackground = ({
           fill={`url(#${troposphere_gradient})`}
           stroke='#98e5f9'
           {...areaCommonProps}
+        />
+
+        <ReferenceLine
+          y={EARTH.ATMOSPHERE_LAYERS_HEIGHTS.EXOSPHERE}
+          label='Экзосфера'
+          {...referenceLineProps}
+        />
+        <ReferenceLine
+          y={EARTH.ATMOSPHERE_LAYERS_HEIGHTS.THERMOSPHERE}
+          label='Термосфера'
+          {...referenceLineProps}
+        />
+        <ReferenceLine
+          y={EARTH.ATMOSPHERE_LAYERS_HEIGHTS.MESOSPHERE}
+          label='Мезосфера'
+          {...referenceLineProps}
+        />
+        <ReferenceLine
+          y={EARTH.ATMOSPHERE_LAYERS_HEIGHTS.STRATOSPHERE}
+          label='Стратосфера'
+          {...referenceLineProps}
+        />
+        <ReferenceLine
+          y={EARTH.ATMOSPHERE_LAYERS_HEIGHTS.TROPOSPHERE}
+          label='Тропосфера'
+          {...referenceLineProps}
         />
       </AreaChart>
     </ChartContainer>

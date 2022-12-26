@@ -18,5 +18,8 @@ export const useAreaBaseProps = () => {
       type: 'monotone' as 'monotone' | 'basis',
       fillOpacity: 1,
     },
+    referenceLineProps: {
+      stroke: 'transparent',
+    },
   }
 }
