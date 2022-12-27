@@ -1,6 +1,6 @@
 import { InputAdornment, TextField } from '@mui/material'
 import { useDispatch } from 'hooks'
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState, useRef } from 'react'
 import { setIsUserSectionInputValid } from 'slices'
 import { object, ValidationError } from 'yup'
 import { RequiredNumberSchema } from 'yup/lib/number'
@@ -36,8 +36,9 @@ export const ValidatedTextField = ({
 }: ValidatedTextFieldProps) => {
   const dispatch = useDispatch()
 
-  const [fieldValue, setFieldValue] = useState(value)
   const [error, setError] = useState<string>()
+
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const schema = useMemo(
     () =>
@@ -61,13 +62,13 @@ export const ValidatedTextField = ({
       .catch((error: ValidationError) => {
         setError(error.message)
       })
-      .finally(() => {
-        setFieldValue(newValue)
-      })
   }
 
   useEffect(() => {
-    setFieldValue(value)
+    if (inputRef.current) {
+      inputRef.current.value = value ?? ''
+    }
+
     setError(undefined)
   }, [value])
 
@@ -77,7 +78,7 @@ export const ValidatedTextField = ({
 
   return (
     <TextField
-      value={fieldValue}
+      inputRef={inputRef}
       label={label}
       error={!!error}
       helperText={error}
