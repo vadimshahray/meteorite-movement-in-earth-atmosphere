@@ -49,7 +49,14 @@ export const SliderTextField = ({
         onValid={onTextFieldValid}
       />
 
-      <Container sx={{ paddingTop: 0, paddingBottom: 0 }}>
+      <Container
+        sx={{
+          paddingTop: 0,
+          paddingBottom: 0,
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
         <Slider
           size='small'
           value={sliderValue}
