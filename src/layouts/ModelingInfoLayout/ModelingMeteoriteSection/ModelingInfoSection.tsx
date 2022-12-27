@@ -23,14 +23,14 @@ export const ModelingInfoSection = () => {
           <Item label='Время до столкновения'>
             <CollisionTime />
           </Item>
+
+          <Item label='Скорость падения'>
+            <ModelingMeteoriteVelocity />
+          </Item>
+
+          <Divider sx={{ margin: 1 }} />
         </>
       )}
-
-      <Item label='Скорость падения'>
-        <ModelingMeteoriteVelocity />
-      </Item>
-
-      <Divider sx={{ margin: 1 }} />
 
       <Item label='Макс. скорость падения'>
         <ModelingMeteoriteMaxVelocity />
