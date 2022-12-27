@@ -1,10 +1,14 @@
 import { CloseOutlined } from '@mui/icons-material'
-import { Button, Tooltip } from '@mui/material'
+import { Button, Container, Tooltip } from '@mui/material'
 import { useDispatch } from 'hooks'
+import { useSelector } from 'react-redux'
+import { selectModelingStatus } from 'selectors'
 import { cancelModeling } from 'slices'
 
 export const CancelModelingButton = () => {
   const dispatch = useDispatch()
+
+  const modelingStatus = useSelector(selectModelingStatus)
 
   const handleClick = () => {
     dispatch(cancelModeling())
@@ -12,13 +16,15 @@ export const CancelModelingButton = () => {
 
   return (
     <Tooltip title='Вернуться к настройкам'>
-      <Button
-        variant='contained'
-        onClick={handleClick}
-        startIcon={<CloseOutlined />}
-      >
-        Сброс
-      </Button>
+      <Container disableGutters>
+        <Button
+          variant={modelingStatus === 'finished' ? 'contained' : 'text'}
+          onClick={handleClick}
+          startIcon={<CloseOutlined />}
+        >
+          Сброс
+        </Button>
+      </Container>
     </Tooltip>
   )
 }

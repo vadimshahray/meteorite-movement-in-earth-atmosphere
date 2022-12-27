@@ -10,7 +10,7 @@ export const ModelingControl = () => {
 
   return (
     <Container>
-      <Stack direction='row' spacing={1}>
+      <Stack direction='row' justifyContent='space-between'>
         <ModelingButtons />
 
         {modelingStatus !== 'idle' && <ModelingTimer />}

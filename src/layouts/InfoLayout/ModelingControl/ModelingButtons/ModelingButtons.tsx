@@ -1,4 +1,4 @@
-import { ButtonGroup } from '@mui/material'
+import { Stack } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { selectModelingStatus } from 'selectors'
 import { CancelModelingButton } from './CancelModelingButton'
@@ -11,10 +11,10 @@ export const ModelingButtons = () => {
   return modelingStatus === 'idle' ? (
     <StartModelingButton />
   ) : (
-    <ButtonGroup variant='contained' disableElevation fullWidth>
+    <Stack direction='row' spacing={1}>
       {modelingStatus !== 'finished' && <StopModelingButton />}
 
       <CancelModelingButton />
-    </ButtonGroup>
+    </Stack>
   )
 }
