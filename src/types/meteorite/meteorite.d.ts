@@ -6,8 +6,8 @@ type MeteoriteModel = {
   mass: number
   /** Радиус */
   radius: number
-  /** Угол падения */
-  angel: number
+  /** Вектор скорости */
+  velocityVector: Vector3
   /** Начальная скорость */
   initialVelocity: number
 }

@@ -1,4 +1,4 @@
-import { Slider } from '@mui/material'
+import { Slider, SliderProps } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { Stack } from '@mui/system'
 import { useState } from 'react'
@@ -23,7 +23,7 @@ const StyledSlider = styled(Slider)<SliderProps>(({ theme }) => ({
   },
 }))
 
-export type SliderProps = {
+export type SliderTextFieldProps = {
   min: number
   max: number
   step: number
@@ -39,7 +39,7 @@ export const SliderTextField = ({
   initialValue,
   onChange,
   ...sliderProps
-}: SliderProps) => {
+}: SliderTextFieldProps) => {
   const [fieldValue, setFieldValue] = useState(initialValue.toString())
   const [sliderValue, setSliderValue] = useState(initialValue)
 
