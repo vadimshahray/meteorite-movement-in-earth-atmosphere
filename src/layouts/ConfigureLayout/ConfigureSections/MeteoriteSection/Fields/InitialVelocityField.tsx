@@ -1,15 +1,14 @@
-import { ValidatedTextField } from 'components'
+import { SliderTextField } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
 import { selectMeteoriteInitialVelocity } from 'selectors'
 import { setMeteoriteData } from 'slices'
-import { positiveNumberRule } from 'utils'
 
 export const InitialVelocityField = () => {
   const dispatch = useDispatch()
   const initialVelocity = useSelector(selectMeteoriteInitialVelocity)
 
-  const handleValid = (value: number) => {
+  const handleChange = (value: number) => {
     dispatch(
       setMeteoriteData({
         initialVelocity: value,
@@ -18,12 +17,14 @@ export const InitialVelocityField = () => {
   }
 
   return (
-    <ValidatedTextField
+    <SliderTextField
+      min={0}
+      max={100}
+      step={0.5}
       adornment='𝓥₀'
       label='Начальная скорость, м/с'
-      value={initialVelocity.toString()}
-      rule={positiveNumberRule}
-      onValid={handleValid}
+      initialValue={initialVelocity}
+      onChange={handleChange}
     />
   )
 }

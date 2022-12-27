@@ -1,16 +1,15 @@
-import { ValidatedTextField } from 'components'
+import { SliderTextField } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
 import { selectMeteoriteRadius } from 'selectors'
 import { setMeteoriteData } from 'slices'
-import { positiveNumberRule } from 'utils'
 
 export const RadiusField = () => {
   const dispatch = useDispatch()
 
   const radius = useSelector(selectMeteoriteRadius)
 
-  const handleValid = (value: number) => {
+  const handleChange = (value: number) => {
     dispatch(
       setMeteoriteData({
         radius: value,
@@ -19,12 +18,14 @@ export const RadiusField = () => {
   }
 
   return (
-    <ValidatedTextField
+    <SliderTextField
+      min={0}
+      max={100 * 1000}
+      step={1000}
       label='Радиус, м'
       adornment='𝓡'
-      value={radius.toString()}
-      rule={positiveNumberRule}
-      onValid={handleValid}
+      initialValue={radius}
+      onChange={handleChange}
     />
   )
 }

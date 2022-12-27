@@ -1,15 +1,14 @@
-import { ValidatedTextField } from 'components'
+import { SliderTextField, ValidatedTextField } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
 import { selectMeteoriteMass } from 'selectors'
 import { setMeteoriteData } from 'slices'
-import { positiveNumberRule } from 'utils'
 
 export const MassField = () => {
   const dispatch = useDispatch()
   const mass = useSelector(selectMeteoriteMass)
 
-  const handleValid = (value: number) => {
+  const handleChange = (value: number) => {
     dispatch(
       setMeteoriteData({
         mass: value,
@@ -18,12 +17,14 @@ export const MassField = () => {
   }
 
   return (
-    <ValidatedTextField
+    <SliderTextField
+      min={0}
+      max={100 * 1000}
+      step={1000}
       adornment='𝓜'
       label='Масса, кг'
-      value={mass.toString()}
-      rule={positiveNumberRule}
-      onValid={handleValid}
+      initialValue={mass}
+      onChange={handleChange}
     />
   )
 }
