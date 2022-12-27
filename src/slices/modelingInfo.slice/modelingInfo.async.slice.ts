@@ -11,13 +11,13 @@ const TOTAL_POINTS_SKIP = 100
 
 export const setModelingChartsPoints = createAsyncThunk<
   void,
-  void,
+  boolean,
   { state: RootState; dispatch: AppDispatch }
->('modelingInfo/setGraphicsPoints', (_, { getState, dispatch }) => {
+>('modelingInfo/setGraphicsPoints', (isLastPoint, { getState, dispatch }) => {
   const pointsPassed = getState().modelingInfo.pointsPassed
 
-  dispatch(setVelocityGraphicPoints(pointsPassed))
-  dispatch(setDistanceGraphicPoints(pointsPassed))
+  dispatch(setVelocityGraphicPoints({ isLastPoint, pointsPassed }))
+  dispatch(setDistanceGraphicPoints({ isLastPoint, pointsPassed }))
 })
 
 export const setVelocityGraphicPoints = createAsyncThunk<
@@ -25,42 +25,50 @@ export const setVelocityGraphicPoints = createAsyncThunk<
     lastPoints: ChartPoint[]
     totalPoint?: ChartPoint
   },
-  number,
+  { isLastPoint: boolean; pointsPassed: number },
   { state: RootState }
->('modelingInfo/setVelocityGraphicPoints', (pointsPassed, { getState }) => {
-  const lastPoints = selectChartLastPoints('@VelocityChart')(getState())
+>(
+  'modelingInfo/setVelocityGraphicPoints',
+  ({ isLastPoint, pointsPassed }, { getState }) => {
+    const lastPoints = selectChartLastPoints('@VelocityChart')(getState())
 
-  const timer = selectModelingTimer(getState())
-  const velocity = selectModelingMeteoriteVelocity(getState())
+    const timer = selectModelingTimer(getState())
+    const velocity = selectModelingMeteoriteVelocity(getState())
 
-  const newPoint = { x: timer.ticks / 1000 / 60, y: velocity }
+    const newPoint = { x: timer.ticks / 1000 / 60, y: velocity }
 
-  return {
-    lastPoints: getNewLastPoints(lastPoints, newPoint),
-    totalPoint: pointsPassed % TOTAL_POINTS_SKIP ? undefined : newPoint,
-  }
-})
+    return {
+      lastPoints: getNewLastPoints(lastPoints, newPoint),
+      totalPoint:
+        pointsPassed % TOTAL_POINTS_SKIP && !isLastPoint ? undefined : newPoint,
+    }
+  },
+)
 
 export const setDistanceGraphicPoints = createAsyncThunk<
   {
     lastPoints: ChartPoint[]
     totalPoint?: ChartPoint
   },
-  number,
+  { isLastPoint: boolean; pointsPassed: number },
   { state: RootState }
->('modelingInfo/setDistanceGraphicPoints', (pointsPassed, { getState }) => {
-  const lastPoints = selectChartLastPoints('@DistanceChart')(getState())
+>(
+  'modelingInfo/setDistanceGraphicPoints',
+  ({ isLastPoint, pointsPassed }, { getState }) => {
+    const lastPoints = selectChartLastPoints('@DistanceChart')(getState())
 
-  const timer = selectModelingTimer(getState())
-  const distance = selectModelingMeteoriteDistance(getState())
+    const timer = selectModelingTimer(getState())
+    const distance = selectModelingMeteoriteDistance(getState())
 
-  const newPoint = { x: timer.ticks / 1000 / 60, y: distance / 1000 }
+    const newPoint = { x: timer.ticks / 1000 / 60, y: distance / 1000 }
 
-  return {
-    lastPoints: getNewLastPoints(lastPoints, newPoint),
-    totalPoint: pointsPassed % TOTAL_POINTS_SKIP ? undefined : newPoint,
-  }
-})
+    return {
+      lastPoints: getNewLastPoints(lastPoints, newPoint),
+      totalPoint:
+        pointsPassed % TOTAL_POINTS_SKIP && !isLastPoint ? undefined : newPoint,
+    }
+  },
+)
 
 export const CHART_LAST_POINTS_AMOUNT = 100
 

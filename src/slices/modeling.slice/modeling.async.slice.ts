@@ -84,6 +84,8 @@ const calculateMeteoriteData = createAsyncThunk<
 >('modeling/calculateMeteoriteData', (_, { getState, dispatch }) => {
   const distance = getState().modeling.meteorite.distance
 
+  dispatch(setModelingChartsPoints(distance <= 0))
+
   if (distance <= 0) {
     dispatch(finishModeling())
     return
@@ -92,8 +94,6 @@ const calculateMeteoriteData = createAsyncThunk<
   dispatch(calculateMeteoriteVelocity())
   dispatch(calculateMeteoriteDistance())
   dispatch(calculateCollisionTime())
-
-  dispatch(setModelingChartsPoints())
 })
 
 export const calculateMeteoriteVelocity = createAsyncThunk<
