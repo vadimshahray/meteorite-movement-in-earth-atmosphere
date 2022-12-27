@@ -40,6 +40,16 @@ export const theme = createTheme({
           background-color: ${theme.palette.divider};
           z-index: 40;
         }
+
+        tspan {
+          font-family: Jost;
+          font-size: ${theme.typography.caption.fontSize};
+          fill: ${theme.palette.text.secondary};
+        }
+
+        .recharts-reference-line tspan {
+          fill: ${theme.palette.background.default};
+        }
       `,
     },
     MuiContainer: {
