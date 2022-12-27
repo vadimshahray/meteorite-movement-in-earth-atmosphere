@@ -115,7 +115,9 @@ export const calculateMeteoriteDistance = createAsyncThunk<
   const Dp = selectModelingMeteoriteDistance(getState())
 
   // Переводим секунды в миллисекунду, потому что скорость измеряется в м/с
-  return Dp - (velocity * CALCULATION_INTERVAL_MS) / 1000
+  const D = Dp - (velocity * CALCULATION_INTERVAL_MS) / 1000
+
+  return D > 0 ? D : 0
 })
 
 export const calculateCollisionTime = createAsyncThunk<
