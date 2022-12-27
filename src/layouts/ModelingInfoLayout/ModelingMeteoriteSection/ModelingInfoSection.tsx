@@ -10,9 +10,21 @@ import { ModelingMeteoriteXOffset } from './ModelingMeteoriteXOffset'
 export const ModelingInfoSection = () => {
   return (
     <Section title='Полученные сведения' Icon={InfoOutlinedIcon} collapsible>
+      <Item label='Расстояние до столкновения'>
+        <ModelingMeteoriteDistance />
+      </Item>
+
+      <Item label='Время до столкновения'>7c</Item>
+
       <Item label='Скорость падения'>
         <ModelingMeteoriteVelocity />
       </Item>
+
+      <Item label='Смещение'>
+        <ModelingMeteoriteXOffset />
+      </Item>
+
+      <Divider sx={{ margin: 1 }} />
 
       <Item label='Макс. скорость падения'>
         <ModelingMeteoriteMaxVelocity />
@@ -20,16 +32,6 @@ export const ModelingInfoSection = () => {
 
       <Item label='Ср. скорость падения'>
         <ModelingMeteoriteAverageVelocity />
-      </Item>
-
-      <Divider sx={{ margin: 1 }} />
-
-      <Item label='Расстояние до столкновения'>
-        <ModelingMeteoriteDistance />
-      </Item>
-
-      <Item label='Смещение'>
-        <ModelingMeteoriteXOffset />
       </Item>
     </Section>
   )
