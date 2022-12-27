@@ -48,7 +48,7 @@ export const theme = createTheme({
         }
 
         .recharts-reference-line tspan {
-          fill: ${theme.palette.background.default};
+          fill: ${theme.palette.text.secondary};
         }
       `,
     },
