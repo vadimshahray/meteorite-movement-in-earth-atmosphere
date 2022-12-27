@@ -5,5 +5,5 @@ import { timerToString } from 'utils'
 export const CollisionTime = () => {
   const time = useSelector(selectCollisionTime)
 
-  return <>{timerToString(time)}</>
+  return <span style={{ fontFamily: 'Fira Code' }}>{timerToString(time)}</span>
 }

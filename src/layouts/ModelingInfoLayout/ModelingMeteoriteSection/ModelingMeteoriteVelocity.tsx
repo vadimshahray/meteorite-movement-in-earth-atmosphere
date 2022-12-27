@@ -5,5 +5,9 @@ import { metersToVelocityString } from 'utils'
 export const ModelingMeteoriteVelocity = () => {
   const velocity = useSelector(selectModelingMeteoriteVelocity)
 
-  return <>{metersToVelocityString(velocity)}</>
+  return (
+    <span style={{ fontFamily: 'Fira Code' }}>
+      {metersToVelocityString(velocity)}
+    </span>
+  )
 }

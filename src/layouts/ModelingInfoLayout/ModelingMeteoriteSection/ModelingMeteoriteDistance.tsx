@@ -5,5 +5,9 @@ import { metersToDistanceString } from 'utils'
 export const ModelingMeteoriteDistance = () => {
   const distance = useSelector(selectModelingMeteoriteDistance)
 
-  return <>{metersToDistanceString(distance)}</>
+  return (
+    <span style={{ fontFamily: 'Fira Code' }}>
+      {metersToDistanceString(distance)}
+    </span>
+  )
 }

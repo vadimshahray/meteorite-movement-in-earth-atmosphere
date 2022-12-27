@@ -5,5 +5,9 @@ import { metersToVelocityString } from 'utils'
 export const ModelingMeteoriteAverageVelocity = () => {
   const averageVelocity = useSelector(selectModelingMeteoriteAverageVelocity)
 
-  return <>{metersToVelocityString(averageVelocity)}</>
+  return (
+    <span style={{ fontFamily: 'Fira Code' }}>
+      {metersToVelocityString(averageVelocity)}
+    </span>
+  )
 }

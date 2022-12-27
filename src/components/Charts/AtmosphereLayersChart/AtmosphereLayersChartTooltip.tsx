@@ -36,7 +36,9 @@ export const AtmosphereLayersChartTooltip = ({
           textAlign='center'
           variant='subtitle2'
           sx={{ padding: 1, paddingTop: 0 }}
-        >{`${yData[1]} ${yData[0]}`}</Typography>
+        >
+          {yData[1]} <span style={{ fontFamily: 'Fira Code' }}>{yData[0]}</span>
+        </Typography>
 
         <Divider />
 
@@ -45,7 +47,7 @@ export const AtmosphereLayersChartTooltip = ({
           variant='caption'
           sx={{ padding: 1, paddingTop: 0.5, paddingBottom: 0.5 }}
         >
-          {`${xData[1]} ${xData[0]}`}
+          {xData[1]} <span style={{ fontFamily: 'Fira Code' }}>{xData[0]}</span>
         </Typography>
       </Stack>
     </Paper>
