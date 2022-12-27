@@ -89,6 +89,7 @@ const calculateMeteoriteData = createAsyncThunk<
 
   dispatch(calculateMeteoriteVelocity())
   dispatch(calculateMeteoriteDistance())
+  dispatch(calculateCollisionTime())
 
   dispatch(setModelingChartsPoints())
 })
@@ -111,6 +112,18 @@ export const calculateMeteoriteDistance = createAsyncThunk<
   const Di = selectModelingMeteoriteDistance(getState())
 
   return Di - 7 < 0 ? 0 : Di - 7
+})
+
+export const calculateCollisionTime = createAsyncThunk<
+  Timer,
+  void,
+  { state: RootState }
+>('modeling/calculateCollisionTime', (_, { getState }) => {
+  const velocity = selectModelingMeteoriteVelocity(getState())
+  const distance = selectModelingMeteoriteDistance(getState())
+
+  // Переводим секунды в миллисекунды, потому скорость измеряется в м/с
+  return ticksToTimer((distance / velocity) * 1000)
 })
 
 export const MODELING_TIMER_INTERVAL_MS = 33

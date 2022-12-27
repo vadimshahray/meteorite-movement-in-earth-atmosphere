@@ -9,8 +9,12 @@ export const ticksToTimer = (ticks: number): Timer => {
 }
 
 export const ticksToString = (ticks: number, timeCoefficient: number = 1) => {
-  let str = ''
   const timer = ticksToTimer(ticks * timeCoefficient)
+  return timerToString(timer)
+}
+
+export const timerToString = (timer: Timer) => {
+  let str = ''
 
   timer.hours && (str += `${timer.hours}ч`)
   timer.minutes && (str += ` ${timer.minutes}м`)

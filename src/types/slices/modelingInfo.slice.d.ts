@@ -8,6 +8,8 @@ type ModelingInfoSliceState = {
     max: number
     average: number
   }
+
+  collisionTime: Timer
 }
 
 interface ModelingInfoSlice extends SliceCaseReducers<ModelingInfoSliceState> {

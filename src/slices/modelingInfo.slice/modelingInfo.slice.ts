@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import {
+  calculateCollisionTime,
   calculateMeteoriteVelocity,
   clearModelingData,
 } from 'slices/modeling.slice'
+import { ticksToTimer } from 'utils'
 import {
   setDistanceGraphicPoints,
   setModelingChartsPoints,
@@ -34,6 +36,8 @@ export const modelingInfoSlice = createSlice<
       max: 0,
       average: 0,
     },
+
+    collisionTime: ticksToTimer(0),
   },
   reducers: {
     setActiveChart: (state, { payload }) => {
@@ -78,6 +82,10 @@ export const modelingInfoSlice = createSlice<
         }
       })
 
+      .addCase(calculateCollisionTime.fulfilled, (state, { payload }) => {
+        state.collisionTime = payload
+      })
+
       .addCase(clearModelingData.fulfilled, (state) => {
         state.chartsPoints = {
           '@VelocityChart': {
@@ -96,6 +104,8 @@ export const modelingInfoSlice = createSlice<
           max: 0,
           average: 0,
         }
+
+        state.collisionTime = ticksToTimer(0)
       })
   },
 })

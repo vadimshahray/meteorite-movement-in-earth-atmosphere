@@ -15,3 +15,6 @@ export const selectModelingMeteoriteMaxVelocity = (state: RootState) =>
 
 export const selectModelingMeteoriteAverageVelocity = (state: RootState) =>
   state.modelingInfo.meteoriteVelocity.average
+
+export const selectCollisionTime = (state: RootState) =>
+  state.modelingInfo.collisionTime

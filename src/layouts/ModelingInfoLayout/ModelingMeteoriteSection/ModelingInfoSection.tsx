@@ -1,6 +1,7 @@
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined'
 import { Divider } from '@mui/material'
 import { Item, Section } from 'components'
+import { CollisionTime } from './CollisionTime'
 import { ModelingMeteoriteAverageVelocity } from './ModelingMeteoriteAverageVelocity'
 import { ModelingMeteoriteDistance } from './ModelingMeteoriteDistance'
 import { ModelingMeteoriteMaxVelocity } from './ModelingMeteoriteMaxVelocity'
@@ -13,7 +14,9 @@ export const ModelingInfoSection = () => {
         <ModelingMeteoriteDistance />
       </Item>
 
-      <Item label='Время до столкновения'>7c</Item>
+      <Item label='Время до столкновения'>
+        <CollisionTime />
+      </Item>
 
       <Item label='Скорость падения'>
         <ModelingMeteoriteVelocity />
