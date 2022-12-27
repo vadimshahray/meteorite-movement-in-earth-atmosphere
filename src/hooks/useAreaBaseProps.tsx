@@ -1,4 +1,8 @@
+import { useTheme } from '@mui/material'
+
 export const useAreaBaseProps = () => {
+  const { palette } = useTheme()
+
   return {
     linearGradientBaseProps: {
       x1: '0',
@@ -19,7 +23,8 @@ export const useAreaBaseProps = () => {
       fillOpacity: 1,
     },
     referenceLineProps: {
-      stroke: 'transparent',
+      stroke: palette.text.primary,
+      strokeDasharray: '1 4',
     },
   }
 }
