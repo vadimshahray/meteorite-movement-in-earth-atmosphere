@@ -2,11 +2,10 @@ import { useTheme } from '@mui/material'
 import { CurveType } from 'recharts/types/shape/Curve'
 
 export const useBaseChartElementsProps = () => {
-  const { palette, typography } = useTheme()
+  const { palette } = useTheme()
 
   const axisCommonProps = {
     stroke: palette.text.secondary,
-    fontSize: typography.caption.fontSize,
   }
 
   return {
