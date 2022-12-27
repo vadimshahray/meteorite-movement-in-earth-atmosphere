@@ -1,13 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import {
   selectChartLastPoints,
+  selectCollisionTime,
   selectModelingMeteoriteDistance,
   selectModelingMeteoriteVelocity,
   selectModelingTimer,
 } from 'selectors'
+import { CALCULATION_INTERVAL_MS } from 'slices/modeling.slice'
 
-//TODO: рассчитывать после того как будет готова функция скорости
-const TOTAL_POINTS_SKIP = 100
+const TOTAL_POINTS_AMOUNT = 1000
 
 export const setModelingChartsPoints = createAsyncThunk<
   void,
@@ -33,6 +34,7 @@ export const setVelocityGraphicPoints = createAsyncThunk<
     const lastPoints = selectChartLastPoints('@VelocityChart')(getState())
 
     const timer = selectModelingTimer(getState())
+    const collisionTime = selectCollisionTime(getState())
     const velocity = selectModelingMeteoriteVelocity(getState())
 
     const newPoint = { x: timer.ticks / 1000 / 60, y: velocity }
@@ -40,7 +42,9 @@ export const setVelocityGraphicPoints = createAsyncThunk<
     return {
       lastPoints: getNewLastPoints(lastPoints, newPoint),
       totalPoint:
-        pointsPassed % TOTAL_POINTS_SKIP && !isLastPoint ? undefined : newPoint,
+        canAddTotalPoint(pointsPassed, collisionTime) || isLastPoint
+          ? newPoint
+          : undefined,
     }
   },
 )
@@ -58,6 +62,7 @@ export const setDistanceGraphicPoints = createAsyncThunk<
     const lastPoints = selectChartLastPoints('@DistanceChart')(getState())
 
     const timer = selectModelingTimer(getState())
+    const collisionTime = selectCollisionTime(getState())
     const distance = selectModelingMeteoriteDistance(getState())
 
     const newPoint = { x: timer.ticks / 1000 / 60, y: distance / 1000 }
@@ -65,7 +70,9 @@ export const setDistanceGraphicPoints = createAsyncThunk<
     return {
       lastPoints: getNewLastPoints(lastPoints, newPoint),
       totalPoint:
-        pointsPassed % TOTAL_POINTS_SKIP && !isLastPoint ? undefined : newPoint,
+        canAddTotalPoint(pointsPassed, collisionTime) || isLastPoint
+          ? newPoint
+          : undefined,
     }
   },
 )
@@ -80,4 +87,21 @@ function getNewLastPoints(oldPoints: ChartPoint[], newPoint: ChartPoint) {
   newPoints.push(newPoint)
 
   return newPoints
+}
+
+let skipAmount = 0
+let totalPointsLength = 0
+
+function canAddTotalPoint(pointsPassed: number, collisionTime: Timer) {
+  skipAmount = Math.floor(
+    Math.floor(collisionTime.ticks / CALCULATION_INTERVAL_MS) /
+      (TOTAL_POINTS_AMOUNT - totalPointsLength),
+  )
+
+  if (pointsPassed % skipAmount === 0 || skipAmount === 0) {
+    totalPointsLength++
+    return true
+  }
+
+  return false
 }
