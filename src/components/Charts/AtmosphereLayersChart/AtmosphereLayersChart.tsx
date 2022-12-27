@@ -10,6 +10,7 @@ export type AtmosphereLayersChartProps = {
   label: string
   xName?: string
   yName?: string
+  xUnit?: string
   separator?: string
   xFormatter?: (value: number | string | Object) => string
   yFormatter?: (value: number | string | Object) => string
@@ -21,6 +22,7 @@ export const AtmosphereLayersChart = ({
   xName = ':',
   yName = 'y',
   separator = ':',
+  xUnit,
   xFormatter = (_) => _.toString(),
   yFormatter = (_) => _.toString(),
 }: AtmosphereLayersChartProps) => {
@@ -51,7 +53,7 @@ export const AtmosphereLayersChart = ({
           <LineChart data={points} {...chartBaseProps}>
             <YAxis {...yAxisBaseProps} />
 
-            <XAxis {...xAxisBaseProps} />
+            <XAxis {...xAxisBaseProps} unit={xUnit} />
 
             <Line {...lineBaseProps} />
 

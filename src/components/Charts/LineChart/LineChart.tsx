@@ -17,6 +17,7 @@ export type LineChartProps = {
   xName?: string
   yName?: string
   separator?: string
+  xUnit?: string
   xFormatter?: (value: number | string | Object) => string
   yFormatter?: (value: number | string | Object) => string
 }
@@ -27,6 +28,7 @@ export const LineChart = ({
   xName = ':',
   yName = 'y',
   separator = ':',
+  xUnit,
   xFormatter = (_) => _.toString(),
   yFormatter = (_) => _.toString(),
 }: LineChartProps) => {
@@ -43,7 +45,7 @@ export const LineChart = ({
       <RCLineChart data={points} {...chartBaseProps}>
         <YAxis {...yAxisBaseProps} />
 
-        <XAxis {...xAxisBaseProps} />
+        <XAxis {...xAxisBaseProps} unit={xUnit} />
 
         <Line {...lineBaseProps} />
 
