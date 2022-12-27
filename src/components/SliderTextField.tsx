@@ -1,9 +1,27 @@
 import { Slider } from '@mui/material'
+import { styled } from '@mui/material/styles'
 import { Stack } from '@mui/system'
 import { useState } from 'react'
 import { positiveNumberRule } from 'utils'
 import { Container } from './Container'
 import { ValidatedTextField } from './ValidatedTextField'
+
+const StyledSlider = styled(Slider)<SliderProps>(({ theme }) => ({
+  '& .MuiSlider-thumb': {
+    backgroundColor: theme.palette.primary.light,
+  },
+  '& .MuiSlider-track': {
+    backgroundColor: theme.palette.primary.light,
+  },
+  '&:hover, &.Mui-focusVisible': {
+    '& .MuiSlider-thumb': {
+      backgroundColor: theme.palette.primary.main,
+    },
+    '& .MuiSlider-track': {
+      backgroundColor: theme.palette.primary.main,
+    },
+  },
+}))
 
 export type SliderProps = {
   min: number
@@ -57,7 +75,7 @@ export const SliderTextField = ({
           justifyContent: 'center',
         }}
       >
-        <Slider
+        <StyledSlider
           size='small'
           value={sliderValue}
           onChange={onSliderChange}
