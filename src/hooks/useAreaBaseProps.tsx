@@ -23,7 +23,7 @@ export const useAreaBaseProps = () => {
       fillOpacity: 1,
     },
     referenceLineProps: {
-      stroke: palette.text.primary,
+      stroke: palette.text.disabled,
       strokeDasharray: '1 4',
     },
   }
