@@ -33,7 +33,7 @@ export const setVelocityGraphicPoints = createAsyncThunk<
   const timer = selectModelingTimer(getState())
   const velocity = selectModelingMeteoriteVelocity(getState())
 
-  const newPoint = { x: timer.ticks, y: velocity }
+  const newPoint = { x: timer.ticks / 1000 / 60, y: velocity }
 
   return {
     lastPoints: getNewLastPoints(lastPoints, newPoint),
@@ -54,7 +54,7 @@ export const setDistanceGraphicPoints = createAsyncThunk<
   const timer = selectModelingTimer(getState())
   const distance = selectModelingMeteoriteDistance(getState())
 
-  const newPoint = { x: timer.ticks, y: distance }
+  const newPoint = { x: timer.ticks / 1000 / 60, y: distance / 1000 }
 
   return {
     lastPoints: getNewLastPoints(lastPoints, newPoint),

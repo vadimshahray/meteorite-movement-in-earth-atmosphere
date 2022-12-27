@@ -6,12 +6,14 @@ import { metersToDistanceString, ticksToString, ticksToTimer } from 'utils'
 export const DistanceChart = () => {
   const { points, isTotal } = useActiveChartPoints()
 
-  const label = isTotal
-    ? 'Данные за все время'
-    : `Данные за последние ${
-        ticksToTimer(MODELING_TIMER_INTERVAL_MS * CHART_LAST_POINTS_AMOUNT)
-          .seconds
-      }с`
+  const label = `Пройденное метеоритом расстояние (км)${
+    isTotal
+      ? ''
+      : `. *Последние ${
+          ticksToTimer(MODELING_TIMER_INTERVAL_MS * CHART_LAST_POINTS_AMOUNT)
+            .seconds
+        }с.`
+  }`
 
   return (
     <AtmosphereLayersChart
@@ -19,11 +21,12 @@ export const DistanceChart = () => {
       label={label}
       xName='Время'
       yName='Расстояние'
+      xUnit='мин'
       xFormatter={(value) => {
-        return ticksToString(value as number)
+        return ticksToString(value as number, 1000 * 60)
       }}
       yFormatter={(value) => {
-        return metersToDistanceString(value as number)
+        return metersToDistanceString(value as number, 1000)
       }}
     />
   )

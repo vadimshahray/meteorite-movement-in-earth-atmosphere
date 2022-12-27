@@ -7,6 +7,8 @@ export type AtmosphereLayersChartBackgroundProps = {
   maxY?: number
 }
 
+const transformCoefficient = 1000
+
 export const AtmosphereLayersChartBackground = ({
   maxY,
 }: AtmosphereLayersChartBackgroundProps) => {
@@ -108,27 +110,30 @@ export const AtmosphereLayersChartBackground = ({
         />
 
         <ReferenceLine
-          y={EARTH.ATMOSPHERE_LAYERS_HEIGHTS.EXOSPHERE}
+          y={EARTH.ATMOSPHERE_LAYERS_HEIGHTS.EXOSPHERE / transformCoefficient}
           label='Экзосфера'
           {...referenceLineProps}
         />
         <ReferenceLine
-          y={EARTH.ATMOSPHERE_LAYERS_HEIGHTS.THERMOSPHERE}
+          y={
+            EARTH.ATMOSPHERE_LAYERS_HEIGHTS.THERMOSPHERE / transformCoefficient
+          }
           label='Термосфера'
           {...referenceLineProps}
         />
         <ReferenceLine
-          y={EARTH.ATMOSPHERE_LAYERS_HEIGHTS.MESOSPHERE}
+          y={EARTH.ATMOSPHERE_LAYERS_HEIGHTS.MESOSPHERE / transformCoefficient}
           label='Мезосфера'
           {...referenceLineProps}
         />
         <ReferenceLine
-          y={EARTH.ATMOSPHERE_LAYERS_HEIGHTS.STRATOSPHERE}
-          label='Стратосфера'
+          y={
+            EARTH.ATMOSPHERE_LAYERS_HEIGHTS.STRATOSPHERE / transformCoefficient
+          }
           {...referenceLineProps}
         />
         <ReferenceLine
-          y={EARTH.ATMOSPHERE_LAYERS_HEIGHTS.TROPOSPHERE}
+          y={EARTH.ATMOSPHERE_LAYERS_HEIGHTS.TROPOSPHERE / transformCoefficient}
           label='Тропосфера'
           {...referenceLineProps}
         />
@@ -145,43 +150,53 @@ function getAtmosphereLayersPoints(maxY: number) {
     },
     {
       x: 0,
-      exosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.EXOSPHERE,
+      exosphere:
+        EARTH.ATMOSPHERE_LAYERS_HEIGHTS.EXOSPHERE / transformCoefficient,
     },
     {
       x: 100,
-      exosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.EXOSPHERE,
+      exosphere:
+        EARTH.ATMOSPHERE_LAYERS_HEIGHTS.EXOSPHERE / transformCoefficient,
     },
     {
       x: 0,
-      thermosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.THERMOSPHERE,
+      thermosphere:
+        EARTH.ATMOSPHERE_LAYERS_HEIGHTS.THERMOSPHERE / transformCoefficient,
     },
     {
       x: 100,
-      thermosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.THERMOSPHERE,
+      thermosphere:
+        EARTH.ATMOSPHERE_LAYERS_HEIGHTS.THERMOSPHERE / transformCoefficient,
     },
     {
       x: 0,
-      mesosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.MESOSPHERE,
+      mesosphere:
+        EARTH.ATMOSPHERE_LAYERS_HEIGHTS.MESOSPHERE / transformCoefficient,
     },
     {
       x: 100,
-      mesosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.MESOSPHERE,
+      mesosphere:
+        EARTH.ATMOSPHERE_LAYERS_HEIGHTS.MESOSPHERE / transformCoefficient,
     },
     {
       x: 0,
-      stratosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.STRATOSPHERE,
+      stratosphere:
+        EARTH.ATMOSPHERE_LAYERS_HEIGHTS.STRATOSPHERE / transformCoefficient,
     },
     {
       x: 100,
-      stratosphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.STRATOSPHERE,
+      stratosphere:
+        EARTH.ATMOSPHERE_LAYERS_HEIGHTS.STRATOSPHERE / transformCoefficient,
     },
     {
       x: 0,
-      troposphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.TROPOSPHERE,
+      troposphere:
+        EARTH.ATMOSPHERE_LAYERS_HEIGHTS.TROPOSPHERE / transformCoefficient,
     },
     {
       x: 100,
-      troposphere: EARTH.ATMOSPHERE_LAYERS_HEIGHTS.TROPOSPHERE,
+      troposphere:
+        EARTH.ATMOSPHERE_LAYERS_HEIGHTS.TROPOSPHERE / transformCoefficient,
     },
   ]
 }
