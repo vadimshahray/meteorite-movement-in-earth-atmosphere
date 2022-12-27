@@ -4,9 +4,15 @@ import { IconButton, Tooltip } from '@mui/material'
 export const ProjectDocumentButton = () => {
   return (
     <Tooltip title='Скачать отчет'>
-      <IconButton>
-        <TextSnippetOutlined />
-      </IconButton>
+      <a
+        href={process.env.PUBLIC_URL + '/docs/ProjectDocument.pdf'}
+        download
+        style={{ textDecoration: 'none' }}
+      >
+        <IconButton>
+          <TextSnippetOutlined />
+        </IconButton>
+      </a>
     </Tooltip>
   )
 }
