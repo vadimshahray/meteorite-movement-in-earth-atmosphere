@@ -1,6 +1,6 @@
 import { LineChart } from 'components'
 import { useActiveChartPoints } from 'hooks'
-import { CHART_LAST_POINTS_AMOUNT, MODELING_TIMER_INTERVAL_MS } from 'slices'
+import { CHART_LAST_POINTS_AMOUNT, CALCULATION_INTERVAL_MS } from 'slices'
 import { metersToVelocityString, ticksToTimer, ticksToString } from 'utils'
 
 export const VelocityChart = () => {
@@ -10,7 +10,7 @@ export const VelocityChart = () => {
     isTotal
       ? ''
       : `. *Последние ${
-          ticksToTimer(MODELING_TIMER_INTERVAL_MS * CHART_LAST_POINTS_AMOUNT)
+          ticksToTimer(CALCULATION_INTERVAL_MS * CHART_LAST_POINTS_AMOUNT)
             .seconds
         }с.`
   }`

@@ -8,6 +8,8 @@ import {
 import { setModelingChartsPoints } from 'slices/modelingInfo.slice'
 import { ticksToTimer } from 'utils'
 
+export const CALCULATION_INTERVAL_MS = 33
+
 export const startModeling = createAsyncThunk<
   void,
   void,
@@ -109,9 +111,13 @@ export const calculateMeteoriteDistance = createAsyncThunk<
   void,
   { state: RootState }
 >('modeling/calculateMeteoriteDistance', (_, { getState }) => {
-  const Di = selectModelingMeteoriteDistance(getState())
+  const velocity = selectModelingMeteoriteVelocity(getState())
+  const Dp = selectModelingMeteoriteDistance(getState())
 
-  return Di - 7 < 0 ? 0 : Di - 7
+  // Переводим секунды в миллисекунду, потому что скорость измеряется в м/с
+  const D = Dp - (velocity * CALCULATION_INTERVAL_MS) / 1000
+
+  return D > 0 ? D : 0
 })
 
 export const calculateCollisionTime = createAsyncThunk<
@@ -126,7 +132,6 @@ export const calculateCollisionTime = createAsyncThunk<
   return ticksToTimer((distance / velocity) * 1000)
 })
 
-export const MODELING_TIMER_INTERVAL_MS = 33
 let interval: NodeJS.Timer
 
 const startModelingTimer = createAsyncThunk<
@@ -137,11 +142,11 @@ const startModelingTimer = createAsyncThunk<
   let ticks = getState().modeling.timer.ticks
 
   interval = setInterval(() => {
-    ticks += MODELING_TIMER_INTERVAL_MS
+    ticks += CALCULATION_INTERVAL_MS
     dispatch(setModelingTimerTime(ticks))
 
     callback()
-  }, MODELING_TIMER_INTERVAL_MS)
+  }, CALCULATION_INTERVAL_MS)
 })
 
 const stopModelingTimer = createAsyncThunk('modeling/stopTimer', () => {
