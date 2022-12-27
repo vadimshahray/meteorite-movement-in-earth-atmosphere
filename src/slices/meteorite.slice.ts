@@ -6,7 +6,11 @@ const initialState: MeteoriteSliceState = {
     mass: 1000,
     radius: 10000,
     distance: 1000000,
-    angel: 30,
+    velocityVector: {
+      x: 0,
+      y: 0,
+      z: 0,
+    },
     initialVelocity: 10,
   },
 }

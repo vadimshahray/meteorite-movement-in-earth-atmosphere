@@ -4,7 +4,6 @@ import {
   MassField,
   RadiusField,
   DistanceField,
-  AngelField,
   InitialVelocityField,
 } from './Fields'
 
@@ -16,8 +15,6 @@ export const MeteoriteSettings = () => {
       <DistanceField />
 
       <RadiusField />
-
-      <AngelField />
 
       <InitialVelocityField />
     </Section>

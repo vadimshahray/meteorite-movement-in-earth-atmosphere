@@ -1,3 +1,9 @@
+type Vector3 = {
+  x: number
+  y: number
+  z: number
+}
+
 /** Число: {value} * 10^{power} */
 type PowerNumber = {
   /** Число x: x * 10^const */
