@@ -15,5 +15,4 @@ type MeteoriteModel = {
 type ModelingMeteorite = {
   velocity: number
   distance: number
-  xOffset: number
 }

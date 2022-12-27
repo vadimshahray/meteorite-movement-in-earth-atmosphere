@@ -5,7 +5,6 @@ import { ModelingMeteoriteAverageVelocity } from './ModelingMeteoriteAverageVelo
 import { ModelingMeteoriteDistance } from './ModelingMeteoriteDistance'
 import { ModelingMeteoriteMaxVelocity } from './ModelingMeteoriteMaxVelocity'
 import { ModelingMeteoriteVelocity } from './ModelingMeteoriteVelocity'
-import { ModelingMeteoriteXOffset } from './ModelingMeteoriteXOffset'
 
 export const ModelingInfoSection = () => {
   return (
@@ -18,10 +17,6 @@ export const ModelingInfoSection = () => {
 
       <Item label='Скорость падения'>
         <ModelingMeteoriteVelocity />
-      </Item>
-
-      <Item label='Смещение'>
-        <ModelingMeteoriteXOffset />
       </Item>
 
       <Divider sx={{ margin: 1 }} />
