@@ -62,7 +62,7 @@ export const AtmosphereLayersChart = ({
               formatter={(value: any, name: any) => {
                 if (name === 'x') {
                   return [xFormatter(value.valueOf()), `${xName}${separator}`]
-                } else if ((name === 'y' && value) || name === 'fakeY') {
+                } else if (name === 'y') {
                   return [yFormatter(value.valueOf()), `${yName}${separator}`]
                 }
 
