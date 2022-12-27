@@ -76,6 +76,7 @@ export const AtmosphereLayersChartBackground = ({
           y={
             EARTH.ATMOSPHERE_LAYERS_HEIGHTS.STRATOSPHERE / transformCoefficient
           }
+          label='Стратосфера'
           {...referenceLineProps}
         />
         <ReferenceLine
