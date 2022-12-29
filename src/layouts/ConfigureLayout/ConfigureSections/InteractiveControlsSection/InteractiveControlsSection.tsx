@@ -5,7 +5,11 @@ import { MeteoriteRadiusControlField } from './MeteoriteRadiusControlField'
 
 export const InteractiveControlsSection = () => {
   return (
-    <Section title='Контроллеры' Icon={MouseOutlined} collapsible>
+    <Section
+      title='Чувствительность контроллеров'
+      Icon={MouseOutlined}
+      collapsible
+    >
       <MeteoriteRadiusControlField />
 
       <MeteoriteDistanceControlField />

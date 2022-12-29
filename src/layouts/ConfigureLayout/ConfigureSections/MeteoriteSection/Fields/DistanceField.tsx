@@ -27,7 +27,7 @@ export const DistanceField = () => {
       value={distance}
       onChange={handleChange}
       EndIcon={MouseOutlined}
-      endIconTooltip='Вы можете изменять этот параметр, используя колесико мышки или тачпад и зажатую клавишу Alt'
+      endIconTooltip='Вы можете изменять этот параметр, используя зажатую клавишу Alt и колесико мышки или тачпад'
     />
   )
 }
