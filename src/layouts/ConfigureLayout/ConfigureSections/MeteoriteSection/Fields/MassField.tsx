@@ -18,7 +18,7 @@ export const MassField = () => {
 
   return (
     <SliderTextField
-      min={0}
+      min={100}
       max={100 * 1000}
       step={1000}
       adornment='𝓜'

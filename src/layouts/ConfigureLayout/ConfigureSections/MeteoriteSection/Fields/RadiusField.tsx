@@ -19,7 +19,7 @@ export const RadiusField = () => {
 
   return (
     <SliderTextField
-      min={0}
+      min={10}
       max={100 * 1000}
       step={1000}
       label='Радиус, м'
