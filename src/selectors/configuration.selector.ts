@@ -1,8 +1,5 @@
 export const selectIsUserSectionInputValid = (state: RootState) =>
-  state.configuration.isUserSectionInputValid
-
-export const selectActiveSection = (state: RootState) =>
-  state.configuration.activeSection
+  state.configuration.invalidUserInputCount
 
 export const selectInteractiveControlValue =
   (control: keyof InteractiveControls) => (state: RootState) =>
