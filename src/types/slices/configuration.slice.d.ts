@@ -3,6 +3,8 @@ type ConfigurationSliceState = {
   /** Данные секции, введенные пользователем, валидны */
   isUserSectionInputValid: boolean
 
+  interactiveControlsValues: InteractiveControls
+
   activeSection: Sections
 }
 
@@ -16,6 +18,11 @@ interface ConfigurationSlice
     state: ConfigurationSliceState,
     action: PayloadAction<boolean>,
   ): void
+
+  setInteractiveControlValue(
+    state: ConfigurationSliceState,
+    action: PayloadAction<number>,
+  )
 
   setActiveSection(
     state: ConfigurationSliceState,
