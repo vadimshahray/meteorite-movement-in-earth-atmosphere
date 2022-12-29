@@ -22,7 +22,12 @@ export const meteoriteSlice = createSlice<MeteoriteSliceState, MeteoriteSlice>({
     setMeteoriteData: (state, { payload }) => {
       setDefinedProperties(state.data, payload)
     },
+
+    changeMeteoriteDistance: (state, { payload }) => {
+      state.data.distance += payload
+    },
   },
 })
 
-export const { setMeteoriteData } = meteoriteSlice.actions
+export const { setMeteoriteData, changeMeteoriteDistance } =
+  meteoriteSlice.actions
