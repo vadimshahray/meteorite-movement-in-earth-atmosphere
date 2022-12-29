@@ -22,6 +22,8 @@ export const ModelingScene = () => {
     [camera, gl.domElement],
   )
 
+  controls.enabled = false
+
   const meteoritePosition = useMeteoritePosition()
 
   useFrame(({ camera }, delta) => {
