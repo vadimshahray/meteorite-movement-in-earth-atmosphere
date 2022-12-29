@@ -24,7 +24,7 @@ export const configurationSlice = createSlice<
     },
 
     setInteractiveControlValue: (state, { payload }) => {
-      setDefinedProperties(state.isUserSectionInputValid, payload)
+      state.interactiveControlsValues[payload.control] = payload.value
     },
 
     setActiveSection: (state, { payload }) => {
