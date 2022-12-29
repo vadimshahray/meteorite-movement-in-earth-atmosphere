@@ -1,7 +1,7 @@
 import { Slider, SliderProps } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { Stack } from '@mui/system'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { positiveNumberRule } from 'utils'
 import { Container } from './Container'
 import { ValidatedTextField } from './ValidatedTextField'
@@ -29,33 +29,38 @@ export type SliderTextFieldProps = {
   step: number
   label: string
   adornment?: string
-  initialValue: number
+  value: number
   onChange: (value: number) => void
 }
 
 export const SliderTextField = ({
   label,
   adornment,
-  initialValue,
+  value,
   onChange,
   ...sliderProps
 }: SliderTextFieldProps) => {
-  const [fieldValue, setFieldValue] = useState(initialValue.toString())
-  const [sliderValue, setSliderValue] = useState(initialValue)
+  const [fieldValue, setFieldValue] = useState(value.toString())
+  const [sliderValue, setSliderValue] = useState(value)
 
-  const onSliderChange = (_: any, value: number | number[]) => {
-    if (typeof value === 'number') {
-      setFieldValue(value.toString())
-      setSliderValue(value)
-      onChange(value)
+  const onSliderChange = (_: any, sliderValue: number | number[]) => {
+    if (typeof sliderValue === 'number') {
+      setFieldValue(sliderValue.toString())
+      setSliderValue(sliderValue)
+      onChange(sliderValue)
     }
   }
 
-  const onTextFieldValid = (value: number) => {
+  const onTextFieldValid = (textFieldValue: number) => {
+    setFieldValue(textFieldValue.toString())
+    setSliderValue(textFieldValue)
+    onChange(textFieldValue)
+  }
+
+  useEffect(() => {
     setFieldValue(value.toString())
     setSliderValue(value)
-    onChange(value)
-  }
+  }, [value])
 
   return (
     <Stack>

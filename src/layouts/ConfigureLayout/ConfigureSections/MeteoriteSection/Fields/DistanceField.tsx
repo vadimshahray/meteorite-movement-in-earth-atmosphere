@@ -23,7 +23,7 @@ export const DistanceField = () => {
       step={1000}
       adornment='𝓓'
       label='Расстояние от поверхности планеты, м'
-      initialValue={distance}
+      value={distance}
       onChange={handleChange}
     />
   )
