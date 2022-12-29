@@ -25,6 +25,7 @@ export const DistanceField = () => {
       label='Расстояние от поверхности планеты, м'
       value={distance}
       onChange={handleChange}
+      interactiveControlTooltip='Вы можете изменять этот параметр, используя колесико мышки или тачпад и зажатую клавишу Alt'
     />
   )
 }
