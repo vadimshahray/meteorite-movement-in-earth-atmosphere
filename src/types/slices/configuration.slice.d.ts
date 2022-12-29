@@ -21,7 +21,10 @@ interface ConfigurationSlice
 
   setInteractiveControlValue(
     state: ConfigurationSliceState,
-    action: PayloadAction<number>,
+    action: PayloadAction<{
+      control: keyof InteractiveControls
+      value: number
+    }>,
   )
 
   setActiveSection(
