@@ -1,4 +1,3 @@
-import { MouseOutlined } from '@mui/icons-material'
 import { InputAdornment, TextField, Tooltip } from '@mui/material'
 import { useDispatch } from 'hooks'
 import React, { useEffect, useMemo, useState, useRef } from 'react'
@@ -23,7 +22,8 @@ export type ValidatedTextFieldProps = {
   /** Приписка к полю с левой стороны */
   adornment?: string
 
-  interactiveControlTooltip?: string
+  endIconTooltip?: string
+  EndIcon?: Icon
 }
 
 /**
@@ -36,7 +36,8 @@ export const ValidatedTextField = ({
   adornment,
   value,
   onValid,
-  interactiveControlTooltip,
+  endIconTooltip,
+  EndIcon,
 }: ValidatedTextFieldProps) => {
   const dispatch = useDispatch()
 
@@ -91,10 +92,10 @@ export const ValidatedTextField = ({
         startAdornment: adornment && (
           <InputAdornment position='start'>{adornment}</InputAdornment>
         ),
-        endAdornment: interactiveControlTooltip && (
+        endAdornment: EndIcon && endIconTooltip && (
           <InputAdornment position='end'>
-            <Tooltip title={interactiveControlTooltip}>
-              <MouseOutlined fontSize='small' />
+            <Tooltip title={endIconTooltip}>
+              <EndIcon fontSize='small' />
             </Tooltip>
           </InputAdornment>
         ),

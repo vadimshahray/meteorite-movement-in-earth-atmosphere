@@ -1,3 +1,4 @@
+import { MouseOutlined } from '@mui/icons-material'
 import { SliderTextField } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
@@ -25,7 +26,8 @@ export const DistanceField = () => {
       label='Расстояние от поверхности планеты, м'
       value={distance}
       onChange={handleChange}
-      interactiveControlTooltip='Вы можете изменять этот параметр, используя колесико мышки или тачпад и зажатую клавишу Alt'
+      EndIcon={MouseOutlined}
+      endIconTooltip='Вы можете изменять этот параметр, используя колесико мышки или тачпад и зажатую клавишу Alt'
     />
   )
 }

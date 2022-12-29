@@ -1,3 +1,4 @@
+import { MouseOutlined } from '@mui/icons-material'
 import { SliderTextField } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
@@ -25,7 +26,8 @@ export const RadiusField = () => {
       label='Радиус, м'
       adornment='𝓡'
       value={radius}
-      interactiveControlTooltip='Вы можете изменять этот параметр, используя колесико мышки или тачпад'
+      EndIcon={MouseOutlined}
+      endIconTooltip='Вы можете изменять этот параметр, используя колесико мышки или тачпад'
       onChange={handleChange}
     />
   )
