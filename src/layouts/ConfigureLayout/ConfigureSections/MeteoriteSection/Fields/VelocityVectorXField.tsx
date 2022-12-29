@@ -26,7 +26,7 @@ export const VelocityVectorXField = () => {
       step={1000}
       label='X координата'
       adornment='𝓥⃗₁'
-      initialValue={vectorX}
+      value={vectorX}
       onChange={handleChange}
     />
   )

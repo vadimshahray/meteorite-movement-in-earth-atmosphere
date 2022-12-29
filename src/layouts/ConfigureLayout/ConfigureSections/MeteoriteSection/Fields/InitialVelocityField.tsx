@@ -23,7 +23,7 @@ export const InitialVelocityField = () => {
       step={0.5}
       adornment='𝓥₀'
       label='Начальная скорость, м/с'
-      initialValue={initialVelocity}
+      value={initialVelocity}
       onChange={handleChange}
     />
   )

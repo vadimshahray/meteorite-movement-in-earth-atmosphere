@@ -24,7 +24,7 @@ export const RadiusField = () => {
       step={1000}
       label='Радиус, м'
       adornment='𝓡'
-      initialValue={radius}
+      value={radius}
       onChange={handleChange}
     />
   )

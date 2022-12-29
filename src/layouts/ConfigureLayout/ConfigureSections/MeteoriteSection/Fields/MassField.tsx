@@ -23,7 +23,7 @@ export const MassField = () => {
       step={1000}
       adornment='𝓜'
       label='Масса, кг'
-      initialValue={mass}
+      value={mass}
       onChange={handleChange}
     />
   )
