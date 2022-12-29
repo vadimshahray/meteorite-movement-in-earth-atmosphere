@@ -29,6 +29,7 @@ export type SliderTextFieldProps = {
   step: number
   label: string
   adornment?: string
+  interactiveControlTooltip?: string
   value: number
   onChange: (value: number) => void
 }
@@ -38,6 +39,7 @@ export const SliderTextField = ({
   adornment,
   value,
   onChange,
+  interactiveControlTooltip,
   ...sliderProps
 }: SliderTextFieldProps) => {
   const [fieldValue, setFieldValue] = useState(value.toString())
@@ -69,6 +71,7 @@ export const SliderTextField = ({
         adornment={adornment}
         value={fieldValue}
         rule={positiveNumberRule}
+        interactiveControlTooltip={interactiveControlTooltip}
         onValid={onTextFieldValid}
       />
 

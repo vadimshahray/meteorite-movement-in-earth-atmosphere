@@ -25,6 +25,7 @@ export const RadiusField = () => {
       label='Радиус, м'
       adornment='𝓡'
       value={radius}
+      interactiveControlTooltip='Вы можете изменять этот параметр, используя колесико мышки или тачпад'
       onChange={handleChange}
     />
   )

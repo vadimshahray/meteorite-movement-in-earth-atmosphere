@@ -1,4 +1,5 @@
-import { InputAdornment, TextField } from '@mui/material'
+import { MouseOutlined } from '@mui/icons-material'
+import { InputAdornment, TextField, Tooltip } from '@mui/material'
 import { useDispatch } from 'hooks'
 import React, { useEffect, useMemo, useState, useRef } from 'react'
 import { setIsUserSectionInputValid } from 'slices'
@@ -21,6 +22,8 @@ export type ValidatedTextFieldProps = {
 
   /** Приписка к полю с левой стороны */
   adornment?: string
+
+  interactiveControlTooltip?: string
 }
 
 /**
@@ -33,6 +36,7 @@ export const ValidatedTextField = ({
   adornment,
   value,
   onValid,
+  interactiveControlTooltip,
 }: ValidatedTextFieldProps) => {
   const dispatch = useDispatch()
 
@@ -86,6 +90,13 @@ export const ValidatedTextField = ({
       InputProps={{
         startAdornment: adornment && (
           <InputAdornment position='start'>{adornment}</InputAdornment>
+        ),
+        endAdornment: interactiveControlTooltip && (
+          <InputAdornment position='end'>
+            <Tooltip title={interactiveControlTooltip}>
+              <MouseOutlined fontSize='small' />
+            </Tooltip>
+          </InputAdornment>
         ),
       }}
     />
