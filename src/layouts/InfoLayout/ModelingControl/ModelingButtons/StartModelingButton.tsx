@@ -4,25 +4,25 @@ import { Button } from 'components'
 import { useDispatch } from 'hooks'
 import { useSnackbar } from 'notistack'
 import { useSelector } from 'react-redux'
-import { selectIsUserSectionInputValid } from 'selectors'
+import { selectInvalidUserInputCount } from 'selectors'
 import { startModeling } from 'slices'
 import { errorSnackbar } from 'utils'
 
 /** Кнопка запуска моделирования */
 export const StartModelingButton = () => {
   const dispatch = useDispatch()
-  const isUserInputValid = useSelector(selectIsUserSectionInputValid)
+  const invalidUserInputCount = useSelector(selectInvalidUserInputCount)
 
   const { enqueueSnackbar } = useSnackbar()
 
   const handleClick = () => {
-    if (isUserInputValid) {
+    if (invalidUserInputCount === 0) {
       dispatch(startModeling())
       return
     }
 
     enqueueSnackbar(
-      'Введенные данные содержат ошибки. Исправьте их!',
+      `Введенные данные содержат ошибки (${invalidUserInputCount}). Исправьте их!`,
       errorSnackbar('Невозможно начать моделирование!'),
     )
   }

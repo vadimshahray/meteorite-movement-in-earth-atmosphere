@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState: ConfigurationSliceState = {
-  isUserSectionInputValid: true,
+  invalidUserInputCount: 0,
 
   interactiveControlsValues: {
     distance: 4 * 1000,
@@ -16,8 +16,13 @@ export const configurationSlice = createSlice<
   name: 'configuration',
   initialState,
   reducers: {
-    setIsUserSectionInputValid: (state, { payload }) => {
-      state.isUserSectionInputValid = payload
+    increaseInvalidUserInputCount: (state) => {
+      state.invalidUserInputCount++
+    },
+    decreaseInvalidUserInputCount: (state) => {
+      if (state.invalidUserInputCount > 0) {
+        state.invalidUserInputCount--
+      }
     },
 
     setInteractiveControlValue: (state, { payload }) => {
@@ -26,5 +31,8 @@ export const configurationSlice = createSlice<
   },
 })
 
-export const { setIsUserSectionInputValid, setInteractiveControlValue } =
-  configurationSlice.actions
+export const {
+  increaseInvalidUserInputCount,
+  decreaseInvalidUserInputCount,
+  setInteractiveControlValue,
+} = configurationSlice.actions

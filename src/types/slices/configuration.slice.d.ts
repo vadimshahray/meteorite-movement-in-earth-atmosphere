@@ -1,7 +1,6 @@
 /** Состояние слайса конфигурации приложения */
 type ConfigurationSliceState = {
-  /** Данные секции, введенные пользователем, валидны */
-  isUserSectionInputValid: boolean
+  invalidUserInputCount: number
 
   interactiveControlsValues: InteractiveControls
 }
@@ -12,10 +11,9 @@ type ConfigurationSliceState = {
  */
 interface ConfigurationSlice
   extends SliceCaseReducers<ConfigurationSliceState> {
-  setIsUserSectionInputValid(
-    state: ConfigurationSliceState,
-    action: PayloadAction<boolean>,
-  ): void
+  increaseInvalidUserInputCount(state: ConfigurationSliceState): void
+
+  decreaseInvalidUserInputCount(state: ConfigurationSliceState): void
 
   setInteractiveControlValue(
     state: ConfigurationSliceState,

@@ -1,7 +1,10 @@
 import { InputAdornment, TextField, Tooltip } from '@mui/material'
 import { useDispatch } from 'hooks'
 import React, { useEffect, useMemo, useState, useRef } from 'react'
-import { setIsUserSectionInputValid } from 'slices'
+import {
+  decreaseInvalidUserInputCount,
+  increaseInvalidUserInputCount,
+} from 'slices'
 import { object, ValidationError } from 'yup'
 import { RequiredNumberSchema } from 'yup/lib/number'
 import { AnyObject } from 'yup/lib/types'
@@ -78,7 +81,11 @@ export const ValidatedTextField = ({
   }, [value])
 
   useEffect(() => {
-    dispatch(setIsUserSectionInputValid(!error))
+    if (error) {
+      dispatch(increaseInvalidUserInputCount())
+    } else {
+      dispatch(decreaseInvalidUserInputCount())
+    }
   }, [error, dispatch])
 
   return (
