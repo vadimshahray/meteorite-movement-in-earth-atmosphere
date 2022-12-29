@@ -3,8 +3,9 @@ import { EARTH } from 'consts'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectThemeColorMode } from 'selectors'
-import { EarthNight } from './EarthNight'
-import { EarthLight } from './EartLight'
+
+const EarthNight = React.lazy(() => import('./EarthNight/EarthNight'))
+const EarthLight = React.lazy(() => import('./EarthLight/EarthLight'))
 
 const EARTH_MODEL_RADIUS = 1.7320494310588754
 
