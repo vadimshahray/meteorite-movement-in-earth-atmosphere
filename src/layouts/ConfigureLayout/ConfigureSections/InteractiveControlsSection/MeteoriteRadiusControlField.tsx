@@ -1,3 +1,4 @@
+import { InfoOutlined } from '@mui/icons-material'
 import { SliderTextField } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
@@ -22,6 +23,8 @@ export const MeteoriteRadiusControlField = () => {
       max={10 * 1000}
       step={10}
       value={radiusControlValue}
+      EndIcon={InfoOutlined}
+      endIconTooltip='Колесико мышки или тачпад'
       onChange={onChange}
     />
   )
