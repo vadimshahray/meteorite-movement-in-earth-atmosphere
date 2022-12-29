@@ -18,7 +18,7 @@ export const DistanceField = () => {
 
   return (
     <SliderTextField
-      min={0}
+      min={1000}
       max={1000000}
       step={1000}
       adornment='𝓓'
