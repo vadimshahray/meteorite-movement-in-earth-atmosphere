@@ -50,8 +50,8 @@ export const Meteorite = React.memo(() => {
   const onWheel = ({ deltaY }: ThreeEvent<WheelEvent>) => {
     dispatch(
       changeMeteoriteData({
-        property: 'distance',
-        value: Math.sign(deltaY) * 4000,
+        property: 'radius',
+        value: Math.sign(deltaY) * 1000,
       }),
     )
   }
