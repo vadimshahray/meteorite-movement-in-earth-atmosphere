@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { setDefinedProperties } from 'utils'
 
 const initialState: ConfigurationSliceState = {
   isUserSectionInputValid: true,
@@ -8,8 +7,6 @@ const initialState: ConfigurationSliceState = {
     distance: 4 * 1000,
     radius: 1 * 1000,
   },
-
-  activeSection: '@Meteorite',
 }
 
 export const configurationSlice = createSlice<
@@ -26,15 +23,8 @@ export const configurationSlice = createSlice<
     setInteractiveControlValue: (state, { payload }) => {
       state.interactiveControlsValues[payload.control] = payload.value
     },
-
-    setActiveSection: (state, { payload }) => {
-      state.activeSection = payload
-    },
   },
 })
 
-export const {
-  setIsUserSectionInputValid,
-  setInteractiveControlValue,
-  setActiveSection,
-} = configurationSlice.actions
+export const { setIsUserSectionInputValid, setInteractiveControlValue } =
+  configurationSlice.actions

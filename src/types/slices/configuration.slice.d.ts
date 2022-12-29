@@ -4,8 +4,6 @@ type ConfigurationSliceState = {
   isUserSectionInputValid: boolean
 
   interactiveControlsValues: InteractiveControls
-
-  activeSection: Sections
 }
 
 /**
@@ -26,9 +24,4 @@ interface ConfigurationSlice
       value: number
     }>,
   )
-
-  setActiveSection(
-    state: ConfigurationSliceState,
-    action: PayloadAction<Sections>,
-  ): void
 }
