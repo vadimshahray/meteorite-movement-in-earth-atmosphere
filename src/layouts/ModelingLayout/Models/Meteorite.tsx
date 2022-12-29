@@ -1,10 +1,13 @@
 import { Float, PresentationControls, useGLTF } from '@react-three/drei'
 import { MeshProps, ThreeEvent } from '@react-three/fiber'
-import { useDispatch, useMeteoritePosition, useMeteoriteRadius } from 'hooks'
+import {
+  useMeteoritePosition,
+  useMeteoriteRadius,
+  useMeteoriteInteractiveControl,
+} from 'hooks'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectModelingStatus } from 'selectors'
-import { changeMeteoriteData } from 'slices'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
 
@@ -40,20 +43,23 @@ const MeteoriteModel = React.memo<MeshProps>((props) => {
 })
 
 export const Meteorite = React.memo(() => {
-  const dispatch = useDispatch()
-
   const modelingStatus = useSelector(selectModelingStatus)
 
   const { scale, radius } = useMeteoriteRadius()
   const position = useMeteoritePosition()
 
-  const onWheel = ({ deltaY, altKey }: ThreeEvent<WheelEvent>) => {
-    dispatch(
-      changeMeteoriteData({
-        property: altKey ? 'distance' : 'radius',
-        value: Math.sign(deltaY) * (altKey ? 4000 : 1000),
-      }),
-    )
+  const { onWheel: onDistanceWheel } = useMeteoriteInteractiveControl(
+    'distance',
+    true,
+  )
+  const { onWheel: onRadiusWheel } = useMeteoriteInteractiveControl(
+    'radius',
+    false,
+  )
+
+  const onWheel = (e: ThreeEvent<WheelEvent>) => {
+    onDistanceWheel(e)
+    onRadiusWheel(e)
   }
 
   return (
