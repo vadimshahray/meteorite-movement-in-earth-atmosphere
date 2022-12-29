@@ -1,3 +1,4 @@
+import { InfoOutlined } from '@mui/icons-material'
 import { SliderTextField } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
@@ -23,6 +24,8 @@ export const MeteoriteDistanceControlField = () => {
       step={1000}
       value={distanceControlValue}
       onChange={onChange}
+      EndIcon={InfoOutlined}
+      endIconTooltip='Alt + колесико мышки или тачпад'
     />
   )
 }
