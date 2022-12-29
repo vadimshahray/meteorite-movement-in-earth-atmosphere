@@ -7,7 +7,6 @@ const initialState: MeteoriteSliceState = {
   distance: 1000000,
   velocityVectorX: 0,
   velocityVectorY: 0,
-  velocityVectorZ: 0,
   initialVelocity: 10,
 }
 
@@ -17,10 +16,6 @@ export const meteoriteSlice = createSlice<MeteoriteSliceState, MeteoriteSlice>({
   reducers: {
     setMeteoriteData: (state, { payload }) => {
       setDefinedProperties(state, payload)
-    },
-
-    changeMeteoriteData: (state, { payload }) => {
-      state[payload.property] += payload.value
     },
   },
 })

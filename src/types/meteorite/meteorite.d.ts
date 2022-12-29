@@ -9,7 +9,6 @@ type MeteoriteModel = {
 
   velocityVectorX: number
   velocityVectorY: number
-  velocityVectorZ: number
 
   /** Начальная скорость */
   initialVelocity: number

@@ -18,6 +18,3 @@ export const selectMeteoriteVelocityVectorX = (state: RootState) =>
 
 export const selectMeteoriteVelocityVectorY = (state: RootState) =>
   state.meteorite.velocityVectorY
-
-export const selectMeteoriteVelocityVectorZ = (state: RootState) =>
-  state.meteorite.velocityVectorZ
