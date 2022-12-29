@@ -36,13 +36,13 @@ const EarthLightModel = React.memo(
   () => true,
 )
 
-useGLTF.preload('/models/earth/light/scene.gltf')
-
-export const EarthLight = ({ visible, ...props }: MeshProps) => {
+export default React.memo(({ visible, ...props }: MeshProps) => {
   return (
     <group visible={visible}>
       <EarthLightModel {...props} />
       <Atmosphere />
     </group>
   )
-}
+})
+
+useGLTF.preload('/models/earth/light/scene.gltf')

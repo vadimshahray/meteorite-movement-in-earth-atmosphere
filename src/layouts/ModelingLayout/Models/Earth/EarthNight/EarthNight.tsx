@@ -36,13 +36,13 @@ const EarthNightModel = React.memo(
   () => true,
 )
 
-export const EarthNight = ({ visible, ...props }: MeshProps) => {
+export default React.memo(({ visible, ...props }: MeshProps) => {
   return (
     <group visible={visible}>
       <EarthNightModel {...props} />
       <SunLightStroke />
     </group>
   )
-}
+})
 
 useGLTF.preload('/models/earth/night/scene.gltf')
