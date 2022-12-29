@@ -5,11 +5,9 @@ const initialState: MeteoriteSliceState = {
   mass: 1000,
   radius: 10000,
   distance: 1000000,
-  velocityVector: {
-    x: 0,
-    y: 0,
-    z: 0,
-  },
+  velocityVectorX: 0,
+  velocityVectorY: 0,
+  velocityVectorZ: 0,
   initialVelocity: 10,
 }
 
@@ -22,9 +20,7 @@ export const meteoriteSlice = createSlice<MeteoriteSliceState, MeteoriteSlice>({
     },
 
     changeMeteoriteData: (state, { payload }) => {
-      if (payload.property !== 'velocityVector') {
-        state[payload.property] += payload.value
-      }
+      state[payload.property] += payload.value
     },
   },
 })

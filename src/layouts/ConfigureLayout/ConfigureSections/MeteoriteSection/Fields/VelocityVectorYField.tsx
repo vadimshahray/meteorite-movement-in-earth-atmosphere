@@ -12,9 +12,7 @@ export const VelocityVectorYField = () => {
   const handleChange = (value: number) => {
     dispatch(
       setMeteoriteData({
-        velocityVector: {
-          y: value,
-        },
+        velocityVectorY: value,
       }),
     )
   }
