@@ -1,6 +1,4 @@
-type MeteoriteSliceState = {
-  data: MeteoriteModel
-}
+type MeteoriteSliceState = MeteoriteModel
 
 interface MeteoriteSlice extends SliceCaseReducers<MeteoriteSliceState> {
   setMeteoriteData(
