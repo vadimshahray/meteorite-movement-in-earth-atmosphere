@@ -12,8 +12,11 @@ interface MeteoriteSlice extends SliceCaseReducers<MeteoriteSliceState> {
     >,
   ): void
 
-  changeMeteoriteDistance(
+  changeMeteoriteData(
     state: MeteoriteSliceState,
-    action: PayloadAction<number>,
+    action: PayloadAction<{
+      property: keyof MeteoriteSliceState
+      value: number
+    }>,
   ): void
 }

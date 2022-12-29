@@ -4,7 +4,7 @@ import { useDispatch, useMeteoritePosition, useMeteoriteRadius } from 'hooks'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectModelingStatus } from 'selectors'
-import { changeMeteoriteDistance } from 'slices'
+import { changeMeteoriteData } from 'slices'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
 
@@ -48,7 +48,12 @@ export const Meteorite = React.memo(() => {
   const position = useMeteoritePosition()
 
   const onWheel = ({ deltaY }: ThreeEvent<WheelEvent>) => {
-    dispatch(changeMeteoriteDistance(Math.sign(deltaY) * 4000))
+    dispatch(
+      changeMeteoriteData({
+        property: 'distance',
+        value: Math.sign(deltaY) * 4000,
+      }),
+    )
   }
 
   return (
