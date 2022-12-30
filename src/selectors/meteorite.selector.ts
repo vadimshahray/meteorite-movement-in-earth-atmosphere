@@ -13,6 +13,11 @@ export const selectMeteoriteRadius = (state: RootState) =>
 export const selectMeteoriteInitialVelocity = (state: RootState) =>
   state.meteorite.initialVelocity
 
+export const selectMeteoriteVelocityVector = (state: RootState): Vector2 => ({
+  x: state.meteorite.velocityVectorX,
+  y: state.meteorite.velocityVectorY,
+})
+
 export const selectMeteoriteVelocityVectorX = (state: RootState) =>
   state.meteorite.velocityVectorX
 
