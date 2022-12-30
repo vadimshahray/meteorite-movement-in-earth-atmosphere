@@ -1,3 +1,7 @@
+export const getVectorLength = (v: Vector2) => {
+  return Math.sqrt(v.x ** 2 + v.y ** 2)
+}
+
 export const getAngelBetweenTwoVectors = (
   a: Vector2,
   b: Vector2,
@@ -7,10 +11,10 @@ export const getAngelBetweenTwoVectors = (
 
   const mult = a.x * b.x + a.y * b.y
 
-  const aAbs = Math.sqrt(a.x ** 2 + a.y ** 2)
-  const bAbs = Math.sqrt(b.x ** 2 + b.y ** 2)
+  const aLength = getVectorLength(a)
+  const bLength = getVectorLength(b)
 
-  const cosValue = mult / (aAbs * bAbs)
+  const cosValue = mult / (aLength * bLength)
 
   let sign = 1
   if (withSign) sign = a.y < 0 || b.y < 0 ? 1 : -1
@@ -25,5 +29,14 @@ export const getVectorFromAngelAndVector = (
   return {
     x: v.x * Math.cos(angle) - v.y * Math.sin(angle),
     y: v.x * Math.sin(angle) + v.y * Math.cos(angle),
+  }
+}
+
+export const ratioVector = (v: Vector2): Vector2 => {
+  const vLength = getVectorLength(v)
+
+  return {
+    x: v.x / vLength,
+    y: v.y / vLength,
   }
 }
