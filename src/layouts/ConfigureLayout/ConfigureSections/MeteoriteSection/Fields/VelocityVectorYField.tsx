@@ -19,9 +19,10 @@ export const VelocityVectorYField = () => {
 
   return (
     <SliderTextField
-      min={0}
-      max={100 * 1000}
-      step={1000}
+      min={-100}
+      max={100}
+      step={1}
+      negative
       label='Вектор скорости, Y коорд.'
       adornment='𝓥⃗₂'
       value={vectorY}
