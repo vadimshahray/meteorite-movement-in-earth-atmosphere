@@ -1,6 +1,9 @@
 import { Stars } from '@react-three/drei'
 import { Canvas as TCanvas } from '@react-three/fiber'
-import { useMeteoriteInteractiveControl } from 'hooks'
+import {
+  useMeteoriteInteractiveControl,
+  useMeteoriteVelocityVectorControl,
+} from 'hooks'
 import React, { WheelEvent } from 'react'
 import { ModelingScene } from './ModelingScene'
 
@@ -14,13 +17,15 @@ export const Canvas = () => {
     false,
   )
 
+  const velocityVectorControl = useMeteoriteVelocityVectorControl()
+
   const onWheel = (e: WheelEvent<HTMLDivElement>) => {
     onDistanceWheel(e)
     onRadiusWheel(e)
   }
 
   return (
-    <TCanvas onWheel={onWheel}>
+    <TCanvas onWheel={onWheel} {...velocityVectorControl}>
       <Stars
         radius={100}
         depth={50}

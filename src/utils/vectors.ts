@@ -17,3 +17,13 @@ export const getAngelBetweenTwoVectors = (
 
   return sign * Math.acos(cosValue)
 }
+
+export const getVectorFromAngelAndVector = (
+  angle: number,
+  v: Vector2,
+): Vector2 => {
+  return {
+    x: v.x * Math.cos(angle) - v.y * Math.sin(angle),
+    y: v.x * Math.sin(angle) + v.y * Math.cos(angle),
+  }
+}
