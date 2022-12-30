@@ -22,8 +22,6 @@ export const useActiveCameraPosition = () => {
     }),
   )
 
-  console.log(v)
-
   const backViewPositionVector = new THREE.Vector3(
     v.x,
     meteoritePosition.y + getRadiusCoefficient(meteoriteRadius),
