@@ -1,12 +1,13 @@
 import { useGLTF } from '@react-three/drei'
 import { MeshProps } from '@react-three/fiber'
-import { useMeteoritePosition, useMeteoriteRadius } from 'hooks'
+import {
+  useMeteoritePosition,
+  useMeteoriteRadius,
+  useMeteoriteRotationAngel,
+} from 'hooks'
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { selectMeteoriteVelocityVector } from 'selectors'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
-import { getAngelBetweenTwoVectors } from 'utils'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -43,8 +44,7 @@ export const Meteorite = React.memo(() => {
   const { scale } = useMeteoriteRadius()
   const position = useMeteoritePosition()
 
-  const velocityVector = useSelector(selectMeteoriteVelocityVector)
-  const angel = getAngelBetweenTwoVectors(velocityVector, { x: 1, y: 0 })
+  const angel = useMeteoriteRotationAngel()
 
   return (
     <MeteoriteModel
