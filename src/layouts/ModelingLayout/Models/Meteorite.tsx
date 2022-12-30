@@ -1,10 +1,6 @@
 import { useGLTF } from '@react-three/drei'
 import { MeshProps } from '@react-three/fiber'
-import {
-  useMeteoritePosition,
-  useMeteoriteRadius,
-  useMeteoriteRotationAngel,
-} from 'hooks'
+import { useMeteoritePosition, useMeteoriteRadius } from 'hooks'
 import React from 'react'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
@@ -44,13 +40,5 @@ export const Meteorite = React.memo(() => {
   const { scale } = useMeteoriteRadius()
   const position = useMeteoritePosition()
 
-  const angel = useMeteoriteRotationAngel()
-
-  return (
-    <MeteoriteModel
-      scale={scale}
-      position={position}
-      rotation={[0, angel, 0]}
-    />
-  )
+  return <MeteoriteModel scale={scale} position={position} />
 })
