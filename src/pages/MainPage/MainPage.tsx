@@ -1,4 +1,4 @@
-import { FullContainer } from 'components'
+import { ControlsDialog, FullContainer } from 'components'
 import { InfoLayout, ModelingLayout } from 'layouts'
 import React, { Suspense } from 'react'
 import styles from './mainPage.module.css'
@@ -11,6 +11,8 @@ export const MainPage = () => {
         <ModelingLayout />
 
         <InfoLayout />
+
+        <ControlsDialog />
       </Suspense>
     </FullContainer>
   )
