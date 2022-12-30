@@ -3,6 +3,8 @@ type ConfigurationSliceState = {
   invalidUserInputCount: number
 
   interactiveControlsValues: InteractiveControls
+
+  isControlsDialogVisible: boolean
 }
 
 /**
@@ -22,4 +24,9 @@ interface ConfigurationSlice
       value: number
     }>,
   )
+
+  setIsControlsDialogVisible(
+    state: ConfigurationSliceState,
+    action: PayloadAction<boolean>,
+  ): void
 }
