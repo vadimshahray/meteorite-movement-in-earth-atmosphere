@@ -15,14 +15,15 @@ export const MeteoriteSettings = () => {
     <Section title='Характеристики метеорита' Icon={DataObjectOutlined}>
       <MassField />
 
-      <DistanceField />
-
       <RadiusField />
+
+      <DistanceField />
 
       <InitialVelocityField />
 
       <Stack direction='row' spacing={1}>
         <VelocityVectorXField />
+
         <VelocityVectorYField />
       </Stack>
     </Section>
