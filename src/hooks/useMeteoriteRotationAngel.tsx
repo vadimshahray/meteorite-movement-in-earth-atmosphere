@@ -5,5 +5,5 @@ import { getAngelBetweenTwoVectors } from 'utils'
 export const useMeteoriteRotationAngel = () => {
   const velocityVector = useSelector(selectMeteoriteVelocityVector)
 
-  return getAngelBetweenTwoVectors(velocityVector, { x: 0, y: 1 })
+  return getAngelBetweenTwoVectors(velocityVector, { x: 1, y: 0 })
 }
