@@ -1,4 +1,3 @@
-import { ThreeEvent } from '@react-three/fiber'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { selectInteractiveControlValue, selectMeteoriteData } from 'selectors'
@@ -17,7 +16,7 @@ export const useMeteoriteInteractiveControl = (
   )
 
   const onWheel = useCallback(
-    ({ deltaY, altKey }: ThreeEvent<WheelEvent>) => {
+    ({ deltaY, altKey }: Pick<WheelEvent, 'deltaY' | 'altKey'>) => {
       if ((withAltKey && !altKey) || (!withAltKey && altKey)) return
 
       const newValue = propertyValue + Math.sign(deltaY) * controlValue

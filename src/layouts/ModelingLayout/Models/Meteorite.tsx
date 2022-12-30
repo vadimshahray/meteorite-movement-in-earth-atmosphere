@@ -1,10 +1,6 @@
 import { Float, PresentationControls, useGLTF } from '@react-three/drei'
-import { MeshProps, ThreeEvent } from '@react-three/fiber'
-import {
-  useMeteoritePosition,
-  useMeteoriteRadius,
-  useMeteoriteInteractiveControl,
-} from 'hooks'
+import { MeshProps } from '@react-three/fiber'
+import { useMeteoritePosition, useMeteoriteRadius } from 'hooks'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectModelingStatus } from 'selectors'
@@ -48,26 +44,11 @@ export const Meteorite = React.memo(() => {
   const { scale, radius } = useMeteoriteRadius()
   const position = useMeteoritePosition()
 
-  const { onWheel: onDistanceWheel } = useMeteoriteInteractiveControl(
-    'distance',
-    true,
-  )
-  const { onWheel: onRadiusWheel } = useMeteoriteInteractiveControl(
-    'radius',
-    false,
-  )
-
-  const onWheel = (e: ThreeEvent<WheelEvent>) => {
-    onDistanceWheel(e)
-    onRadiusWheel(e)
-  }
-
   return (
     <Float
       speed={modelingStatus === 'idle' ? undefined : 0}
       floatingRange={[0, radius * 0.1]}
       position={position}
-      onWheel={onWheel}
     >
       <PresentationControls
         enabled={modelingStatus === 'idle'}
