@@ -1,8 +1,10 @@
 import { useSelector } from 'react-redux'
 import { selectActiveCamera, selectModelingStatus } from 'selectors'
 import * as THREE from 'three'
+import { getVectorFromAngelAndVector, ratioVector } from 'utils'
 import { useMeteoriteRadius } from './useMeteoirteRadius'
 import { useMeteoritePosition } from './useMeteoritePosition'
+import { useMeteoriteRotationAngel } from './useMeteoriteRotationAngel'
 
 export const useActiveCameraPosition = () => {
   const modelingStatus = useSelector(selectModelingStatus)
@@ -11,10 +13,21 @@ export const useActiveCameraPosition = () => {
   const meteoritePosition = useMeteoritePosition()
   const meteoriteRadius = useMeteoriteRadius().radius
 
+  const meteoriteRotationAngle = useMeteoriteRotationAngel()
+
+  const v = ratioVector(
+    getVectorFromAngelAndVector(meteoriteRotationAngle, {
+      x: 0,
+      y: meteoritePosition.y,
+    }),
+  )
+
+  console.log(v)
+
   const backViewPositionVector = new THREE.Vector3(
-    meteoritePosition.x,
+    v.x,
     meteoritePosition.y + getRadiusCoefficient(meteoriteRadius),
-    meteoritePosition.z,
+    v.y,
   )
 
   if (modelingStatus === 'idle') {

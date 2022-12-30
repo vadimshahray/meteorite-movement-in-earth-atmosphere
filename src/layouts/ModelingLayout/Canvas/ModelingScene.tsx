@@ -1,6 +1,10 @@
 import { useFrame, useThree } from '@react-three/fiber'
 import CameraControls from 'camera-controls'
-import { useActiveCameraPosition, useMeteoritePosition } from 'hooks'
+import {
+  useActiveCameraPosition,
+  useMeteoritePosition,
+  useMeteoriteRotationAngel,
+} from 'hooks'
 import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { selectActiveCamera } from 'selectors'
@@ -14,7 +18,7 @@ CameraControls.install({ THREE })
 
 export const ModelingScene = () => {
   const activeCamera = useSelector(selectActiveCamera)
-  const posVector = useActiveCameraPosition()
+  const cameraPosition = useActiveCameraPosition()
 
   const { camera, gl } = useThree()
   const controls = useMemo(
@@ -27,7 +31,7 @@ export const ModelingScene = () => {
   const meteoritePosition = useMeteoritePosition()
 
   useFrame(({ camera }, delta) => {
-    camera.position.lerp(posVector, 0.8)
+    camera.position.lerp(cameraPosition, 0.8)
     camera.updateProjectionMatrix()
 
     controls.setLookAt(

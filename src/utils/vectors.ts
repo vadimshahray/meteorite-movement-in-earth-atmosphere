@@ -5,7 +5,7 @@ export const getVectorLength = (v: Vector2) => {
 export const getAngelBetweenTwoVectors = (
   a: Vector2,
   b: Vector2,
-  withSign: boolean = true,
+  full: boolean = true,
 ) => {
   if ((!a.x && !a.y) || (!b.x && !b.y)) return 0
 
@@ -16,10 +16,9 @@ export const getAngelBetweenTwoVectors = (
 
   const cosValue = mult / (aLength * bLength)
 
-  let sign = 1
-  if (withSign) sign = a.y < 0 || b.y < 0 ? 1 : -1
-
-  return sign * Math.acos(cosValue)
+  return full && (a.y < 0 || b.y < 0)
+    ? Math.acos(cosValue) + Math.PI
+    : Math.acos(cosValue)
 }
 
 export const getVectorFromAngelAndVector = (
