@@ -1,7 +1,6 @@
-type Vector3 = {
+type Vector2 = {
   x: number
   y: number
-  z: number
 }
 
 /** Число: {value} * 10^{power} */
