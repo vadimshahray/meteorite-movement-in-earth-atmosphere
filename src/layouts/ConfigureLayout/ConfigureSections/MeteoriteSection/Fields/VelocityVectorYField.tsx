@@ -1,3 +1,4 @@
+import { MouseOutlined } from '@mui/icons-material'
 import { SliderTextField } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
@@ -27,6 +28,8 @@ export const VelocityVectorYField = () => {
       adornment='𝓥⃗₂'
       value={vectorY}
       onChange={handleChange}
+      EndIcon={MouseOutlined}
+      endIconTooltip='Вы можете изменять этот параметр, используя ЛКМ'
     />
   )
 }
