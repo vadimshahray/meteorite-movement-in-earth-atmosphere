@@ -1,4 +1,5 @@
 import { SliderTextField } from 'components'
+import { METEORITE_INPUT } from 'consts'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
 import { selectMeteoriteInitialVelocity } from 'selectors'
@@ -18,9 +19,9 @@ export const InitialVelocityField = () => {
 
   return (
     <SliderTextField
-      min={0}
-      max={100}
-      step={0.5}
+      min={METEORITE_INPUT.INITIAL_VELOCITY_MIN}
+      max={METEORITE_INPUT.INITIAL_VELOCITY_MAX}
+      step={1}
       adornment='𝓥₀'
       label='Начальная скорость, м/с'
       value={initialVelocity}

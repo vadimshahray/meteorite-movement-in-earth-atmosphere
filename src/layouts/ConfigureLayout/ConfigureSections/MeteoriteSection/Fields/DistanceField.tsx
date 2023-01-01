@@ -1,5 +1,6 @@
 import { MouseOutlined } from '@mui/icons-material'
 import { SliderTextField } from 'components'
+import { METEORITE_INPUT } from 'consts'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
 import { selectMeteoriteDistance } from 'selectors'
@@ -19,8 +20,8 @@ export const DistanceField = () => {
 
   return (
     <SliderTextField
-      min={1000}
-      max={1000000}
+      min={METEORITE_INPUT.DISTANCE_MIN}
+      max={METEORITE_INPUT.DISTANCE_MAX}
       step={1000}
       adornment='𝓓'
       label='Расстояние от поверхности планеты, м'

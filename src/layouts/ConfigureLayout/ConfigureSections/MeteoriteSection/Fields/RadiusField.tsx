@@ -1,5 +1,6 @@
 import { MouseOutlined } from '@mui/icons-material'
 import { SliderTextField } from 'components'
+import { METEORITE_INPUT } from 'consts'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
 import { selectMeteoriteRadius } from 'selectors'
@@ -20,8 +21,8 @@ export const RadiusField = () => {
 
   return (
     <SliderTextField
-      min={10}
-      max={100 * 1000}
+      min={METEORITE_INPUT.RADIUS_MIN}
+      max={METEORITE_INPUT.RADIUS_MAX}
       step={1000}
       label='Радиус, м'
       adornment='𝓡'
