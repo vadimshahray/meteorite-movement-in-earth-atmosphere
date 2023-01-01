@@ -17,6 +17,7 @@ export type ContainerProps = MUIContainerProps & {
 export const Container = ({
   disableGuttersH = false,
   disableGuttersV = false,
+  sx,
   ...props
 }: ContainerProps) => {
   return (
@@ -26,6 +27,7 @@ export const Container = ({
         paddingLeft: disableGuttersH ? 0 : undefined,
         paddingTop: disableGuttersV ? 0 : undefined,
         paddingBottom: disableGuttersV ? 0 : undefined,
+        ...sx,
       }}
       {...props}
     />
