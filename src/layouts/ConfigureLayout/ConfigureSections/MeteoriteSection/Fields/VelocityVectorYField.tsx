@@ -23,7 +23,6 @@ export const VelocityVectorYField = () => {
       min={-100}
       max={100}
       step={1}
-      negative
       label='Вектор скорости, Y коорд.'
       adornment='𝓥⃗₂'
       value={vectorY}

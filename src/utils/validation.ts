@@ -4,15 +4,12 @@ export const NumberCommaToDot = (v: any, ov: any) => {
   return typeof ov === 'string' ? Number(ov.replace(',', '.')) : v
 }
 
-export const positiveNumberRule = yup
-  .number()
-  .transform(NumberCommaToDot)
-  .typeError('Не число')
-  .positive('Не положительное число')
-  .required('Обязательно')
-
-export const numberRule = yup
-  .number()
-  .transform(NumberCommaToDot)
-  .typeError('Не число')
-  .required('Обязательно')
+export const numberRule = (min: number, max: number) => {
+  return yup
+    .number()
+    .transform(NumberCommaToDot)
+    .typeError('Не число')
+    .min(min, `Значение меньше минимального (${min})`)
+    .max(max, `Значение больше максимального (${max})`)
+    .required('Обязательно')
+}

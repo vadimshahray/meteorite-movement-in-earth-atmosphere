@@ -2,7 +2,7 @@ import { Slider, SliderProps } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { Stack } from '@mui/system'
 import { useEffect, useState } from 'react'
-import { numberRule, positiveNumberRule } from 'utils'
+import { numberRule } from 'utils'
 import { Container } from './Container'
 import { ValidatedTextField } from './ValidatedTextField'
 
@@ -33,7 +33,6 @@ export type SliderTextFieldProps = {
   EndIcon?: Icon
   value: number
   onChange: (value: number) => void
-  negative?: boolean
 }
 
 export const SliderTextField = ({
@@ -43,8 +42,9 @@ export const SliderTextField = ({
   onChange,
   EndIcon,
   endIconTooltip,
-  negative = false,
-  ...sliderProps
+  min,
+  max,
+  step,
 }: SliderTextFieldProps) => {
   const [fieldValue, setFieldValue] = useState(value.toString())
   const [sliderValue, setSliderValue] = useState(value)
@@ -74,7 +74,7 @@ export const SliderTextField = ({
         label={label}
         adornment={adornment}
         value={fieldValue}
-        rule={negative ? numberRule : positiveNumberRule}
+        rule={numberRule(min, max)}
         EndIcon={EndIcon}
         endIconTooltip={endIconTooltip}
         onValid={onTextFieldValid}
@@ -90,9 +90,11 @@ export const SliderTextField = ({
       >
         <StyledSlider
           size='small'
+          min={min}
+          max={max}
+          step={step}
           value={sliderValue}
           onChange={onSliderChange}
-          {...sliderProps}
         />
       </Container>
     </Stack>
