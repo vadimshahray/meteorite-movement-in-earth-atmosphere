@@ -1,6 +1,6 @@
 import { MouseOutlined } from '@mui/icons-material'
 import { SliderTextField } from 'components'
-import { METEORITE_INPUT } from 'consts'
+import { METEORITE_LIMITS } from 'consts'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
 import { selectMeteoriteVelocityVectorY } from 'selectors'
@@ -21,8 +21,8 @@ export const VelocityVectorYField = () => {
 
   return (
     <SliderTextField
-      min={METEORITE_INPUT.VELOCITY_VECTOR_MIN}
-      max={METEORITE_INPUT.VELOCITY_VECTOR_MAX}
+      min={METEORITE_LIMITS.VELOCITY_VECTOR_MIN}
+      max={METEORITE_LIMITS.VELOCITY_VECTOR_MAX}
       step={0.5}
       label='Вектор скорости, Y коорд.'
       adornment='𝓥⃗₂'

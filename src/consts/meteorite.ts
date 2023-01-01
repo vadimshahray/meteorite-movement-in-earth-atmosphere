@@ -1,4 +1,4 @@
-export const METEORITE_INPUT = {
+export const METEORITE_LIMITS = {
   MASS_MIN: 1,
   MASS_MAX: 10 * 1000,
 

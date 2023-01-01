@@ -1,5 +1,5 @@
 import { SliderTextField, ValidatedTextField } from 'components'
-import { METEORITE_INPUT } from 'consts'
+import { METEORITE_LIMITS } from 'consts'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
 import { selectMeteoriteMass } from 'selectors'
@@ -19,8 +19,8 @@ export const MassField = () => {
 
   return (
     <SliderTextField
-      min={METEORITE_INPUT.MASS_MIN}
-      max={METEORITE_INPUT.MASS_MAX}
+      min={METEORITE_LIMITS.MASS_MIN}
+      max={METEORITE_LIMITS.MASS_MAX}
       step={1000}
       adornment='𝓜'
       label='Масса, кг'
