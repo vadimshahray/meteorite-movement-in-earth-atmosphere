@@ -7,43 +7,40 @@ import { useMeteoritePosition } from './useMeteoritePosition'
 import { useMeteoriteRotationAngel } from './useMeteoriteRotationAngel'
 
 export const useActiveCameraPosition = () => {
-  const modelingStatus = useSelector(selectModelingStatus)
   const activeCamera = useSelector(selectActiveCamera)
+  const modelingStatus = useSelector(selectModelingStatus)
 
-  const meteoritePosition = useMeteoritePosition()
   const meteoriteRadius = useMeteoriteRadius().radius
-
+  const meteoritePosition = useMeteoritePosition()
   const meteoriteRotationAngle = useMeteoriteRotationAngel()
 
-  const v = ratioVector(
+  const velocityVector = ratioVector(
     getVectorFromAngelAndVector(meteoriteRotationAngle, {
       x: 0,
-      y: meteoritePosition.y,
+      y:
+        activeCamera === '@BackViewCamera'
+          ? meteoritePosition.y
+          : meteoritePosition.y,
     }),
   )
 
-  const backViewPositionVector = new THREE.Vector3(
-    v.x,
-    meteoritePosition.y + getRadiusCoefficient(meteoriteRadius),
-    v.y,
-  )
-
-  if (modelingStatus === 'idle') {
-    return backViewPositionVector
+  if (modelingStatus === 'idle' || activeCamera === '@BackViewCamera') {
+    return new THREE.Vector3(
+      velocityVector.x,
+      meteoritePosition.y + getRadiusCoefficient(meteoriteRadius),
+      velocityVector.y,
+    )
   }
 
-  switch (activeCamera) {
-    case '@BackViewCamera':
-      return backViewPositionVector
-    case '@SideViewCamera':
-      return new THREE.Vector3(
-        meteoritePosition.x + getRadiusCoefficient(meteoriteRadius),
-        meteoritePosition.y,
-        meteoritePosition.z,
-      )
-    case '@EarthViewCamera':
-      return new THREE.Vector3(2, 0, -2)
+  if (activeCamera === '@SideViewCamera') {
+    return new THREE.Vector3(
+      meteoritePosition.x + getRadiusCoefficient(meteoriteRadius),
+      meteoritePosition.y,
+      meteoritePosition.z,
+    )
   }
+
+  return new THREE.Vector3(2, 0, -2)
 }
 
 function getRadiusCoefficient(radius: number) {
