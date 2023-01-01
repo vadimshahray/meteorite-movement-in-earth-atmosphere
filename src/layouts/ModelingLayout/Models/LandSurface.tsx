@@ -7,7 +7,7 @@ import { selectThemeColorMode } from 'selectors'
 export default React.memo(({ visible, ...props }: GroupProps) => {
   const colorMode = useSelector(selectThemeColorMode)
 
-  const ground = { height: 1, radius: 1000, scale: 38 }
+  const ground = { height: 10, radius: 1200, scale: 40 }
 
   return (
     <group visible={visible} {...props}>
