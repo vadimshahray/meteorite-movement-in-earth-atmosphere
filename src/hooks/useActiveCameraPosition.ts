@@ -37,7 +37,7 @@ export const useActiveCameraPosition = () => {
     )
   }
 
-  return new THREE.Vector3(2, 0, -2)
+  return new THREE.Vector3(0, 1, 0)
 }
 
 function getRadiusCoefficient(radius: number) {
