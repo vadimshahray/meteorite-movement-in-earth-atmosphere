@@ -1,3 +1,4 @@
+import { METEORITE_LIMITS } from 'consts'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import {
@@ -6,6 +7,7 @@ import {
   selectModelingStatus,
 } from 'selectors'
 import { setMeteoriteData } from 'slices'
+import { isNumberBetweenMinMax } from 'utils'
 import { useDispatch } from './useDispatch'
 
 export const useMeteoriteRadiusControl = () => {
@@ -24,7 +26,13 @@ export const useMeteoriteRadiusControl = () => {
 
       const newRadius = radius + Math.sign(deltaY) * radiusControl
 
-      if (newRadius > 0) {
+      if (
+        isNumberBetweenMinMax(
+          newRadius,
+          METEORITE_LIMITS.RADIUS_MIN,
+          METEORITE_LIMITS.RADIUS_MAX,
+        )
+      ) {
         dispatch(
           setMeteoriteData({
             radius: newRadius,
