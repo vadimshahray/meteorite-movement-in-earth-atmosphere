@@ -34,9 +34,9 @@ export const useActiveCameraPosition = () => {
 
   if (activeCamera === '@SideViewCamera') {
     return new THREE.Vector3(
-      meteoritePosition.x + getRadiusCoefficient(meteoriteRadius),
+      velocityVector.y,
       meteoritePosition.y,
-      meteoritePosition.z,
+      velocityVector.x,
     )
   }
 
