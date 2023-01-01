@@ -54,7 +54,9 @@ export const AtmosphereLayersChartTooltip = ({
   )
 }
 
-function getAtmosphereLayerName(meters: number) {
+function getAtmosphereLayerName(km: number) {
+  const meters = km * 1000
+
   if (meters <= EARTH.ATMOSPHERE_LAYERS_HEIGHTS.TROPOSPHERE) return 'Тропосфера'
 
   if (meters <= EARTH.ATMOSPHERE_LAYERS_HEIGHTS.STRATOSPHERE)
