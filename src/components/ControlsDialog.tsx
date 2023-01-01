@@ -6,6 +6,7 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Tooltip,
 } from '@mui/material'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
@@ -30,7 +31,10 @@ export const ControlsDialog = () => {
           <b>Интерактивные контроллеры</b> - это способ задать настройки
           приложения, используя вместо полей ввода данных клавиатуру или
           мышь/тачпад. Настройки, которые можно изменить при помощи
-          интерактивного контроллера помечены <MouseOutlined fontSize='small' />{' '}
+          интерактивного контроллера помечены{' '}
+          <Tooltip title='**Текст инструкции по применению интерактивного контроллера**'>
+            <MouseOutlined fontSize='small' />
+          </Tooltip>{' '}
           иконкой. Чтобы узнать как воспользоваться интерактивным контроллером,
           достаточно навести курсор мыши на такую иконку, и вам покажется
           необходимая инструкция.
