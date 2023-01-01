@@ -17,10 +17,7 @@ export const useActiveCameraPosition = () => {
   const velocityVector = ratioVector(
     getVectorFromAngelAndVector(meteoriteRotationAngle, {
       x: 0,
-      y:
-        activeCamera === '@BackViewCamera'
-          ? meteoritePosition.y
-          : meteoritePosition.y,
+      y: meteoritePosition.y,
     }),
   )
 
