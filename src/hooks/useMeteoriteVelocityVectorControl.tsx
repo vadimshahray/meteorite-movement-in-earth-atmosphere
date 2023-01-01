@@ -1,6 +1,10 @@
 import { PointerEvent } from 'react'
 import { useSelector } from 'react-redux'
-import { selectMeteoriteVelocityVector, selectModelingStatus } from 'selectors'
+import {
+  selectInteractiveControlValue,
+  selectMeteoriteVelocityVector,
+  selectModelingStatus,
+} from 'selectors'
 import { setMeteoriteData } from 'slices'
 import { getVectorFromAngelAndVector } from 'utils'
 import { useDispatch } from './useDispatch'
@@ -12,7 +16,11 @@ export const useMeteoriteVelocityVectorControl = () => {
   const dispatch = useDispatch()
 
   const modelingStatus = useSelector(selectModelingStatus)
+
   const velocityVector = useSelector(selectMeteoriteVelocityVector)
+  const velocityVectorControl = useSelector(
+    selectInteractiveControlValue('@MeteoriteVelocityVectorControl'),
+  )
 
   const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
     isPointerDown = true
@@ -26,7 +34,8 @@ export const useMeteoriteVelocityVectorControl = () => {
   const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
     if (!isPointerDown) return
 
-    const angle = Math.sign(pointerScreenX - e.screenX) * 0.05
+    const angle =
+      Math.sign(pointerScreenX - e.screenX) * velocityVectorControl * 0.1
     const newVector = getVectorFromAngelAndVector(angle, velocityVector)
 
     dispatch(

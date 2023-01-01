@@ -6,6 +6,7 @@ const initialState: ConfigurationSliceState = {
   interactiveControlsValues: {
     '@MeteoriteDistanceControl': 4 * 1000,
     '@MeteoriteRadiusControl': 1 * 1000,
+    '@MeteoriteVelocityVectorControl': 0.5,
   },
 
   isControlsDialogVisible: true,

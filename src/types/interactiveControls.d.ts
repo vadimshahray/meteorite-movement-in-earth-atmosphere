@@ -1,6 +1,7 @@
 type MeteoriteInteractiveControls =
   | '@MeteoriteRadiusControl'
   | '@MeteoriteDistanceControl'
+  | '@MeteoriteVelocityVectorControl'
 
 type InteractiveControls = MeteoriteInteractiveControls
 
