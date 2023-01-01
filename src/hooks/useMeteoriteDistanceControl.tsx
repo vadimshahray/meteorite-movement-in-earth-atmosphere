@@ -11,7 +11,9 @@ export const useMeteoriteDistanceControl = () => {
   const dispatch = useDispatch()
 
   const distance = useSelector(selectMeteoriteDistance)
-  const distanceControl = useSelector(selectInteractiveControlValue('distance'))
+  const distanceControl = useSelector(
+    selectInteractiveControlValue('@MeteoriteDistanceControl'),
+  )
 
   const onWheel = useCallback(
     ({ deltaY, altKey }: Pick<WheelEvent, 'deltaY' | 'altKey'>) => {

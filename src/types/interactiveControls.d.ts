@@ -1,3 +1,7 @@
-type MeteoriteInteractiveControls = Pick<MeteoriteModel, 'distance' | 'radius'>
+type MeteoriteInteractiveControls =
+  | '@MeteoriteRadiusControl'
+  | '@MeteoriteDistanceControl'
 
 type InteractiveControls = MeteoriteInteractiveControls
+
+type InteractiveControlsData = Record<InteractiveControls, number>

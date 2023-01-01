@@ -2,7 +2,7 @@
 type ConfigurationSliceState = {
   invalidUserInputCount: number
 
-  interactiveControlsValues: InteractiveControls
+  interactiveControlsValues: InteractiveControlsData
 
   isControlsDialogVisible: boolean
 }
@@ -20,7 +20,7 @@ interface ConfigurationSlice
   setInteractiveControlValue(
     state: ConfigurationSliceState,
     action: PayloadAction<{
-      control: keyof InteractiveControls
+      control: InteractiveControls
       value: number
     }>,
   )

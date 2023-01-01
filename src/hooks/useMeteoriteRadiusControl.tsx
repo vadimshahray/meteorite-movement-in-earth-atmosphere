@@ -8,7 +8,9 @@ export const useMeteoriteRadiusControl = () => {
   const dispatch = useDispatch()
 
   const radius = useSelector(selectMeteoriteRadius)
-  const radiusControl = useSelector(selectInteractiveControlValue('radius'))
+  const radiusControl = useSelector(
+    selectInteractiveControlValue('@MeteoriteRadiusControl'),
+  )
 
   const onWheel = useCallback(
     ({ deltaY, altKey }: Pick<WheelEvent, 'deltaY' | 'altKey'>) => {

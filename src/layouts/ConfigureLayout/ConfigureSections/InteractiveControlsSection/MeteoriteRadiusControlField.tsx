@@ -9,11 +9,13 @@ export const MeteoriteRadiusControlField = () => {
   const dispatch = useDispatch()
 
   const radiusControlValue = useSelector(
-    selectInteractiveControlValue('radius'),
+    selectInteractiveControlValue('@MeteoriteRadiusControl'),
   )
 
   const onChange = (value: number) => {
-    dispatch(setInteractiveControlValue({ control: 'radius', value }))
+    dispatch(
+      setInteractiveControlValue({ control: '@MeteoriteRadiusControl', value }),
+    )
   }
 
   return (

@@ -9,11 +9,16 @@ export const MeteoriteDistanceControlField = () => {
   const dispatch = useDispatch()
 
   const distanceControlValue = useSelector(
-    selectInteractiveControlValue('distance'),
+    selectInteractiveControlValue('@MeteoriteDistanceControl'),
   )
 
   const onChange = (value: number) => {
-    dispatch(setInteractiveControlValue({ control: 'distance', value }))
+    dispatch(
+      setInteractiveControlValue({
+        control: '@MeteoriteDistanceControl',
+        value,
+      }),
+    )
   }
 
   return (

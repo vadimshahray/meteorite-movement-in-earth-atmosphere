@@ -4,8 +4,8 @@ const initialState: ConfigurationSliceState = {
   invalidUserInputCount: 0,
 
   interactiveControlsValues: {
-    distance: 4 * 1000,
-    radius: 1 * 1000,
+    '@MeteoriteDistanceControl': 4 * 1000,
+    '@MeteoriteRadiusControl': 1 * 1000,
   },
 
   isControlsDialogVisible: true,
