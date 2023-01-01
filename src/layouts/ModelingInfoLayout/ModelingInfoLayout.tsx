@@ -17,7 +17,7 @@ export const ModelingInfoLayout = () => {
   }, [setTitle, setIcon])
 
   return (
-    <Container>
+    <Container disableGuttersV>
       <CameraSettings />
 
       <ChartsSection />

@@ -6,7 +6,7 @@ import { MeteoriteSettings } from './MeteoriteSection'
 /** Секции конфигурации */
 export const ConfigureSections = () => {
   return (
-    <Container sx={{ paddingTop: 0, paddingBottom: 0 }}>
+    <Container disableGuttersV>
       <MeteoriteSettings />
 
       <InteractiveControlsSection />
