@@ -23,7 +23,7 @@ export const VelocityVectorXField = () => {
     <SliderTextField
       min={METEORITE_LIMITS.VELOCITY_VECTOR_MIN}
       max={METEORITE_LIMITS.VELOCITY_VECTOR_MAX}
-      step={0.5}
+      step={0.0001}
       label='Вектор скорости, X коорд.'
       adornment='𝓥⃗₁'
       value={vectorX}
