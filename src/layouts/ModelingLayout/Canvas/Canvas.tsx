@@ -15,8 +15,8 @@ export const Canvas = () => {
   const velocityVectorControl = useMeteoriteVelocityVectorControl()
 
   const onWheel = (e: WheelEvent<HTMLDivElement>) => {
-    onDistanceWheel(e)
-    onRadiusWheel(e)
+    onDistanceWheel?.(e)
+    onRadiusWheel?.(e)
   }
 
   return (

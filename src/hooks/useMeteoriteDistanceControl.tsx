@@ -3,12 +3,15 @@ import { useSelector } from 'react-redux'
 import {
   selectInteractiveControlValue,
   selectMeteoriteDistance,
+  selectModelingStatus,
 } from 'selectors'
 import { setMeteoriteData } from 'slices'
 import { useDispatch } from './useDispatch'
 
 export const useMeteoriteDistanceControl = () => {
   const dispatch = useDispatch()
+
+  const modelingStatus = useSelector(selectModelingStatus)
 
   const distance = useSelector(selectMeteoriteDistance)
   const distanceControl = useSelector(
@@ -33,6 +36,6 @@ export const useMeteoriteDistanceControl = () => {
   )
 
   return {
-    onWheel,
+    onWheel: modelingStatus === 'idle' ? onWheel : undefined,
   }
 }

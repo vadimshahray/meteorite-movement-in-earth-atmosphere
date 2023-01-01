@@ -1,11 +1,17 @@
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
-import { selectInteractiveControlValue, selectMeteoriteRadius } from 'selectors'
+import {
+  selectInteractiveControlValue,
+  selectMeteoriteRadius,
+  selectModelingStatus,
+} from 'selectors'
 import { setMeteoriteData } from 'slices'
 import { useDispatch } from './useDispatch'
 
 export const useMeteoriteRadiusControl = () => {
   const dispatch = useDispatch()
+
+  const modelingStatus = useSelector(selectModelingStatus)
 
   const radius = useSelector(selectMeteoriteRadius)
   const radiusControl = useSelector(
@@ -30,6 +36,6 @@ export const useMeteoriteRadiusControl = () => {
   )
 
   return {
-    onWheel,
+    onWheel: modelingStatus === 'idle' ? onWheel : undefined,
   }
 }
