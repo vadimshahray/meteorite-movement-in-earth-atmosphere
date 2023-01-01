@@ -24,9 +24,9 @@ export const MeteoriteDistanceControlField = () => {
   return (
     <SliderTextField
       label='Контроллер расстояния метеорита, м'
-      min={500}
-      max={100 * 1000}
-      step={1000}
+      min={100}
+      max={10 * 1000}
+      step={100}
       value={distanceControlValue}
       onChange={onChange}
       EndIcon={InfoOutlined}

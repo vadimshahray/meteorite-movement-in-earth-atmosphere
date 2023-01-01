@@ -4,8 +4,8 @@ const initialState: ConfigurationSliceState = {
   invalidUserInputCount: 0,
 
   interactiveControlsValues: {
-    '@MeteoriteDistanceControl': 4 * 1000,
-    '@MeteoriteRadiusControl': 1 * 1000,
+    '@MeteoriteRadiusControl': 5 * 1000,
+    '@MeteoriteDistanceControl': 5 * 1000,
     '@MeteoriteVelocityVectorControl': 0.5,
   },
 
