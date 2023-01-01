@@ -1,7 +1,3 @@
-export const selectMeteoriteData =
-  (property: keyof MeteoriteSliceState) => (state: RootState) =>
-    state.meteorite[property]
-
 export const selectMeteoriteDistance = (state: RootState) =>
   state.meteorite.distance
 
