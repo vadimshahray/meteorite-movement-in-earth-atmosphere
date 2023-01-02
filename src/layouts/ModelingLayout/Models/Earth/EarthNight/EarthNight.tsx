@@ -14,6 +14,7 @@ type GLTFResult = GLTF & {
     color: THREE.MeshStandardMaterial
   }
 }
+export const EARTH_NIGHT_MODEL_RADUIS = 1.7320494310588754
 
 const EarthNightModel = React.memo(
   (props: MeshProps) => {

@@ -15,6 +15,8 @@ type GLTFResult = GLTF & {
   }
 }
 
+export const EARTH_LIGHT_MODEL_RADIUS = 1.7353594410588759
+
 const EarthLightModel = React.memo(
   (props: MeshProps) => {
     const { nodes, materials } = useGLTF(
