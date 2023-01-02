@@ -3,6 +3,7 @@ import {
   calculateCollisionTime,
   calculateMeteoriteVelocity,
   clearModelingData,
+  initializeModelingMeteoriteData,
 } from 'slices/modeling.slice'
 import { ticksToTimer } from 'utils'
 import {
@@ -47,6 +48,13 @@ export const modelingInfoSlice = createSlice<
 
   extraReducers: (builder) => {
     builder
+      .addCase(
+        initializeModelingMeteoriteData.fulfilled,
+        (state, { payload }) => {
+          state.meteoriteVelocity.average = payload.velocity
+        },
+      )
+
       .addCase(setModelingChartsPoints.fulfilled, (state) => {
         state.pointsPassed++
       })
