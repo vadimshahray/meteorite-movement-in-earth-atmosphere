@@ -1,13 +1,13 @@
 import { Depth, LayerMaterial } from 'lamina'
 import * as THREE from 'three'
 import { angleToPI } from 'utils'
-import { EARTH_NIGHT_MODEL_RADIUS } from './EarthNight'
+import { EARTH_NIGHT_RADIUS } from './EarthNight'
 
 export const SunLightStroke = () => {
   const near = 1
   const far = 1.03
   const color = '#8bb6e1'
-  const scale = EARTH_NIGHT_MODEL_RADIUS
+  const scale = EARTH_NIGHT_RADIUS
 
   return (
     <mesh rotation={[angleToPI(-90), 0, 0]}>

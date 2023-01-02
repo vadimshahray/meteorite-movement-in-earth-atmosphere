@@ -1,5 +1,6 @@
 import { useGLTF } from '@react-three/drei'
 import { MeshProps } from '@react-three/fiber'
+import { EARTH } from 'consts'
 import React from 'react'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
@@ -15,6 +16,8 @@ type GLTFResult = GLTF & {
   }
 }
 export const EARTH_NIGHT_MODEL_RADIUS = 1.7320494310588754
+export const EARTH_NIGHT_RADIUS =
+  (1.0 / EARTH_NIGHT_MODEL_RADIUS) * EARTH.RADIUS * 0.00001
 
 const EarthNightModel = React.memo(
   (props: MeshProps) => {
