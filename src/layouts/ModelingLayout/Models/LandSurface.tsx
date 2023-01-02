@@ -5,7 +5,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectThemeColorMode } from 'selectors'
 
-export default React.memo(({ visible, ...props }: GroupProps) => {
+export default React.memo((props: GroupProps) => {
   const colorMode = useSelector(selectThemeColorMode)
   const EarthRadius = useEarthRadius()
 
