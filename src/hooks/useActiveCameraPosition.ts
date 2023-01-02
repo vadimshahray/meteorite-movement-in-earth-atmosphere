@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 import { selectActiveCamera, selectModelingStatus } from 'selectors'
 import * as THREE from 'three'
 import { getVectorFromAngelAndVector, ratioVector } from 'utils'
+import { useEarthRadius } from './useEarthRadius'
 import { useMeteoriteRadius } from './useMeteoirteRadius'
 import { useMeteoritePosition } from './useMeteoritePosition'
 import { useMeteoriteRotationAngel } from './useMeteoriteRotationAngel'
@@ -9,6 +10,8 @@ import { useMeteoriteRotationAngel } from './useMeteoriteRotationAngel'
 export const useActiveCameraPosition = () => {
   const activeCamera = useSelector(selectActiveCamera)
   const modelingStatus = useSelector(selectModelingStatus)
+
+  const EarthRadius = useEarthRadius()
 
   const meteoriteRadius = useMeteoriteRadius()
   const meteoritePosition = useMeteoritePosition()
@@ -40,7 +43,7 @@ export const useActiveCameraPosition = () => {
     )
   }
 
-  return new THREE.Vector3(0, 1, 0)
+  return new THREE.Vector3(0, EarthRadius, 0)
 }
 
 const getRadiusCoefficient = (radius: number) => {
