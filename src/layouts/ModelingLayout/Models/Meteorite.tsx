@@ -1,4 +1,4 @@
-import { Sphere, useGLTF } from '@react-three/drei'
+import { useGLTF } from '@react-three/drei'
 import { MeshProps } from '@react-three/fiber'
 import { useMeteoritePosition, useMeteoriteRadius } from 'hooks'
 import React from 'react'
@@ -41,16 +41,5 @@ export const Meteorite = React.memo(() => {
   const { scale } = useMeteoriteRadius()
   const position = useMeteoritePosition()
 
-  return (
-    <>
-      <Sphere
-        args={[0.02029021680565431 - 0.00188, 100, 100]}
-        scale={scale}
-        position={position}
-      >
-        <meshStandardMaterial color='hotpink' transparent opacity={0.1} />
-      </Sphere>
-      <MeteoriteModel scale={scale} position={position} />
-    </>
-  )
+  return <MeteoriteModel scale={scale} position={position} />
 })
