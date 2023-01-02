@@ -13,7 +13,7 @@ export const useMeteoritePosition = () => {
 
   return new THREE.Vector3(
     0,
-    EarthRadius + meteoriteRadius.radius + scaleMeters(distance),
+    EarthRadius + meteoriteRadius + scaleMeters(distance),
     0,
   )
 }

@@ -10,7 +10,7 @@ export const useActiveCameraPosition = () => {
   const activeCamera = useSelector(selectActiveCamera)
   const modelingStatus = useSelector(selectModelingStatus)
 
-  const meteoriteRadius = useMeteoriteRadius().radius
+  const meteoriteRadius = useMeteoriteRadius()
   const meteoritePosition = useMeteoritePosition()
   const meteoriteRotationAngle = useMeteoriteRotationAngel()
 
