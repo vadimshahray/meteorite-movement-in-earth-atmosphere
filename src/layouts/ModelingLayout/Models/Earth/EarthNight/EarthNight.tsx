@@ -1,5 +1,5 @@
 import { useGLTF } from '@react-three/drei'
-import { MeshProps } from '@react-three/fiber'
+import { GroupProps, MeshProps } from '@react-three/fiber'
 import { EARTH } from 'consts'
 import React from 'react'
 import * as THREE from 'three'
@@ -16,8 +16,10 @@ type GLTFResult = GLTF & {
   }
 }
 export const EARTH_NIGHT_MODEL_RADIUS = 1.7320494310588754
-export const EARTH_NIGHT_RADIUS =
-  (1.0 / EARTH_NIGHT_MODEL_RADIUS) * EARTH.RADIUS * 0.00001
+const EARTH_NIGHT_MODEL_RADIUS_SCALE = 1.0 / EARTH_NIGHT_MODEL_RADIUS
+
+export const EARTH_NIGHT_RADIUS_SCALE =
+  EARTH_NIGHT_MODEL_RADIUS_SCALE * EARTH.RADIUS * 0.00001
 
 const EarthNightModel = React.memo(
   (props: MeshProps) => {
@@ -40,10 +42,10 @@ const EarthNightModel = React.memo(
   () => true,
 )
 
-export default React.memo(({ visible, ...props }: MeshProps) => {
+export default React.memo(({ visible }: GroupProps) => {
   return (
     <group visible={visible}>
-      <EarthNightModel {...props} />
+      <EarthNightModel scale={EARTH_NIGHT_RADIUS_SCALE} />
       <SunLightStroke />
     </group>
   )
