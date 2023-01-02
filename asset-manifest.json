@@ -1,19 +1,13 @@
 {
   "files": {
     "main.css": "/meteorite-movement-in-earth-atmosphere/static/css/main.04e5f30e.css",
-    "main.js": "/meteorite-movement-in-earth-atmosphere/static/js/main.af90a5d5.js",
-    "static/js/319.dde01eef.chunk.js": "/meteorite-movement-in-earth-atmosphere/static/js/319.dde01eef.chunk.js",
-    "static/js/927.d4e6987b.chunk.js": "/meteorite-movement-in-earth-atmosphere/static/js/927.d4e6987b.chunk.js",
-    "static/js/375.d1344e31.chunk.js": "/meteorite-movement-in-earth-atmosphere/static/js/375.d1344e31.chunk.js",
+    "main.js": "/meteorite-movement-in-earth-atmosphere/static/js/main.094a41ee.js",
     "index.html": "/meteorite-movement-in-earth-atmosphere/index.html",
     "main.04e5f30e.css.map": "/meteorite-movement-in-earth-atmosphere/static/css/main.04e5f30e.css.map",
-    "main.af90a5d5.js.map": "/meteorite-movement-in-earth-atmosphere/static/js/main.af90a5d5.js.map",
-    "319.dde01eef.chunk.js.map": "/meteorite-movement-in-earth-atmosphere/static/js/319.dde01eef.chunk.js.map",
-    "927.d4e6987b.chunk.js.map": "/meteorite-movement-in-earth-atmosphere/static/js/927.d4e6987b.chunk.js.map",
-    "375.d1344e31.chunk.js.map": "/meteorite-movement-in-earth-atmosphere/static/js/375.d1344e31.chunk.js.map"
+    "main.094a41ee.js.map": "/meteorite-movement-in-earth-atmosphere/static/js/main.094a41ee.js.map"
   },
   "entrypoints": [
     "static/css/main.04e5f30e.css",
-    "static/js/main.af90a5d5.js"
+    "static/js/main.094a41ee.js"
   ]
 }
