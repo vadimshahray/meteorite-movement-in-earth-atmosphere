@@ -3,10 +3,17 @@ import { selectMeteoriteDistance } from 'selectors'
 import * as THREE from 'three'
 import { scaleMeters } from 'utils'
 import { useEarthRadius } from './useEarthRadius'
+import { useMeteoriteRadius } from './useMeteoirteRadius'
 
 export const useMeteoritePosition = () => {
   const EarthRadius = useEarthRadius()
-  const y0 = scaleMeters(useSelector(selectMeteoriteDistance))
+  const meteoriteRadius = useMeteoriteRadius()
 
-  return new THREE.Vector3(0, EarthRadius + y0, 0)
+  const distance = useSelector(selectMeteoriteDistance)
+
+  return new THREE.Vector3(
+    0,
+    EarthRadius + meteoriteRadius.radius + scaleMeters(distance),
+    0,
+  )
 }
