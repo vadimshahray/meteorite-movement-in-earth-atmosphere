@@ -14,12 +14,17 @@ export const setModelingChartsPoints = createAsyncThunk<
   void,
   boolean,
   { state: RootState; dispatch: AppDispatch }
->('modelingInfo/setGraphicsPoints', (isLastPoint, { getState, dispatch }) => {
-  const pointsPassed = getState().modelingInfo.pointsPassed
+>(
+  'modelingInfo/setGraphicsPoints',
+  async (isLastPoint, { getState, dispatch }) => {
+    const pointsPassed = getState().modelingInfo.pointsPassed
 
-  dispatch(setVelocityGraphicPoints({ isLastPoint, pointsPassed }))
-  dispatch(setDistanceGraphicPoints({ isLastPoint, pointsPassed }))
-})
+    await Promise.all([
+      dispatch(setVelocityGraphicPoints({ isLastPoint, pointsPassed })),
+      dispatch(setDistanceGraphicPoints({ isLastPoint, pointsPassed })),
+    ])
+  },
+)
 
 export const setVelocityGraphicPoints = createAsyncThunk<
   {

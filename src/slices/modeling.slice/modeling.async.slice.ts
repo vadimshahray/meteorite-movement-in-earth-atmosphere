@@ -15,10 +15,10 @@ export const startModeling = createAsyncThunk<
   void,
   { dispatch: AppDispatch }
 >('modeling/start', async (_, { dispatch }) => {
-  dispatch(clearModelingData())
-  dispatch(initializeModelingMeteoriteData())
+  await dispatch(clearModelingData())
+  await dispatch(initializeModelingMeteoriteData())
 
-  dispatch(
+  await dispatch(
     startModelingTimer(() => {
       dispatch(calculateMeteoriteData())
     }),
@@ -45,16 +45,16 @@ export const stopModeling = createAsyncThunk<
   void,
   void,
   { dispatch: AppDispatch }
->('modeling/stop', (_, { dispatch }) => {
-  dispatch(stopModelingTimer())
+>('modeling/stop', async (_, { dispatch }) => {
+  await dispatch(stopModelingTimer())
 })
 
 export const restartModeling = createAsyncThunk<
   void,
   void,
   { dispatch: AppDispatch }
->('modeling/restart', (_, { dispatch }) => {
-  dispatch(
+>('modeling/restart', async (_, { dispatch }) => {
+  await dispatch(
     startModelingTimer(() => {
       dispatch(calculateMeteoriteData())
     }),
@@ -65,35 +65,35 @@ export const cancelModeling = createAsyncThunk<
   void,
   void,
   { dispatch: AppDispatch }
->('modeling/cancel', (_, { dispatch }) => {
-  dispatch(stopModelingTimer())
+>('modeling/cancel', async (_, { dispatch }) => {
+  await dispatch(stopModelingTimer())
 })
 
 export const finishModeling = createAsyncThunk<
   void,
   void,
   { dispatch: AppDispatch }
->('modeling/finish', (_, { dispatch }) => {
-  dispatch(stopModelingTimer())
+>('modeling/finish', async (_, { dispatch }) => {
+  await dispatch(stopModelingTimer())
 })
 
 const calculateMeteoriteData = createAsyncThunk<
   void,
   void,
   { state: RootState; dispatch: AppDispatch }
->('modeling/calculateMeteoriteData', (_, { getState, dispatch }) => {
+>('modeling/calculateMeteoriteData', async (_, { getState, dispatch }) => {
   const distance = getState().modeling.meteorite.distance
 
-  dispatch(setModelingChartsPoints(distance <= 0))
+  await dispatch(setModelingChartsPoints(distance <= 0))
 
   if (distance <= 0) {
-    dispatch(finishModeling())
+    await dispatch(finishModeling())
     return
   }
 
-  dispatch(calculateMeteoriteVelocity())
-  dispatch(calculateMeteoriteDistance())
-  dispatch(calculateCollisionTime())
+  await dispatch(calculateMeteoriteVelocity())
+  await dispatch(calculateMeteoriteDistance())
+  await dispatch(calculateCollisionTime())
 })
 
 export const calculateMeteoriteVelocity = createAsyncThunk<
@@ -103,7 +103,7 @@ export const calculateMeteoriteVelocity = createAsyncThunk<
 >('modeling/calculateMeteoriteVelocity', (_, { getState }) => {
   const Vi = selectModelingMeteoriteVelocity(getState())
 
-  return Vi + 10
+  return Vi
 })
 
 export const calculateMeteoriteDistance = createAsyncThunk<
@@ -149,8 +149,8 @@ const startModelingTimer = createAsyncThunk<
   }, CALCULATION_INTERVAL_MS)
 })
 
-const stopModelingTimer = createAsyncThunk('modeling/stopTimer', () => {
-  clearInterval(interval)
+const stopModelingTimer = createAsyncThunk('modeling/stopTimer', async () => {
+  await clearInterval(interval)
 })
 
 export const setModelingTimerTime = createAsyncThunk<Timer, number>(
