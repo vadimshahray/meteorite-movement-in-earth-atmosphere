@@ -1,12 +1,11 @@
-import { Button } from 'components'
 import { useDispatch } from 'hooks'
 import { errorSnackbar } from 'utils'
 import { startModeling } from 'slices'
 import { useSnackbar } from 'notistack'
 import { useSelector } from 'react-redux'
-import { Container, Tooltip } from '@mui/material'
 import { PlayArrowOutlined } from '@mui/icons-material'
 import { selectInvalidUserInputCount } from 'selectors'
+import { Container, Tooltip, Button } from '@mui/material'
 
 /** Кнопка запуска моделирования */
 export const StartModelingButton = () => {
