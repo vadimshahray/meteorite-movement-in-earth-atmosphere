@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import { Container } from 'components'
 import { ChartsSection } from './ChartsSection'
-import { CameraSettings } from './CameraSettings'
+import { CameraSection } from './CameraSection'
 import { PublicOutlined } from '@mui/icons-material'
+import { ModelingInfoSection } from './ModelingInfoSection'
 import { useModelingFinishedSnackbar, useToolbar } from 'hooks'
-import { ModelingInfoSection } from './ModelingMeteoriteSection'
 
 export const ModelingInfoLayout = () => {
   const { setTitle, setIcon } = useToolbar()
@@ -18,7 +18,7 @@ export const ModelingInfoLayout = () => {
 
   return (
     <Container disableGuttersV>
-      <CameraSettings />
+      <CameraSection />
 
       <ChartsSection />
 

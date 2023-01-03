@@ -5,7 +5,7 @@ import { setActiveCamera } from 'slices'
 import { useSelector } from 'react-redux'
 import { selectActiveCamera } from 'selectors'
 
-export const CameraToggler = () => {
+export const ActiveCameraToggler = () => {
   const dispatch = useDispatch()
   const sceneActiveCamera = useSelector(selectActiveCamera)
 

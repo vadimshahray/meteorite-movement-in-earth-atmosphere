@@ -1,13 +1,15 @@
 import { Divider } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { Item, Section } from 'components'
-import { CollisionTime } from './CollisionTime'
 import { selectModelingStatus } from 'selectors'
 import { InfoOutlined } from '@mui/icons-material'
-import { ModelingMeteoriteDistance } from './ModelingMeteoriteDistance'
-import { ModelingMeteoriteVelocity } from './ModelingMeteoriteVelocity'
-import { ModelingMeteoriteMaxVelocity } from './ModelingMeteoriteMaxVelocity'
-import { ModelingMeteoriteAverageVelocity } from './ModelingMeteoriteAverageVelocity'
+import {
+  CollisionTime,
+  ModelingMeteoriteDistance,
+  ModelingMeteoriteVelocity,
+  ModelingMeteoriteMaxVelocity,
+  ModelingMeteoriteAverageVelocity,
+} from './InfoItems'
 
 export const ModelingInfoSection = () => {
   const modelingStatus = useSelector(selectModelingStatus)
