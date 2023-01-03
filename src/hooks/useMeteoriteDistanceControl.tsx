@@ -1,8 +1,8 @@
+import { useDispatch } from 'hooks'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { METEORITE_LIMITS } from 'consts'
 import { setMeteoriteData } from 'slices'
-import { useDispatch } from './useDispatch'
 import { isNumberBetweenMinMax } from 'utils'
 import {
   selectModelingStatus,
