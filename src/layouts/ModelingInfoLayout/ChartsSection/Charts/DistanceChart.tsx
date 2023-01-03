@@ -1,5 +1,5 @@
-import { AtmosphereLayersChart } from 'components'
 import { useActiveChartPoints } from 'hooks'
+import { AtmosphereLayersChart } from 'components'
 import { CHART_LAST_POINTS_AMOUNT, CALCULATION_INTERVAL_MS } from 'slices'
 import { metersToDistanceString, ticksToString, ticksToTimer } from 'utils'
 

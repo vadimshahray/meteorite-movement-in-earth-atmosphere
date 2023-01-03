@@ -1,6 +1,6 @@
-import { Divider, Paper, Stack, Typography } from '@mui/material'
 import { EARTH } from 'consts'
 import { TooltipProps } from 'recharts'
+import { Divider, Paper, Stack, Typography } from '@mui/material'
 
 export const AtmosphereLayersChartTooltip = ({
   active,

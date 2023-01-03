@@ -1,7 +1,7 @@
 import { EARTH } from 'consts'
+import { ChartContainer } from '../ChartContainer'
 import { useAreaBaseProps, useBaseChartElementsProps } from 'hooks'
 import { Area, AreaChart, ReferenceLine, XAxis, YAxis } from 'recharts'
-import { ChartContainer } from '../ChartContainer'
 
 export type AtmosphereLayersChartBackgroundProps = {
   maxY?: number

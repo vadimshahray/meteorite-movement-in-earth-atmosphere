@@ -1,7 +1,7 @@
-import TimerOutlinedIcon from '@mui/icons-material/TimerOutlined'
-import { Box, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
+import { Box, Typography } from '@mui/material'
 import { selectModelingTimer } from 'selectors'
+import { TimerOutlined } from '@mui/icons-material'
 
 export const ModelingTimer = () => {
   const { hours, minutes, seconds, milliseconds } =
@@ -16,7 +16,7 @@ export const ModelingTimer = () => {
     <>
       {/**@ts-ignore */}
       <Box display='flex' alignItems='center'>
-        <TimerOutlinedIcon sx={{ marginRight: '2px' }} fontSize='small' />
+        <TimerOutlined sx={{ marginRight: '2px' }} fontSize='small' />
 
         <Typography fontFamily='Fira Code'>{timeString}</Typography>
       </Box>

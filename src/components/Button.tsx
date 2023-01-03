@@ -1,6 +1,6 @@
 import {
-  ButtonProps as MUIButtonProps,
   Button as MUIButton,
+  ButtonProps as MUIButtonProps,
 } from '@mui/material'
 
 /** Основная кнопка */

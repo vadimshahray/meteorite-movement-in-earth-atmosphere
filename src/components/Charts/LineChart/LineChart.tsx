@@ -1,15 +1,14 @@
-import { useTheme } from '@mui/material'
+import { ChartTooltip } from '../ChartTooltip'
 import { useBaseChartElementsProps } from 'hooks'
+import { ChartContainer } from '../ChartContainer'
 import {
-  CartesianGrid,
   Line,
-  LineChart as RCLineChart,
-  Tooltip,
   XAxis,
   YAxis,
+  Tooltip,
+  CartesianGrid,
+  LineChart as RCLineChart,
 } from 'recharts'
-import { ChartContainer } from '../ChartContainer'
-import { ChartTooltip } from '../ChartTooltip'
 
 export type LineChartProps = {
   points: ChartPoint[]

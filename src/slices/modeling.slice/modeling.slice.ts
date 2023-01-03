@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
 import {
-  calculateMeteoriteDistance,
-  calculateMeteoriteVelocity,
+  stopModeling,
+  startModeling,
   cancelModeling,
   finishModeling,
-  initializeModelingMeteoriteData,
   restartModeling,
   setModelingTimerTime,
-  startModeling,
-  stopModeling,
+  calculateMeteoriteDistance,
+  calculateMeteoriteVelocity,
+  initializeModelingMeteoriteData,
 } from './modeling.async.slice'
 
 const initialState: ModelingSliceState = {

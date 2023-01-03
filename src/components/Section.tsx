@@ -1,7 +1,7 @@
+import { Container } from './Container'
+import { useState, PropsWithChildren } from 'react'
 import { ExpandLess, ExpandMore } from '@mui/icons-material'
 import { Collapse, IconButton, Stack, Tooltip, Typography } from '@mui/material'
-import { useState, PropsWithChildren } from 'react'
-import { Container } from './Container'
 
 export type SectionProps = {
   title: string

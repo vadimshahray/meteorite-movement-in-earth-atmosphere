@@ -1,13 +1,13 @@
 import { PointerEvent } from 'react'
 import { useSelector } from 'react-redux'
-import {
-  selectInteractiveControlValue,
-  selectMeteoriteVelocityVector,
-  selectModelingStatus,
-} from 'selectors'
 import { setMeteoriteData } from 'slices'
-import { getVectorFromAngelAndVector } from 'utils'
 import { useDispatch } from './useDispatch'
+import { getVectorFromAngelAndVector } from 'utils'
+import {
+  selectModelingStatus,
+  selectMeteoriteVelocityVector,
+  selectInteractiveControlValue,
+} from 'selectors'
 
 let isPointerDown = false
 let pointerScreenX = 0

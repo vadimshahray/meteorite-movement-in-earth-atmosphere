@@ -1,10 +1,9 @@
-import { FullContainer } from 'components'
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { selectModelingStatus } from 'selectors'
-import { styleClasses } from 'utils'
 import { Canvas } from './Canvas'
+import { styleClasses } from 'utils'
+import { useSelector } from 'react-redux'
+import { FullContainer } from 'components'
 import styles from './modelingLayout.module.css'
+import { selectModelingStatus } from 'selectors'
 import { ShowControlsDialogButton } from './ShowControlsDialogButton'
 
 /**

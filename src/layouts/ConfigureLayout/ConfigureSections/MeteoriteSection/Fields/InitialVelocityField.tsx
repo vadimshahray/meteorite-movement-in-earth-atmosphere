@@ -1,9 +1,9 @@
-import { SliderTextField } from 'components'
-import { METEORITE_LIMITS } from 'consts'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
-import { selectMeteoriteInitialVelocity } from 'selectors'
+import { METEORITE_LIMITS } from 'consts'
 import { setMeteoriteData } from 'slices'
+import { SliderTextField } from 'components'
+import { selectMeteoriteInitialVelocity } from 'selectors'
 
 export const InitialVelocityField = () => {
   const dispatch = useDispatch()

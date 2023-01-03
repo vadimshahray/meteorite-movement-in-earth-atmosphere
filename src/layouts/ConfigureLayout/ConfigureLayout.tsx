@@ -1,10 +1,10 @@
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
-import { Container, ProjectDocumentButton, ThemeButton } from 'components'
+import { useEffect } from 'react'
 import { useToolbar } from 'hooks'
-import React, { useEffect } from 'react'
 import { styleClasses } from 'utils'
 import styles from './configureLayout.module.css'
+import { SettingsOutlined } from '@mui/icons-material'
 import { ConfigureSections } from './ConfigureSections'
+import { Container, ProjectDocumentButton, ThemeButton } from 'components'
 
 /**
  * Блок, содержащий все, что связано с настройкой физических моделей (поля ввода данных и т.п.)
@@ -15,7 +15,7 @@ export const ConfigureLayout = ({ className, ...props }: LayoutProps) => {
 
   useEffect(() => {
     setTitle('Настройки приложения')
-    setIcon(SettingsOutlinedIcon)
+    setIcon(SettingsOutlined)
     setActionButtons([<ProjectDocumentButton />, <ThemeButton />])
 
     return () => {

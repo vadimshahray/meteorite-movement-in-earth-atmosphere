@@ -2,7 +2,6 @@ import {
   Container as MUIContainer,
   ContainerProps as MUIContainerProps,
 } from '@mui/material'
-import React from 'react'
 
 export type ContainerProps = MUIContainerProps & {
   disableGuttersH?: boolean

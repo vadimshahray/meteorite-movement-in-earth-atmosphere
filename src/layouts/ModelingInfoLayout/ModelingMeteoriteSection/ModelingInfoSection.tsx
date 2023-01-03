@@ -1,19 +1,19 @@
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined'
 import { Divider } from '@mui/material'
-import { Item, Section } from 'components'
 import { useSelector } from 'react-redux'
-import { selectModelingStatus } from 'selectors'
+import { Item, Section } from 'components'
 import { CollisionTime } from './CollisionTime'
-import { ModelingMeteoriteAverageVelocity } from './ModelingMeteoriteAverageVelocity'
+import { selectModelingStatus } from 'selectors'
+import { InfoOutlined } from '@mui/icons-material'
 import { ModelingMeteoriteDistance } from './ModelingMeteoriteDistance'
-import { ModelingMeteoriteMaxVelocity } from './ModelingMeteoriteMaxVelocity'
 import { ModelingMeteoriteVelocity } from './ModelingMeteoriteVelocity'
+import { ModelingMeteoriteMaxVelocity } from './ModelingMeteoriteMaxVelocity'
+import { ModelingMeteoriteAverageVelocity } from './ModelingMeteoriteAverageVelocity'
 
 export const ModelingInfoSection = () => {
   const modelingStatus = useSelector(selectModelingStatus)
 
   return (
-    <Section title='Полученные сведения' Icon={InfoOutlinedIcon} collapsible>
+    <Section title='Полученные сведения' Icon={InfoOutlined} collapsible>
       {modelingStatus !== 'finished' && (
         <>
           <Item label='Расстояние до столкновения'>

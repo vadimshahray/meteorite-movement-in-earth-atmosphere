@@ -1,5 +1,4 @@
-import { Backdrop, Paper, CircularProgress } from '@mui/material'
-import Typography from '@mui/material/Typography'
+import { Backdrop, Paper, Typography, CircularProgress } from '@mui/material'
 
 export const MainPageSplashScreen = () => {
   return (

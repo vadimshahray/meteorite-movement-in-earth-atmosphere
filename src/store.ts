@@ -1,4 +1,13 @@
+import storage from 'redux-persist/lib/storage'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import {
+  themeSlice,
+  sceneSlice,
+  modelingSlice,
+  meteoriteSlice,
+  modelingInfoSlice,
+  configurationSlice,
+} from 'slices'
 import {
   FLUSH,
   PAUSE,
@@ -9,15 +18,6 @@ import {
   persistStore,
   persistReducer,
 } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
-import {
-  themeSlice,
-  configurationSlice,
-  meteoriteSlice,
-  sceneSlice,
-  modelingInfoSlice,
-} from 'slices'
-import { modelingSlice } from 'slices/modeling.slice'
 
 const persistConfig = {
   key: 'root',
@@ -27,11 +27,11 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   theme: themeSlice.reducer,
-  meteorite: meteoriteSlice.reducer,
-  configuration: configurationSlice.reducer,
-  modeling: modelingSlice.reducer,
   scene: sceneSlice.reducer,
+  modeling: modelingSlice.reducer,
+  meteorite: meteoriteSlice.reducer,
   modelingInfo: modelingInfoSlice.reducer,
+  configuration: configurationSlice.reducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

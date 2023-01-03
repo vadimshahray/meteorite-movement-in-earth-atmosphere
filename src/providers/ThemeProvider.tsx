@@ -4,10 +4,9 @@ import {
   StyledEngineProvider,
   ThemeProvider as MUIThemeProvider,
 } from '@mui/material'
-import React from 'react'
 import { useSelector } from 'react-redux'
-import { selectThemeColorMode } from 'selectors'
 import { theme as appTheme } from 'styles'
+import { selectThemeColorMode } from 'selectors'
 
 /**
  * Провайдер темы приложения

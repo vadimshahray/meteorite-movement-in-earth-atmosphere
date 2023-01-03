@@ -1,6 +1,6 @@
+import React, { useState } from 'react'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { Button, Menu, MenuItem, Typography } from '@mui/material'
-import React, { useState } from 'react'
 
 /** Элемент селектора */
 export type SelectorItem<T> = {

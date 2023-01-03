@@ -1,7 +1,7 @@
-import { Typography } from '@mui/material'
-import { Container } from 'components/Container'
 import { ReactElement } from 'react'
+import { Typography } from '@mui/material'
 import { ResponsiveContainer } from 'recharts'
+import { Container } from 'components/Container'
 
 export type ChartContainerProps = {
   label?: string

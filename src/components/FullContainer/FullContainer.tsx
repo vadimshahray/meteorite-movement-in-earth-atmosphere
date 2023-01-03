@@ -1,7 +1,6 @@
-import { Container, ContainerProps } from 'components'
-import React from 'react'
 import { styleClasses } from 'utils'
 import styles from './fullContainer.module.css'
+import { Container, ContainerProps } from 'components'
 
 /**
  * Базовый контейнер на всю ширину

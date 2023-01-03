@@ -1,7 +1,6 @@
 import { Container } from 'components'
-import React from 'react'
-import { InteractiveControlsSection } from './InteractiveControlsSection'
 import { MeteoriteSettings } from './MeteoriteSection'
+import { InteractiveControlsSection } from './InteractiveControlsSection'
 
 /** Секции конфигурации */
 export const ConfigureSections = () => {

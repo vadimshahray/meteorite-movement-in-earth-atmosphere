@@ -1,9 +1,9 @@
 import { Container } from 'components/Container'
 import { useBaseChartElementsProps } from 'hooks'
+import { ChartContainer } from '../ChartContainer'
+import { AtmosphereLayersChartTooltip } from './AtmosphereLayersChartTooltip'
 import { CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
 import { AtmosphereLayersChartBackground } from './AtmosphereLayersChartBackground'
-import { AtmosphereLayersChartTooltip } from './AtmosphereLayersChartTooltip'
-import { ChartContainer } from '../ChartContainer'
 
 export type AtmosphereLayersChartProps = {
   points: ChartPoint[]
