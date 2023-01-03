@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { ticksToTimer } from 'utils'
+import { ticksToTime } from 'utils'
 import {
   stopModeling,
   startModeling,
@@ -20,7 +20,7 @@ const initialState: ModelingSliceState = {
     velocity: 0,
   },
 
-  time: ticksToTimer(0),
+  time: ticksToTime(0),
 }
 
 export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({

@@ -1,4 +1,4 @@
-import { ticksToTimer } from 'utils'
+import { ticksToTime } from 'utils'
 import { setModelingChartsPoints } from 'slices'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import {
@@ -129,7 +129,7 @@ export const calculateCollisionTime = createAsyncThunk<
   const distance = selectModelingMeteoriteDistance(getState())
 
   // Переводим секунды в миллисекунды, потому скорость измеряется в м/с
-  return ticksToTimer((distance / velocity) * 1000)
+  return ticksToTime((distance / velocity) * 1000)
 })
 
 let interval: NodeJS.Timer
@@ -156,6 +156,6 @@ const stopModelingTimer = createAsyncThunk('modeling/stopTimer', async () => {
 export const setModelingTimerTime = createAsyncThunk<Time, number>(
   'modeling/setTimerTime',
   (ticks) => {
-    return ticksToTimer(ticks)
+    return ticksToTime(ticks)
   },
 )

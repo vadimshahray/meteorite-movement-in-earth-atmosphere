@@ -1,4 +1,4 @@
-export const ticksToTimer = (ticks: number): Time => {
+export const ticksToTime = (ticks: number): Time => {
   return {
     hours: Math.floor(ticks / 1000 / 60 / 60),
     minutes: Math.floor(ticks / 1000 / 60) % 60,
@@ -9,17 +9,17 @@ export const ticksToTimer = (ticks: number): Time => {
 }
 
 export const ticksToString = (ticks: number, timeCoefficient: number = 1) => {
-  const timer = ticksToTimer(ticks * timeCoefficient)
-  return timerToString(timer)
+  const time = ticksToTime(ticks * timeCoefficient)
+  return timeToString(time)
 }
 
-export const timerToString = (timer: Time) => {
+export const timeToString = (time: Time) => {
   let str = ''
 
-  timer.hours && (str += `${timer.hours}ч`)
-  timer.minutes && (str += ` ${timer.minutes}м`)
-  timer.seconds && (str += ` ${timer.seconds}с`)
-  timer.milliseconds && (str += ` ${timer.milliseconds}мс`)
+  time.hours && (str += `${time.hours}ч`)
+  time.minutes && (str += ` ${time.minutes}м`)
+  time.seconds && (str += ` ${time.seconds}с`)
+  time.milliseconds && (str += ` ${time.milliseconds}мс`)
 
   return str === '' ? '0мс' : str
 }
