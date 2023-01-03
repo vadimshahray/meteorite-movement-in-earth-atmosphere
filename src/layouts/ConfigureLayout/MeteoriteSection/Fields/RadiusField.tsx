@@ -2,9 +2,9 @@ import { useDispatch } from '@hooks'
 import { useSelector } from 'react-redux'
 import { setMeteoriteData } from '@slices'
 import { SliderTextField } from '@components'
+import { METEORITE_LIMITS } from '@constants'
 import { selectMeteoriteRadius } from '@selectors'
 import { MouseOutlined } from '@mui/icons-material'
-import { METEORITE_LIMITS } from '@constants'
 
 export const RadiusField = () => {
   const dispatch = useDispatch()
