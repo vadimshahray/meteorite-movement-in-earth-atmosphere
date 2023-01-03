@@ -1,4 +1,4 @@
-import { EARTH } from 'constants/earth'
+import { EARTH } from '@constants'
 import { TooltipProps } from 'recharts'
 import { Divider, Paper, Stack, Typography } from '@mui/material'
 

@@ -1,9 +1,9 @@
 import React from 'react'
-import { useEarthRadius } from 'hooks'
+import { useEarthRadius } from '@hooks'
 import { useSelector } from 'react-redux'
 import { GroupProps } from '@react-three/fiber'
 import { Environment } from '@react-three/drei'
-import { selectThemeColorMode } from 'selectors'
+import { selectThemeColorMode } from '@selectors'
 
 export default React.memo((props: GroupProps) => {
   const colorMode = useSelector(selectThemeColorMode)

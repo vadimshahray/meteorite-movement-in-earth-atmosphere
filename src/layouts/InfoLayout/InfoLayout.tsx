@@ -1,7 +1,7 @@
 import { Content } from './Content'
-import { ToolbarProvider } from 'providers'
+import { ToolbarProvider } from '@providers'
 import { ModelingControl } from './ModelingControl'
-import { Container, FullContainer } from 'components'
+import { Container, FullContainer } from '@components'
 
 export const InfoLayout = () => {
   return (

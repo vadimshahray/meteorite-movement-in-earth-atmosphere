@@ -1,4 +1,4 @@
-import { Item, Section } from 'components'
+import { Item, Section } from '@components'
 import { VideocamOutlined } from '@mui/icons-material'
 import { ActiveCameraToggler } from './ActiveCameraToggler'
 

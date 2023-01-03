@@ -1,6 +1,6 @@
-import { Container } from 'components'
+import { Container } from '@components'
 import { useSelector } from 'react-redux'
-import { selectModelingStatus } from 'selectors'
+import { selectModelingStatus } from '@selectors'
 import { ConfigureLayout } from '../ConfigureLayout'
 import { ModelingInfoLayout } from '../ModelingInfoLayout'
 

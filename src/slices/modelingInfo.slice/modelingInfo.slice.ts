@@ -1,4 +1,4 @@
-import { ticksToTime } from 'utils'
+import { ticksToTime } from '@utils'
 import { createSlice } from '@reduxjs/toolkit'
 import {
   clearModelingData,
@@ -8,7 +8,7 @@ import {
   setVelocityChartPoints,
   calculateMeteoriteVelocity,
   initializeModelingMeteoriteData,
-} from 'slices'
+} from '@slices'
 
 const initialState: ModelingInfoSliceState = {
   activeChart: '@VelocityChart',

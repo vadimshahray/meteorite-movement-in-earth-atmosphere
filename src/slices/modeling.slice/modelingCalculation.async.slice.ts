@@ -1,14 +1,14 @@
-import { ticksToTime } from 'utils'
+import { ticksToTime } from '@utils'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import {
   selectModelingMeteoriteDistance,
   selectModelingMeteoriteVelocity,
-} from 'selectors'
+} from '@selectors'
 import {
   finishModeling,
   setModelingChartsPoints,
   CALCULATION_INTERVAL_MS,
-} from 'slices'
+} from '@slices'
 
 export const calculateMeteoriteData = createAsyncThunk<
   void,

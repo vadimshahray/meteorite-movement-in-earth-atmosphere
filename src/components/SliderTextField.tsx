@@ -1,8 +1,8 @@
-import { numberRule } from 'utils'
+import { numberRule } from '@utils'
 import { useEffect, useState } from 'react'
 import { styled } from '@mui/material/styles'
 import { Stack, Slider, SliderProps } from '@mui/material'
-import { Container, ValidatedTextField } from 'components'
+import { Container, ValidatedTextField } from '@components'
 
 const StyledSlider = styled(Slider)<SliderProps>(({ theme }) => ({
   '& .MuiSlider-thumb': {

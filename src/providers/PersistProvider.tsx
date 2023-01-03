@@ -1,4 +1,4 @@
-import { persistor } from 'store'
+import { persistor } from 'src/store'
 import { PropsWithChildren } from 'react'
 import { PersistGate } from 'redux-persist/integration/react'
 

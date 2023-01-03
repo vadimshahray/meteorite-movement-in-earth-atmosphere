@@ -1,4 +1,4 @@
-import { Container } from 'components'
+import { Container } from '@components'
 import { useState, PropsWithChildren } from 'react'
 import { ExpandLess, ExpandMore } from '@mui/icons-material'
 import { Collapse, IconButton, Stack, Tooltip, Typography } from '@mui/material'

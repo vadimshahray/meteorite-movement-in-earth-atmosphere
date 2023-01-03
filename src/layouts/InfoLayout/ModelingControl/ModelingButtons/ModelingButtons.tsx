@@ -1,6 +1,6 @@
 import { Stack } from '@mui/material'
 import { useSelector } from 'react-redux'
-import { selectModelingStatus } from 'selectors'
+import { selectModelingStatus } from '@selectors'
 import {
   StopModelingButton,
   StartModelingButton,

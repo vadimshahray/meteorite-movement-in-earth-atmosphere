@@ -1,9 +1,9 @@
-import { useDispatch } from 'hooks'
-import { Toggler } from 'components'
-import { sceneCameras } from 'utils'
-import { setActiveCamera } from 'slices'
+import { useDispatch } from '@hooks'
+import { Toggler } from '@components'
+import { sceneCameras } from '@utils'
+import { setActiveCamera } from '@slices'
 import { useSelector } from 'react-redux'
-import { selectActiveCamera } from 'selectors'
+import { selectActiveCamera } from '@selectors'
 
 export const ActiveCameraToggler = () => {
   const dispatch = useDispatch()

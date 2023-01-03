@@ -6,7 +6,7 @@ import {
   useMeteoriteDistanceControl,
   useMeteoriteRadiusControl,
   useMeteoriteVelocityVectorControl,
-} from 'hooks'
+} from '@hooks'
 
 export const Canvas = () => {
   const { onWheel: onRadiusWheel } = useMeteoriteRadiusControl()

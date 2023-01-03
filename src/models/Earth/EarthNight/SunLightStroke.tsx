@@ -1,7 +1,7 @@
 import * as THREE from 'three'
-import { angleToPI } from 'utils'
+import { angleToPI } from '@utils'
 import { Depth, LayerMaterial } from 'lamina'
-import { EARTH_NIGHT_RADIUS_SCALE } from 'constants/models'
+import { EARTH_NIGHT_RADIUS_SCALE } from '@constants'
 
 export const SunLightStroke = () => {
   const near = 1

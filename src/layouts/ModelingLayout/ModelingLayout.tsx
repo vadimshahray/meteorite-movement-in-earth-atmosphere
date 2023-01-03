@@ -1,7 +1,7 @@
 import { Canvas } from './Canvas'
 import { useSelector } from 'react-redux'
-import { FullContainer } from 'components'
-import { selectModelingStatus } from 'selectors'
+import { FullContainer } from '@components'
+import { selectModelingStatus } from '@selectors'
 import { ShowControlsDialogButton } from './ShowControlsDialogButton'
 
 /**

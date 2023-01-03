@@ -1,13 +1,13 @@
 import * as THREE from 'three'
 import { useSelector } from 'react-redux'
-import { getVectorFromAngleAndVector, ratioVector } from 'utils'
-import { selectActiveCamera, selectModelingStatus } from 'selectors'
+import { getVectorFromAngleAndVector, ratioVector } from '@utils'
+import { selectActiveCamera, selectModelingStatus } from '@selectors'
 import {
   useEarthRadius,
   useMeteoriteRadius,
   useMeteoritePosition,
   useMeteoriteRotationAngle,
-} from 'hooks'
+} from '@hooks'
 
 export const useActiveCameraPosition = () => {
   const activeCamera = useSelector(selectActiveCamera)

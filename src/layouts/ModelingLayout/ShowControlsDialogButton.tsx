@@ -1,7 +1,7 @@
-import { useDispatch } from 'hooks'
+import { useDispatch } from '@hooks'
 import { Button, Tooltip } from '@mui/material'
 import { HelpOutline } from '@mui/icons-material'
-import { setIsControlsDialogVisible } from 'slices'
+import { setIsControlsDialogVisible } from '@slices'
 
 export const ShowControlsDialogButton = () => {
   const dispatch = useDispatch()

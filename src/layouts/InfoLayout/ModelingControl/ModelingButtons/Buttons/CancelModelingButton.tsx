@@ -1,7 +1,7 @@
-import { useDispatch } from 'hooks'
+import { useDispatch } from '@hooks'
 import { useSelector } from 'react-redux'
-import { cancelModeling } from 'slices'
-import { selectModelingStatus } from 'selectors'
+import { cancelModeling } from '@slices'
+import { selectModelingStatus } from '@selectors'
 import { CloseOutlined } from '@mui/icons-material'
 import { Button, Container, Tooltip } from '@mui/material'
 

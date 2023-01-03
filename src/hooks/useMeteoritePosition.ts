@@ -1,12 +1,12 @@
 import * as THREE from 'three'
-import { scaleMeters } from 'utils'
+import { scaleMeters } from '@utils'
 import { useSelector } from 'react-redux'
-import { useEarthRadius, useMeteoriteRadius } from 'hooks'
+import { useEarthRadius, useMeteoriteRadius } from '@hooks'
 import {
   selectModelingStatus,
   selectMeteoriteDistance,
   selectModelingMeteoriteDistance,
-} from 'selectors'
+} from '@selectors'
 
 export const useMeteoritePosition = () => {
   const modelingStatus = useSelector(selectModelingStatus)

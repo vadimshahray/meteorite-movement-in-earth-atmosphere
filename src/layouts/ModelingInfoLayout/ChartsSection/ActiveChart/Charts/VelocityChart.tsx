@@ -1,7 +1,7 @@
-import { LineChart } from 'components'
-import { useActiveChartPoints } from 'hooks'
-import { CHART_LAST_POINTS_AMOUNT, CALCULATION_INTERVAL_MS } from 'slices'
-import { metersToVelocityString, ticksToTime, ticksToString } from 'utils'
+import { LineChart } from '@components'
+import { useActiveChartPoints } from '@hooks'
+import { CHART_LAST_POINTS_AMOUNT, CALCULATION_INTERVAL_MS } from '@slices'
+import { metersToVelocityString, ticksToTime, ticksToString } from '@utils'
 
 export const VelocityChart = () => {
   const { points, isTotal } = useActiveChartPoints()

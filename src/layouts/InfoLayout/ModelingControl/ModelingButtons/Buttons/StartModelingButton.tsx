@@ -1,10 +1,10 @@
-import { useDispatch } from 'hooks'
-import { errorSnackbar } from 'utils'
-import { startModeling } from 'slices'
+import { useDispatch } from '@hooks'
+import { errorSnackbar } from '@utils'
+import { startModeling } from '@slices'
 import { useSnackbar } from 'notistack'
 import { useSelector } from 'react-redux'
 import { PlayArrowOutlined } from '@mui/icons-material'
-import { selectInvalidUserInputCount } from 'selectors'
+import { selectInvalidUserInputCount } from '@selectors'
 import { Container, Tooltip, Button } from '@mui/material'
 
 /** Кнопка запуска моделирования */

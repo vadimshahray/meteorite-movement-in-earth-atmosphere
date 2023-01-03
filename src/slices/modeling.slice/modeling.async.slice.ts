@@ -2,12 +2,12 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import {
   selectMeteoriteDistance,
   selectMeteoriteInitialVelocity,
-} from 'selectors'
+} from '@selectors'
 import {
   stopModelingTimer,
   startModelingTimer,
   calculateMeteoriteData,
-} from 'slices'
+} from '@slices'
 
 export const startModeling = createAsyncThunk<
   void,

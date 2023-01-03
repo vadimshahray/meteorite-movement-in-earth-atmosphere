@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
-import { useToolbar } from 'hooks'
+import { useToolbar } from '@hooks'
 import { MeteoriteSection } from './MeteoriteSection'
 import { SettingsOutlined } from '@mui/icons-material'
 import { InteractiveControlsSection } from './InteractiveControlsSection'
-import { Container, ProjectDocumentButton, ThemeButton } from 'components'
+import { Container, ProjectDocumentButton, ThemeButton } from '@components'
 
 /**
  * Блок, содержащий все, что связано с настройкой физических моделей (поля ввода данных и т.п.)

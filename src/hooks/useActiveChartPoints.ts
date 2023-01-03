@@ -3,7 +3,7 @@ import {
   selectModelingStatus,
   selectActiveChartLastPoints,
   selectActiveChartTotalPoints,
-} from 'selectors'
+} from '@selectors'
 
 export const useActiveChartPoints = () => {
   const modelingStatus = useSelector(selectModelingStatus)

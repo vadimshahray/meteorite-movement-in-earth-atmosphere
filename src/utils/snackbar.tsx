@@ -1,4 +1,4 @@
-import { Snackbar } from 'components'
+import { Snackbar } from '@components'
 import { OptionsObject } from 'notistack'
 
 const DURATION = 3000

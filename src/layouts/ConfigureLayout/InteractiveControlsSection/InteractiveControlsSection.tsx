@@ -1,4 +1,4 @@
-import { Section } from 'components'
+import { Section } from '@components'
 import { MouseOutlined } from '@mui/icons-material'
 import {
   MeteoriteRadiusControlField,

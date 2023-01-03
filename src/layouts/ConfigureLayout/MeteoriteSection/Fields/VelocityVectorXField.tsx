@@ -1,10 +1,10 @@
-import { useDispatch } from 'hooks'
+import { useDispatch } from '@hooks'
 import { useSelector } from 'react-redux'
-import { setMeteoriteData } from 'slices'
-import { SliderTextField } from 'components'
+import { setMeteoriteData } from '@slices'
+import { SliderTextField } from '@components'
 import { MouseOutlined } from '@mui/icons-material'
-import { METEORITE_LIMITS } from 'constants/meteorite'
-import { selectMeteoriteVelocityVectorX } from 'selectors'
+import { METEORITE_LIMITS } from '@constants'
+import { selectMeteoriteVelocityVectorX } from '@selectors'
 
 export const VelocityVectorXField = () => {
   const dispatch = useDispatch()

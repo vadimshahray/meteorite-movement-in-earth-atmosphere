@@ -1,7 +1,7 @@
 import { Divider } from '@mui/material'
 import { useSelector } from 'react-redux'
-import { Item, Section } from 'components'
-import { selectModelingStatus } from 'selectors'
+import { Item, Section } from '@components'
+import { selectModelingStatus } from '@selectors'
 import { InfoOutlined } from '@mui/icons-material'
 import {
   CollisionTime,

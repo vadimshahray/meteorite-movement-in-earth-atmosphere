@@ -1,4 +1,4 @@
-import { Container, ContainerProps } from 'components'
+import { Container, ContainerProps } from '@components'
 
 /**
  * Базовый контейнер на всю ширину
