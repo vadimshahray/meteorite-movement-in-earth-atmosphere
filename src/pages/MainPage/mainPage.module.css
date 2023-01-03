@@ -1,6 +1,0 @@
-.layout {
-  display: grid;
-  grid-template-columns: 1fr 400px;
-
-  overflow-x: hidden;
-}

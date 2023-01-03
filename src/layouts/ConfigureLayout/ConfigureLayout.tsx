@@ -1,7 +1,5 @@
 import { useEffect } from 'react'
 import { useToolbar } from 'hooks'
-import { styleClasses } from 'utils'
-import styles from './configureLayout.module.css'
 import { SettingsOutlined } from '@mui/icons-material'
 import { ConfigureSections } from './ConfigureSections'
 import { Container, ProjectDocumentButton, ThemeButton } from 'components'
@@ -24,11 +22,7 @@ export const ConfigureLayout = ({ className, ...props }: LayoutProps) => {
   }, [setTitle, setIcon, setActionButtons])
 
   return (
-    <Container
-      disableGutters
-      className={styleClasses(styles.layout, className)}
-      {...props}
-    >
+    <Container disableGutters sx={{ overflowY: 'auto' }} {...props}>
       <ConfigureSections />
     </Container>
   )

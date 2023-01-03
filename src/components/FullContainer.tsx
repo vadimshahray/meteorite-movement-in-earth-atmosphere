@@ -1,5 +1,3 @@
-import { styleClasses } from 'utils'
-import styles from './fullContainer.module.css'
 import { Container, ContainerProps } from 'components'
 
 /**
@@ -7,13 +5,17 @@ import { Container, ContainerProps } from 'components'
  * @param {ContainerProps}
  * @returns {JSX.Element}
  */
-export const FullContainer = ({ className, ...props }: ContainerProps) => {
+export const FullContainer = ({ sx, ...props }: ContainerProps) => {
   return (
     <Container
-      className={styleClasses(className, styles.layout)}
       {...props}
       maxWidth='xl'
       disableGutters
+      sx={{
+        height: '100%',
+        overflow: 'hidden',
+        ...sx,
+      }}
     />
   )
 }

@@ -11,8 +11,9 @@ export const InfoLayout = () => {
           disableGutters
           sx={{
             display: 'flex',
-            flexDirection: 'column',
             flexGrow: 1,
+            flexDirection: 'column',
+
             overflow: 'hidden',
           }}
         >
