@@ -1,4 +1,4 @@
-import { EARTH } from 'consts'
+import { EARTH } from 'constants/earth'
 import { ChartContainer } from '../ChartContainer'
 import { useAreaBaseProps, useBaseChartElementsProps } from 'hooks'
 import { Area, AreaChart, ReferenceLine, XAxis, YAxis } from 'recharts'
