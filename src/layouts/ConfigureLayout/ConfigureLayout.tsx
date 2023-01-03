@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { useToolbar } from 'hooks'
+import { MeteoriteSection } from './MeteoriteSection'
 import { SettingsOutlined } from '@mui/icons-material'
-import { ConfigureSections } from './ConfigureSections'
+import { InteractiveControlsSection } from './InteractiveControlsSection'
 import { Container, ProjectDocumentButton, ThemeButton } from 'components'
 
 /**
@@ -23,7 +24,11 @@ export const ConfigureLayout = () => {
 
   return (
     <Container disableGutters sx={{ overflowY: 'auto' }}>
-      <ConfigureSections />
+      <Container disableGuttersV>
+        <MeteoriteSection />
+
+        <InteractiveControlsSection />
+      </Container>
     </Container>
   )
 }

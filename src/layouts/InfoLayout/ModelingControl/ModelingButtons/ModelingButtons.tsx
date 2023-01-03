@@ -1,9 +1,11 @@
 import { Stack } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { selectModelingStatus } from 'selectors'
-import { StopModelingButton } from './StopModelingButton'
-import { StartModelingButton } from './StartModelingButton'
-import { CancelModelingButton } from './CancelModelingButton'
+import {
+  StopModelingButton,
+  StartModelingButton,
+  CancelModelingButton,
+} from './Buttons'
 
 export const ModelingButtons = () => {
   const modelingStatus = useSelector(selectModelingStatus)

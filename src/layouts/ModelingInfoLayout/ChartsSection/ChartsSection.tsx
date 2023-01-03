@@ -1,5 +1,5 @@
-import { ActiveChart } from './Charts'
 import { Item, Section } from 'components'
+import { ActiveChart } from './ActiveChart'
 import { ChartsToggler } from './ChartsToggler'
 import { ShowChartOutlined } from '@mui/icons-material'
 

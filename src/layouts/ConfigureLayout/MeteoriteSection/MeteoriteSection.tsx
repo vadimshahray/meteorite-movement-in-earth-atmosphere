@@ -10,7 +10,7 @@ import {
   VelocityVectorYField,
 } from './Fields'
 
-export const MeteoriteSettings = () => {
+export const MeteoriteSection = () => {
   return (
     <Section title='Характеристики метеорита' Icon={DataObjectOutlined}>
       <MassField />
