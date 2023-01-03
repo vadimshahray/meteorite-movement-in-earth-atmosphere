@@ -1,12 +1,18 @@
 import { Suspense } from 'react'
-import styles from './mainPage.module.css'
 import { InfoLayout, ModelingLayout } from 'layouts'
 import { ControlsDialog, FullContainer } from 'components'
 import { MainPageSplashScreen } from './MainPageSplashScreen'
 
 export const MainPage = () => {
   return (
-    <FullContainer className={styles.layout}>
+    <FullContainer
+      sx={{
+        display: 'grid',
+        gridTemplateColumns: '1fr 400px',
+
+        overflowX: 'hidden',
+      }}
+    >
       <Suspense fallback={<MainPageSplashScreen />}>
         <ModelingLayout />
 

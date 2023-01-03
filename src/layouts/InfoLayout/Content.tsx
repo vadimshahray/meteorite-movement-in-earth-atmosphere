@@ -1,5 +1,4 @@
 import { Container } from 'components'
-import styles from './styles.module.css'
 import { useSelector } from 'react-redux'
 import { selectModelingStatus } from 'selectors'
 import { ConfigureLayout } from '../ConfigureLayout'
@@ -10,11 +9,7 @@ export const Content = () => {
 
   return (
     <Container disableGutters sx={{ flexGrow: 1, overflowY: 'auto' }}>
-      {modelingStatus === 'idle' ? (
-        <ConfigureLayout className={styles.configure_layout} />
-      ) : (
-        <ModelingInfoLayout />
-      )}
+      {modelingStatus === 'idle' ? <ConfigureLayout /> : <ModelingInfoLayout />}
     </Container>
   )
 }
