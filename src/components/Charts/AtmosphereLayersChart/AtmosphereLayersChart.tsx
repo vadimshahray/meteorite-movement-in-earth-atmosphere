@@ -1,4 +1,4 @@
-import { Container } from 'components/Container'
+import { Container } from 'components'
 import { useBaseChartElementsProps } from 'hooks'
 import { ChartContainer } from '../ChartContainer'
 import { AtmosphereLayersChartTooltip } from './AtmosphereLayersChartTooltip'
