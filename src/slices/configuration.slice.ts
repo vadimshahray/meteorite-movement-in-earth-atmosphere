@@ -1,21 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const initialState: ConfigurationSliceState = {
+  invalidUserInputCount: 0,
+
+  isControlsDialogVisible: true,
+
+  interactiveControlsValues: {
+    '@MeteoriteRadiusControl': 5 * 1000,
+    '@MeteoriteDistanceControl': 5 * 1000,
+    '@MeteoriteVelocityVectorControl': 0.5,
+  },
+}
+
 export const configurationSlice = createSlice<
   ConfigurationSliceState,
   ConfigurationSlice
 >({
   name: 'configuration',
-  initialState: {
-    invalidUserInputCount: 0,
-
-    isControlsDialogVisible: true,
-
-    interactiveControlsValues: {
-      '@MeteoriteRadiusControl': 5 * 1000,
-      '@MeteoriteDistanceControl': 5 * 1000,
-      '@MeteoriteVelocityVectorControl': 0.5,
-    },
-  },
+  initialState,
   reducers: {
     increaseInvalidUserInputCount: (state) => {
       state.invalidUserInputCount++
@@ -37,8 +39,8 @@ export const configurationSlice = createSlice<
 })
 
 export const {
-  increaseInvalidUserInputCount,
-  decreaseInvalidUserInputCount,
   setInteractiveControlValue,
   setIsControlsDialogVisible,
+  increaseInvalidUserInputCount,
+  decreaseInvalidUserInputCount,
 } = configurationSlice.actions

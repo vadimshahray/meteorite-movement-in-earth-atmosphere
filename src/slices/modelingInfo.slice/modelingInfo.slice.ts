@@ -10,33 +10,35 @@ import {
   initializeModelingMeteoriteData,
 } from 'slices'
 
+const initialState: ModelingInfoSliceState = {
+  activeChart: '@VelocityChart',
+
+  pointsPassed: 0,
+  chartsPoints: {
+    '@VelocityChart': {
+      lastPoints: [],
+      totalPoints: [],
+    },
+    '@DistanceChart': {
+      lastPoints: [],
+      totalPoints: [],
+    },
+  },
+
+  collisionTime: ticksToTimer(0),
+
+  meteoriteVelocity: {
+    max: 0,
+    average: 0,
+  },
+}
+
 export const modelingInfoSlice = createSlice<
   ModelingInfoSliceState,
   ModelingInfoSlice
 >({
   name: 'modelingInfo',
-  initialState: {
-    activeChart: '@VelocityChart',
-
-    pointsPassed: 0,
-    chartsPoints: {
-      '@VelocityChart': {
-        lastPoints: [],
-        totalPoints: [],
-      },
-      '@DistanceChart': {
-        lastPoints: [],
-        totalPoints: [],
-      },
-    },
-
-    collisionTime: ticksToTimer(0),
-
-    meteoriteVelocity: {
-      max: 0,
-      average: 0,
-    },
-  },
+  initialState,
   reducers: {
     setActiveChart: (state, { payload }) => {
       state.activeChart = payload
@@ -92,25 +94,12 @@ export const modelingInfoSlice = createSlice<
       })
 
       .addCase(clearModelingData.fulfilled, (state) => {
-        state.chartsPoints = {
-          '@VelocityChart': {
-            lastPoints: [],
-            totalPoints: [],
-          },
-          '@DistanceChart': {
-            lastPoints: [],
-            totalPoints: [],
-          },
-        }
+        state.pointsPassed = initialState.pointsPassed
+        state.chartsPoints = initialState.chartsPoints
 
-        state.pointsPassed = 0
+        state.collisionTime = initialState.collisionTime
 
-        state.meteoriteVelocity = {
-          max: 0,
-          average: 0,
-        }
-
-        state.collisionTime = ticksToTimer(0)
+        state.meteoriteVelocity = initialState.meteoriteVelocity
       })
   },
 })

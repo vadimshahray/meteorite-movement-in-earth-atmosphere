@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { ticksToTimer } from 'utils'
 import {
   stopModeling,
   startModeling,
@@ -11,24 +12,20 @@ import {
   initializeModelingMeteoriteData,
 } from './modeling.async.slice'
 
+const initialState: ModelingSliceState = {
+  modelingStatus: 'idle',
+
+  meteorite: {
+    distance: 0,
+    velocity: 0,
+  },
+
+  time: ticksToTimer(0),
+}
+
 export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
   name: 'modeling',
-  initialState: {
-    modelingStatus: 'idle',
-
-    meteorite: {
-      distance: 0,
-      velocity: 0,
-    },
-
-    time: {
-      hours: 0,
-      seconds: 0,
-      minutes: 0,
-      milliseconds: 0,
-      ticks: 0,
-    },
-  },
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -48,19 +45,11 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
       })
 
       .addCase(cancelModeling.pending, (state) => {
-        state.modelingStatus = 'idle'
+        state.modelingStatus = initialState.modelingStatus
 
-        state.time = {
-          hours: 0,
-          seconds: 0,
-          minutes: 0,
-          milliseconds: 0,
-          ticks: 0,
-        }
-        state.meteorite = {
-          distance: 0,
-          velocity: 0,
-        }
+        state.meteorite = initialState.meteorite
+
+        state.time = initialState.time
       })
 
       .addCase(
