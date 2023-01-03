@@ -6,9 +6,11 @@ export const MainPageSplashScreen = () => {
       <Paper
         sx={{
           display: 'flex',
+
           flexDirection: 'column',
-          justifyContent: 'center',
           alignItems: 'center',
+          justifyContent: 'center',
+
           padding: 4,
         }}
       >
