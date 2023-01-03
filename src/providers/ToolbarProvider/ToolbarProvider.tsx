@@ -1,20 +1,20 @@
-import React, { useState, PropsWithChildren, useCallback } from 'react'
 import { Toolbar, ToolbarActionButton } from './Toolbar'
+import React, { useState, PropsWithChildren, useCallback } from 'react'
 
 export const ToolbarContext = React.createContext({
-  setTitle: (title: string) => {},
-  setIcon: (icon: Icon) => {},
-  setActionButtons: (btns?: ToolbarActionButton[]) => {},
+  setTitle: (_: string) => {},
+  setIcon: (_: Icon) => {},
+  setActionButtons: (_?: ToolbarActionButton[]) => {},
 })
 
 export const ToolbarProvider = ({ children }: PropsWithChildren) => {
   const [title, setTitle] = useState('')
   const [icon, setIcon] = useState<Icon>()
-  const [btns, setBtns] = useState<ToolbarActionButton[]>()
+  const [buttons, setButtons] = useState<ToolbarActionButton[]>()
 
   const setActionButtons = useCallback(
     (actionButtons?: ToolbarActionButton[]) => {
-      setBtns(actionButtons)
+      setButtons(actionButtons)
     },
     [],
   )
@@ -22,7 +22,7 @@ export const ToolbarProvider = ({ children }: PropsWithChildren) => {
   return (
     <ToolbarContext.Provider value={{ setTitle, setIcon, setActionButtons }}>
       <>
-        <Toolbar title={title} actionButtons={btns} Icon={icon} />
+        <Toolbar title={title} actionButtons={buttons} Icon={icon} />
 
         {children}
       </>
