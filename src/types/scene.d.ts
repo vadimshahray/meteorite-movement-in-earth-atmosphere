@@ -1,6 +1,6 @@
 type SceneCameras = '@BackViewCamera' | '@SideViewCamera' | '@EarthViewCamera'
 
-type SceneCameraInfo = {
+type SceneCamera = {
   key: SceneCameras
   name: string
 }

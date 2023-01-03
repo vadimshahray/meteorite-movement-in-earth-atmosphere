@@ -1,6 +1,6 @@
 type Charts = '@VelocityChart' | '@DistanceChart'
 
-type ChartInfo = {
+type Chart = {
   key: Charts
   name: string
 }

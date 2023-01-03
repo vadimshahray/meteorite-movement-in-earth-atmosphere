@@ -121,7 +121,7 @@ export const calculateMeteoriteDistance = createAsyncThunk<
 })
 
 export const calculateCollisionTime = createAsyncThunk<
-  Timer,
+  Time,
   void,
   { state: RootState }
 >('modeling/calculateCollisionTime', (_, { getState }) => {
@@ -153,7 +153,7 @@ const stopModelingTimer = createAsyncThunk('modeling/stopTimer', async () => {
   await clearInterval(interval)
 })
 
-export const setModelingTimerTime = createAsyncThunk<Timer, number>(
+export const setModelingTimerTime = createAsyncThunk<Time, number>(
   'modeling/setTimerTime',
   (ticks) => {
     return ticksToTimer(ticks)

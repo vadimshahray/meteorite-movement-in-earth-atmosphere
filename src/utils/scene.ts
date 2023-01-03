@@ -1,4 +1,4 @@
-export const sceneCameras: SceneCameraInfo[] = [
+export const sceneCameras: SceneCamera[] = [
   {
     key: '@BackViewCamera',
     name: 'Сзади',
