@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const initialState: ThemeSliceState = {
+  colorMode: 'light',
+}
+
 export const themeSlice = createSlice<ThemeSliceState, ThemeSlice>({
   name: 'theme',
-  initialState: {
-    colorMode: 'light',
-  },
+  initialState,
   reducers: {
     setColorMode: (state, { payload }) => {
       state.colorMode = payload

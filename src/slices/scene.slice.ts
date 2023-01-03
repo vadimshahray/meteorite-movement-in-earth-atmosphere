@@ -1,11 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { cancelModeling } from './modeling.slice'
 
+const initialState: SceneSliceState = {
+  activeCamera: '@BackViewCamera',
+}
+
 export const sceneSlice = createSlice<SceneSliceState, SceneSlice>({
   name: 'scene',
-  initialState: {
-    activeCamera: '@BackViewCamera',
-  },
+  initialState,
   reducers: {
     setActiveCamera: (state, { payload }) => {
       state.activeCamera = payload
