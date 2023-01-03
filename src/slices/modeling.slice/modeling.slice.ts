@@ -21,7 +21,7 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
       velocity: 0,
     },
 
-    timer: {
+    time: {
       hours: 0,
       seconds: 0,
       minutes: 0,
@@ -50,8 +50,17 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
       .addCase(cancelModeling.pending, (state) => {
         state.modelingStatus = 'idle'
 
-        state.timer = initialState.timer
-        state.meteorite = initialState.meteorite
+        state.time = {
+          hours: 0,
+          seconds: 0,
+          minutes: 0,
+          milliseconds: 0,
+          ticks: 0,
+        }
+        state.meteorite = {
+          distance: 0,
+          velocity: 0,
+        }
       })
 
       .addCase(
@@ -70,7 +79,7 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
       })
 
       .addCase(setModelingTimerTime.fulfilled, (state, { payload }) => {
-        state.timer = payload
+        state.time = payload
       })
   },
 })
