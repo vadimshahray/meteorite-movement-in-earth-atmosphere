@@ -67,7 +67,7 @@ yarn start
 
 # Программирование проекта
 
-Проект написан на языке [TypeScript](https://www.typescriptlang.org/), в качестве основных инструментов были выбраны библиотеки [React](https://reactjs.org/) (интерфейс), [Redux Toolkit](https://redux-toolkit.js.org/) (менеджер состояний) в связке с [React Redux](https://react-redux.js.org/) и [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction) (3D).
+Проект написан на языке [TypeScript](https://www.typescriptlang.org/), в качестве основных инструментов были выбраны библиотеки [React](https://reactjs.org/) (интерфейс), [Redux Toolkit](https://redux-toolkit.js.org/) (менеджер состояний) в связке с [React Redux](https://react-redux.js.org/) (интеграция Redux в React) и [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction) (3D).
 
 Дополнительные используемые технологии:
 
