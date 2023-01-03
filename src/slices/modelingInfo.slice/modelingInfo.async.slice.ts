@@ -1,8 +1,8 @@
 import { CALCULATION_INTERVAL_MS } from 'slices'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import {
+  selectModelingTime,
   selectCollisionTime,
-  selectModelingTimer,
   selectChartLastPoints,
   selectModelingMeteoriteDistance,
   selectModelingMeteoriteVelocity,
@@ -38,11 +38,11 @@ export const setVelocityGraphicPoints = createAsyncThunk<
   ({ isLastPoint, pointsPassed }, { getState }) => {
     const lastPoints = selectChartLastPoints('@VelocityChart')(getState())
 
-    const timer = selectModelingTimer(getState())
+    const time = selectModelingTime(getState())
     const collisionTime = selectCollisionTime(getState())
     const velocity = selectModelingMeteoriteVelocity(getState())
 
-    const newPoint = { x: timer.ticks / 1000 / 60, y: velocity }
+    const newPoint = { x: time.ticks / 1000 / 60, y: velocity }
 
     return {
       lastPoints: getNewLastPoints(lastPoints, newPoint),
@@ -66,11 +66,11 @@ export const setDistanceGraphicPoints = createAsyncThunk<
   ({ isLastPoint, pointsPassed }, { getState }) => {
     const lastPoints = selectChartLastPoints('@DistanceChart')(getState())
 
-    const timer = selectModelingTimer(getState())
+    const time = selectModelingTime(getState())
     const collisionTime = selectCollisionTime(getState())
     const distance = selectModelingMeteoriteDistance(getState())
 
-    const newPoint = { x: timer.ticks / 1000 / 60, y: distance / 1000 }
+    const newPoint = { x: time.ticks / 1000 / 60, y: distance / 1000 }
 
     return {
       lastPoints: getNewLastPoints(lastPoints, newPoint),

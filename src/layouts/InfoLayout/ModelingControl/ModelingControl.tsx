@@ -1,7 +1,7 @@
 import { Stack } from '@mui/material'
 import { Container } from 'components'
 import { useSelector } from 'react-redux'
-import { ModelingTimer } from './ModelingTimer'
+import { ModelingTime } from './ModelingTime'
 import { selectModelingStatus } from 'selectors'
 import { ModelingButtons } from './ModelingButtons'
 
@@ -13,7 +13,7 @@ export const ModelingControl = () => {
       <Stack direction='row' justifyContent='space-between'>
         <ModelingButtons />
 
-        {modelingStatus !== 'idle' && <ModelingTimer />}
+        {modelingStatus !== 'idle' && <ModelingTime />}
       </Stack>
     </Container>
   )

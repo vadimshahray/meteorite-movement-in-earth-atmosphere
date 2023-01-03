@@ -1,15 +1,15 @@
 type ModelingInfoSliceState = {
   activeChart: Charts
 
-  chartsPoints: Record<Charts, ModelingInfoChartPoints>
   pointsPassed: number
+  chartsPoints: Record<Charts, ModelingInfoChartPoints>
+
+  collisionTime: Time
 
   meteoriteVelocity: {
     max: number
     average: number
   }
-
-  collisionTime: Time
 }
 
 interface ModelingInfoSlice extends SliceCaseReducers<ModelingInfoSliceState> {
