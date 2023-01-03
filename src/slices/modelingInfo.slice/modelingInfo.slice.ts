@@ -1,4 +1,4 @@
-import { ticksToTimer } from 'utils'
+import { ticksToTime } from 'utils'
 import { createSlice } from '@reduxjs/toolkit'
 import {
   clearModelingData,
@@ -25,7 +25,7 @@ const initialState: ModelingInfoSliceState = {
     },
   },
 
-  collisionTime: ticksToTimer(0),
+  collisionTime: ticksToTime(0),
 
   meteoriteVelocity: {
     max: 0,
