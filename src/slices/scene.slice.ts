@@ -1,5 +1,5 @@
+import { cancelModeling } from 'slices'
 import { createSlice } from '@reduxjs/toolkit'
-import { cancelModeling } from './modeling.slice'
 
 const initialState: SceneSliceState = {
   activeCamera: '@BackViewCamera',
