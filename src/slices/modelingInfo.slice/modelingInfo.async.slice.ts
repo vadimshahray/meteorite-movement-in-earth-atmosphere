@@ -1,5 +1,5 @@
+import { CALCULATION_INTERVAL_MS } from 'slices'
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { CALCULATION_INTERVAL_MS } from 'slices/modeling.slice'
 import {
   selectCollisionTime,
   selectModelingTimer,

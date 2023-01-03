@@ -1,7 +1,7 @@
+import { useDispatch } from 'hooks'
 import { PointerEvent } from 'react'
 import { useSelector } from 'react-redux'
 import { setMeteoriteData } from 'slices'
-import { useDispatch } from './useDispatch'
 import { getVectorFromAngleAndVector } from 'utils'
 import {
   selectModelingStatus,
