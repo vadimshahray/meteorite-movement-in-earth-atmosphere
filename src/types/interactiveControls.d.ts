@@ -5,4 +5,7 @@ type MeteoriteInteractiveControls =
 
 type InteractiveControls = MeteoriteInteractiveControls
 
-type InteractiveControlsData = Record<InteractiveControls, number>
+type InteractiveControl = {
+  key: InteractiveControls
+  value: number
+}
