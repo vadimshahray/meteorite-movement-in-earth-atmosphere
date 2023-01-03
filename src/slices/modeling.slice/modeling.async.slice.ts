@@ -15,7 +15,6 @@ export const startModeling = createAsyncThunk<
   void,
   { dispatch: AppDispatch }
 >('modeling/start', async (_, { dispatch }) => {
-  await dispatch(clearModelingData())
   await dispatch(initializeModelingMeteoriteData())
 
   await dispatch(
@@ -67,6 +66,7 @@ export const cancelModeling = createAsyncThunk<
   { dispatch: AppDispatch }
 >('modeling/cancel', async (_, { dispatch }) => {
   await dispatch(stopModelingTimer())
+  await dispatch(clearModelingData())
 })
 
 export const finishModeling = createAsyncThunk<
