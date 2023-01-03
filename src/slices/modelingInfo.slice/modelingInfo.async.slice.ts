@@ -27,60 +27,67 @@ export const setModelingChartsPoints = createAsyncThunk<
 )
 
 export const setVelocityChartPoints = createAsyncThunk<
-  {
-    lastPoints: ChartPoint[]
-    totalPoint?: ChartPoint
-  },
-  { isLastPoint: boolean; pointsPassed: number },
+  ModelingInfoChartNewPoints,
+  ModelingInfoChartNewPointInfo,
   { state: RootState }
 >(
   'modelingInfo/setVelocityChartPoints',
   ({ isLastPoint, pointsPassed }, { getState }) => {
-    const lastPoints = selectChartLastPoints('@VelocityChart')(getState())
-
-    const time = selectModelingTime(getState())
-    const collisionTime = selectCollisionTime(getState())
     const velocity = selectModelingMeteoriteVelocity(getState())
 
-    const newPoint = { x: time.ticks / 1000 / 60, y: velocity }
+    const lastPoints = selectChartLastPoints('@VelocityChart')(getState())
 
-    return {
-      lastPoints: getNewLastPoints(lastPoints, newPoint),
-      totalPoint:
-        canAddTotalPoint(pointsPassed, collisionTime) || isLastPoint
-          ? newPoint
-          : undefined,
-    }
+    return getChartPoints(
+      getState(),
+      velocity,
+      lastPoints,
+      isLastPoint,
+      pointsPassed,
+    )
   },
 )
 
 export const setDistanceChartPoints = createAsyncThunk<
-  {
-    lastPoints: ChartPoint[]
-    totalPoint?: ChartPoint
-  },
-  { isLastPoint: boolean; pointsPassed: number },
+  ModelingInfoChartNewPoints,
+  ModelingInfoChartNewPointInfo,
   { state: RootState }
 >(
   'modelingInfo/setDistanceChartPoints',
   ({ isLastPoint, pointsPassed }, { getState }) => {
-    const lastPoints = selectChartLastPoints('@DistanceChart')(getState())
-
-    const time = selectModelingTime(getState())
-    const collisionTime = selectCollisionTime(getState())
     const distance = selectModelingMeteoriteDistance(getState())
 
-    const newPoint = { x: time.ticks / 1000 / 60, y: distance / 1000 }
+    const lastPoints = selectChartLastPoints('@DistanceChart')(getState())
 
-    return {
-      lastPoints: getNewLastPoints(lastPoints, newPoint),
-      totalPoint:
-        canAddTotalPoint(pointsPassed, collisionTime) || isLastPoint
-          ? newPoint
-          : undefined,
-    }
+    return getChartPoints(
+      getState(),
+      distance,
+      lastPoints,
+      isLastPoint,
+      pointsPassed,
+    )
   },
 )
+
+function getChartPoints(
+  state: RootState,
+  value: number,
+  lastPoints: ChartPoint[],
+  isLastPoint: boolean,
+  pointsPassed: number,
+) {
+  const time = selectModelingTime(state)
+  const collisionTime = selectCollisionTime(state)
+
+  const newPoint = { x: time.ticks / 1000 / 60, y: value / 1000 }
+
+  return {
+    lastPoints: getNewLastPoints(lastPoints, newPoint),
+    totalPoint:
+      canAddTotalPoint(pointsPassed, collisionTime) || isLastPoint
+        ? newPoint
+        : undefined,
+  }
+}
 
 export const CHART_LAST_POINTS_AMOUNT = 100
 

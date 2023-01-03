@@ -18,3 +18,18 @@ interface ModelingInfoSlice extends SliceCaseReducers<ModelingInfoSliceState> {
     action: PayloadAction<Charts>,
   ): void
 }
+
+type ModelingInfoChartPoints = {
+  lastPoints: ChartPoint[]
+  totalPoints: ChartPoint[]
+}
+
+type ModelingInfoChartNewPoints = {
+  lastPoints: ChartPoint[]
+  totalPoint?: ChartPoint
+}
+
+type ModelingInfoChartNewPointInfo = {
+  isLastPoint: boolean
+  pointsPassed: number
+}
