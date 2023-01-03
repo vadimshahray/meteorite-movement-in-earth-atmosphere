@@ -18,6 +18,7 @@ export const modelingInfoSlice = createSlice<
   initialState: {
     activeChart: '@VelocityChart',
 
+    pointsPassed: 0,
     chartsPoints: {
       '@VelocityChart': {
         lastPoints: [],
@@ -29,14 +30,12 @@ export const modelingInfoSlice = createSlice<
       },
     },
 
-    pointsPassed: 0,
+    collisionTime: ticksToTimer(0),
 
     meteoriteVelocity: {
       max: 0,
       average: 0,
     },
-
-    collisionTime: ticksToTimer(0),
   },
   reducers: {
     setActiveChart: (state, { payload }) => {
