@@ -1,8 +1,10 @@
 import { Section } from 'components'
 import { MouseOutlined } from '@mui/icons-material'
-import { MeteoriteRadiusControlField } from './MeteoriteRadiusControlField'
-import { MeteoriteDistanceControlField } from './MeteoriteDistanceControlField'
-import { MeteoriteVectorVelocityControlField } from './MeteoriteVelocityVectorControlField'
+import {
+  MeteoriteRadiusControlField,
+  MeteoriteDistanceControlField,
+  MeteoriteVectorVelocityControlField,
+} from './Fields'
 
 export const InteractiveControlsSection = () => {
   return (
