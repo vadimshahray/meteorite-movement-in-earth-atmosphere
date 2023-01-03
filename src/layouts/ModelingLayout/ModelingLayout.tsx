@@ -8,11 +8,11 @@ import { ShowControlsDialogButton } from './ShowControlsDialogButton'
  * Блок, содержащий 3D модель
  * @returns {JSX.Element}
  */
-export const ModelingLayout = (props: LayoutProps) => {
+export const ModelingLayout = () => {
   const modelingStatus = useSelector(selectModelingStatus)
 
   return (
-    <FullContainer {...props} sx={{ backgroundColor: 'black' }}>
+    <FullContainer sx={{ backgroundColor: 'black' }}>
       <Canvas />
 
       {modelingStatus === 'idle' && <ShowControlsDialogButton />}
