@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux'
-import { getAngelBetweenTwoVectors } from 'utils'
+import { getAngleBetweenTwoVectors } from 'utils'
 import { selectMeteoriteVelocityVector } from 'selectors'
 
-export const useMeteoriteRotationAngel = () => {
+export const useMeteoriteRotationAngle = () => {
   const velocityVector = useSelector(selectMeteoriteVelocityVector)
 
-  return getAngelBetweenTwoVectors(velocityVector, { x: 1, y: 0 })
+  return getAngleBetweenTwoVectors(velocityVector, { x: 1, y: 0 })
 }
