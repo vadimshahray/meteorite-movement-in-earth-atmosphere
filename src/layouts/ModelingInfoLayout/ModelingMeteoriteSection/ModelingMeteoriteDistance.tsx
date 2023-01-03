@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
-import { selectModelingMeteoriteDistance } from 'selectors'
 import { metersToDistanceString } from 'utils'
+import { selectModelingMeteoriteDistance } from 'selectors'
 
 export const ModelingMeteoriteDistance = () => {
   const distance = useSelector(selectModelingMeteoriteDistance)

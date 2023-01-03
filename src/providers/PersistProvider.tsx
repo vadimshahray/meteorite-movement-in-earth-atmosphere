@@ -1,5 +1,5 @@
-import { PersistGate } from 'redux-persist/integration/react'
 import { persistor } from 'store'
+import { PersistGate } from 'redux-persist/integration/react'
 
 /** Персистор приложения */
 export const PersistProvider = (props: ProviderBaseProps) => {

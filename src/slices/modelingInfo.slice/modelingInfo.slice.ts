@@ -1,16 +1,16 @@
+import { ticksToTimer } from 'utils'
 import { createSlice } from '@reduxjs/toolkit'
 import {
-  calculateCollisionTime,
-  calculateMeteoriteVelocity,
-  clearModelingData,
-  initializeModelingMeteoriteData,
-} from 'slices/modeling.slice'
-import { ticksToTimer } from 'utils'
-import {
-  setDistanceGraphicPoints,
   setModelingChartsPoints,
+  setDistanceGraphicPoints,
   setVelocityGraphicPoints,
 } from './modelingInfo.async.slice'
+import {
+  clearModelingData,
+  calculateCollisionTime,
+  calculateMeteoriteVelocity,
+  initializeModelingMeteoriteData,
+} from 'slices/modeling.slice'
 
 export const modelingInfoSlice = createSlice<
   ModelingInfoSliceState,

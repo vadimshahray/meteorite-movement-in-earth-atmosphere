@@ -1,17 +1,17 @@
+import { useDispatch } from 'hooks'
+import { useSelector } from 'react-redux'
 import { MouseOutlined } from '@mui/icons-material'
+import { setIsControlsDialogVisible } from 'slices'
+import { selectIsControlsDialogVisible } from 'selectors'
 import {
   Button,
   Dialog,
+  Tooltip,
+  DialogTitle,
   DialogActions,
   DialogContent,
   DialogContentText,
-  DialogTitle,
-  Tooltip,
 } from '@mui/material'
-import { useDispatch } from 'hooks'
-import { useSelector } from 'react-redux'
-import { selectIsControlsDialogVisible } from 'selectors'
-import { setIsControlsDialogVisible } from 'slices'
 
 export const ControlsDialog = () => {
   const dispatch = useDispatch()

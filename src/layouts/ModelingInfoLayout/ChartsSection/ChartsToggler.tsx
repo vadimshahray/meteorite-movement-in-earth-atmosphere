@@ -1,9 +1,9 @@
-import { Toggler } from 'components'
+import { charts } from 'utils'
 import { useDispatch } from 'hooks'
+import { Toggler } from 'components'
+import { setActiveChart } from 'slices'
 import { useSelector } from 'react-redux'
 import { selectActiveChart } from 'selectors'
-import { setActiveChart } from 'slices'
-import { charts } from 'utils'
 
 export const ChartsToggler = () => {
   const dispatch = useDispatch()

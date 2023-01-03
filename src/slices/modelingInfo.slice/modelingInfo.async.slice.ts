@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import { CALCULATION_INTERVAL_MS } from 'slices/modeling.slice'
 import {
-  selectChartLastPoints,
   selectCollisionTime,
+  selectModelingTimer,
+  selectChartLastPoints,
   selectModelingMeteoriteDistance,
   selectModelingMeteoriteVelocity,
-  selectModelingTimer,
 } from 'selectors'
-import { CALCULATION_INTERVAL_MS } from 'slices/modeling.slice'
 
 const TOTAL_POINTS_AMOUNT = 1000
 

@@ -1,5 +1,4 @@
 import { createTheme } from '@mui/material'
-import { fontFamily } from '@mui/system'
 
 /** Объект темы приложения */
 export const theme = createTheme({

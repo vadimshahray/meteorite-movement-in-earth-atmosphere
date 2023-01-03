@@ -1,6 +1,6 @@
-import { Alert, AlertColor, AlertTitle } from '@mui/material'
-import { SnackbarContent } from 'notistack'
 import React from 'react'
+import { SnackbarContent } from 'notistack'
+import { Alert, AlertColor, AlertTitle } from '@mui/material'
 
 export type SnackbarProps = {
   id: string

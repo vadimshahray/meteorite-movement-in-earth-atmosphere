@@ -1,11 +1,11 @@
-import { useGLTF } from '@react-three/drei'
-import { GroupProps, MeshProps } from '@react-three/fiber'
-import { EARTH } from 'consts'
 import React from 'react'
+import { EARTH } from 'consts'
 import * as THREE from 'three'
-import { GLTF } from 'three-stdlib'
 import { angleToPI } from 'utils'
+import { GLTF } from 'three-stdlib'
+import { useGLTF } from '@react-three/drei'
 import { SunLightStroke } from './SunLightStroke'
+import { GroupProps, MeshProps } from '@react-three/fiber'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -15,6 +15,7 @@ type GLTFResult = GLTF & {
     color: THREE.MeshStandardMaterial
   }
 }
+
 export const EARTH_NIGHT_MODEL_RADIUS = 1.7320494310588754
 const EARTH_NIGHT_MODEL_RADIUS_SCALE = 1.0 / EARTH_NIGHT_MODEL_RADIUS
 

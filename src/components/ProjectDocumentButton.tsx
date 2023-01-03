@@ -1,5 +1,5 @@
-import { TextSnippetOutlined } from '@mui/icons-material'
 import { IconButton, Tooltip } from '@mui/material'
+import { TextSnippetOutlined } from '@mui/icons-material'
 
 export const ProjectDocumentButton = () => {
   return (

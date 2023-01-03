@@ -1,11 +1,11 @@
-import ShowChartOutlinedIcon from '@mui/icons-material/ShowChartOutlined'
-import { Item, Section } from 'components'
 import { ActiveChart } from './Charts'
+import { Item, Section } from 'components'
 import { ChartsToggler } from './ChartsToggler'
+import { ShowChartOutlined } from '@mui/icons-material'
 
 export const ChartsSection = () => {
   return (
-    <Section title='Графики' Icon={ShowChartOutlinedIcon} collapsible>
+    <Section title='Графики' Icon={ShowChartOutlined} collapsible>
       <Item label='Активный график'>
         <ChartsToggler />
       </Item>

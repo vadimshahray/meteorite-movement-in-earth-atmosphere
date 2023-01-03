@@ -1,11 +1,11 @@
-import { useGLTF } from '@react-three/drei'
-import { GroupProps, MeshProps } from '@react-three/fiber'
-import { EARTH } from 'consts'
 import React from 'react'
 import * as THREE from 'three'
-import { GLTF } from 'three-stdlib'
+import { EARTH } from 'consts'
 import { angleToPI } from 'utils'
+import { GLTF } from 'three-stdlib'
 import { Atmosphere } from './Atmosphere'
+import { useGLTF } from '@react-three/drei'
+import { GroupProps, MeshProps } from '@react-three/fiber'
 
 type GLTFResult = GLTF & {
   nodes: {

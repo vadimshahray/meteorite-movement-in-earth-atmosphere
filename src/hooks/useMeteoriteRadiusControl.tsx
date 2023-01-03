@@ -1,14 +1,14 @@
-import { METEORITE_LIMITS } from 'consts'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
-import {
-  selectInteractiveControlValue,
-  selectMeteoriteRadius,
-  selectModelingStatus,
-} from 'selectors'
+import { METEORITE_LIMITS } from 'consts'
 import { setMeteoriteData } from 'slices'
-import { isNumberBetweenMinMax } from 'utils'
 import { useDispatch } from './useDispatch'
+import { isNumberBetweenMinMax } from 'utils'
+import {
+  selectModelingStatus,
+  selectMeteoriteRadius,
+  selectInteractiveControlValue,
+} from 'selectors'
 
 export const useMeteoriteRadiusControl = () => {
   const dispatch = useDispatch()

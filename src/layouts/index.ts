@@ -1,3 +1,3 @@
-export * from './ConfigureLayout'
-export * from './ModelingLayout'
 export * from './InfoLayout'
+export * from './ModelingLayout'
+export * from './ConfigureLayout'

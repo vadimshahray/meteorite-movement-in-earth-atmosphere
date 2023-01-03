@@ -1,5 +1,5 @@
-import { Divider, Paper, Stack, Typography } from '@mui/material'
 import { TooltipProps } from 'recharts'
+import { Divider, Paper, Stack, Typography } from '@mui/material'
 
 export const ChartTooltip = ({
   active,

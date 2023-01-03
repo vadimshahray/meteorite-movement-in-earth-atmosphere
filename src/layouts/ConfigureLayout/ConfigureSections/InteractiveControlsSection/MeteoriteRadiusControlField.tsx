@@ -1,9 +1,9 @@
-import { InfoOutlined } from '@mui/icons-material'
-import { SliderTextField } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
-import { selectInteractiveControlValue } from 'selectors'
+import { SliderTextField } from 'components'
+import { InfoOutlined } from '@mui/icons-material'
 import { setInteractiveControlValue } from 'slices'
+import { selectInteractiveControlValue } from 'selectors'
 
 export const MeteoriteRadiusControlField = () => {
   const dispatch = useDispatch()

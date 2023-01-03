@@ -1,5 +1,5 @@
-import { Dialog, DialogProps } from '@mui/material'
 import React, { PropsWithChildren, ReactElement, useState } from 'react'
+import { Dialog, DialogProps } from '@mui/material'
 
 type DialogType = ReactElement<DialogProps, typeof Dialog>
 

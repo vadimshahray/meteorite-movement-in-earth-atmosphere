@@ -1,8 +1,8 @@
-import { Environment } from '@react-three/drei'
-import { GroupProps } from '@react-three/fiber'
-import { useEarthRadius } from 'hooks'
 import React from 'react'
+import { useEarthRadius } from 'hooks'
 import { useSelector } from 'react-redux'
+import { GroupProps } from '@react-three/fiber'
+import { Environment } from '@react-three/drei'
 import { selectThemeColorMode } from 'selectors'
 
 export default React.memo((props: GroupProps) => {

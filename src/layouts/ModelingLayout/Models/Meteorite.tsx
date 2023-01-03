@@ -1,9 +1,9 @@
-import { useGLTF } from '@react-three/drei'
-import { MeshProps } from '@react-three/fiber'
-import { useMeteoritePosition, useMeteoriteRadius } from 'hooks'
 import React from 'react'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
+import { useGLTF } from '@react-three/drei'
+import { MeshProps } from '@react-three/fiber'
+import { useMeteoritePosition, useMeteoriteRadius } from 'hooks'
 
 type GLTFResult = GLTF & {
   nodes: {

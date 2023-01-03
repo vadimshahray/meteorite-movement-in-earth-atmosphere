@@ -1,9 +1,9 @@
-import PublicOutlinedIcon from '@mui/icons-material/PublicOutlined'
-import { Container } from 'components'
-import { useModelingFinishedSnackbar, useToolbar } from 'hooks'
 import { useEffect } from 'react'
-import { CameraSettings } from './CameraSettings'
+import { Container } from 'components'
 import { ChartsSection } from './ChartsSection'
+import { CameraSettings } from './CameraSettings'
+import { PublicOutlined } from '@mui/icons-material'
+import { useModelingFinishedSnackbar, useToolbar } from 'hooks'
 import { ModelingInfoSection } from './ModelingMeteoriteSection'
 
 export const ModelingInfoLayout = () => {
@@ -13,7 +13,7 @@ export const ModelingInfoLayout = () => {
 
   useEffect(() => {
     setTitle('Моделирование')
-    setIcon(PublicOutlinedIcon)
+    setIcon(PublicOutlined)
   }, [setTitle, setIcon])
 
   return (

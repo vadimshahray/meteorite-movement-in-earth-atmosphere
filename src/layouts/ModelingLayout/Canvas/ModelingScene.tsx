@@ -1,10 +1,6 @@
 import { useFrame, useThree } from '@react-three/fiber'
 import CameraControls from 'camera-controls'
-import {
-  useActiveCameraPosition,
-  useMeteoritePosition,
-  useMeteoriteRotationAngel,
-} from 'hooks'
+import { useMeteoritePosition, useActiveCameraPosition } from 'hooks'
 import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { selectActiveCamera } from 'selectors'

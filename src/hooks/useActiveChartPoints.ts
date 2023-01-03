@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux'
 import {
+  selectModelingStatus,
   selectActiveChartLastPoints,
   selectActiveChartTotalPoints,
-  selectModelingStatus,
 } from 'selectors'
 
 export const useActiveChartPoints = () => {

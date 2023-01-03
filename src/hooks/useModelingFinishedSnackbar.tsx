@@ -1,8 +1,8 @@
-import { useSnackbar } from 'notistack'
 import { useEffect } from 'react'
+import { infoSnackbar } from 'utils'
+import { useSnackbar } from 'notistack'
 import { useSelector } from 'react-redux'
 import { selectModelingStatus } from 'selectors'
-import { infoSnackbar } from 'utils'
 
 export const useModelingFinishedSnackbar = () => {
   const modelingStatus = useSelector(selectModelingStatus)
