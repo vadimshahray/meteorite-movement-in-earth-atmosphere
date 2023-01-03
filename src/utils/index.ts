@@ -1,5 +1,5 @@
 export * from './time'
-export * from './angel'
+export * from './angle'
 export * from './scale'
 export * from './scene'
 export * from './charts'

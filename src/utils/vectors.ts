@@ -2,7 +2,7 @@ export const getVectorLength = (v: Vector2) => {
   return Math.sqrt(v.x ** 2 + v.y ** 2)
 }
 
-export const getAngelBetweenTwoVectors = (a: Vector2, b: Vector2) => {
+export const getAngleBetweenTwoVectors = (a: Vector2, b: Vector2) => {
   if ((!a.x && !a.y) || (!b.x && !b.y)) return 0
 
   const mult = a.x * b.x + a.y * b.y
@@ -15,7 +15,7 @@ export const getAngelBetweenTwoVectors = (a: Vector2, b: Vector2) => {
   return a.y < 0 || b.y < 0 ? -Math.acos(cosValue) : Math.acos(cosValue)
 }
 
-export const getVectorFromAngelAndVector = (
+export const getVectorFromAngleAndVector = (
   angle: number,
   v: Vector2,
 ): Vector2 => {
