@@ -8,7 +8,7 @@ import { Container, ProjectDocumentButton, ThemeButton } from 'components'
  * Блок, содержащий все, что связано с настройкой физических моделей (поля ввода данных и т.п.)
  * @returns {JSX.Element}
  */
-export const ConfigureLayout = ({ className, ...props }: LayoutProps) => {
+export const ConfigureLayout = () => {
   const { setTitle, setIcon, setActionButtons } = useToolbar()
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export const ConfigureLayout = ({ className, ...props }: LayoutProps) => {
   }, [setTitle, setIcon, setActionButtons])
 
   return (
-    <Container disableGutters sx={{ overflowY: 'auto' }} {...props}>
+    <Container disableGutters sx={{ overflowY: 'auto' }}>
       <ConfigureSections />
     </Container>
   )
