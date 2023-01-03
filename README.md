@@ -87,10 +87,10 @@ yarn start
 │   └───models - 3d модели
 └───src - рабочий корень проекта
     ├───components - UI/UX компоненты
-    ├───consts - константы
+    ├───constants - константы
     ├───hooks - React-хуки
     ├───layouts - блоки страницы
-    ├───models - программные модели
+    ├───models - 3D-компоненты
     ├───pages - web-страницы проекта
     ├───providers - провайдеры данных
     ├───selectors - Redux-селекторы
