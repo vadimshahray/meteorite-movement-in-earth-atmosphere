@@ -1,5 +1,5 @@
-import App from './App'
 import React from 'react'
+import { MainPage } from 'pages'
 import ReactDOM from 'react-dom/client'
 import {
   ThemeProvider,
@@ -17,7 +17,7 @@ root.render(
         <ThemeProvider>
           <SnackbarProvider>
             <DialogProvider>
-              <App />
+              <MainPage />
             </DialogProvider>
           </SnackbarProvider>
         </ThemeProvider>
