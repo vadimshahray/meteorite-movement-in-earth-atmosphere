@@ -4,8 +4,8 @@ import {
   clearModelingData,
   calculateCollisionTime,
   setModelingChartsPoints,
-  setDistanceGraphicPoints,
-  setVelocityGraphicPoints,
+  setDistanceChartPoints,
+  setVelocityChartPoints,
   calculateMeteoriteVelocity,
   initializeModelingMeteoriteData,
 } from 'slices'
@@ -58,7 +58,7 @@ export const modelingInfoSlice = createSlice<
         state.pointsPassed++
       })
 
-      .addCase(setVelocityGraphicPoints.fulfilled, (state, { payload }) => {
+      .addCase(setVelocityChartPoints.fulfilled, (state, { payload }) => {
         state.chartsPoints['@VelocityChart'].lastPoints = payload.lastPoints
 
         if (payload.totalPoint) {
@@ -67,7 +67,7 @@ export const modelingInfoSlice = createSlice<
           )
         }
       })
-      .addCase(setDistanceGraphicPoints.fulfilled, (state, { payload }) => {
+      .addCase(setDistanceChartPoints.fulfilled, (state, { payload }) => {
         state.chartsPoints['@DistanceChart'].lastPoints = payload.lastPoints
 
         if (payload.totalPoint) {
