@@ -3,7 +3,7 @@ type ModelingSliceState = {
 
   meteorite: ModelingMeteorite
 
-  timer: Time
+  time: Time
 }
 
 /**

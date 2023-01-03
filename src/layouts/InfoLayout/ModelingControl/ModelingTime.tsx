@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux'
 import { Box, Typography } from '@mui/material'
-import { selectModelingTimer } from 'selectors'
+import { selectModelingTime } from 'selectors'
 import { TimerOutlined } from '@mui/icons-material'
 
-export const ModelingTimer = () => {
+export const ModelingTime = () => {
   const { hours, minutes, seconds, milliseconds } =
-    useSelector(selectModelingTimer)
+    useSelector(selectModelingTime)
 
   const timeString = `${addZeros(hours, 2)}:${addZeros(minutes, 2)}:${addZeros(
     seconds,

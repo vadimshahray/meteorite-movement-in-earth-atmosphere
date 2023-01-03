@@ -139,7 +139,7 @@ const startModelingTimer = createAsyncThunk<
   () => void,
   { state: RootState; dispatch: AppDispatch }
 >('modeling/startTimer', (callback, { getState, dispatch }) => {
-  let ticks = getState().modeling.timer.ticks
+  let ticks = getState().modeling.time.ticks
 
   interval = setInterval(() => {
     ticks += CALCULATION_INTERVAL_MS
