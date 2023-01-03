@@ -1,9 +1,8 @@
-import { Button } from 'components'
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
 import { selectModelingStatus } from 'selectors'
-import { Container, Tooltip } from '@mui/material'
 import { restartModeling, stopModeling } from 'slices'
+import { Container, Tooltip, Button } from '@mui/material'
 import { RestartAltOutlined, StopOutlined } from '@mui/icons-material'
 
 export const StopModelingButton = () => {
