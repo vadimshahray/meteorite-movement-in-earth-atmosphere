@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from 'components'
+import { Container } from '@components'
 import { ButtonProps, Button } from '@mui/material'
 import { Stack, Toolbar as MUIToolbar, Typography } from '@mui/material'
 

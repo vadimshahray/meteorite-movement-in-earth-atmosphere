@@ -1,6 +1,6 @@
-import { EARTH } from 'constants/earth'
+import { EARTH } from '@constants'
 import { ChartContainer } from '../ChartContainer'
-import { useAreaBaseProps, useBaseChartElementsProps } from 'hooks'
+import { useAreaBaseProps, useBaseChartElementsProps } from '@hooks'
 import { Area, AreaChart, ReferenceLine, XAxis, YAxis } from 'recharts'
 
 export type AtmosphereLayersChartBackgroundProps = {

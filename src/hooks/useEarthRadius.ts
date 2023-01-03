@@ -1,9 +1,6 @@
 import { useSelector } from 'react-redux'
-import { selectThemeColorMode } from 'selectors'
-import {
-  EARTH_LIGHT_RADIUS_SCALE,
-  EARTH_NIGHT_RADIUS_SCALE,
-} from 'constants/models'
+import { selectThemeColorMode } from '@selectors'
+import { EARTH_LIGHT_RADIUS_SCALE, EARTH_NIGHT_RADIUS_SCALE } from '@constants'
 
 export const useEarthRadius = () => {
   const colorMode = useSelector(selectThemeColorMode)

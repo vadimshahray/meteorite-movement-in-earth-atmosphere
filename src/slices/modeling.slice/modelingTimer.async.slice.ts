@@ -1,4 +1,4 @@
-import { ticksToTime } from 'utils'
+import { ticksToTime } from '@utils'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 export const CALCULATION_INTERVAL_MS = 33

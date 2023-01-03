@@ -6,8 +6,8 @@ import {
 } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { PropsWithChildren } from 'react'
-import { theme as appTheme } from 'styles'
-import { selectThemeColorMode } from 'selectors'
+import { theme as appTheme } from '@styles'
+import { selectThemeColorMode } from '@selectors'
 
 /**
  * Провайдер темы приложения

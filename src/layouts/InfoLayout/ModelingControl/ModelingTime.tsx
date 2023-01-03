@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { selectModelingTime } from 'selectors'
+import { selectModelingTime } from '@selectors'
 import { Box, Typography } from '@mui/material'
 import { TimerOutlined } from '@mui/icons-material'
 

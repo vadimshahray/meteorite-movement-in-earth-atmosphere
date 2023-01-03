@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
-import { metersToVelocityString } from 'utils'
-import { selectModelingMeteoriteAverageVelocity } from 'selectors'
+import { metersToVelocityString } from '@utils'
+import { selectModelingMeteoriteAverageVelocity } from '@selectors'
 
 export const ModelingMeteoriteAverageVelocity = () => {
   const averageVelocity = useSelector(selectModelingMeteoriteAverageVelocity)

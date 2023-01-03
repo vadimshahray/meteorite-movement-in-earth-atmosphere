@@ -1,5 +1,5 @@
 import { ChartTooltip } from '../ChartTooltip'
-import { useBaseChartElementsProps } from 'hooks'
+import { useBaseChartElementsProps } from '@hooks'
 import { ChartContainer } from '../ChartContainer'
 import {
   Line,

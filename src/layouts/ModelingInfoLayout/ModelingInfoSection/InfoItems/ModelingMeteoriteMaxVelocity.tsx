@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
-import { metersToVelocityString } from 'utils'
-import { selectModelingMeteoriteMaxVelocity } from 'selectors'
+import { metersToVelocityString } from '@utils'
+import { selectModelingMeteoriteMaxVelocity } from '@selectors'
 
 export const ModelingMeteoriteMaxVelocity = () => {
   const maxVelocity = useSelector(selectModelingMeteoriteMaxVelocity)

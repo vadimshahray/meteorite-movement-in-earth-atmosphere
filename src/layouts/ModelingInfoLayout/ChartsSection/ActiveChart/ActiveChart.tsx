@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { selectActiveChart } from 'selectors'
+import { selectActiveChart } from '@selectors'
 import { DistanceChart, VelocityChart } from './Charts'
 
 export const ActiveChart = () => {

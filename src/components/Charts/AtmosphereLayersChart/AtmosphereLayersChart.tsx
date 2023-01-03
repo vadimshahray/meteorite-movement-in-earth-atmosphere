@@ -1,5 +1,5 @@
-import { Container } from 'components'
-import { useBaseChartElementsProps } from 'hooks'
+import { Container } from '@components'
+import { useBaseChartElementsProps } from '@hooks'
 import { ChartContainer } from '../ChartContainer'
 import { AtmosphereLayersChartTooltip } from './AtmosphereLayersChartTooltip'
 import { CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'

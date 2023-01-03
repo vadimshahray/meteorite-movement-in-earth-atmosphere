@@ -1,5 +1,5 @@
 import React from 'react'
-import { MainPage } from 'pages'
+import { MainPage } from '@pages'
 import ReactDOM from 'react-dom/client'
 import {
   ThemeProvider,
@@ -7,7 +7,7 @@ import {
   DialogProvider,
   PersistProvider,
   SnackbarProvider,
-} from 'providers'
+} from '@providers'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(

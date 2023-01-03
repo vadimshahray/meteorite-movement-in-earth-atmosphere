@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
-import { InfoLayout, ModelingLayout } from 'layouts'
-import { ControlsDialog, FullContainer } from 'components'
+import { InfoLayout, ModelingLayout } from '@layouts'
+import { ControlsDialog, FullContainer } from '@components'
 import { MainPageSplashScreen } from './MainPageSplashScreen'
 
 export const MainPage = () => {

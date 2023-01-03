@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useEarthAutorotation } from 'hooks'
+import { useEarthAutorotation } from '@hooks'
 import { GroupProps } from '@react-three/fiber'
-import { selectThemeColorMode } from 'selectors'
+import { selectThemeColorMode } from '@selectors'
 
 const EarthLight = React.lazy(() => import('./EarthLight/EarthLight'))
 const EarthNight = React.lazy(() => import('./EarthNight/EarthNight'))

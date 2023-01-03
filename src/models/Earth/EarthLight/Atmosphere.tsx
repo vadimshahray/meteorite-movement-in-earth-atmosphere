@@ -1,5 +1,5 @@
 import { LayerMaterial, Gradient } from 'lamina'
-import { EARTH_LIGHT_RADIUS_SCALE } from 'constants/models'
+import { EARTH_LIGHT_RADIUS_SCALE } from '@constants'
 
 export const Atmosphere = () => {
   return (

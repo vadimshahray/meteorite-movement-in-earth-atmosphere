@@ -1,4 +1,4 @@
-import { store } from 'store'
+import { store } from 'src/store'
 import { Provider } from 'react-redux'
 import { PropsWithChildren } from 'react'
 

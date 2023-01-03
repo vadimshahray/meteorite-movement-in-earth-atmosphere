@@ -1,4 +1,4 @@
-import { cancelModeling } from 'slices'
+import { cancelModeling } from '@slices'
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState: SceneSliceState = {

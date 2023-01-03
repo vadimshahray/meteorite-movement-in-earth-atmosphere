@@ -1,7 +1,7 @@
-import { useDispatch } from 'hooks'
-import { setColorMode } from 'slices'
+import { useDispatch } from '@hooks'
+import { setColorMode } from '@slices'
 import { useSelector } from 'react-redux'
-import { selectThemeColorMode } from 'selectors'
+import { selectThemeColorMode } from '@selectors'
 import { IconButton, Tooltip } from '@mui/material'
 import { DarkModeOutlined, LightModeOutlined } from '@mui/icons-material'
 

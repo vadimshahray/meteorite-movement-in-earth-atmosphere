@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-import { Container } from 'components'
+import { Container } from '@components'
 import { Typography } from '@mui/material'
 import { ResponsiveContainer } from 'recharts'
 

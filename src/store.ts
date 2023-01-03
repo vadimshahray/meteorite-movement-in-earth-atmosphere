@@ -7,7 +7,7 @@ import {
   meteoriteSlice,
   modelingInfoSlice,
   configurationSlice,
-} from 'slices'
+} from '@slices'
 import {
   FLUSH,
   PAUSE,

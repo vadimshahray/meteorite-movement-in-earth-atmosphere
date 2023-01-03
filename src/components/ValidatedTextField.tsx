@@ -1,4 +1,4 @@
-import { useDispatch } from 'hooks'
+import { useDispatch } from '@hooks'
 import { AnyObject } from 'yup/lib/types'
 import { object, ValidationError } from 'yup'
 import { RequiredNumberSchema } from 'yup/lib/number'
@@ -7,7 +7,7 @@ import React, { useEffect, useMemo, useState, useRef } from 'react'
 import {
   decreaseInvalidUserInputCount,
   increaseInvalidUserInputCount,
-} from 'slices'
+} from '@slices'
 
 /** Пропсы `ValidatedTextField` */
 export type ValidatedTextFieldProps = {

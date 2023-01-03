@@ -1,4 +1,4 @@
-import { Section } from 'components'
+import { Section } from '@components'
 import { Stack } from '@mui/material'
 import { DataObjectOutlined } from '@mui/icons-material'
 import {

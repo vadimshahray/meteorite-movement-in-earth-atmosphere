@@ -1,11 +1,11 @@
 import React from 'react'
 import * as THREE from 'three'
-import { angleToPI } from 'utils'
+import { angleToPI } from '@utils'
 import { GLTF } from 'three-stdlib'
 import { Atmosphere } from './Atmosphere'
 import { useGLTF } from '@react-three/drei'
 import { GroupProps, MeshProps } from '@react-three/fiber'
-import { EARTH_LIGHT_RADIUS_SCALE } from 'constants/models'
+import { EARTH_LIGHT_RADIUS_SCALE } from '@constants'
 
 type GLTFResult = GLTF & {
   nodes: {
