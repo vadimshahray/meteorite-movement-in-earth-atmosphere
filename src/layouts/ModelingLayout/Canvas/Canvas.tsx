@@ -3,8 +3,8 @@ import { Stars } from '@react-three/drei'
 import { ModelingScene } from './ModelingScene'
 import { Canvas as TCanvas } from '@react-three/fiber'
 import {
-  useMeteoriteDistanceControl,
   useMeteoriteRadiusControl,
+  useMeteoriteDistanceControl,
   useMeteoriteVelocityVectorControl,
 } from '@hooks'
 

@@ -4,8 +4,8 @@ import { angleToPI } from '@utils'
 import { GLTF } from 'three-stdlib'
 import { useGLTF } from '@react-three/drei'
 import { SunLightStroke } from './SunLightStroke'
-import { GroupProps, MeshProps } from '@react-three/fiber'
 import { EARTH_NIGHT_RADIUS_SCALE } from '@constants'
+import { GroupProps, MeshProps } from '@react-three/fiber'
 
 type GLTFResult = GLTF & {
   nodes: {

@@ -2,8 +2,8 @@ import { useDispatch } from '@hooks'
 import { useSelector } from 'react-redux'
 import { setMeteoriteData } from '@slices'
 import { SliderTextField } from '@components'
-import { selectMeteoriteMass } from '@selectors'
 import { METEORITE_LIMITS } from '@constants'
+import { selectMeteoriteMass } from '@selectors'
 
 export const MassField = () => {
   const dispatch = useDispatch()
