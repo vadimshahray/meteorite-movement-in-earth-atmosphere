@@ -54,6 +54,13 @@ npm install
 npm start
 ```
 
+или с помощью [yarn](https://yarnpkg.com/):
+
+```
+yarn install
+yarn start
+```
+
 # Физика проекта
 
 Информация о физике, используемой в проекте, находится в [этом отчете](/public/docs/ProjectDocument.pdf).
