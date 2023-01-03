@@ -29,7 +29,7 @@ export const configurationSlice = createSlice<
     },
 
     setInteractiveControlValue: (state, { payload }) => {
-      state.interactiveControlsValues[payload.control] = payload.value
+      state.interactiveControlsValues[payload.key] = payload.value
     },
 
     setIsControlsDialogVisible: (state, { payload }) => {

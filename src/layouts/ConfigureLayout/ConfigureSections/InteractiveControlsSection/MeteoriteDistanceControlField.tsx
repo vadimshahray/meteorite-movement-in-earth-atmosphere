@@ -15,7 +15,7 @@ export const MeteoriteDistanceControlField = () => {
   const onChange = (value: number) => {
     dispatch(
       setInteractiveControlValue({
-        control: '@MeteoriteDistanceControl',
+        key: '@MeteoriteDistanceControl',
         value,
       }),
     )

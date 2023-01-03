@@ -15,7 +15,7 @@ export const MeteoriteVectorVelocityControlField = () => {
   const onChange = (value: number) => {
     dispatch(
       setInteractiveControlValue({
-        control: '@MeteoriteVelocityVectorControl',
+        key: '@MeteoriteVelocityVectorControl',
         value,
       }),
     )
