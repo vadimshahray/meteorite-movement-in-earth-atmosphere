@@ -40,10 +40,10 @@
 
 После успешного клонирования репозитория, откройте корневую папку проекта в терминале и введите следующие команды:
 
-<pre>
+```
 npm install
 npm start
-</pre>
+```
 
 # Физика проекта
 
@@ -62,3 +62,24 @@ npm start
 - [`recharts`](https://github.com/recharts/recharts#readme) - графики;
 - [`redux-persist`](https://github.com/rt2zz/redux-persist#readme) - локальное сохранение состояния проекта;
 - [`yup`](https://github.com/jquense/yup#readme) - валидация данных.
+
+### **Файловая структура проекта**
+
+```
+├───public - статичные данные
+│   ├───docs - документация проекта
+│   └───models - 3d модели
+└───src - рабочий корень проекта
+    ├───components - UI/UX компоненты
+    ├───consts - константы
+    ├───hooks - React-хуки
+    ├───layouts - блоки страницы
+    ├───models - программные модели
+    ├───pages - web-страницы проекта
+    ├───providers - провайдеры данных
+    ├───selectors - Redux-селекторы
+    ├───slices - Redux-слайсы
+    ├───styles - стилизация
+    ├───types - типы
+    └───utils - различный полезный функционал
+```
