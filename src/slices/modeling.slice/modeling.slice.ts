@@ -11,26 +11,24 @@ import {
   initializeModelingMeteoriteData,
 } from './modeling.async.slice'
 
-const initialState: ModelingSliceState = {
-  modelingStatus: 'idle',
-
-  meteorite: {
-    distance: 0,
-    velocity: 0,
-  },
-
-  timer: {
-    hours: 0,
-    seconds: 0,
-    minutes: 0,
-    milliseconds: 0,
-    ticks: 0,
-  },
-}
-
 export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
   name: 'modeling',
-  initialState,
+  initialState: {
+    modelingStatus: 'idle',
+
+    meteorite: {
+      distance: 0,
+      velocity: 0,
+    },
+
+    timer: {
+      hours: 0,
+      seconds: 0,
+      minutes: 0,
+      milliseconds: 0,
+      ticks: 0,
+    },
+  },
   reducers: {},
   extraReducers: (builder) => {
     builder

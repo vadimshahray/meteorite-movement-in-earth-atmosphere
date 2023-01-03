@@ -1,18 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit'
 import { setDefinedProperties } from 'utils'
-
-const initialState: MeteoriteSliceState = {
-  mass: 1000,
-  radius: 10000,
-  distance: 1000000,
-  velocityVectorX: 1,
-  velocityVectorY: 0,
-  initialVelocity: 10,
-}
+import { createSlice } from '@reduxjs/toolkit'
 
 export const meteoriteSlice = createSlice<MeteoriteSliceState, MeteoriteSlice>({
   name: 'meteorite',
-  initialState,
+  initialState: {
+    mass: 1000,
+
+    radius: 10000,
+    distance: 1000000,
+
+    initialVelocity: 10,
+
+    velocityVectorX: 1,
+    velocityVectorY: 0,
+  },
   reducers: {
     setMeteoriteData: (state, { payload }) => {
       setDefinedProperties(state, payload)
