@@ -1,11 +1,11 @@
 {
-  "include": ["src"],
+  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "strict": true,
     "noEmit": true,
     "allowJs": true,
     "jsx": "react-jsx",
-    "baseUrl": "./src",
     "target": "ESNext",
     "module": "esnext",
     "skipLibCheck": true,
@@ -18,4 +18,6 @@
     "forceConsistentCasingInFileNames": true,
     "lib": ["dom", "dom.iterable", "esnext"],
   },
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
