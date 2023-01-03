@@ -1,8 +1,8 @@
 import { useDispatch } from 'hooks'
 import { useSelector } from 'react-redux'
-import { METEORITE_LIMITS } from 'consts'
 import { setMeteoriteData } from 'slices'
 import { SliderTextField } from 'components'
+import { METEORITE_LIMITS } from 'constants/meteorite'
 import { selectMeteoriteInitialVelocity } from 'selectors'
 
 export const InitialVelocityField = () => {

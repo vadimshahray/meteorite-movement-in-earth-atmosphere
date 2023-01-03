@@ -1,11 +1,11 @@
 import React from 'react'
 import * as THREE from 'three'
-import { EARTH } from 'consts'
 import { angleToPI } from 'utils'
 import { GLTF } from 'three-stdlib'
 import { Atmosphere } from './Atmosphere'
 import { useGLTF } from '@react-three/drei'
 import { GroupProps, MeshProps } from '@react-three/fiber'
+import { EARTH_LIGHT_RADIUS_SCALE } from 'constants/models'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -15,12 +15,6 @@ type GLTFResult = GLTF & {
     ['Material.002']: THREE.MeshStandardMaterial
   }
 }
-
-const EARTH_LIGHT_MODEL_RADIUS = 1.7353594410588759
-const EARTH_LIGHT_MODEL_RADIUS_SCALE = 1.0 / EARTH_LIGHT_MODEL_RADIUS
-
-export const EARTH_LIGHT_RADIUS_SCALE =
-  EARTH_LIGHT_MODEL_RADIUS_SCALE * EARTH.RADIUS * 0.00001
 
 const EarthLightModel = React.memo((props: MeshProps) => {
   const { nodes, materials } = useGLTF(
