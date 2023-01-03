@@ -97,7 +97,7 @@ function getNewLastPoints(oldPoints: ChartPoint[], newPoint: ChartPoint) {
 let skipAmount = 0
 let totalPointsLength = 0
 
-function canAddTotalPoint(pointsPassed: number, collisionTime: Timer) {
+function canAddTotalPoint(pointsPassed: number, collisionTime: Time) {
   skipAmount = Math.floor(
     Math.floor(collisionTime.ticks / CALCULATION_INTERVAL_MS) /
       (TOTAL_POINTS_AMOUNT - totalPointsLength),

@@ -9,7 +9,7 @@ type ModelingInfoSliceState = {
     average: number
   }
 
-  collisionTime: Timer
+  collisionTime: Time
 }
 
 interface ModelingInfoSlice extends SliceCaseReducers<ModelingInfoSliceState> {
