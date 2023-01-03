@@ -15,18 +15,18 @@ export const setModelingChartsPoints = createAsyncThunk<
   boolean,
   { state: RootState; dispatch: AppDispatch }
 >(
-  'modelingInfo/setGraphicsPoints',
+  'modelingInfo/setChartsPoints',
   async (isLastPoint, { getState, dispatch }) => {
     const pointsPassed = getState().modelingInfo.pointsPassed
 
     await Promise.all([
-      dispatch(setVelocityGraphicPoints({ isLastPoint, pointsPassed })),
-      dispatch(setDistanceGraphicPoints({ isLastPoint, pointsPassed })),
+      dispatch(setVelocityChartPoints({ isLastPoint, pointsPassed })),
+      dispatch(setDistanceChartPoints({ isLastPoint, pointsPassed })),
     ])
   },
 )
 
-export const setVelocityGraphicPoints = createAsyncThunk<
+export const setVelocityChartPoints = createAsyncThunk<
   {
     lastPoints: ChartPoint[]
     totalPoint?: ChartPoint
@@ -34,7 +34,7 @@ export const setVelocityGraphicPoints = createAsyncThunk<
   { isLastPoint: boolean; pointsPassed: number },
   { state: RootState }
 >(
-  'modelingInfo/setVelocityGraphicPoints',
+  'modelingInfo/setVelocityChartPoints',
   ({ isLastPoint, pointsPassed }, { getState }) => {
     const lastPoints = selectChartLastPoints('@VelocityChart')(getState())
 
@@ -54,7 +54,7 @@ export const setVelocityGraphicPoints = createAsyncThunk<
   },
 )
 
-export const setDistanceGraphicPoints = createAsyncThunk<
+export const setDistanceChartPoints = createAsyncThunk<
   {
     lastPoints: ChartPoint[]
     totalPoint?: ChartPoint
@@ -62,7 +62,7 @@ export const setDistanceGraphicPoints = createAsyncThunk<
   { isLastPoint: boolean; pointsPassed: number },
   { state: RootState }
 >(
-  'modelingInfo/setDistanceGraphicPoints',
+  'modelingInfo/setDistanceChartPoints',
   ({ isLastPoint, pointsPassed }, { getState }) => {
     const lastPoints = selectChartLastPoints('@DistanceChart')(getState())
 
