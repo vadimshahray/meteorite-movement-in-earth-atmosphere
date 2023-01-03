@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
-import { Box, Typography } from '@mui/material'
 import { selectModelingTime } from 'selectors'
+import { Box, Typography } from '@mui/material'
 import { TimerOutlined } from '@mui/icons-material'
 
 export const ModelingTime = () => {
