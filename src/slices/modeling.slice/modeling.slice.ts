@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
 import { ticksToTime } from 'utils'
+import { createSlice } from '@reduxjs/toolkit'
 import {
   stopModeling,
   startModeling,
@@ -10,7 +10,7 @@ import {
   calculateMeteoriteDistance,
   calculateMeteoriteVelocity,
   initializeModelingMeteoriteData,
-} from './modeling.async.slice'
+} from 'slices'
 
 const initialState: ModelingSliceState = {
   modelingStatus: 'idle',
