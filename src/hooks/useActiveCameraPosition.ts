@@ -27,12 +27,12 @@ export const useActiveCameraPosition = () => {
       }),
     )
 
-    velocityVector.x *= meteoriteRadius
-    velocityVector.y *= meteoriteRadius
+    velocityVector.x *= 2 * getRadiusCoefficient(meteoriteRadius)
+    velocityVector.y *= 2 * getRadiusCoefficient(meteoriteRadius)
 
     return new THREE.Vector3(
-      velocityVector.y,
-      meteoritePosition.y + 2 * getRadiusCoefficient(meteoriteRadius),
+      meteoritePosition.x,
+      meteoritePosition.y + velocityVector.y,
       velocityVector.x,
     )
   }

@@ -9,7 +9,7 @@ import {
   selectMeteoriteVelocityVector,
 } from '@selectors'
 
-let pointerScreenX = 0
+let pointerScreenY = 0
 let isPointerDown = false
 
 export const useMeteoriteVelocityVectorControl = () => {
@@ -24,7 +24,7 @@ export const useMeteoriteVelocityVectorControl = () => {
 
   const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
     isPointerDown = true
-    pointerScreenX = e.screenX
+    pointerScreenY = e.screenY
   }
 
   const onPointerUp = (_: PointerEvent<HTMLDivElement>) => {
@@ -35,7 +35,7 @@ export const useMeteoriteVelocityVectorControl = () => {
     if (!isPointerDown) return
 
     const angle =
-      Math.sign(pointerScreenX - e.screenX) * velocityVectorControl * 0.1
+      Math.sign(pointerScreenY - e.screenY) * velocityVectorControl * 0.1
     const newVector = getVectorFromAngleAndVector(angle, velocityVector)
 
     dispatch(
