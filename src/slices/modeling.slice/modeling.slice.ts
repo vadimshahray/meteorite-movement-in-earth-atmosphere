@@ -7,6 +7,7 @@ import {
   finishModeling,
   restartModeling,
   setModelingTimerTime,
+  checkCanMeteoriteCollide,
   calculateMeteoriteDistance,
   calculateMeteoriteVelocity,
   initializeModelingMeteoriteData,
@@ -19,6 +20,7 @@ const initialState: ModelingSliceState = {
     distance: 0,
     velocity: 0,
   },
+  canMeteoriteCollide: true,
 
   time: ticksToTime(0),
 }
@@ -48,8 +50,16 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
         state.modelingStatus = initialState.modelingStatus
 
         state.meteorite = initialState.meteorite
+        state.canMeteoriteCollide = initialState.canMeteoriteCollide
 
         state.time = initialState.time
+      })
+
+      .addCase(checkCanMeteoriteCollide.pending, (state) => {
+        state.canMeteoriteCollide = 'processing'
+      })
+      .addCase(checkCanMeteoriteCollide.fulfilled, (state, { payload }) => {
+        state.canMeteoriteCollide = payload
       })
 
       .addCase(

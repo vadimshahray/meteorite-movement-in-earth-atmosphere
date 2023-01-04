@@ -8,3 +8,6 @@ export const selectModelingMeteoriteDistance = (state: RootState) =>
   state.modeling.meteorite.distance
 
 export const selectModelingTime = (state: RootState) => state.modeling.time
+
+export const selectCanMeteoriteCollide = (state: RootState) =>
+  state.modeling.canMeteoriteCollide

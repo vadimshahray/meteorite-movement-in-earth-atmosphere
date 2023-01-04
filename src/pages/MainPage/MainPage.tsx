@@ -1,6 +1,10 @@
 import { Suspense } from 'react'
 import { InfoLayout, ModelingLayout } from '@layouts'
-import { ControlsDialog, FullContainer } from '@components'
+import {
+  FullContainer,
+  ControlsDialog,
+  MeteoriteCanNotCollideDialog,
+} from '@components'
 import { MainPageSplashScreen } from './MainPageSplashScreen'
 
 export const MainPage = () => {
@@ -19,6 +23,8 @@ export const MainPage = () => {
         <InfoLayout />
 
         <ControlsDialog />
+
+        <MeteoriteCanNotCollideDialog />
       </Suspense>
     </FullContainer>
   )
