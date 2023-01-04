@@ -1,4 +1,3 @@
-export * from './useDialog'
 export * from './useToolbar'
 export * from './useDispatch'
 export * from './useEarthRadius'

@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom/client'
 import {
   ThemeProvider,
   StoreProvider,
-  DialogProvider,
   PersistProvider,
   SnackbarProvider,
 } from '@providers'
@@ -16,9 +15,7 @@ root.render(
       <PersistProvider>
         <ThemeProvider>
           <SnackbarProvider>
-            <DialogProvider>
-              <MainPage />
-            </DialogProvider>
+            <MainPage />
           </SnackbarProvider>
         </ThemeProvider>
       </PersistProvider>

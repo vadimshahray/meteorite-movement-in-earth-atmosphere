@@ -1,6 +1,5 @@
 export * from './ThemeProvider'
 export * from './StoreProvider'
-export * from './DialogProvider'
 export * from './ToolbarProvider'
 export * from './PersistProvider'
 export * from './SnackbarProvider'
