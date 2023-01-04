@@ -16,7 +16,7 @@ export const theme = createTheme({
     borderRadius: 8,
   },
   typography: {
-    fontFamily: 'Jost',
+    fontFamily: 'Jost, sans-serif',
   },
   components,
 })

@@ -18,7 +18,7 @@ export const ModelingTime = () => {
       <Box display='flex' alignItems='center'>
         <TimerOutlined sx={{ marginRight: '2px' }} fontSize='small' />
 
-        <Typography fontFamily='Fira Code'>{timeString}</Typography>
+        <Typography fontFamily='Fira Code, monospace'>{timeString}</Typography>
       </Box>
     </>
   )

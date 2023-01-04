@@ -5,5 +5,9 @@ import { selectCollisionTime } from '@selectors'
 export const CollisionTime = () => {
   const time = useSelector(selectCollisionTime)
 
-  return <span style={{ fontFamily: 'Fira Code' }}>{timeToString(time)}</span>
+  return (
+    <span style={{ fontFamily: 'Fira Code, monospace' }}>
+      {timeToString(time)}
+    </span>
+  )
 }

@@ -24,7 +24,8 @@ export const ChartTooltip = ({
     <Paper>
       <Stack>
         <Typography textAlign='center' variant='subtitle2' sx={{ padding: 1 }}>
-          {yData[1]} <span style={{ fontFamily: 'Fira Code' }}>{yData[0]}</span>
+          {yData[1]}{' '}
+          <span style={{ fontFamily: 'Fira Code, monospace' }}>{yData[0]}</span>
         </Typography>
 
         <Divider />
@@ -34,7 +35,8 @@ export const ChartTooltip = ({
           variant='caption'
           sx={{ padding: 1, paddingTop: 0.5, paddingBottom: 0.5 }}
         >
-          {xData[1]} <span style={{ fontFamily: 'Fira Code' }}>{xData[0]}</span>
+          {xData[1]}{' '}
+          <span style={{ fontFamily: 'Fira Code, monospace' }}>{xData[0]}</span>
         </Typography>
       </Stack>
     </Paper>

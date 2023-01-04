@@ -6,7 +6,7 @@ export const ModelingMeteoriteVelocity = () => {
   const velocity = useSelector(selectModelingMeteoriteVelocity)
 
   return (
-    <span style={{ fontFamily: 'Fira Code' }}>
+    <span style={{ fontFamily: 'Fira Code, monospace' }}>
       {metersToVelocityString(velocity)}
     </span>
   )
