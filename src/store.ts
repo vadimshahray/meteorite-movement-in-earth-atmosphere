@@ -23,7 +23,7 @@ import {
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['theme', 'meteorite', 'configuration'],
+  whitelist: ['theme', 'feedback', 'meteorite', 'configuration'],
 }
 
 const rootReducer = combineReducers({
