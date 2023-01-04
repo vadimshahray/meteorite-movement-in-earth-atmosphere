@@ -38,7 +38,7 @@ const EarthLightModel = React.memo((props: MeshProps) => {
 
 export default React.memo(({ visible }: GroupProps) => {
   return (
-    <group scale={visible ? 1 : 0.8}>
+    <group scale={visible ? 1 : 0.01}>
       <EarthLightModel scale={EARTH_LIGHT_RADIUS_SCALE} />
 
       <Atmosphere />

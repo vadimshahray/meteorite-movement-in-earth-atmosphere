@@ -43,7 +43,7 @@ const EarthDarkModel = React.memo(
 
 export default React.memo(({ visible }: GroupProps) => {
   return (
-    <group scale={visible ? 1 : 0.8}>
+    <group scale={visible ? 1 : 0.01}>
       <EarthDarkModel scale={EARTH_NIGHT_RADIUS_SCALE} />
 
       <SunLightStroke />
