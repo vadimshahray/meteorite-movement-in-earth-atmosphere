@@ -1,6 +1,6 @@
 import React from 'react'
 import * as THREE from 'three'
-import { angleToPI } from '@utils'
+import { degreesToRadians } from '@utils'
 import { GLTF } from 'three-stdlib'
 import { useGLTF } from '@react-three/drei'
 import { SunLightStroke } from './SunLightStroke'
@@ -23,13 +23,17 @@ const EarthNightModel = React.memo(
     ) as unknown as GLTFResult
 
     return (
-      <group rotation={[0, angleToPI(90), 0]}>
+      <group rotation={[0, degreesToRadians(90), 0]}>
         <mesh
           {...props}
           geometry={nodes.pSphere1_color_0.geometry}
           material={materials.color}
           dispose={null}
-          rotation={[angleToPI(76), angleToPI(-64), angleToPI(76)]}
+          rotation={[
+            degreesToRadians(76),
+            degreesToRadians(-64),
+            degreesToRadians(76),
+          ]}
         />
       </group>
     )

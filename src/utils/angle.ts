@@ -1,4 +1,4 @@
-export const angleToPI = (a: number) => {
+export const degreesToRadians = (a: number) => {
   return (a * Math.PI) / 180
 }
 

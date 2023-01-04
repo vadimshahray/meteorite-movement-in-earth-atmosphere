@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { angleToPI } from '@utils'
+import { degreesToRadians } from '@utils'
 import { Depth, LayerMaterial } from 'lamina'
 import { EARTH_NIGHT_RADIUS_SCALE } from '@constants'
 
@@ -10,7 +10,7 @@ export const SunLightStroke = () => {
   const scale = EARTH_NIGHT_RADIUS_SCALE
 
   return (
-    <mesh rotation={[angleToPI(-90), 0, 0]}>
+    <mesh rotation={[degreesToRadians(-90), 0, 0]}>
       <circleGeometry args={[far * scale + scale, 100]} />
       <LayerMaterial
         transparent

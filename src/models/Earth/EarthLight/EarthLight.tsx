@@ -1,6 +1,6 @@
 import React from 'react'
 import * as THREE from 'three'
-import { angleToPI } from '@utils'
+import { degreesToRadians } from '@utils'
 import { GLTF } from 'three-stdlib'
 import { Atmosphere } from './Atmosphere'
 import { useGLTF } from '@react-three/drei'
@@ -26,7 +26,11 @@ const EarthLightModel = React.memo((props: MeshProps) => {
       geometry={nodes.Sphere_Material002_0.geometry}
       material={materials['Material.002']}
       dispose={null}
-      rotation={[angleToPI(-90), angleToPI(-25), angleToPI(100)]}
+      rotation={[
+        degreesToRadians(-90),
+        degreesToRadians(-25),
+        degreesToRadians(100),
+      ]}
       {...props}
     />
   )
