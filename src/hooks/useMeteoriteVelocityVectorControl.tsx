@@ -5,12 +5,12 @@ import { setMeteoriteData } from '@slices'
 import { getVectorFromAngleAndVector } from '@utils'
 import {
   selectModelingStatus,
-  selectMeteoriteVelocityVector,
   selectInteractiveControlValue,
+  selectMeteoriteVelocityVector,
 } from '@selectors'
 
-let isPointerDown = false
 let pointerScreenX = 0
+let isPointerDown = false
 
 export const useMeteoriteVelocityVectorControl = () => {
   const dispatch = useDispatch()
@@ -27,7 +27,7 @@ export const useMeteoriteVelocityVectorControl = () => {
     pointerScreenX = e.screenX
   }
 
-  const onPointerUp = (e: PointerEvent<HTMLDivElement>) => {
+  const onPointerUp = (_: PointerEvent<HTMLDivElement>) => {
     isPointerDown = false
   }
 
@@ -47,8 +47,8 @@ export const useMeteoriteVelocityVectorControl = () => {
   }
 
   return {
-    onPointerDown: modelingStatus === 'idle' ? onPointerDown : undefined,
     onPointerUp: modelingStatus === 'idle' ? onPointerUp : undefined,
+    onPointerDown: modelingStatus === 'idle' ? onPointerDown : undefined,
     onPointerMove: modelingStatus === 'idle' ? onPointerMove : undefined,
   }
 }
