@@ -7,6 +7,7 @@ import {
   meteoriteSlice,
   modelingInfoSlice,
   configurationSlice,
+  feedbackSlice,
 } from '@slices'
 import {
   FLUSH,
@@ -28,6 +29,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   theme: themeSlice.reducer,
   scene: sceneSlice.reducer,
+  feedback: feedbackSlice.reducer,
   modeling: modelingSlice.reducer,
   meteorite: meteoriteSlice.reducer,
   modelingInfo: modelingInfoSlice.reducer,

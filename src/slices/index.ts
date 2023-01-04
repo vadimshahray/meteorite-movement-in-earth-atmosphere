@@ -1,5 +1,6 @@
 export * from './theme.slice'
 export * from './scene.slice'
+export * from './feedback.slice'
 export * from './modeling.slice'
 export * from './meteorite.slice'
 export * from './modelingInfo.slice'

@@ -1,5 +1,6 @@
 export * from './theme.selector'
 export * from './scene.selector'
+export * from './feedback.selector'
 export * from './modeling.selector'
 export * from './meteorite.selector'
 export * from './modelingInfo.selector'
