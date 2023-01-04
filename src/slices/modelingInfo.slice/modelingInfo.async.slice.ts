@@ -1,5 +1,9 @@
-import { CALCULATION_INTERVAL_MS } from '@slices'
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import {
+  CALCULATION_INTERVAL_MS,
+  CHART_LAST_POINTS_AMOUNT,
+  CHART_TOTAL_POINTS_AMOUNT,
+} from '@constants'
 import {
   selectModelingTime,
   selectCollisionTime,
@@ -7,8 +11,6 @@ import {
   selectModelingMeteoriteDistance,
   selectModelingMeteoriteVelocity,
 } from '@selectors'
-
-const TOTAL_POINTS_AMOUNT = 1000
 
 export const setModelingChartsPoints = createAsyncThunk<
   void,
@@ -89,8 +91,6 @@ function getChartPoints(
   }
 }
 
-export const CHART_LAST_POINTS_AMOUNT = 100
-
 function getNewLastPoints(oldPoints: ChartPoint[], newPoint: ChartPoint) {
   const newPoints =
     oldPoints.length > CHART_LAST_POINTS_AMOUNT
@@ -107,7 +107,7 @@ let totalPointsLength = 0
 function canAddTotalPoint(pointsPassed: number, collisionTime: Time) {
   skipAmount = Math.floor(
     Math.floor(collisionTime.ticks / CALCULATION_INTERVAL_MS) /
-      (TOTAL_POINTS_AMOUNT - totalPointsLength),
+      (CHART_TOTAL_POINTS_AMOUNT - totalPointsLength),
   )
 
   if (pointsPassed % skipAmount === 0 || skipAmount === 0) {

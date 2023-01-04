@@ -1,7 +1,6 @@
 import { ticksToTime } from '@utils'
 import { createAsyncThunk } from '@reduxjs/toolkit'
-
-export const CALCULATION_INTERVAL_MS = 33
+import { CALCULATION_INTERVAL_MS } from '@constants'
 
 let interval: NodeJS.Timer
 
