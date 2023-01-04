@@ -1,11 +1,11 @@
 import { Suspense } from 'react'
 import { InfoLayout, ModelingLayout } from '@layouts'
+import { MainPageSplashScreen } from './MainPageSplashScreen'
 import {
   FullContainer,
   ControlsDialog,
   MeteoriteCanNotCollideDialog,
 } from '@components'
-import { MainPageSplashScreen } from './MainPageSplashScreen'
 
 export const MainPage = () => {
   return (
