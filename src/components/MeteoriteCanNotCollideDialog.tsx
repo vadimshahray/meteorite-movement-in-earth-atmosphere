@@ -32,7 +32,7 @@ export const MeteoriteCanNotCollideDialog = () => {
 
   return (
     <Dialog open={isDialogVisible} onClose={handleClose}>
-      <DialogTitle>Метеорит не столкнется с Землей</DialogTitle>
+      <DialogTitle>Моделирование приостановлено</DialogTitle>
 
       <DialogContent>
         <DialogContentText>
