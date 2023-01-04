@@ -1,7 +1,7 @@
 import React from 'react'
 import * as THREE from 'three'
-import { degreesToRadians } from '@utils'
 import { GLTF } from 'three-stdlib'
+import { degreesToRadians } from '@utils'
 import { useGLTF } from '@react-three/drei'
 import { SunLightStroke } from './SunLightStroke'
 import { EARTH_NIGHT_RADIUS_SCALE } from '@constants'
@@ -43,8 +43,9 @@ const EarthNightModel = React.memo(
 
 export default React.memo(({ visible }: GroupProps) => {
   return (
-    <group visible={visible}>
+    <group scale={visible ? 1 : 0.8}>
       <EarthNightModel scale={EARTH_NIGHT_RADIUS_SCALE} />
+
       <SunLightStroke />
     </group>
   )
