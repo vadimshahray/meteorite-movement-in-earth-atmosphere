@@ -33,7 +33,7 @@ export const calculateMeteoriteVelocity = createAsyncThunk<
 >('modeling/calculateMeteoriteVelocity', (_, { getState }) => {
   const Vi = selectModelingMeteoriteVelocity(getState())
 
-  return Vi
+  return Vi + 7
 })
 
 export const calculateMeteoriteDistance = createAsyncThunk<
