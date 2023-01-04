@@ -5,8 +5,11 @@ export const metersToDistance = (meters: number) => {
   }
 }
 
-export const metersToVelocityString = (meters: number) => {
-  const { km, m } = metersToDistance(meters)
+export const metersToVelocityString = (
+  meters: number,
+  transformCoefficient: number = 1,
+) => {
+  const { km, m } = metersToDistance(meters * transformCoefficient)
 
   if (km) {
     return `${km}.${m} км/c`

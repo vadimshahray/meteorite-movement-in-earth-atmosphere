@@ -6,7 +6,7 @@ import { CHART_LAST_POINTS_AMOUNT, CALCULATION_INTERVAL_MS } from '@constants'
 export const VelocityChart = () => {
   const { points, isTotal } = useActiveChartPoints()
 
-  const label = `Скорость метеорита (м/с) во время падения${
+  const label = `Скорость метеорита (км/с) во время падения${
     isTotal
       ? ''
       : `. *Последние ${
@@ -26,7 +26,7 @@ export const VelocityChart = () => {
         return ticksToString(value as number, 1000 * 60)
       }}
       yFormatter={(value) => {
-        return metersToVelocityString(value as number)
+        return metersToVelocityString(value as number, 1000)
       }}
     />
   )
