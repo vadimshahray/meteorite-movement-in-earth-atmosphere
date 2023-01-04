@@ -1,6 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { EARTH_LIGHT_RADIUS_SCALE } from '@constants'
-import { getAngleBetweenTwoVectors, scaleMeters } from '@utils'
+import {
+  getAngleBetweenTwoVectors,
+  radiansToDegrees,
+  scaleMeters,
+} from '@utils'
 import {
   selectMeteoriteDistance,
   selectMeteoriteVelocityVector,
@@ -30,7 +34,8 @@ export const checkCanMeteoriteCollide = createAsyncThunk<
     y: 0,
   })
 
-  const meteoriteXOffset = Math.abs(distance * Math.tan(velocityAngle))
+  if (Math.abs(radiansToDegrees(velocityAngle)) >= 90) return false
 
+  const meteoriteXOffset = Math.abs(distance * Math.tan(velocityAngle))
   return meteoriteXOffset < EARTH_LIGHT_RADIUS_SCALE
 })
