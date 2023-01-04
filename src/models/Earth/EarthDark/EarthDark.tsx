@@ -16,7 +16,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-const EarthNightModel = React.memo(
+const EarthDarkModel = React.memo(
   (props: MeshProps) => {
     const { nodes, materials } = useGLTF(
       process.env.PUBLIC_URL + '/models/earth/night/scene.gltf',
@@ -44,7 +44,7 @@ const EarthNightModel = React.memo(
 export default React.memo(({ visible }: GroupProps) => {
   return (
     <group scale={visible ? 1 : 0.8}>
-      <EarthNightModel scale={EARTH_NIGHT_RADIUS_SCALE} />
+      <EarthDarkModel scale={EARTH_NIGHT_RADIUS_SCALE} />
 
       <SunLightStroke />
     </group>

@@ -4,8 +4,8 @@ import { useEarthAutorotation } from '@hooks'
 import { GroupProps } from '@react-three/fiber'
 import { selectThemeColorMode } from '@selectors'
 
+const EarthDark = React.lazy(() => import('./EarthDark/EarthDark'))
 const EarthLight = React.lazy(() => import('./EarthLight/EarthLight'))
-const EarthNight = React.lazy(() => import('./EarthNight/EarthNight'))
 
 export default React.memo(({ visible, ...props }: GroupProps) => {
   const colorMode = useSelector(selectThemeColorMode)
@@ -14,9 +14,9 @@ export default React.memo(({ visible, ...props }: GroupProps) => {
 
   return (
     <group visible={visible} rotation={[0, angleY, 0]} {...props}>
-      <EarthLight visible={colorMode === 'light'} />
+      <EarthDark visible={colorMode === 'dark'} />
 
-      <EarthNight visible={colorMode === 'dark'} />
+      <EarthLight visible={colorMode === 'light'} />
     </group>
   )
 })
