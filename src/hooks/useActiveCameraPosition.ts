@@ -26,8 +26,8 @@ export const useActiveCameraPosition = () => {
     }),
   )
 
-  velocityVector.x *= 2 * getRadiusCoefficient(meteoriteRadius)
-  velocityVector.y *= 2 * getRadiusCoefficient(meteoriteRadius)
+  velocityVector.x *= 2.3 * getRadiusCoefficient(meteoriteRadius)
+  velocityVector.y *= 2.3 * getRadiusCoefficient(meteoriteRadius)
 
   if (modelingStatus === 'idle' || activeCamera === '@BackViewCamera') {
     return new THREE.Vector3(
