@@ -1,7 +1,7 @@
 import { useActiveChartPoints } from '@hooks'
 import { AtmosphereLayersChart } from '@components'
-import { CHART_LAST_POINTS_AMOUNT, CALCULATION_INTERVAL_MS } from '@slices'
 import { metersToDistanceString, ticksToString, ticksToTime } from '@utils'
+import { CHART_LAST_POINTS_AMOUNT, CALCULATION_INTERVAL_MS } from '@constants'
 
 export const DistanceChart = () => {
   const { points, isTotal } = useActiveChartPoints()
