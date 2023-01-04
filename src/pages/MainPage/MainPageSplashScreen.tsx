@@ -16,7 +16,7 @@ export const MainPageSplashScreen = () => {
       >
         <CircularProgress sx={{ marginBottom: 1 }} />
 
-        <Typography>Пожалуйста, подождите! Модели загружаются...</Typography>
+        <Typography>Пожалуйста, подождите, модели загружаются...</Typography>
       </Paper>
     </Backdrop>
   )
