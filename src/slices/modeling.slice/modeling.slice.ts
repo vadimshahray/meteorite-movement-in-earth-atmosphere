@@ -29,22 +29,22 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(startModeling.pending, (state) => {
+      .addCase(startModeling.fulfilled, (state) => {
         state.modelingStatus = 'processing'
       })
-      .addCase(restartModeling.pending, (state) => {
+      .addCase(restartModeling.fulfilled, (state) => {
         state.modelingStatus = 'processing'
       })
 
-      .addCase(stopModeling.pending, (state) => {
+      .addCase(stopModeling.fulfilled, (state) => {
         state.modelingStatus = 'stopped'
       })
 
-      .addCase(finishModeling.pending, (state) => {
+      .addCase(finishModeling.fulfilled, (state) => {
         state.modelingStatus = 'finished'
       })
 
-      .addCase(cancelModeling.pending, (state) => {
+      .addCase(cancelModeling.fulfilled, (state) => {
         state.modelingStatus = initialState.modelingStatus
 
         state.meteorite = initialState.meteorite

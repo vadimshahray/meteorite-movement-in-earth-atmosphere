@@ -14,7 +14,7 @@ export const sceneSlice = createSlice<SceneSliceState, SceneSlice>({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(cancelModeling.pending, (state) => {
+    builder.addCase(cancelModeling.fulfilled, (state) => {
       state.activeCamera = '@BackViewCamera'
     })
   },
