@@ -1,7 +1,6 @@
 import { useDispatch } from '@hooks'
 import { errorSnackbar } from '@utils'
 import { useSnackbar } from 'notistack'
-import { startModeling } from '@slices'
 import { useSelector } from 'react-redux'
 import { PlayArrowOutlined } from '@mui/icons-material'
 import { Container, Tooltip, Button } from '@mui/material'
@@ -9,6 +8,10 @@ import {
   selectCanMeteoriteCollide,
   selectInvalidUserInputCount,
 } from '@selectors'
+import {
+  startModeling,
+  setIsMeteoriteCanNotCollideDialogVisible,
+} from '@slices'
 
 /** Кнопка запуска моделирования */
 export const StartModelingButton = () => {
@@ -20,15 +23,20 @@ export const StartModelingButton = () => {
   const { enqueueSnackbar } = useSnackbar()
 
   const handleClick = () => {
-    if (invalidUserInputCount === 0) {
-      dispatch(startModeling())
+    if (invalidUserInputCount) {
+      enqueueSnackbar(
+        `Введенные данные содержат ошибки (${invalidUserInputCount}). Исправьте их!`,
+        errorSnackbar('Невозможно начать моделирование!'),
+      )
       return
     }
 
-    enqueueSnackbar(
-      `Введенные данные содержат ошибки (${invalidUserInputCount}). Исправьте их!`,
-      errorSnackbar('Невозможно начать моделирование!'),
-    )
+    if (!canMeteoriteCollide) {
+      dispatch(setIsMeteoriteCanNotCollideDialogVisible(true))
+      return
+    }
+
+    dispatch(startModeling())
   }
 
   const color = invalidUserInputCount

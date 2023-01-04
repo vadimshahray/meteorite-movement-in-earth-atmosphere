@@ -4,6 +4,7 @@ const initialState: ConfigurationSliceState = {
   invalidUserInputCount: 0,
 
   isControlsDialogVisible: true,
+  isMeteoriteCanNotCollideDialogVisible: true,
 
   interactiveControlsValues: {
     '@MeteoriteRadiusControl': 5 * 1000,
@@ -35,6 +36,10 @@ export const configurationSlice = createSlice<
     setIsControlsDialogVisible: (state, { payload }) => {
       state.isControlsDialogVisible = payload
     },
+
+    setIsMeteoriteCanNotCollideDialogVisible(state, { payload }) {
+      state.isMeteoriteCanNotCollideDialogVisible = payload
+    },
   },
 })
 
@@ -43,4 +48,5 @@ export const {
   setIsControlsDialogVisible,
   increaseInvalidUserInputCount,
   decreaseInvalidUserInputCount,
+  setIsMeteoriteCanNotCollideDialogVisible,
 } = configurationSlice.actions

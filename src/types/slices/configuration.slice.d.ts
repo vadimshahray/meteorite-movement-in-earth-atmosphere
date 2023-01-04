@@ -5,6 +5,7 @@ type ConfigurationSliceState = {
   interactiveControlsValues: Record<InteractiveControls, number>
 
   isControlsDialogVisible: boolean
+  isMeteoriteCanNotCollideDialogVisible: boolean
 }
 
 /**
@@ -20,9 +21,14 @@ interface ConfigurationSlice
   setInteractiveControlValue(
     state: ConfigurationSliceState,
     action: PayloadAction<InteractiveControl>,
-  )
+  ): void
 
   setIsControlsDialogVisible(
+    state: ConfigurationSliceState,
+    action: PayloadAction<boolean>,
+  ): void
+
+  setIsMeteoriteCanNotCollideDialogVisible(
     state: ConfigurationSliceState,
     action: PayloadAction<boolean>,
   ): void

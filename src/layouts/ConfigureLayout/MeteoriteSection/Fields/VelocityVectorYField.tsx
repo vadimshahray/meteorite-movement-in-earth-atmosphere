@@ -1,9 +1,9 @@
 import { useDispatch } from '@hooks'
 import { useSelector } from 'react-redux'
-import { setMeteoriteData } from '@slices'
 import { SliderTextField } from '@components'
 import { METEORITE_LIMITS } from '@constants'
 import { MouseOutlined } from '@mui/icons-material'
+import { setMeteoriteVelocityVector } from '@slices'
 import { selectMeteoriteVelocityVectorY } from '@selectors'
 
 export const VelocityVectorYField = () => {
@@ -13,8 +13,8 @@ export const VelocityVectorYField = () => {
 
   const handleChange = (value: number) => {
     dispatch(
-      setMeteoriteData({
-        velocityVectorY: value,
+      setMeteoriteVelocityVector({
+        y: value,
       }),
     )
   }

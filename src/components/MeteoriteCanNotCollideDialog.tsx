@@ -1,8 +1,10 @@
 import { useDispatch } from '@hooks'
-import { startModeling } from '@slices'
 import { useSelector } from 'react-redux'
-import { useState, useEffect } from 'react'
-import { selectCanMeteoriteCollide } from '@selectors'
+import { selectIsMeteoriteCanNotCollideDialogVisible } from '@selectors'
+import {
+  startModeling,
+  setIsMeteoriteCanNotCollideDialogVisible,
+} from '@slices'
 import {
   Button,
   Dialog,
@@ -14,25 +16,22 @@ import {
 
 export const MeteoriteCanNotCollideDialog = () => {
   const dispatch = useDispatch()
-  const canMeteoriteCollide = useSelector(selectCanMeteoriteCollide)
 
-  const [isOpen, setIsOpen] = useState(canMeteoriteCollide === true)
-
-  useEffect(() => {
-    setIsOpen(canMeteoriteCollide === false)
-  }, [canMeteoriteCollide])
+  const isDialogVisible = useSelector(
+    selectIsMeteoriteCanNotCollideDialogVisible,
+  )
 
   const handleClose = () => {
-    setIsOpen(false)
+    dispatch(setIsMeteoriteCanNotCollideDialogVisible(false))
     dispatch(startModeling(true))
   }
 
   const handleCancel = () => {
-    setIsOpen(false)
+    dispatch(setIsMeteoriteCanNotCollideDialogVisible(false))
   }
 
   return (
-    <Dialog open={isOpen} onClose={handleClose}>
+    <Dialog open={isDialogVisible} onClose={handleClose}>
       <DialogTitle>Метеорит не столкнется с Землей</DialogTitle>
 
       <DialogContent>

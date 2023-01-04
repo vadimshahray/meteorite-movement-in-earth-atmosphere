@@ -55,9 +55,6 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
         state.time = initialState.time
       })
 
-      .addCase(checkCanMeteoriteCollide.pending, (state) => {
-        state.canMeteoriteCollide = 'processing'
-      })
       .addCase(checkCanMeteoriteCollide.fulfilled, (state, { payload }) => {
         state.canMeteoriteCollide = payload
       })

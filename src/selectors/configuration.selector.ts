@@ -7,3 +7,6 @@ export const selectInteractiveControlValue =
 
 export const selectIsControlsDialogVisible = (state: RootState) =>
   state.configuration.isControlsDialogVisible
+
+export const selectIsMeteoriteCanNotCollideDialogVisible = (state: RootState) =>
+  state.configuration.isMeteoriteCanNotCollideDialogVisible

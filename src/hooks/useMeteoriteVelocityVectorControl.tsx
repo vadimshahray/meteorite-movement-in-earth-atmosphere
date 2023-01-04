@@ -1,7 +1,7 @@
 import { useDispatch } from '@hooks'
 import { PointerEvent } from 'react'
 import { useSelector } from 'react-redux'
-import { setMeteoriteData } from '@slices'
+import { setMeteoriteVelocityVector } from '@slices'
 import { getVectorFromAngleAndVector } from '@utils'
 import {
   selectModelingStatus,
@@ -38,12 +38,7 @@ export const useMeteoriteVelocityVectorControl = () => {
       Math.sign(pointerScreenY - e.screenY) * velocityVectorControl * 0.1
     const newVector = getVectorFromAngleAndVector(angle, velocityVector)
 
-    dispatch(
-      setMeteoriteData({
-        velocityVectorX: newVector.x,
-        velocityVectorY: newVector.y,
-      }),
-    )
+    dispatch(setMeteoriteVelocityVector(newVector))
   }
 
   return {

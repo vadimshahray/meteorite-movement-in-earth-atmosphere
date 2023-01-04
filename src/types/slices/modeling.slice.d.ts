@@ -2,7 +2,7 @@ type ModelingSliceState = {
   modelingStatus: 'idle' | 'processing' | 'stopped' | 'finished'
 
   meteorite: ModelingMeteorite
-  canMeteoriteCollide: boolean | 'processing'
+  canMeteoriteCollide: boolean
 
   time: Time
 }
