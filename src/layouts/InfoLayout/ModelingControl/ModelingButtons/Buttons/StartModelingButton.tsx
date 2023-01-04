@@ -1,15 +1,20 @@
 import { useDispatch } from '@hooks'
 import { errorSnackbar } from '@utils'
-import { startModeling } from '@slices'
 import { useSnackbar } from 'notistack'
+import { startModeling } from '@slices'
 import { useSelector } from 'react-redux'
 import { PlayArrowOutlined } from '@mui/icons-material'
-import { selectInvalidUserInputCount } from '@selectors'
 import { Container, Tooltip, Button } from '@mui/material'
+import {
+  selectCanMeteoriteCollide,
+  selectInvalidUserInputCount,
+} from '@selectors'
 
 /** Кнопка запуска моделирования */
 export const StartModelingButton = () => {
   const dispatch = useDispatch()
+
+  const canMeteoriteCollide = useSelector(selectCanMeteoriteCollide)
   const invalidUserInputCount = useSelector(selectInvalidUserInputCount)
 
   const { enqueueSnackbar } = useSnackbar()
@@ -26,11 +31,18 @@ export const StartModelingButton = () => {
     )
   }
 
+  const color = invalidUserInputCount
+    ? 'error'
+    : !canMeteoriteCollide
+    ? 'warning'
+    : 'primary'
+
   return (
     <Tooltip title='Начать моделирование'>
       <Container disableGutters>
         <Button
           fullWidth
+          color={color}
           variant='contained'
           startIcon={<PlayArrowOutlined />}
           onClick={handleClick}
