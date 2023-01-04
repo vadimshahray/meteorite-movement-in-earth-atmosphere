@@ -6,22 +6,32 @@ import {
 import {
   stopModelingTimer,
   startModelingTimer,
+  checkCanModelingStart,
   calculateMeteoriteData,
 } from '@slices'
 
 export const startModeling = createAsyncThunk<
   void,
-  void,
+  boolean | undefined,
   { dispatch: AppDispatch }
->('modeling/start', async (_, { dispatch }) => {
-  await dispatch(initializeModelingMeteoriteData())
+>(
+  'modeling/start',
+  async (skipChecks = false, { dispatch, rejectWithValue }) => {
+    if (!skipChecks) {
+      const canStart = (await dispatch(checkCanModelingStart())).payload
 
-  await dispatch(
-    startModelingTimer(() => {
-      dispatch(calculateMeteoriteData())
-    }),
-  )
-})
+      if (!canStart) return rejectWithValue(null)
+    }
+
+    await dispatch(initializeModelingMeteoriteData())
+
+    await dispatch(
+      startModelingTimer(() => {
+        dispatch(calculateMeteoriteData())
+      }),
+    )
+  },
+)
 
 export const stopModeling = createAsyncThunk<
   void,
