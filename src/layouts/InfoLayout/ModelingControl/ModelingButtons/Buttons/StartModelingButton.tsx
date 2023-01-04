@@ -23,6 +23,8 @@ export const StartModelingButton = () => {
   const { enqueueSnackbar } = useSnackbar()
 
   const handleClick = () => {
+    dispatch(startModeling())
+
     if (invalidUserInputCount) {
       enqueueSnackbar(
         `Введенные данные содержат ошибки (${invalidUserInputCount}). Исправьте их!`,
@@ -35,8 +37,6 @@ export const StartModelingButton = () => {
       dispatch(setIsMeteoriteCanNotCollideDialogVisible(true))
       return
     }
-
-    dispatch(startModeling())
   }
 
   const color = invalidUserInputCount

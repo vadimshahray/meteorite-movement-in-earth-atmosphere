@@ -1,12 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { EARTH_LIGHT_RADIUS_SCALE } from '@constants'
 import {
-  getAngleBetweenTwoVectors,
-  radiansToDegrees,
   scaleMeters,
+  radiansToDegrees,
+  getAngleBetweenTwoVectors,
 } from '@utils'
 import {
   selectMeteoriteDistance,
+  selectInvalidUserInputCount,
   selectMeteoriteVelocityVector,
 } from '@selectors'
 
@@ -15,10 +16,23 @@ export const checkCanModelingStart = createAsyncThunk<
   void,
   { dispatch: AppDispatch }
 >('modeling/checkCanStart', async (_, { dispatch }) => {
+  const isUserInputValid =
+    (await dispatch(checkUserInputIsValid())).payload ?? false
+  if (!isUserInputValid) return false
+
   const canMeteoriteCollide =
     (await dispatch(checkCanMeteoriteCollide())).payload ?? false
+  if (!canMeteoriteCollide) return false
 
-  return canMeteoriteCollide
+  return true
+})
+
+export const checkUserInputIsValid = createAsyncThunk<
+  boolean,
+  void,
+  { state: RootState; rejectValue: undefined }
+>('modeling/checkUserInputIsValid', (_, { getState }) => {
+  return selectInvalidUserInputCount(getState()) === 0
 })
 
 export const checkCanMeteoriteCollide = createAsyncThunk<
