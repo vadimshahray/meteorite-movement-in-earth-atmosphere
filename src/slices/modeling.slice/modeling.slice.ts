@@ -18,6 +18,7 @@ const initialState: ModelingSliceState = {
   meteorite: {
     distance: 0,
     velocity: 0,
+    pathLength: 0,
     localSkylineAngle: 0,
   },
   canMeteoriteCollide: true,
@@ -67,9 +68,10 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
       )
 
       .addCase(calculateMeteoriteMovement.fulfilled, (state, { payload }) => {
-        state.meteorite.localSkylineAngle = payload.localSkylineAngle
         state.meteorite.distance = payload.distance
         state.meteorite.velocity = payload.velocity
+        state.meteorite.pathLength = payload.pathLength
+        state.meteorite.localSkylineAngle = payload.localSkylineAngle
       })
 
       .addCase(setModelingTimerTime.fulfilled, (state, { payload }) => {

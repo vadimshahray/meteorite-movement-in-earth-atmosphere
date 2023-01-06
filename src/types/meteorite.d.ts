@@ -17,5 +17,6 @@ type MeteoriteModel = {
 type MeteoriteMovement = {
   velocity: number
   distance: number
+  pathLength: number
   localSkylineAngle: number
 }
