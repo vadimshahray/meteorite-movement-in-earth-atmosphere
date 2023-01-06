@@ -28,6 +28,11 @@ export const setModelingChartsPoints = createAsyncThunk<
   },
 )
 
+export const clearCharts = createAsyncThunk('modelingInfo/clearCharts', () => {
+  skipAmount = 0
+  totalPointsLength = 0
+})
+
 export const setVelocityChartPoints = createAsyncThunk<
   ModelingInfoChartNewPoints,
   ModelingInfoChartNewPointInfo,

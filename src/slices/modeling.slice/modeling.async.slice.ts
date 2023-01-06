@@ -1,15 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import {
   degreesToRadians,
-  getAngleBetweenTwoVectors,
   radiansToDegrees,
+  getAngleBetweenTwoVectors,
 } from '@utils'
 import {
   selectMeteoriteDistance,
-  selectMeteoriteInitialVelocity,
   selectMeteoriteVelocityVector,
+  selectMeteoriteInitialVelocity,
 } from '@selectors'
 import {
+  clearCharts,
   stopModelingTimer,
   startModelingTimer,
   checkCanModelingStart,
@@ -97,10 +98,13 @@ export const initializeModelingMeteoriteData = createAsyncThunk<
   }
 })
 
-export const clearModelingData = createAsyncThunk(
-  'modeling/clearMeteoriteData',
-  () => {},
-)
+export const clearModelingData = createAsyncThunk<
+  void,
+  void,
+  { dispatch: AppDispatch }
+>('modeling/clearMeteoriteData', async (_, { dispatch }) => {
+  await dispatch(clearCharts())
+})
 
 /**
  * @returns Угол падения в градусах
