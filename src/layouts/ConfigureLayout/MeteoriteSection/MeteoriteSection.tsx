@@ -9,6 +9,7 @@ import {
   VelocityVectorXField,
   VelocityVectorYField,
 } from './Fields'
+import { VelocityAngle } from './VelocityAngle'
 
 export const MeteoriteSection = () => {
   return (
@@ -21,10 +22,14 @@ export const MeteoriteSection = () => {
 
       <InitialVelocityField />
 
-      <Stack direction='row' spacing={1}>
-        <VelocityVectorXField />
+      <Stack>
+        <Stack direction='row' spacing={1}>
+          <VelocityVectorXField />
 
-        <VelocityVectorYField />
+          <VelocityVectorYField />
+        </Stack>
+
+        <VelocityAngle />
       </Stack>
     </Section>
   )
