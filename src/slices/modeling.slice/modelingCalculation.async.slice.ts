@@ -5,6 +5,7 @@ import { finishModeling, setModelingChartsPoints } from '@slices'
 import {
   selectMeteoriteMass,
   selectMeteoriteRadius,
+  selectModelingMeteoriteAngle,
   selectModelingMeteoriteDistance,
   selectModelingMeteoriteVelocity,
 } from '@selectors'
@@ -27,8 +28,6 @@ export const calculateMeteoriteData = createAsyncThunk<
   await dispatch(calculateCollisionTime())
 })
 
-let O = -10
-
 export const calculateMeteoriteMovement = createAsyncThunk<
   MeteoriteMovement,
   void,
@@ -36,6 +35,7 @@ export const calculateMeteoriteMovement = createAsyncThunk<
 >('modeling/calculateMeteoriteMovement', async (_, { getState }) => {
   const m = selectMeteoriteMass(getState())
   const r = selectMeteoriteRadius(getState())
+  const O = selectModelingMeteoriteAngle(getState())
   const v = selectModelingMeteoriteVelocity(getState())
   const H = selectModelingMeteoriteDistance(getState())
 
@@ -101,11 +101,10 @@ export const calculateMeteoriteMovement = createAsyncThunk<
 
   const l4 = h * (v + k3) * sin(O + m3)
 
-  O = O + (m1 + 2 * m2 + 2 * m3 + m4) / 6
-
   return {
     velocity: v + (k1 + 2 * k2 + 2 * k3 + k4) / 6,
     distance: Math.max(H + (l1 + 2 * l2 + 2 * l3 + l4) / 6, 0),
+    angle: O + (m1 + 2 * m2 + 2 * m3 + m4) / 6,
   }
 })
 

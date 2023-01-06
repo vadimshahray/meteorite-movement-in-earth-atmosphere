@@ -17,4 +17,5 @@ type MeteoriteModel = {
 type MeteoriteMovement = {
   velocity: number
   distance: number
+  angle: number
 }

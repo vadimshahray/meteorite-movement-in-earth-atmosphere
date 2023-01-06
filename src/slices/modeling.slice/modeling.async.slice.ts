@@ -1,7 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import { getAngleBetweenTwoVectors, radiansToDegrees } from '@utils'
 import {
   selectMeteoriteDistance,
   selectMeteoriteInitialVelocity,
+  selectMeteoriteVelocityVector,
 } from '@selectors'
 import {
   stopModelingTimer,
@@ -78,6 +80,7 @@ export const initializeModelingMeteoriteData = createAsyncThunk<
   return {
     velocity: selectMeteoriteInitialVelocity(getState()),
     distance: selectMeteoriteDistance(getState()),
+    angle: -1 * getLocalSkylineAngle(selectMeteoriteVelocityVector(getState())),
   }
 })
 
@@ -85,3 +88,14 @@ export const clearModelingData = createAsyncThunk(
   'modeling/clearMeteoriteData',
   () => {},
 )
+
+function getLocalSkylineAngle(vector: Vector2) {
+  const entryAngleInDegrees = radiansToDegrees(
+    getAngleBetweenTwoVectors(vector, {
+      x: 1,
+      y: 0,
+    }),
+  )
+
+  return 180 - 90 - entryAngleInDegrees
+}
