@@ -6,7 +6,7 @@ import {
   setModelingChartsPoints,
   setDistanceChartPoints,
   setVelocityChartPoints,
-  calculateMeteoriteVelocity,
+  calculateMeteoriteMovement,
   initializeModelingMeteoriteData,
 } from '@slices'
 
@@ -77,7 +77,7 @@ export const modelingInfoSlice = createSlice<
         }
       })
 
-      .addCase(calculateMeteoriteVelocity.fulfilled, (state, { payload }) => {
+      .addCase(calculateMeteoriteMovement.fulfilled, (state, { payload }) => {
         if (state.meteoriteVelocity.max < payload) {
           state.meteoriteVelocity.max = payload
         }

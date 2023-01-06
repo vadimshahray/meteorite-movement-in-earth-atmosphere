@@ -71,7 +71,7 @@ export const finishModeling = createAsyncThunk<
 })
 
 export const initializeModelingMeteoriteData = createAsyncThunk<
-  ModelingMeteorite,
+  MeteoriteMovement,
   void,
   { state: RootState }
 >('modeling/initializeMeteoriteData', (_, { getState }) => {

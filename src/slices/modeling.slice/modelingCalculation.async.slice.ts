@@ -23,17 +23,17 @@ export const calculateMeteoriteData = createAsyncThunk<
     return
   }
 
-  await dispatch(calculateMeteoriteVelocity())
+  await dispatch(calculateMeteoriteMovement())
   await dispatch(calculateCollisionTime())
 })
 
 let O = -10
 
-export const calculateMeteoriteVelocity = createAsyncThunk<
+export const calculateMeteoriteMovement = createAsyncThunk<
   number,
   void,
   { state: RootState }
->('modeling/calculateMeteoriteVelocity', async (_, { getState, dispatch }) => {
+>('modeling/calculateMeteoriteMovement', async (_, { getState }) => {
   let m = selectMeteoriteMass(getState()),
     v = selectModelingMeteoriteVelocity(getState()),
     H = selectModelingMeteoriteDistance(getState()),
@@ -113,8 +113,6 @@ export const calculateMeteoriteVelocity = createAsyncThunk<
   O = O + (m1 + 2 * m2 + 2 * m3 + m4) / 6
   H = H + (l1 + 2 * l2 + 2 * l3 + l4) / 6
 
-  await dispatch(calculateMeteoriteDistance(H))
-
   return v
 })
 
@@ -124,14 +122,6 @@ const sin = (n: number) => {
 const cos = (n: number) => {
   return Math.cos((n * Math.PI) / 180)
 }
-
-export const calculateMeteoriteDistance = createAsyncThunk<
-  number,
-  number,
-  { state: RootState }
->('modeling/calculateMeteoriteDistance', (D, { getState }) => {
-  return D > 0 ? D : 0
-})
 
 export const calculateCollisionTime = createAsyncThunk<
   Time,

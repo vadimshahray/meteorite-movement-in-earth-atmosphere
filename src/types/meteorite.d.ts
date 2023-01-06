@@ -14,7 +14,7 @@ type MeteoriteModel = {
   initialVelocity: number
 }
 
-type ModelingMeteorite = {
+type MeteoriteMovement = {
   velocity: number
   distance: number
 }
