@@ -80,7 +80,8 @@ export const initializeModelingMeteoriteData = createAsyncThunk<
   return {
     velocity: selectMeteoriteInitialVelocity(getState()),
     distance: selectMeteoriteDistance(getState()),
-    angle: -1 * getLocalSkylineAngle(selectMeteoriteVelocityVector(getState())),
+    localSkylineAngle:
+      -1 * getLocalSkylineAngle(selectMeteoriteVelocityVector(getState())),
   }
 })
 

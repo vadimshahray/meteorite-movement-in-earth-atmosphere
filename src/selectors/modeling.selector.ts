@@ -7,8 +7,8 @@ export const selectModelingMeteoriteVelocity = (state: RootState) =>
 export const selectModelingMeteoriteDistance = (state: RootState) =>
   state.modeling.meteorite.distance
 
-export const selectModelingMeteoriteAngle = (state: RootState) =>
-  state.modeling.meteorite.angle
+export const selectModelingMeteoriteLocalSkylineAngle = (state: RootState) =>
+  state.modeling.meteorite.localSkylineAngle
 
 export const selectModelingTime = (state: RootState) => state.modeling.time
 
