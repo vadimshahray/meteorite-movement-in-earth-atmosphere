@@ -105,7 +105,7 @@ export const calculateMeteoriteMovement = createAsyncThunk<
 
   return {
     velocity: v + (k1 + 2 * k2 + 2 * k3 + k4) / 6,
-    distance: H + (l1 + 2 * l2 + 2 * l3 + l4) / 6,
+    distance: Math.max(H + (l1 + 2 * l2 + 2 * l3 + l4) / 6, 0),
   }
 })
 
