@@ -49,5 +49,10 @@ export const useActiveCameraPosition = () => {
 }
 
 const getRadiusCoefficient = (radius: number) => {
-  return radius > 0.087 ? radius : (1 - radius) * 0.09
+  console.log(radius)
+  return radius > 0.087
+    ? radius
+    : radius > 0.02
+    ? (1 - radius) * 0.09
+    : (1 - radius) * 0.06
 }
