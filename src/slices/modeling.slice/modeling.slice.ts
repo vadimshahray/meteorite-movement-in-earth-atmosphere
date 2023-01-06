@@ -66,7 +66,8 @@ export const modelingSlice = createSlice<ModelingSliceState, ModelingSlice>({
       )
 
       .addCase(calculateMeteoriteMovement.fulfilled, (state, { payload }) => {
-        state.meteorite.velocity = payload
+        state.meteorite.velocity = payload.velocity
+        state.meteorite.distance = payload.distance
       })
 
       .addCase(setModelingTimerTime.fulfilled, (state, { payload }) => {

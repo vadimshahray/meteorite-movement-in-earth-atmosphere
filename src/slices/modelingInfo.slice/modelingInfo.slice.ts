@@ -78,13 +78,14 @@ export const modelingInfoSlice = createSlice<
       })
 
       .addCase(calculateMeteoriteMovement.fulfilled, (state, { payload }) => {
-        if (state.meteoriteVelocity.max < payload) {
-          state.meteoriteVelocity.max = payload
+        if (state.meteoriteVelocity.max < payload.velocity) {
+          state.meteoriteVelocity.max = payload.velocity
         }
 
         if (state.pointsPassed) {
           state.meteoriteVelocity.average =
-            (state.meteoriteVelocity.average * state.pointsPassed + payload) /
+            (state.meteoriteVelocity.average * state.pointsPassed +
+              payload.velocity) /
             (state.pointsPassed + 1)
         }
       })

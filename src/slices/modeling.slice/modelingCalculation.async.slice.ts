@@ -30,7 +30,7 @@ export const calculateMeteoriteData = createAsyncThunk<
 let O = -10
 
 export const calculateMeteoriteMovement = createAsyncThunk<
-  number,
+  MeteoriteMovement,
   void,
   { state: RootState }
 >('modeling/calculateMeteoriteMovement', async (_, { getState }) => {
@@ -38,7 +38,7 @@ export const calculateMeteoriteMovement = createAsyncThunk<
     v = selectModelingMeteoriteVelocity(getState()),
     H = selectModelingMeteoriteDistance(getState()),
     r = selectMeteoriteRadius(getState()),
-    h = CALCULATION_INTERVAL_MS,
+    h = CALCULATION_INTERVAL_MS / 1000,
     k1 = 0,
     k2 = 0,
     k3 = 0,
@@ -113,7 +113,10 @@ export const calculateMeteoriteMovement = createAsyncThunk<
   O = O + (m1 + 2 * m2 + 2 * m3 + m4) / 6
   H = H + (l1 + 2 * l2 + 2 * l3 + l4) / 6
 
-  return v
+  return {
+    velocity: v,
+    distance: H,
+  }
 })
 
 const sin = (n: number) => {
