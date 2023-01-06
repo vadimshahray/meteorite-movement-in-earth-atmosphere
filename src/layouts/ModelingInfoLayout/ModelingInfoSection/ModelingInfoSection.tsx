@@ -9,6 +9,7 @@ import {
   ModelingMeteoriteVelocity,
   ModelingMeteoriteMaxVelocity,
   ModelingMeteoriteAverageVelocity,
+  ModelingMeteoriteEntryAngle,
 } from './InfoItems'
 
 export const ModelingInfoSection = () => {
@@ -28,6 +29,10 @@ export const ModelingInfoSection = () => {
 
           <Item label='Скорость падения'>
             <ModelingMeteoriteVelocity />
+          </Item>
+
+          <Item label='Угол падения'>
+            <ModelingMeteoriteEntryAngle />
           </Item>
 
           <Divider sx={{ margin: 1 }} />

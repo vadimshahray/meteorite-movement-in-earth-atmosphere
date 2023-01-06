@@ -1,5 +1,6 @@
 export * from './CollisionTime'
 export * from './ModelingMeteoriteDistance'
 export * from './ModelingMeteoriteVelocity'
+export * from './ModelingMeteoriteEntryAngle'
 export * from './ModelingMeteoriteMaxVelocity'
 export * from './ModelingMeteoriteAverageVelocity'
