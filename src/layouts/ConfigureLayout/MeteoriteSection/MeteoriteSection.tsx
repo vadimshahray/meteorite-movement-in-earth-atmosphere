@@ -1,5 +1,6 @@
-import { Section } from '@components'
 import { Stack } from '@mui/material'
+import { Section } from '@components'
+import { VelocityAngle } from './VelocityAngle'
 import { DataObjectOutlined } from '@mui/icons-material'
 import {
   MassField,
@@ -9,7 +10,6 @@ import {
   VelocityVectorXField,
   VelocityVectorYField,
 } from './Fields'
-import { VelocityAngle } from './VelocityAngle'
 
 export const MeteoriteSection = () => {
   return (
