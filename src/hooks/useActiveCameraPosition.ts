@@ -33,15 +33,15 @@ export const useActiveCameraPosition = () => {
     return new THREE.Vector3(
       meteoritePosition.x,
       meteoritePosition.y + velocityVector.y,
-      velocityVector.x,
+      meteoritePosition.z + velocityVector.x,
     )
   }
 
   if (activeCamera === '@SideViewCamera') {
     return new THREE.Vector3(
-      velocityVector.y,
+      meteoritePosition.x + velocityVector.y,
       meteoritePosition.y,
-      velocityVector.x,
+      meteoritePosition.z + velocityVector.x,
     )
   }
 
