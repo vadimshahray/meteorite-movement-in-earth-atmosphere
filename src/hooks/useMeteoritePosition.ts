@@ -1,11 +1,16 @@
 import * as THREE from 'three'
 import { scaleMeters } from '@utils'
 import { useSelector } from 'react-redux'
-import { useEarthRadius, useMeteoriteRadius } from '@hooks'
+import {
+  useEarthRadius,
+  useMeteoriteRadius,
+  useMeteoritePassPathLength,
+} from '@hooks'
 import {
   selectModelingStatus,
   selectMeteoriteDistance,
   selectModelingMeteoriteDistance,
+  selectModelingMeteoriteLocalSkylineAngle,
 } from '@selectors'
 
 export const useMeteoritePosition = () => {
@@ -13,6 +18,9 @@ export const useMeteoritePosition = () => {
 
   const EarthRadius = useEarthRadius()
   const meteoriteRadius = useMeteoriteRadius()
+
+  const passPath = useMeteoritePassPathLength()
+  const skylineAngle = useSelector(selectModelingMeteoriteLocalSkylineAngle)
 
   const distance = useSelector(
     modelingStatus === 'idle'
@@ -23,6 +31,6 @@ export const useMeteoritePosition = () => {
   return new THREE.Vector3(
     0,
     EarthRadius + meteoriteRadius + scaleMeters(distance),
-    0,
+    passPath * Math.sign(180 - 90 + skylineAngle),
   )
 }
