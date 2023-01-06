@@ -1,6 +1,6 @@
 import { ticksToTime } from '@utils'
+import { h, g0, Rp } from '@constants'
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { CALCULATION_INTERVAL_MS } from '@constants'
 import { finishModeling, setModelingChartsPoints } from '@slices'
 import {
   selectMeteoriteMass,
@@ -34,27 +34,12 @@ export const calculateMeteoriteMovement = createAsyncThunk<
   void,
   { state: RootState }
 >('modeling/calculateMeteoriteMovement', async (_, { getState }) => {
-  let m = selectMeteoriteMass(getState()),
-    v = selectModelingMeteoriteVelocity(getState()),
-    H = selectModelingMeteoriteDistance(getState()),
-    r = selectMeteoriteRadius(getState()),
-    h = CALCULATION_INTERVAL_MS / 1000,
-    k1 = 0,
-    k2 = 0,
-    k3 = 0,
-    k4 = 0,
-    m1 = 0,
-    m2 = 0,
-    m3 = 0,
-    m4 = 0,
-    l1 = 0,
-    l2 = 0,
-    l3 = 0,
-    l4 = 0,
-    Rp = 6371000,
-    g0 = 9.8
+  const m = selectMeteoriteMass(getState())
+  const r = selectMeteoriteRadius(getState())
+  const v = selectModelingMeteoriteVelocity(getState())
+  const H = selectModelingMeteoriteDistance(getState())
 
-  k1 =
+  const k1 =
     (-h *
       ((Math.PI * r * r) / m / ((g0 * Rp) / (Rp + H))) *
       (1.22 * Math.pow(Math.E, -0.000129 * H)) *
@@ -62,10 +47,12 @@ export const calculateMeteoriteMovement = createAsyncThunk<
       v) /
       2 -
     ((g0 * Rp) / (Rp + H)) * sin(O)
-  m1 = h * cos(O) * (v / (Rp + H) - (g0 * Rp) / (Rp + H) / v)
-  l1 = h * v * sin(O)
 
-  k2 =
+  const m1 = h * cos(O) * (v / (Rp + H) - (g0 * Rp) / (Rp + H) / v)
+
+  const l1 = h * v * sin(O)
+
+  const k2 =
     (-h *
       ((Math.PI * r * r) / m / ((g0 * Rp) / (Rp + H + 0.5 * l1))) *
       (1.22 * Math.pow(Math.E, -0.000129 * (H + 0.5 * l1))) *
@@ -73,14 +60,15 @@ export const calculateMeteoriteMovement = createAsyncThunk<
       (v + 0.5 * k1)) /
       2 -
     ((g0 * Rp) / (Rp + H + 0.5 * l1)) * sin(O + 0.5 * m1)
-  m2 =
+
+  const m2 =
     h *
     cos(O + 0.5 * m1) *
     ((v + 0.5 * k1) / (Rp + H + 0.5 * l1) -
       (g0 * Rp) / (Rp + H + 0.5 * l1) / (v + 0.5 * k1))
-  l2 = h * (v + 0.5 * k1) * sin(O + 0.5 * m1)
+  const l2 = h * (v + 0.5 * k1) * sin(O + 0.5 * m1)
 
-  k3 =
+  const k3 =
     (-h *
       ((Math.PI * r * r) / m / ((g0 * Rp) / (Rp + H + 0.5 * l2))) *
       (1.22 * Math.pow(Math.E, -0.000129 * (H + 0.5 * l2))) *
@@ -88,14 +76,16 @@ export const calculateMeteoriteMovement = createAsyncThunk<
       (v + 0.5 * k2)) /
       2 -
     ((g0 * Rp) / (Rp + H + 0.5 * l2)) * sin(O + 0.5 * m2)
-  m3 =
+
+  const m3 =
     h *
     cos(O + 0.5 * m2) *
     ((v + 0.5 * k2) / (Rp + H + 0.5 * l2) -
       (g0 * Rp) / (Rp + H + 0.5 * l2) / (v + 0.5 * k2))
-  l3 = h * (v + 0.5 * k2) * sin(O + 0.5 * m2)
 
-  k4 =
+  const l3 = h * (v + 0.5 * k2) * sin(O + 0.5 * m2)
+
+  const k4 =
     (-h *
       ((Math.PI * r * r) / m / ((g0 * Rp) / (Rp + H + l3))) *
       (1.22 * Math.pow(Math.E, -0.000129 * (H + l3))) *
@@ -103,19 +93,19 @@ export const calculateMeteoriteMovement = createAsyncThunk<
       (v + k3)) /
       2 -
     ((g0 * Rp) / (Rp + H + l3)) * sin(O + m3)
-  m4 =
+
+  const m4 =
     h *
     cos(O + m3) *
     ((v + k3) / (Rp + H + l3) - (g0 * Rp) / (Rp + H + l3) / (v + k3))
-  l4 = h * (v + k3) * sin(O + m3)
 
-  v = v + (k1 + 2 * k2 + 2 * k3 + k4) / 6
+  const l4 = h * (v + k3) * sin(O + m3)
+
   O = O + (m1 + 2 * m2 + 2 * m3 + m4) / 6
-  H = H + (l1 + 2 * l2 + 2 * l3 + l4) / 6
 
   return {
-    velocity: v,
-    distance: H,
+    velocity: v + (k1 + 2 * k2 + 2 * k3 + k4) / 6,
+    distance: H + (l1 + 2 * l2 + 2 * l3 + l4) / 6,
   }
 })
 
