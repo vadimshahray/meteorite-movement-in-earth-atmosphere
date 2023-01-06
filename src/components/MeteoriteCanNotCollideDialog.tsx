@@ -36,7 +36,10 @@ export const MeteoriteCanNotCollideDialog = () => {
 
       <DialogContent>
         <DialogContentText>
-          Метеорит не столкнется с Землей. Все равно продолжить моделирование?
+          Метеорит не столкнется с Землей. Программа может выдавать некорректные
+          данные.
+          <br />
+          Все равно продолжить моделирование?
         </DialogContentText>
       </DialogContent>
 
