@@ -22,6 +22,9 @@ export const ModelingScene = () => {
     [camera, gl.domElement],
   )
 
+  camera.near = 0.0001
+  camera.updateProjectionMatrix()
+
   controls.enabled = false
 
   const meteoritePosition = useMeteoritePosition()
