@@ -5,7 +5,10 @@ export const ProjectDocumentButton = () => {
   return (
     <Tooltip title='Скачать отчет'>
       <a
-        href={process.env.PUBLIC_URL + '/docs/ProjectDocument.pdf'}
+        href={
+          process.env.PUBLIC_URL +
+          '/docs/meteorite-movement-in-earth-atmosphere.pdf'
+        }
         download
         style={{ textDecoration: 'none' }}
       >
