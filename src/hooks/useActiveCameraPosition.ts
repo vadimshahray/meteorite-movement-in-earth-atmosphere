@@ -26,8 +26,8 @@ export const useActiveCameraPosition = () => {
     }),
   )
 
-  velocityVector.x *= 2.3 * getRadiusCoefficient(meteoriteRadius)
-  velocityVector.y *= 2.3 * getRadiusCoefficient(meteoriteRadius)
+  velocityVector.x *= getRadiusCoefficient(meteoriteRadius)
+  velocityVector.y *= getRadiusCoefficient(meteoriteRadius)
 
   if (modelingStatus === 'idle' || activeCamera === '@BackViewCamera') {
     return new THREE.Vector3(
@@ -41,7 +41,7 @@ export const useActiveCameraPosition = () => {
     return new THREE.Vector3(
       meteoritePosition.x,
       meteoritePosition.y,
-      meteoritePosition.z + 2.3 * getRadiusCoefficient(meteoriteRadius),
+      meteoritePosition.z + getRadiusCoefficient(meteoriteRadius),
     )
   }
 
@@ -49,9 +49,5 @@ export const useActiveCameraPosition = () => {
 }
 
 const getRadiusCoefficient = (radius: number) => {
-  return radius > 0.087
-    ? radius
-    : radius > 0.02
-    ? (1 - radius) * 0.09
-    : (1 - radius) * 0.06
+  return 3.2 * radius
 }
