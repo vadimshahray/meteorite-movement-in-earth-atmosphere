@@ -21,9 +21,9 @@ export const MeteoriteRadiusControlField = () => {
   return (
     <SliderTextField
       label='Контроллер радиуса метеорита, м'
-      min={10}
-      max={10 * 1000}
-      step={10}
+      min={1}
+      max={10}
+      step={0.5}
       value={radiusControlValue}
       EndIcon={InfoOutlined}
       endIconTooltip='Колесико мышки или тачпад'

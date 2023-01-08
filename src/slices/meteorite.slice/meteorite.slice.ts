@@ -4,8 +4,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState: MeteoriteSliceState = {
   mass: 1000,
 
-  radius: 10000,
-  distance: 1000000,
+  radius: 20,
+  distance: 80 * 1000,
 
   initialVelocity: 10,
 

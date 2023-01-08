@@ -22,7 +22,7 @@ export const DistanceField = () => {
     <SliderTextField
       min={METEORITE_LIMITS.DISTANCE_MIN}
       max={METEORITE_LIMITS.DISTANCE_MAX}
-      step={1000}
+      step={500}
       adornment='𝓓'
       label='Расстояние от поверхности планеты, м'
       value={distance}
