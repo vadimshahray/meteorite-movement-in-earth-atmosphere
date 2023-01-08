@@ -23,7 +23,7 @@ export const RadiusField = () => {
     <SliderTextField
       min={METEORITE_LIMITS.RADIUS_MIN}
       max={METEORITE_LIMITS.RADIUS_MAX}
-      step={1000}
+      step={1}
       label='Радиус, м'
       adornment='𝓡'
       value={radius}
