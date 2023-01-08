@@ -3,7 +3,6 @@ import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { setMeteoriteData } from '@slices'
 import { METEORITE_LIMITS } from '@constants'
-import { isNumberBetweenMinMax } from '@utils'
 import {
   selectModelingStatus,
   selectMeteoriteDistance,
@@ -24,21 +23,17 @@ export const useMeteoriteDistanceControl = () => {
     ({ deltaY, altKey }: Pick<WheelEvent, 'deltaY' | 'altKey'>) => {
       if (!altKey) return
 
-      const newDistance = distance + Math.sign(deltaY) * distanceControl
+      const value = distance + Math.sign(deltaY) * distanceControl
+      const newDistance =
+        deltaY > 0
+          ? Math.min(value, METEORITE_LIMITS.DISTANCE_MAX)
+          : Math.max(value, METEORITE_LIMITS.DISTANCE_MIN)
 
-      if (
-        isNumberBetweenMinMax(
-          newDistance,
-          METEORITE_LIMITS.DISTANCE_MIN,
-          METEORITE_LIMITS.DISTANCE_MAX,
-        )
-      ) {
-        dispatch(
-          setMeteoriteData({
-            distance: newDistance,
-          }),
-        )
-      }
+      dispatch(
+        setMeteoriteData({
+          distance: newDistance,
+        }),
+      )
     },
     [distance, distanceControl, dispatch],
   )
