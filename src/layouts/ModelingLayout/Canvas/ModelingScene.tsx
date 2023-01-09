@@ -22,7 +22,7 @@ export const ModelingScene = () => {
     [camera, gl.domElement],
   )
 
-  camera.near = 0.0001
+  camera.near = 0.00007
   camera.updateProjectionMatrix()
 
   controls.enabled = false
